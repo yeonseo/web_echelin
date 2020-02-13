@@ -22,12 +22,10 @@
     }
   </style>
   <body>
-    <header>
+    <section>
       <img src="./image/cheese.png" alt="">
       <span id="header_span">3단계 : 손님을 맞이할 준비를 해주세요. </span>
-    </header>
 
-    <main>
       <div class="">
         <form class="" action="index.html" method="post">
 
@@ -53,9 +51,6 @@
         <input type="button" name="" value="계속" onclick="location.href='./seller_register_complete.php'">
         </form>
       </div>
-    </main>
-
-
-
+    </section>
   </body>
 </html>
