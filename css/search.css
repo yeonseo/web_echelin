@@ -1,0 +1,151 @@
+#search_header {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+#search_top a>img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+#search_top ul {
+  list-style: none;
+  float: right;
+  margin-right: 30px;
+}
+
+#search_top ul li {
+  display: inline-block;
+  margin-left: 20px;
+  padding-left: 5px;
+  padding-bottom: 7px;
+  font-weight: bold;
+  height: 36px;
+}
+
+#search_top ul li:hover{
+  border-bottom: 2px solid #585858;
+}
+
+#search_top ul li a {
+  text-decoration: none;
+  color: #585858;
+  letter-spacing: 5px;
+}
+
+
+#search_profile{
+  float: right;
+  width: 45px;
+  height: 45px;
+  margin-top: 5px;
+  margin-right: 20px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+#search_profile a>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#search_input{
+  width: 450px;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+
+#search_result{
+  width: 60px;
+  height: 45px;
+  transform: translateY(2%);
+}
+
+#search_banner {
+  width: 100%;
+  height: 310px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+#search_banner .search_title{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+  margin-left: 130px;
+  padding: 10px 0 0 30px;
+}
+
+#search_banner #banner_content_first{
+  width: 125px;
+  height: 170px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 150px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+#search_banner .banner_content{
+  width: 125px;
+  height: 170px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+
+#search_all {
+  width: 70%;
+  height: 600px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+#search_all .search_title{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+}
+
+#search_member {
+  margin-top: 20px;
+  float: left;
+}
+
+#search_member>div{
+  width: 230px;
+  height: 230px;
+  background-color: lightgray;
+  float: left;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+#search_member>div:hover{
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+#search_member .all_content{
+  margin-left: 20px;
+}
+
+footer {
+  width: 70%;
+  margin: 0 auto;
+  height: 100px;
+  border-top: 1px solid black;
+}
