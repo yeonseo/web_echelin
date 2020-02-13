@@ -1,4 +1,7 @@
 <?php
+
+//테이블 양식에 맞춰서 적어 넣음
+
 function create_table($con, $table_name)
 {
     $flag = "NO";
@@ -30,6 +33,7 @@ function create_table($con, $table_name)
                 ";
                 break;
 
+                //메세지
             case 'message':
                 $sql = "CREATE TABLE `message` (
                     `num` int unsigned NOT NULL AUTO_INCREMENT,
@@ -43,6 +47,7 @@ function create_table($con, $table_name)
                 ";
                 break;
 
+                //게시판
             case 'board':
                 $sql = "CREATE TABLE `board` (
                     `num` int unsigned NOT NULL AUTO_INCREMENT,
