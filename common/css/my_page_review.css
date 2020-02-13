@@ -1,0 +1,79 @@
+#review_title{
+  margin: 20px 0 0 40px;
+}
+
+#review_title_sub {
+  color: #585858;
+  font-size: 16px;
+}
+
+#review_title_main {
+  color: #585858;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+
+#review_tab{
+  position: relative;
+  margin: 20px 0 0 40px;
+  width: 700px;
+  height: 430px;
+}
+
+#review_tab_first{
+  height: 30px;
+  float: left;
+  width: 120px;
+  z-index: 9;
+  position: relative;
+  border-bottom: 3px solid #ddd;
+  text-align: center;
+}
+
+#review_tab_second{
+  height: 30px;
+  float: left;
+  width: 140px;
+  z-index: 9;
+  position: relative;
+  text-align: center;
+}
+
+#review_tab div{
+  position: absolute;
+  top: 32px;
+  width: 700px;
+  height: 100px;
+  margin: 0;
+  border-top: 1px solid #ddd;
+}
+
+#review_tab div.hidden{
+  display: none;
+}
+
+#tab_content_first {
+  width: 660px;
+  height: 150px;
+  margin-top: 30px;
+  margin-left: 18px;
+  border: 1px solid blue;
+}
+
+#tab_content_second{
+  width: 660px;
+  height: 150px;
+  margin-top: 30px;
+  margin-left: 18px;
+  border: 1px solid blue;
+}
+
+#tab_content_third{
+  width: 660px;
+  height: 150px;
+  margin-top: 20px;
+  margin-left: 18px;
+  border: 1px solid blue;
+}

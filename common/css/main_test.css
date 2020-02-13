@@ -1,0 +1,447 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =================================  header */
+
+header {
+  margin-bottom: 60px;
+}
+
+#header_main {
+  position: relative;
+  background-image: url(../image/main_image.png);
+  max-width: 100%;
+  height: 600px;
+  background-size: cover;
+}
+
+#back_top_cover {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index:1;
+}
+
+#header_main_top img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+#header_main_top ul {
+  list-style: none;
+  float: right;
+  margin-right: 30px;
+}
+
+#header_main_top ul li {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 5px;
+  padding-left: 5px;
+  font-weight: bold;
+  height: 36px;
+}
+
+#header_main_top ul li:hover{
+  border-bottom: 2px solid white;
+}
+
+#header_main_top ul li a {
+  text-decoration: none;
+  color: white;
+  letter-spacing: 5px;
+}
+
+#header_main_center {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 550px;
+  height: 450px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index:1;
+  border-radius: 5px;
+}
+
+#header_main_center #center_first{
+  position: absolute;
+  background-color: #C7C7C7;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: 430px;
+}
+
+#header_main_center #center_second{
+  position: absolute;
+  background-color: #C7C7C7;
+  top: 10px;
+  left: 220px;
+  width: 320px;
+  height: 250px;
+}
+
+#header_main_center #center_third{
+  position: absolute;
+  background-color: #C7C7C7;
+  top: 270px;
+  left: 220px;
+  width: 320px;
+  height: 170px;
+}
+
+
+/* =================================  main */
+
+
+
+#main_top {
+  width: 70%;
+  height: 920px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+
+/* =================================  main_review */
+
+
+#main_review {
+  width: 100%;
+  height: 570px;
+  float: left;
+}
+
+#main_review .main_title{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+  color: #585858;
+}
+
+#best_review {
+  margin-top: 50px;
+}
+
+#best_review #best_review_first{
+  width: 325.5px;
+  height: 420px;
+  float: left;
+  border-radius: 5px;
+}
+
+#best_review #best_review_first:hover{
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+#best_review #best_review_first a{
+  text-decoration: none;
+  color: black;
+}
+
+#best_review #best_review_first a>img{
+  width:325.5px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+#best_review #best_review_first .review_content{
+  width: 312px;
+  border-bottom: 1px solid lightgray;
+  margin-top: 10px;
+  padding: 0 5px 20px 8px;
+}
+
+.review_content {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.review_profile{
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.review_profile>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review_profile_info {
+  float: left;
+  margin-left: 20px;
+  transform: translateY(60%);
+}
+
+.review_profile_info span {
+  font-weight: bold;
+}
+
+
+
+#best_review #best_review_second{
+  width: 325.5px;
+  height: 420px;
+  float: left;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+#best_review #best_review_second a{
+  text-decoration: none;
+  color: black;
+}
+
+#best_review #best_review_second a>img{
+  width:325.5px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+#best_review #best_review_second .review_content{
+  width: 312px;
+  border-bottom: 1px solid lightgray;
+  margin-top: 10px;
+  padding: 0 5px 20px 8px;
+}
+
+#best_review #best_review_second:hover{
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+
+
+
+
+
+#best_review #best_review_third{
+  width: 325.5px;
+  height: 420px;
+  float: left;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+#best_review #best_review_third a{
+  text-decoration: none;
+  color: black;
+}
+
+#best_review #best_review_third a>img{
+  width:325.5px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+#best_review #best_review_third .review_content{
+  width: 312px;
+  border-bottom: 1px solid lightgray;
+  margin-top: 10px;
+  padding: 0 5px 20px 8px;
+}
+
+#best_review #best_review_third:hover{
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+
+
+/*  테스트 ::: 최고의 평가를 받은 맛집 */
+
+#main_center{
+  width: 100%;
+  height: auto;
+  float: left;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+#main_center .main_title{
+  color: #585858;
+}
+
+#main_center .main_title{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+}
+
+
+#center_summary {
+  margin-top: 20px;
+  float: left;
+}
+
+#center_summary #summary_first{
+  width: 240.5px;
+  height: 215px;
+  float: left;
+  border-radius: 5px;
+}
+
+#center_summary #summary_first a{
+  text-decoration: none;
+  color: black;
+}
+
+#center_summary #summary_first a>img{
+  width: 240.5px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+
+
+#center_summary #summary_second,#summary_third,#summary_fourth{
+  width: 240.5px;
+  height: 215px;
+  float: left;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+#center_summary #summary_second a{
+  text-decoration: none;
+  color: black;
+}
+
+#center_summary #summary_second a>img{
+  width: 240.5px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+#center_summary #summary_third a{
+  text-decoration: none;
+  color: black;
+}
+
+#center_summary #summary_third a>img{
+  width: 240.5px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+#center_summary #summary_fourth a{
+  text-decoration: none;
+  color: black;
+}
+
+#center_summary #summary_fourth a>img{
+  width: 240.5px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+#center_summary #summary_first:hover,#summary_second:hover,#summary_third:hover,#summary_fourth:hover{
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+
+
+/* =================================  main_banner */
+
+#main_banner {
+  width: 100%;
+  height: 310px;
+  margin-bottom: 30px;
+}
+
+#main_banner .main_title{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+  padding: 10px 0 0 30px;
+}
+
+#main_banner #banner_content_first{
+  width: 150px;
+  height: 170px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 50px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+#main_banner .banner_content{
+  width: 150px;
+  height: 170px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+
+
+
+/* =================================  main_all */
+
+#main_all {
+  width: 70%;
+  height: 600px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+#main_all .main_title{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+}
+
+#all_member {
+  margin-top: 20px;
+  float: left;
+}
+
+#all_member>div{
+  width: 237px;
+  height: 237px;
+  background-color: lightgray;
+  float: left;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+#all_member>div:hover{
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+#all_member .all_content{
+  margin-left: 20px;
+}
+
+
+
+
+/* =================================  footer */
+
+footer {
+  width: 70%;
+  margin: 0 auto;
+  height: 100px;
+  border-top: 1px solid black;
+}

@@ -34,7 +34,7 @@
           <ul>
             <li>
               식당소개글</br>
-              <input type="textarea" name="" value=""> </br>
+              <textarea name="name" rows="8" cols="80"></textarea>
             </li>
           </ul>
 
@@ -104,7 +104,7 @@
             <li>
               특이사항
             </br>
-              <input type="textarea" name="" value="">
+              <textarea name="name" rows="8" cols="80"></textarea>
             </li>
           </ul>
 

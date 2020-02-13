@@ -1,0 +1,106 @@
+/*  별점. 수정 요망*/
+
+.star_rating {
+  font-size:0;
+  letter-spacing:-4px;
+}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+
+.star_rating_content {
+  font-size:0;
+  letter-spacing:-4px;
+}
+
+.star_rating_content a {
+    font-size:16px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating_content a:first-child {margin-left:0;}
+.star_rating_content a.on {color:#777;}
+
+
+
+#guest_title{
+  width: 150px;
+  margin: 40px 0 0 40px;
+  float: left;
+}
+
+#guest_title span{
+  font-size: 26px;
+  font-weight: bold;
+  color: #585858;
+}
+
+#guset_review {
+  float: left;
+  width: 650px;
+  height: 600px;
+  margin-left: 40px;
+}
+
+.review_profile_img{
+  float: left;
+  margin-top: -3px;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.review_profile_img>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.review_content{
+  width: 650px;
+  height: 160px;
+  border-bottom: 1px solid lightgray;
+}
+
+.review_profile_name{
+  width: 300px;
+  margin-top: 25px;
+  margin-left: 80px;
+}
+
+.review_profile_name a{
+  text-decoration: none;
+  color: #585858;
+}
+
+.review_line {
+  display: inline-block;
+  width: 600px;
+  height: 80px;
+  margin-top: 20px;
+  margin-left: -50px;
+}
+
+#board_name{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#board_name a{
+  text-decoration: none;
+  color: #585858;
+}
