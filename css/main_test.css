@@ -11,7 +11,7 @@ header {
 
 #header_main {
   position: relative;
-  background-image: url(./image/main_image.png);
+  background-image: url(../image/main_image.png);
   max-width: 100%;
   height: 600px;
   background-size: cover;
