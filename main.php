@@ -13,7 +13,7 @@
 
                 <div class="review_content">
                     <a href="#">
-                        <span>
+                        <span class="comment">
                             테스트 :: <br>
                             Let it be forgotten as a flow'r is forgotten,
                             Forgotten as a fire that once was singing gold.
@@ -41,7 +41,7 @@
 
                 <div class="review_content">
                     <a href="#">
-                        <span>
+                        <span class="comment">
                             테스트 :: <br>
                             Time is a kind friend, he will make us old.
                             If anyone should ask say it was forgotten,
@@ -68,7 +68,7 @@
 
                 <div class="review_content">
                     <a href="#">
-                        <span>
+                        <span class="comment">
                             테스트 :: <br>
                             Time is a kind friend, he will make us old.
                             If anyone should ask say it was forgotten,

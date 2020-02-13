@@ -1,13 +1,5 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* =================================  header */
-
-header {
-  margin-bottom: 60px;
-}
+body { margin: 0; padding: 0; }
+header { margin-bottom: 60px; }
 
 #header_main {
   position: relative;

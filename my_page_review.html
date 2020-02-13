@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Echelin 마이페이지 후기 폼</title>
 
-    <link rel="stylesheet" href="./css/my_page_review.css?ver=1">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Echelin 마이페이지 후기 폼</title>
 
-  </head>
-  <body>
+  <link rel="stylesheet" href="./common/css/my_page_review.css?ver=1">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-    <main>
+</head>
 
-      <div id="review_title">
-        <span id="review_title_sub">프로필 &nbsp&nbsp > &nbsp&nbsp 후기</span><br><br>
-        <span id="review_title_main">내가 작성한 후기</span>
+<body>
+
+  <main>
+
+    <div id="review_title">
+      <span id="review_title_sub">프로필 &nbsp&nbsp > &nbsp&nbsp 후기</span><br><br>
+      <span id="review_title_main">내가 작성한 후기</span>
+    </div>
+
+    <div id="review_tab">
+      <span id="review_tab_first">나에 대한 후기</span>
+
+      <div>
+        <p id="tab_content_first"> 테스트 탭1 ::: 지난 후기</p>
       </div>
 
-      <div id="review_tab">
-        <span id="review_tab_first">나에 대한 후기</span>
+      <span id="review_tab_second">내가 작성한 후기</span>
 
-        <div>
-          <p id="tab_content_first"> 테스트 탭1 ::: 지난 후기</p>
-        </div>
-
-        <span id="review_tab_second">내가 작성한 후기</span>
-
-        <div class="hidden">
-          <p id="tab_content_second"> 테스트 탭2  ::: 작성해야 할 후기</p>
-          <p id="tab_content_third"> 테스트 탭3  ::: 내가 작성한 후기</p>
-        </div>
-
+      <div class="hidden">
+        <p id="tab_content_second"> 테스트 탭2 ::: 작성해야 할 후기</p>
+        <p id="tab_content_third"> 테스트 탭3 ::: 내가 작성한 후기</p>
       </div>
 
-    </main>
+    </div>
 
-    <script type="text/javascript" src="./js/my_review_tab.js"></script>
+  </main>
 
-  </body>
+  <script type="text/javascript" src="./common/js/my_review_tab.js"></script>
+
+</body>
+
 </html>
