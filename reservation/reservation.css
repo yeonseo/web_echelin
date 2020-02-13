@@ -1,0 +1,89 @@
+p, span{
+  font-size: 25px;
+}
+
+div{
+  border: 0.1px solid gray;
+}
+.main_section_div{
+  width: 800px;
+}
+.header_div{
+  height: 150px;
+  width: 800px;
+}
+.footer_div{
+  height: 150px;
+  width: 800px;
+}
+.date_check_div{
+  height: 300px;
+  width: 800px;
+}
+.notice_check_div{
+  height: 500px;
+  width: 800px;
+}
+a.btnnext{
+    clear: both;
+    width:90px;
+    background-color: gray;
+    color:white;
+    padding: 22px 0;
+    border-radius:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 15px 5px;
+    cursor: pointer;
+}
+div.daum_main_left_text{
+  position: relative;
+  float: left;
+  width: 154px;
+  height: 52px;
+
+}
+a.daum_main_left_text_a{
+  margin-top: 3px;
+  margin-bottom: 19px;
+  width: 154px;
+  height: 30px;
+  position: relative;
+  font-size: 13px;
+  text-align: -webkit-match-parent;
+  color: black;
+  text-decoration: none;
+  hite-space: normal;
+  line-height: 1.2;
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+   -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a.daum_main_left_text_a:hover{
+  text-decoration: underline;
+}
+div.daum_main_left_picturetext2{
+  position: relative;
+  float: left;
+  width: 154px;
+  height: 146px;
+
+  margin-left: 9px;
+}
+img.daum_main_left_picture{
+  width: 154px;
+  height: 94px;
+}
+div.daum_main_left_picture{
+  position: relative;
+  float: left;
+  width: 154px;
+  height: 94px;
+
+}
