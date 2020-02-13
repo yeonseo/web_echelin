@@ -17,7 +17,7 @@ else $userpoint = "";
 
         <div id="header_main_top">
             <a href="#"><img src="./common/image/restaurant.png"></a>
-            <ul>
+            <ul class="header_main_menu">
                 <li><a href="#">검색</a></li>
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">회원가입</a></li>
