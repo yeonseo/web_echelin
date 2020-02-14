@@ -4,23 +4,6 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <style media="screen">
-    img {
-      width : 40px;
-      height : 40px;
-      position: relative;
-    }
-
-    header {
-      border-bottom: 2px solid lightgray;
-      margin-bottom: 20px;
-    }
-
-    #header_span {
-      position: absolute;
-      margin-top: 14px;
-    }
-  </style>
   <body>
     <section>
       <img src="./image/cheese.png" alt="">
@@ -112,13 +95,5 @@
           </form>
         </div>
     </section>
-
-
-
-
-
-
-
-
   </body>
 </html>
