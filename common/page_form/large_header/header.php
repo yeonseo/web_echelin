@@ -11,9 +11,9 @@ else $userpoint = "";
 
 ?>
 
-<div id="header_main">
+<div class="main_header">
 
-    <div id="back_top_cover">
+    <div clsss="back_cover">
 
         <div id="header_main_top">
             <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="./common/image/restaurant.png"></a>
