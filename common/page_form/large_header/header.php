@@ -13,12 +13,12 @@ else $userpoint = "";
 
 <div class="main_header">
 
-    <div clss="back_cover">
+    <div clsss="back_cover">
 
-        <div class="main_head_top">
-            <a href="#"><img src="./common/image/restaurant.png"></a>
-            <ul class="main_header_menu">
-                <li><a href="#">검색</a></li>
+        <div class="main_header_top">
+            <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="./common/image/restaurant.png"></a>
+            <ul class="header_main_menu">
+                <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/small_header/common_page.php">검색</a></li>
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">회원가입</a></li>
                 <li><a href="#">도움말</a></li>

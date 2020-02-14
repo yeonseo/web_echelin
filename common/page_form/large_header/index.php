@@ -20,13 +20,13 @@
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/header.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/header.php"; ?>
     </header>
     <section>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/main.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/main.php"; ?>
     </section>
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/footer.php"; ?>
     </footer>
 </body>
 
