@@ -1,45 +1,44 @@
-<div id="main_top">
+<div class="main_center">
 
     <!-- 테스트 ::: 직접 인증한 베스트 후기 -->
-    <div id="main_review">
+    <div class="main_comment">
         <span class="main_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 직접 인증한 베스트 후기</span>
 
-        <div id="best_review">
+        <div class="best_comment">
 
-            <div id="best_review_first">
+            <div class="best_comment_first">
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/review_1.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="comment_content">
                     <a href="#">
                         <span class="comment">
                             테스트 :: <br>
                             Let it be forgotten as a flow'r is forgotten,
                             Forgotten as a fire that once was singing gold.
-                            Let it be forgotten forever and ever.
                         </span>
                     </a>
                 </div>
 
-                <div class="review_profile">
+                <div class="content_profile">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu1.jpg">
                 </div>
 
-                <div class="review_profile_info">
+                <div class="content_profile_info">
                     <span>이무권 (mu3386)</span><br>
                     한국
                 </div>
 
             </div>
 
-            <div id="best_review_second">
+            <div class="best_comment_second">
 
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/review_2.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="comment_content">
                     <a href="#">
                         <span class="comment">
                             테스트 :: <br>
@@ -50,23 +49,23 @@
                     </a>
                 </div>
 
-                <div class="review_profile">
+                <div class="content_profile">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu2.jpg" alt="">
                 </div>
 
-                <div class="review_profile_info">
+                <div class="content_profile_info">
                     <span>남연서 (#)</span><br>
                     한국
                 </div>
 
             </div>
-            <div id="best_review_third">
+            <div class="best_comment_third">
 
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/review_3.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="comment_content">
                     <a href="#">
                         <span class="comment">
                             테스트 :: <br>
@@ -77,15 +76,14 @@
                     </a>
                 </div>
 
-                <div class="review_profile">
+                <div class="content_profile">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu3.jpg" alt="">
                 </div>
 
-                <div class="review_profile_info">
+                <div class="content_profile_info">
                     <span>김지수 (#)</span><br>
                     한국
                 </div>
-
             </div>
         </div>
 
