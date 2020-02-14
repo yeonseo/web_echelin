@@ -11,13 +11,13 @@ else $userpoint = "";
 
 ?>
 
-<div id="header_main">
+<div class="main_header">
 
-    <div id="back_top_cover">
+    <div clsss="back_cover">
 
-        <div id="header_main_top">
+        <div class="main_header_top">
             <a href="#"><img src="./common/image/restaurant.png"></a>
-            <ul class="header_main_menu">
+            <ul class="main_menu">
                 <li><a href="#">검색</a></li>
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">회원가입</a></li>
