@@ -5,7 +5,7 @@
     <title></title>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css">
+    <link rel="stylesheet" href="../common/css/user_seller.css?ver=1">
   </head>
   <body class="body_margin">
     <section>
@@ -27,9 +27,6 @@
           <span class="span_user_name">김지수</span>
           <span class="span_hello">님 안녕하세요!</span>
           <span class="span_register_info">가게 등록을 시작해볼까요?</span>
-
-          <span>1단계</span>
-          <span class="blind"></span>
 
           <div class="div_form">
             <form class="" action="index.html" method="post">
@@ -69,12 +66,14 @@
                   sdfsdf </br>
                 </p>
               </ul>
-              <div class="justtest">
-                <div class="justtest2">
-                  <input type="button" name="" value="계속" onclick="location.href='./seller_register_step_first2.php'">
-                </div>
-              </div>
+
             </form>
+          </div>
+          <div class="justtest">
+            <div class="justtest2">
+              <button class="button_next" type="button" name="button">다음</button>
+              <!-- <input class="button_next" type="button" name="" value="다음" onclick="location.href='./seller_register_step_first2.php'"> -->
+            </div>
           </div>
         </div> <!-- div_register_inner_shape -->
     </div> <!--div_register_shape-->
