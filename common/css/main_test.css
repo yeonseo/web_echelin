@@ -253,7 +253,7 @@ header { margin-bottom: 60px; }
 
 /*  테스트 ::: 최고의 평가를 받은 맛집 */
 
-#main_center{
+.main_best_score{
   width: 100%;
   height: auto;
   float: left;
@@ -261,11 +261,11 @@ header { margin-bottom: 60px; }
   margin-bottom: 50px;
 }
 
-#main_center .main_title{
+.main_best_score .main_title{
   color: #585858;
 }
 
-#main_center .main_title{
+.main_best_score .main_title{
   width: 100%;
   height: 30px;
   font-weight: bold;
@@ -274,24 +274,24 @@ header { margin-bottom: 60px; }
 }
 
 
-#center_summary {
+.best_score_content {
   margin-top: 20px;
   float: left;
 }
 
-#center_summary #summary_first{
+.best_score_content .score_content_first{
   width: 240.5px;
   height: 215px;
   float: left;
   border-radius: 5px;
 }
 
-#center_summary #summary_first a{
+.best_score_content .score_content_first a{
   text-decoration: none;
   color: black;
 }
 
-#center_summary #summary_first a>img{
+.best_score_content .score_content_first a>img{
   width: 240.5px;
   height: 150px;
   border-radius: 5px;
@@ -299,7 +299,7 @@ header { margin-bottom: 60px; }
 
 
 
-#center_summary #summary_second,#summary_third,#summary_fourth{
+.best_score_content .score_content_second,.score_content_third,.score_content_fourth{
   width: 240.5px;
   height: 215px;
   float: left;
@@ -307,40 +307,40 @@ header { margin-bottom: 60px; }
   border-radius: 5px;
 }
 
-#center_summary #summary_second a{
+.best_score_content .score_content_second a{
   text-decoration: none;
   color: black;
 }
 
-#center_summary #summary_second a>img{
+.best_score_content .score_content_second a>img{
   width: 240.5px;
   height: 150px;
   border-radius: 5px;
 }
 
-#center_summary #summary_third a{
+.best_score_content .score_content_third a{
   text-decoration: none;
   color: black;
 }
 
-#center_summary #summary_third a>img{
+.best_score_content .score_content_third a>img{
   width: 240.5px;
   height: 150px;
   border-radius: 5px;
 }
 
-#center_summary #summary_fourth a{
+.best_score_content .score_content_fourth a{
   text-decoration: none;
   color: black;
 }
 
-#center_summary #summary_fourth a>img{
+.best_score_content .score_content_fourth a>img{
   width: 240.5px;
   height: 150px;
   border-radius: 5px;
 }
 
-#center_summary #summary_first:hover,#summary_second:hover,#summary_third:hover,#summary_fourth:hover{
+.best_score_content .score_content_first:hover,.score_content_second:hover,.score_content_third:hover,.score_content_foruth:hover{
   box-shadow: 4px 4px 20px #D1CFCF;
 }
 
@@ -348,13 +348,13 @@ header { margin-bottom: 60px; }
 
 /* =================================  main_banner */
 
-#main_banner {
+.main_banner {
   width: 100%;
   height: 310px;
   margin-bottom: 30px;
 }
 
-#main_banner .main_title{
+.main_banner .main_title{
   width: 100%;
   height: 30px;
   font-weight: bold;
@@ -363,7 +363,7 @@ header { margin-bottom: 60px; }
   padding: 10px 0 0 30px;
 }
 
-#main_banner #banner_content_first{
+.main_banner .banner_content_first{
   width: 150px;
   height: 170px;
   float: left;
@@ -373,7 +373,7 @@ header { margin-bottom: 60px; }
   box-shadow: 4px 4px 20px #D1CFCF;
 }
 
-#main_banner .banner_content{
+.main_banner .banner_content{
   width: 150px;
   height: 170px;
   float: left;
@@ -388,14 +388,14 @@ header { margin-bottom: 60px; }
 
 /* =================================  main_all */
 
-#main_all {
+.main_all {
   width: 70%;
   height: 600px;
   margin: 0 auto;
   margin-bottom: 120px;
 }
 
-#main_all .main_title{
+.main_all .main_title{
   width: 100%;
   height: 30px;
   font-weight: bold;
@@ -403,12 +403,12 @@ header { margin-bottom: 60px; }
   float: left;
 }
 
-#all_member {
+.all_member {
   margin-top: 20px;
   float: left;
 }
 
-#all_member>div{
+.all_member>div{
   width: 237px;
   height: 237px;
   background-color: lightgray;
@@ -417,11 +417,11 @@ header { margin-bottom: 60px; }
   border-radius: 5px;
 }
 
-#all_member>div:hover{
+.all_member>div:hover{
   box-shadow: 4px 4px 20px #D1CFCF;
 }
 
-#all_member .all_content{
+.all_member .all_content{
   margin-left: 20px;
 }
 

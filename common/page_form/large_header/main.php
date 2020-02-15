@@ -90,18 +90,18 @@
     </div>
 
     <!-- 테스트 ::: 최고의 평가를 받은 맛집 -->
-    <div id="main_center">
+    <div class="main_best_score">
         <span class="main_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 최고의 평가를 받은 맛집 : 슬라이드 추가</span>
-        <span id="main_title_sub">최고 별점을 받은 맛집들을 둘러보세요.</span>
+        <span class="main_title_sub">최고 별점을 받은 맛집들을 둘러보세요.</span>
 
-        <div id="center_summary">
+        <div class="best_score_content">
 
-            <div id="summary_first">
+            <div class="score_content_first">
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_1.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="content_review">
                     <a href="#">
                         <span>
                             맛나곱창 :: 왕십리 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 별점
@@ -112,13 +112,13 @@
                 </div>
             </div>
 
-            <div id="summary_second">
+            <div class="score_content_second">
 
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_2.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="content_review">
                     <a href="#">
                         <span>홍능족발1977 :: 왕십리 &nbsp&nbsp&nbsp&nbsp 별점</span>
                     </a>
@@ -128,13 +128,13 @@
 
             </div>
 
-            <div id="summary_third">
+            <div class="score_content_third">
 
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_3.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="content_review">
                     <a href="#">
                         <span>권가네 :: 왕십리 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 별점</span>
                     </a>
@@ -145,13 +145,13 @@
             </div>
 
 
-            <div id="summary_fourth">
+            <div class="score_content_fourth">
 
                 <a href="#">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_4.jpg">
                 </a>
 
-                <div class="review_content">
+                <div class="content_review">
                     <a href="#">
                         <span>Zzupirang :: 왕십리 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 별점</span>
                     </a>
@@ -167,12 +167,12 @@
 </div>
 
 <!-- 테스트 ::: 오늘의 추천 키워드-->
-<div id="main_banner">
+<div class="main_banner">
 
     <span class="main_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 오늘의 추천 키워드</span>
 
     <a href="#">
-        <div id="banner_content_first">이미지 & 키워드1</div>
+        <div class="banner_content_first">이미지 & 키워드1</div>
     </a>
     <a href="#">
         <div class="banner_content">이미지 & 키워드2</div>
@@ -199,16 +199,16 @@
 </div>
 
 <!-- 테스트 ::: 모든 맛집-->
-<div id="main_all">
+<div class="main_all">
 
     <span class="main_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 모든 식당 : 무한스크롤 추가</span>
 
-    <div id="all_member">
-        <div id="all_content_first"></div>
+    <div class="all_member">
+        <div class="all_content_first"></div>
         <div class="all_content"></div>
         <div class="all_content"></div>
         <div class="all_content"></div>
-        <div id="all_content_second"></div>
+        <div class="all_content_second"></div>
         <div class="all_content"></div>
         <div class="all_content"></div>
         <div class="all_content"></div>
