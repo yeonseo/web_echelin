@@ -13,11 +13,11 @@ else $userpoint = "";
 
 <div class="main_header">
 
-    <div clsss="back_cover">
+    <div clsss="main_back_cover">
 
         <div class="main_header_top">
             <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="./common/image/restaurant.png"></a>
-            <ul class="header_main_menu">
+            <ul class="main_menu">
                 <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/small_header/common_page.php">검색</a></li>
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">회원가입</a></li>
@@ -25,15 +25,15 @@ else $userpoint = "";
             </ul>
         </div>
 
-        <div id="header_main_center">
+        <div class="main_header_center">
             <a href="#">
-                <div id="center_first"></div>
+                <div class="center_first"></div>
             </a>
             <a href="#">
-                <div id="center_second"></div>
+                <div class="center_second"></div>
             </a>
             <a href="#">
-                <div id="center_third"></div>
+                <div class="center_third"></div>
             </a>
         </div>
 
