@@ -2,15 +2,27 @@
   display: inline-block;
   clear: both;
   padding-left: 30px;
-  padding-top: 16px;
+  padding-top: 30px;
+  font-size: 30px;
 }
 
 .span_hello{
   margin: -5px;
+  font-size: 30px;
 }
 
 .span_register_info{
   display: block;
   padding-left: 30px;
   padding-top: 16px;
+  font-size: 25px;
+}
+
+.input_register{
+  width: 50%;
+  height: 30px;
+}
+
+.li_input_msg {
+  margin-bottom: 5px;
 }

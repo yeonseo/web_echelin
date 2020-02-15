@@ -5,7 +5,7 @@
     <title></title>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css?ver=1">
+    <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
   </head>
   <body class="body_margin">
     <section>
@@ -31,49 +31,17 @@
           <div class="div_form">
             <form class="" action="index.html" method="post">
               <ul>
-                <li>등록하시려는 가게 이름을 적어주세요.</li>
-                  <input type="text" name="" value="">
-                <li>사업자등록번호를 등록해주세요</li>
-                  <input type="text" name="" value="">
-                  <button type="button" name="button">찾기</button>
-                  <p>ddsdf
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfsdf </br>
-                  sdfszzdf </br>
-                  sdfsdf </br>
-                </p>
+                <li class="li_input_msg">등록하시려는 가게 이름을 적어주세요.</li>
+                  <input class="input_register" type="text" name="" value="">
+                  <p></p>
+                <li class="li_input_msg">사업자등록번호를 등록해주세요</li>
+                  <input class="input_register" type="text" name="" value="">
+                  <button class="button_find" type="button" name="button">찾기</button>
               </ul>
-
             </form>
           </div>
           <div class="justtest">
-            <div class="justtest2">
-              <button class="button_next" type="button" name="button">다음</button>
-              <!-- <input class="button_next" type="button" name="" value="다음" onclick="location.href='./seller_register_step_first2.php'"> -->
-            </div>
+            <button class="button_next" type="button" name="button">다음</button>
           </div>
         </div> <!-- div_register_inner_shape -->
     </div> <!--div_register_shape-->
