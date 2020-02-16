@@ -1,7 +1,14 @@
+
+//테스트용 변수
+
+timeList=["2020-02-15","2020-02-16","2020-02-17","2020-02-18"];
+
+
 //달력 셋팅
 
 var currentTitle = document.getElementById('current-year-month');
 var calendarBody = document.getElementById('calendar-body');
+var timeBody = document.getElementById('time-list');
 var today = new Date();
 var first = new Date(today.getFullYear(), today.getMonth(),1);
 var dayList = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -11,10 +18,51 @@ var notLeapYear=[31,28,31,30,31,30,31,31,30,31,30,31];
 var pageFirst = first;
 var pageYear;
 var tdGroup = [];
+
 if(first.getFullYear() % 4 === 0){
     pageYear = leapYear;
 }else{
     pageYear = notLeapYear;
+}
+  console.log(timeList.length);
+for(var i=0; i<timeList.length;i++){
+  console.log(timeList[i]);
+}
+showCalendar();
+showMain();
+
+function showTimeList(){
+  let monthCnt = 100;
+  let cnt = 1;
+  for(var i = 0; i < 6; i++){
+      var $tr = document.createElement('tr');
+      $tr.setAttribute('id', monthCnt);
+      for(var j = 0; j < 7; j++){
+          if((i === 0 && j < first.getDay()) || cnt > pageYear[first.getMonth()]){
+              var $td = document.createElement('td');
+              $tr.appendChild($td);
+          }else{
+              var $td = document.createElement('td');
+              $td.textContent = cnt;
+              $td.setAttribute('id', cnt);
+              $tr.appendChild($td);
+              cnt++;
+          }
+      }
+      today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      currentTitle.innerHTML = monthList[first.getMonth()] + '&nbsp;&nbsp;&nbsp;&nbsp;'+ first.getFullYear();
+      clickedDate1 = document.getElementById(today.getDate());
+
+      monthCnt++;
+      calendarBody.appendChild($tr);
+  }
+
+  for(let i = 1; i <= pageYear[first.getMonth()]; i++){
+      tdGroup[i] = document.getElementById(i);
+      tdGroup[i].addEventListener('click',changeToday);
+  }
+
+
 }
 
 function showCalendar(){
@@ -48,8 +96,6 @@ function showCalendar(){
         tdGroup[i].addEventListener('click',changeToday);
     }
 }
-showCalendar();
-showMain();
 
 
 

@@ -18,10 +18,10 @@
           <div id="main-date" class="main-date"></div>
         </div>
         <div class="todo-wrap">
-          <div class="todo-title">Todo List</div>
+          <div id="time-list" class="time-list"><div class="time-list">예약 가능 시간</div><div class="time-list">예약 가능 시간</div></div>
           <div class="input-wrap">
-            <input type="text" placeholder="please write here!!" id="input-box" class="input-box">
-            <button type="button" id="input-data" class="input-data">INPUT</button>
+            <input type="text" placeholder="시간 입력" id="input-box" class="input-box">
+            <button type="button" id="input-data" class="input-data">추가</button>
             <div id="input-list" class="input-list"></div>
           </div>
         </div>
