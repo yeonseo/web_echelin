@@ -13,13 +13,7 @@
         <span class="span_step_info">3단계 : 손님을 맞이할 준비를 해주세요.</span>
       </div>
 
-      <div class="div_step_charge1"></div>
-
-      <div class="div_step_charge2"></div>
-
-      <div id="div_step_charge3"></div>
-
-      <div id="div_step_charge4"></div>
+      <progress value="100" max="100"></progress>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">

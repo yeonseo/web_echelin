@@ -13,13 +13,7 @@
         <span class="span_step_info">2단계 : 상세 정보를 입력해주세요</span>
       </div>
 
-      <div class="div_step_charge1"></div>
-
-      <div id="div_step_charge2"></div>
-
-      <div class="div_step_charge3"></div>
-
-      <div class="div_step_charge4"></div>
+      <progress value="75" max="100">0%</progress>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">

@@ -18,47 +18,20 @@
   font-size: 20px;
 }
 
-.div_step_charge1 {
-  width: 24.47%;
-  border: 4px solid lightgray;
-  float: left;
+progress {
+  -webkit-appearance:none;
+  width: 100%;
+  height: 30px;
 }
 
-.div_step_charge2 {
-  width: 24.47
-  /* border: 4px solid pink; */
-  float: left;
+::-webkit-progress-bar {
+  background-color: lightgray;
 }
 
-#div_step_charge2 {
-  width: 24.47%;
-  border: 4px solid lightgray;
-  float: left;
+::-webkit-progress-value {
+  background-color: gold;
 }
 
-.div_step_charge3 {
-  width: 24.47%;
-  /* border: 4px solid skyblue; */
-  float: left;
-}
-
-#div_step_charge3 {
-  width: 24.47%;
-  /* border: 4px solid skyblue; */
-  float: left;
-}
-
-.div_step_charge4 {
-  width: 24.47%;
-  /* border: 4px solid lightgreen; */
-  float: left;
-}
-
-#div_step_charge4 {
-  width: 24.47%;
-  border: 4px solid lightgray;
-  float: left;
-}
 
 .div_register_shape {
   /* border: 3px solid red; */

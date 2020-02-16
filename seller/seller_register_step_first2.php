@@ -63,13 +63,7 @@ $input_store_name = $_POST["input_store_name"];
         <span class="span_step_info">1단계 : 기본 사항을 입력해주세요.</span>
       </div>
 
-      <div class="div_step_charge1"></div>
-
-      <div class="div_step_charge2"></div>
-
-      <div class="div_step_charge3"></div>
-
-      <div class="div_step_charge4"></div>
+      <progress value="50" max="100"></progress>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
