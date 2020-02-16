@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="../common/css/seller_register_step.css">
     <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
   </head>
