@@ -2,8 +2,6 @@
   margin: 0px;
 }
 
-
-
 .div_step {
   height: 64px;
 }
@@ -113,4 +111,20 @@ progress {
   width: 50px;
   height: 35px;
   margin-left: 5px;
+}
+
+
+.div_move_page {
+  width: 200px;
+  height: 80px;
+  /* border: 1px solid black; */
+  border-radius: 15px;
+  text-align: center;
+  background-color: darkorange;
+
+}
+
+.div_move_page a {
+  text-decoration: none;
+  text-align: center;
 }
