@@ -2,6 +2,8 @@
   margin: 0px;
 }
 
+
+
 .div_step {
   height: 64px;
 }
@@ -39,11 +41,11 @@ progress {
   height: auto;
   float: left;
   clear: both;
-  /* box-sizing: content-box; */
+  box-sizing: content-box;
 }
 
 .div_register_inner_shape {
-  /* border: 1px solid black; */
+  /* border: 3px solid black; */
   width: 550px;
   height: auto;
   float: right;
@@ -58,7 +60,7 @@ progress {
   list-style: none;
 }
 
-.div_form {
+.div_except_button {
   padding: 30px 30px 16px;
 }
 
@@ -76,6 +78,7 @@ progress {
   text-align: center;
   background-color: #ffffff;
   border-top: 2px solid lightgray;
+  float: left;
 }
 
 .button_next {
@@ -88,8 +91,22 @@ progress {
   padding: 5px;
   font-size: 20px;
   font-weight: bold;
-  margin: 0 10px;
+  margin-top: 15px;
   float: right;
+}
+
+.button_prev {
+  width: 80px;
+  height: 40px;
+  background-color: #FAED7D;
+  border: 0px solid pink;
+  box-shadow: 5px 5px 5px lightgray;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+  float: left;
 }
 
 .button_find_add {

@@ -70,25 +70,27 @@ $input_store_name = $_POST["input_store_name"];
           <div class="div_form">
             <!-- 우편번호 찾기 폼 -->
               <form class="" action="" method="post">
-                <ul>
-                  <li>식당 주소를 입력해주세요</li>
-                </ul>
-                <input class="input_info" type="text" id="input_postcode" placeholder="우편번호">
-                <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>
-                </br></br>
-                <input class="input_info" id="input_address"type="text" placeholder="주소">
-                <input type="button" name="" value="지도찾기" onclick="showMap()">
-                <!-- <button class="button_find" type="button" name="button" >지도</button> -->
-                </br></br>
-                <input class="input_info" id="input_detailAddress" type="text" placeholder="상세주 ex)상가 2층에 위치해있습니다.">
-                </br></br>
-                <input class="input_info" id="input_extraAddress" type="text" placeholder="참고항목">
-                </br></br>
-                <div id="map" style="width:100%;height:350px;">
-                </div> <!-- 지도 담는 div -->
+                <div class="div_except_button">
+                  <ul>
+                    <li>식당 주소를 입력해주세요</li>
+                  </ul>
+                  <input class="input_info" type="text" id="input_postcode" placeholder="우편번호">
+                  <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>
+                  </br></br>
+                  <input class="input_info" id="input_address"type="text" placeholder="주소">
+                  <input type="button" name="" value="지도찾기" onclick="showMap()">
+                  <!-- <button class="button_find" type="button" name="button" >지도</button> -->
+                  </br></br>
+                  <input class="input_info" id="input_detailAddress" type="text" placeholder="상세주 ex)상가 2층에 위치해있습니다.">
+                  </br></br>
+                  <input class="input_info" id="input_extraAddress" type="text" placeholder="참고항목">
+                  </br></br>
+                  <div id="map" style="width:100%;height:350px;">
+                  </div> <!-- 지도 담는 div -->
+                </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">
                   <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_two.php'">다음</button>
-                  <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_first.php'">이전</button>
+                  <button class="button_prev" type="button" name="button" onclick="location.href='./seller_register_step_first.php'">이전</button>
                 </div>
               </form>
           </div>

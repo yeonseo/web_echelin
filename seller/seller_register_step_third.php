@@ -17,27 +17,28 @@
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
-
           <div class="div_form">
             <form class="" name="" action="" method="post">
-              <ul>
-                <li>최대 예약 가능 인원을 적어주세요.</li>
-                <input  class="input_info" type="text" name="" value="">
-                </br></br>
+              <div class="div_except_button">
+                <ul>
+                  <li>최대 예약 가능 인원을 적어주세요.</li>
+                  <input  class="input_info" type="text" name="" value="">
+                  </br></br>
 
-                <li>예약 가능한 시간을 설정해주세요.</li>
-                <input type="time" name="" value="">&nbsp-
-                <input type="time" name="" value="">
-                </br></br>
+                  <li>예약 가능한 시간을 설정해주세요.</li>
+                  <input type="time" name="" value="">&nbsp-
+                  <input type="time" name="" value="">
+                  </br></br>
 
-                <li>예약 가능한 기간을 설정해주세요.</li>
-                <input type="date" name="" value="">&nbsp-
-                <input type="date" name="" value="">
-                </br></br>
-              </ul>
+                  <li>예약 가능한 기간을 설정해주세요.</li>
+                  <input type="date" name="" value="">&nbsp-
+                  <input type="date" name="" value="">
+                  </br></br>
+                </ul>
+              </div> <!-- div_except_button -->
               <div class="div_prv_next_button">
                 <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_complete.php'">다음</button>
-                <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_two.php'">이전</button>
+                <button class="button_prev" type="button" name="button" onclick="location.href='./seller_register_step_two.php'">이전</button>
               </div>
             </form>
           </div>
