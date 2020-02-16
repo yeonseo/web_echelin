@@ -3,54 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="../common/css/seller_register_step.css">
+    <link rel="stylesheet" href="../common/css/user_seller.css?ver=3">
   </head>
-  <style media="screen">
-    img {
-      width : 40px;
-      height : 40px;
-      position: relative;
-    }
-
-    header {
-      border-bottom: 2px solid lightgray;
-      margin-bottom: 20px;
-    }
-
-    #header_span {
-      position: absolute;
-      margin-top: 14px;
-    }
-  </style>
-  <body>
+  <body class="body_margin">
     <section>
-      <img src="./image/cheese.png" alt="">
-      <span id="header_span">3단계 : 손님을 맞이할 준비를 해주세요. </span>
-
-      <div class="">
-        <form class="" action="index.html" method="post">
-
-        <ul>
-          <li>최대 예약 가능 인원을 적어주세요.
-          </br>
-            <input type="text" name="" value="">
-          </li>
-
-          <li>예약 가능한 시간을 설정해주세요.
-          </br>
-            <input type="time" name="" value="">&nbsp-
-            <input type="time" name="" value="">
-          </li>
-
-          <li>예약 가능한 기간을 설정해주세요.
-          </br>
-            <input type="date" name="" value="">&nbsp-
-            <input type="date" name="" value="">
-          </li>
-        </ul>
-
-        <input type="button" name="" value="계속" onclick="location.href='./seller_register_complete.php'">
-        </form>
+      <div class="div_step">
+        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
+        <span class="span_step_info">3단계 : 손님을 맞이할 준비를 해주세요.</span>
       </div>
+
+      <div class="div_step_charge1"></div>
+
+      <div class="div_step_charge2"></div>
+
+      <div id="div_step_charge3"></div>
+
+      <div id="div_step_charge4"></div>
+
+      <div class="div_register_shape">
+        <div class="div_register_inner_shape">
+
+          <div class="div_form">
+            <form class="" name="" action="" method="post">
+              <ul>
+                <li>최대 예약 가능 인원을 적어주세요.</li>
+                <input  class="input_info" type="text" name="" value="">
+                </br></br>
+
+                <li>예약 가능한 시간을 설정해주세요.</li>
+                <input type="time" name="" value="">&nbsp-
+                <input type="time" name="" value="">
+                </br></br>
+
+                <li>예약 가능한 기간을 설정해주세요.</li>
+                <input type="date" name="" value="">&nbsp-
+                <input type="date" name="" value="">
+                </br></br>
+              </ul>
+              <div class="div_prv_next_button">
+                <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_complete.php'">다음</button>
+                <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_two.php'">이전</button>
+              </div>
+            </form>
+          </div>
+        </div> <!-- div_register_inner_shape -->
+    </div> <!--div_register_shape-->
     </section>
   </body>
 </html>

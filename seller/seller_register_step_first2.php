@@ -75,7 +75,7 @@ $input_store_name = $_POST["input_store_name"];
         <div class="div_register_inner_shape">
           <div class="div_form">
             <!-- 우편번호 찾기 폼 -->
-              <form class="" action="./seller_register_step_two.php" method="post">
+              <form class="" action="" method="post">
                 <ul>
                   <li>식당 주소를 입력해주세요</li>
                 </ul>
@@ -94,6 +94,7 @@ $input_store_name = $_POST["input_store_name"];
                 </div> <!-- 지도 담는 div -->
                 <div class="div_prv_next_button">
                   <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_two.php'">다음</button>
+                  <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_first.php'">이전</button>
                 </div>
               </form>
           </div>

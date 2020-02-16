@@ -30,12 +30,12 @@
           <div class="div_form">
             <form class="" name="form_seller_register_step_first" action="./seller_register_step_first2.php" method="post">
               <ul>
-                <li class="li_input_msg">등록하시려는 가게 이름을 적어주세요.</li>
+                <li>등록하시려는 가게 이름을 적어주세요.</li>
                   <input class="input_info" type="text" name="input_store_name" value="">
                 </br></br>
-                <li class="li_input_msg">사업자등록번호를 등록해주세요</li>
+                <li>사업자등록번호를 등록해주세요</li>
                   <input class="input_info" type="text" name="" value="">
-                  <button class="button_find" type="button" name="button">찾기</button>
+                  <button class="button_find_add" type="button" name="button">찾기</button>
               </ul>
               <div class="div_prv_next_button">
                 <button class="button_next" id="button_next" type="submit" name="button" onclick="location.href='./seller_register_step_first2.php'">다음</button>
