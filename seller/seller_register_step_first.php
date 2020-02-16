@@ -22,7 +22,8 @@
 
       <div class="div_step_charge4"></div>
 
-      <div class="div_register_shape">
+      <div class="div_register_shape"
+      >
         <div class="div_register_inner_shape">
           <span class="span_user_name">김지수</span>
           <span class="span_hello">님 안녕하세요!</span>
@@ -41,7 +42,7 @@
             </form>
           </div>
           <div class="justtest">
-            <button class="button_next" type="button" name="button">다음</button>
+            <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_first2.php'">다음</button>
           </div>
         </div> <!-- div_register_inner_shape -->
     </div> <!--div_register_shape-->
