@@ -4,16 +4,90 @@
     font-weight: normal; font-style: normal;
 }
 
-* { font-family: 'NanumSquare', sans-serif; }
-.header_main_menu { font-family: 'NanumSquare', sans-serif; font-size: 1.2rem;}
-.comment { font-family: 'CommentSansLight', sans-serif; }
 
-* { margin: 0; padding: 0; }
-header { margin-bottom: 60px; }
 
 .signature { color : GOLD; color : DARKORANGE; color :ORANGERED; color :MAROON;}
 
+* { margin: 0; padding: 0; }
 
-.header_menu {
-    margin-top: 1rem;
+/* 기본 글씨체 설정 */
+* { font-family: 'NanumSquare', sans-serif; }
+.comment { font-family: 'CommentSansLight', sans-serif; }
+
+
+/* 헤더의 메뉴 */
+header { margin-bottom: 60px; }
+ul{ list-style: none; }
+.header_main_menu { font-family: 'NanumSquare', sans-serif; font-size: 1.2rem;}
+.header_menu { margin-top: 1rem; }
+
+
+
+
+/* my info page */
+.my_info_content{
+    margin: 15px;
+    width: 100%;
+    min-width: 1080px;
+    height: 1000px;
+    position: relative;
 }
+.my_info_content > *{
+   float: left;
+}
+.left_menu, .card_menu_row > *{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/* 왼쪽 사이드 메뉴 */
+.left_menu{ width: 300px; }
+.left_menu ul { margin: 50px;}
+.left_menu li  { font-family: 'NanumSquare', sans-serif; font-size: 1rem; padding: 10px 0;}
+.sub_menu a:link { text-decoration: none; color: #585858;}
+.my_info_profile { 
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    border-radius: 50%;
+    overflow: hidden;}
+.my_info_profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 오른쪽 사이드 메뉴 */
+.card_menu_btn_icon { 
+    font-size: 1.5rem;
+}
+
+
+.right_content {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding:50px 100px;
+}
+
+.right_content .card_menu_btn {
+    width: 300px;
+    height: 190px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    margin: 5px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.card_menu_btn:hover {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.card_menu_btn > * {
+   margin: 5px;
+}
+
+.card_menu_btn_name { font-size:  1rem; font-weight: bold;}
+.card_menu_btn_disc { font-family: 'CommentSansLight', sans-serif; font-size:  0.8rem;}
