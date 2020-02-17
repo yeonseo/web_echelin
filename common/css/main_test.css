@@ -17,7 +17,7 @@ header { margin-bottom: 60px; }
   z-index:1;
 }
 
-.main_header_top img {
+.main_head_top img {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -25,13 +25,13 @@ header { margin-bottom: 60px; }
   left: 20px;
 }
 
-.main_header_top ul {
+.main_head_top ul {
   list-style: none;
   float: right;
   margin-right: 30px;
 }
 
-.main_header_top ul li {
+.main_head_top ul li {
   display: inline-block;
   margin-left: 20px;
   margin-top: 5px;
@@ -40,11 +40,11 @@ header { margin-bottom: 60px; }
   height: 36px;
 }
 
-.main_header_top ul li:hover{
+.main_head_top ul li:hover{
   border-bottom: 2px solid white;
 }
 
-.main_header_top ul li a {
+.main_head_top ul li a {
   text-decoration: none;
   color: white;
   letter-spacing: 5px;
