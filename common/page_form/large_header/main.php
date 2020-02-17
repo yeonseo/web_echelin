@@ -166,7 +166,7 @@
 </div>
 
 <!-- 테스트 ::: 오늘의 추천 키워드-->
-<div class="main_banner">
+<!-- <div class="main_banner">
 
     <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 오늘의 추천 키워드</span>
 
@@ -195,7 +195,7 @@
         <div class="banner_content">이미지 & 키워드8</div>
     </a>
 
-</div>
+</div> -->
 
 <!-- 테스트 ::: 모든 맛집-->
 <div class="main_all">
