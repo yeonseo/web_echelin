@@ -1,5 +1,6 @@
 .search_header {
   width: 100%;
+  overflow: hidden;
   height: 60px;
   background-color: white;
   border-bottom: 1px solid lightgray;
@@ -77,8 +78,9 @@
 }
 
 .search_banner {
-  width: 100%;
+  width: 1140px;
   height: 310px;
+  margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 30px;
 }
@@ -89,7 +91,6 @@
   font-weight: bold;
   font-size: 20px;
   float: left;
-  margin-left: 130px;
   padding: 10px 0 0 30px;
 }
 
@@ -98,7 +99,6 @@
   height: 170px;
   float: left;
   margin-top: 30px;
-  margin-left: 150px;
   border-radius: 5px;
   box-shadow: 4px 4px 20px #D1CFCF;
 }
@@ -115,7 +115,7 @@
 
 
 .search_all {
-  width: 70%;
+  width: 1010px;
   height: 600px;
   margin: 0 auto;
   margin-bottom: 120px;
@@ -135,8 +135,8 @@
 }
 
 .search_member>div{
-  width: 230px;
-  height: 230px;
+  width: 237px;
+  height: 237px;
   background-color: lightgray;
   float: left;
   margin-top: 20px;
@@ -152,7 +152,7 @@
 }
 
 footer {
-  width: 70%;
+  width: 1010px;
   margin: 0 auto;
   height: 100px;
   border-top: 1px solid black;
