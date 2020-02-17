@@ -13,7 +13,7 @@ else $userpoint = "";
 
 <div class="main_header">
 
-    <div clss="back_cover">
+    <div class="back_cover">
 
         <div class="main_head_top">
             <a href="#"><img src="./common/image/restaurant.png"></a>

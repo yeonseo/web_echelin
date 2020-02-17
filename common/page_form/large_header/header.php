@@ -8,32 +8,29 @@ if (isset($_SESSION["userlevel"])) $userlevel = $_SESSION["userlevel"];
 else $userlevel = "";
 if (isset($_SESSION["userpoint"])) $userpoint = $_SESSION["userpoint"];
 else $userpoint = "";
-
 ?>
 
 <div class="main_header">
-
-    <div clsss="main_back_cover">
-
-        <div class="main_header_top">
+    <div class="back_cover">
+        <div class="main_head_top">
             <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="./common/image/restaurant.png"></a>
-            <ul class="main_menu">
-                <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/small_header/common_page.php">검색</a></li>
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">회원가입</a></li>
-                <li><a href="#">도움말</a></li>
+            <ul class="header_main_menu">
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/search/index_search.php">검색</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">로그인</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">회원가입</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">도움말</a></li>
             </ul>
         </div>
 
-        <div class="main_header_center">
+        <div class="main_header_centers">
             <a href="#">
-                <div class="center_first"></div>
+                <div id="center_first"></div>
             </a>
             <a href="#">
-                <div class="center_second"></div>
+                <div id="center_second"></div>
             </a>
             <a href="#">
-                <div class="center_third"></div>
+                <div id="center_third"></div>
             </a>
         </div>
 
