@@ -17,8 +17,7 @@
     <section>
       <div class="main_section_div">
         <div class="date_check_div">
-          <p>날짜 및 시간 선택</p><br>
-          <p>인원 선택 (아이가 동행하는지 몇명인지)</p>
+          <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/calendar.php"; ?>
         </div>
         <div class="notice_check_div">
           <p>업장 특이사항</p><br>
