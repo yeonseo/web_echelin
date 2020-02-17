@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- 타이틀 변수를 부르기 위해 common_class_value.php를 부르고 선언함 -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
     <title> <?= COMMON::$title; ?> </title>
 
@@ -20,13 +22,13 @@
 
 <body>
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/header_small.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/header_small.php"; ?>
     </header>
     <section>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/main_search.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/search/main_search.php"; ?>
     </section>
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/footer.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/footer.php"; ?>
     </footer>
 </body>
 

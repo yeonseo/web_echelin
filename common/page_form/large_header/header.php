@@ -15,10 +15,10 @@ else $userpoint = "";
         <div class="main_head_top">
             <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="./common/image/restaurant.png"></a>
             <ul class="header_main_menu">
-                <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?> /echelin/common/page_form/small_haeder/common_page.php">검색</a></li>
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">회원가입</a></li>
-                <li><a href="#">도움말</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/search/index_search.php">검색</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">로그인</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">회원가입</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">도움말</a></li>
             </ul>
         </div>
 

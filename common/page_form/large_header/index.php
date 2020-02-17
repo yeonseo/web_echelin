@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- 타이틀 변수를 부르기 위해 common_class_value.php를 부르고 선언함 -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
     <title> <?= COMMON::$title; ?> </title>
 
