@@ -34,26 +34,26 @@
 
 
 
-#guest_title{
+.user_comment_title{
   width: 150px;
   margin: 40px 0 0 40px;
   float: left;
 }
 
-#guest_title span{
+.user_comment_title span{
   font-size: 26px;
   font-weight: bold;
   color: #585858;
 }
 
-#guset_review {
+.user_comment {
   float: left;
   width: 650px;
   height: 600px;
   margin-left: 40px;
 }
 
-.review_profile_img{
+.comment_profile_img{
   float: left;
   margin-top: -3px;
   margin-left: 20px;
@@ -63,31 +63,31 @@
   overflow: hidden;
 }
 
-.review_profile_img>img{
+.comment_profile_img>img{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 
-.review_content{
+.user_comment_content{
   width: 650px;
   height: 160px;
   border-bottom: 1px solid lightgray;
 }
 
-.review_profile_name{
+.comment_profile_name{
   width: 300px;
   margin-top: 25px;
   margin-left: 80px;
 }
 
-.review_profile_name a{
+.comment_profile_name a{
   text-decoration: none;
   color: #585858;
 }
 
-.review_line {
+.comment_line {
   display: inline-block;
   width: 600px;
   height: 80px;
@@ -95,12 +95,12 @@
   margin-left: -50px;
 }
 
-#board_name{
+.board_number{
   margin-top: 10px;
   margin-left: 20px;
 }
 
-#board_name a{
+.board_number a{
   text-decoration: none;
   color: #585858;
 }
