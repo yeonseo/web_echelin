@@ -66,11 +66,11 @@ html, body{
     border-radius: 10px;
   }
   .input-data:hover{
-    background: #ffffff;
+    background: ORANGERED;
     color: white;
   }
   .input-list > div{
-    font-size: 10px;
+    font-size: 15px;
     width: 60%;
     float: left;
     color: DARKORANGE;
@@ -110,5 +110,9 @@ html, body{
     background: white;
     border-radius: 50%;
     color: ORANGERED;
+  }
+  .active2{
+    background: DARKORANGE;
+    color: white;
   }
 }

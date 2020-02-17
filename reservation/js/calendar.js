@@ -1,7 +1,7 @@
 
 //테스트용 변수
 
-timeList=["2020-02-15","2020-02-16","2020-02-17","2020-02-18"];
+timeList=["11 : 00","12 : 00","13 : 00","14 : 00"];
 
 
 //달력 셋팅
@@ -18,52 +18,20 @@ var notLeapYear=[31,28,31,30,31,30,31,31,30,31,30,31];
 var pageFirst = first;
 var pageYear;
 var tdGroup = [];
+var timeDivGroup = [];
+var clickedTime;
+
 
 if(first.getFullYear() % 4 === 0){
     pageYear = leapYear;
 }else{
     pageYear = notLeapYear;
 }
-  console.log(timeList.length);
-for(var i=0; i<timeList.length;i++){
-  console.log(timeList[i]);
-}
 showCalendar();
 showMain();
-
-function showTimeList(){
-  let monthCnt = 100;
-  let cnt = 1;
-  for(var i = 0; i < 6; i++){
-      var $tr = document.createElement('tr');
-      $tr.setAttribute('id', monthCnt);
-      for(var j = 0; j < 7; j++){
-          if((i === 0 && j < first.getDay()) || cnt > pageYear[first.getMonth()]){
-              var $td = document.createElement('td');
-              $tr.appendChild($td);
-          }else{
-              var $td = document.createElement('td');
-              $td.textContent = cnt;
-              $td.setAttribute('id', cnt);
-              $tr.appendChild($td);
-              cnt++;
-          }
-      }
-      today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      currentTitle.innerHTML = monthList[first.getMonth()] + '&nbsp;&nbsp;&nbsp;&nbsp;'+ first.getFullYear();
-      clickedDate1 = document.getElementById(today.getDate());
-
-      monthCnt++;
-      calendarBody.appendChild($tr);
-  }
-
-  for(let i = 1; i <= pageYear[first.getMonth()]; i++){
-      tdGroup[i] = document.getElementById(i);
-      tdGroup[i].addEventListener('click',changeToday);
-  }
+showTimeList(timeList);
 
 
-}
 
 function showCalendar(){
     let monthCnt = 100;
@@ -112,6 +80,41 @@ function removeCalendar(){
 
 
 
+//타임 선택
+
+function showTimeList(timeList){
+
+  for(var i=0; i<timeList.length;i++){
+    console.log(timeList[i]);
+    var $timediv = document.createElement('div');
+    $timediv.textContent = timeList[i];
+    $timediv.setAttribute('id', 'div_time_inner'+i);
+    timeBody.appendChild($timediv);
+  }
+
+  for(var i=0; i<timeList.length;i++){
+    timeDivGroup[i] = document.getElementById('div_time_inner'+i);
+    timeDivGroup[i].addEventListener('click',timeChangeToday);
+  }
+
+}
+
+function timeClickStart(){
+    for(var i=0; i<timeList.length;i++){
+        timeDivGroup[i] = document.getElementById('div_time_inner'+i);
+        timeDivGroup[i].addEventListener('click',timeChangeToday);
+    }
+}
+function timeChangeToday(e){
+    for(var i=0; i<timeList.length;i++){
+        if(timeDivGroup[i].classList.contains('active2')){
+            timeDivGroup[i].classList.remove('active2');
+        }
+    }
+    clickedTime = e.currentTarget;
+    console.log(clickedTime.textContent);
+    clickedTime.classList.add('active2');
+}
 
 
 
@@ -289,7 +292,24 @@ let todoList = [];
 todoList[keyValue] = [];
 function addTodoList(){
     var $div = document.createElement('div');
-    $div.textContent = '-' + inputBox.value;
+    if(typeof clickedTime == "undefined"){
+      alert("예약시간을 선택해주세요");
+      return false;
+    }else{
+      if(clickedTime.textContent==null||clickedTime.textContent==""){
+        alert("예약시간을 선택해주세요");
+        return false;
+      }else{
+        if(inputBox.value == ''){
+          console.log(Number(inputBox.value));
+          alert("인원을 입력해주세요");
+          return false;
+        }else{
+          $div.textContent = clickedTime.textContent+' - ' + inputBox.value+'명';
+        }
+      }
+    }
+
     var $btn = document.createElement('button');
     $btn.setAttribute('type', 'button');
     $btn.setAttribute('id', 'del-ata');
