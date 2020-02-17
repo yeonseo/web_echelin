@@ -2,15 +2,24 @@
   display: inline-block;
   clear: both;
   padding-left: 30px;
-  padding-top: 16px;
+  padding-top: 30px;
+  font-size: 30px;
 }
 
 .span_hello{
   margin: -5px;
+  font-size: 30px;
 }
 
 .span_register_info{
   display: block;
   padding-left: 30px;
   padding-top: 16px;
+  font-size: 25px;
+}
+
+#button_find_postcode {
+  width: 90px;
+  height: 35px;
+  margin-left: 5px;
 }
