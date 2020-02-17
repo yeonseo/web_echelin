@@ -39,5 +39,6 @@ else $userpoint = "";
 
     <input class="search_input" type="text" placeholder=" &nbsp&nbsp검색어를 입력해주세요.">
     <button class="search_result_btn">검색</button>
+    <button type="button" name="button" class="keyword_search">&nbsp키워드 ▼</button>
 
 </div>
