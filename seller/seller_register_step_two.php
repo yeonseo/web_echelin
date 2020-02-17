@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./js/seller_register.js"></script>
     <link rel="stylesheet" href="../common/css/seller_register_step.css">
     <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
   </head>
@@ -26,11 +28,14 @@
                   </br></br>
 
                   <li>식당 메뉴</li>
-                  <input class="input_info" type="text" name="" value="">
-                  <button class="button_find_add" type="button" name="button">추가</button>
+                  <div id="div_add_input_table">
+                    <input input class="input_info" type="text" name="" value="">
+                    <button id="button_add" class="button_circle" type="button" name="button">+</button>
+                  </div>
                   </br></br>
 
-                  <table border=1px solid black;>
+
+                  <table id="table_menu" class="table_seller_menu">
                     <tr>
                       <th>메뉴</th>
                       <th>가격</th>
@@ -38,24 +43,27 @@
                     </tr>
 
                     <tr>
-                      <td>입력한 메뉴가 보임</td>
-                      <td><input type="text" name="" value="여기는 input"></td>
-                      <td><input type="file" name="" value=""></td>
-                    </tr>
 
-                    <tr>
-                      <td>입력한 메뉴가 보임</td>
-                      <td><input type="text" name="" value="메뉴추가->테이블도 늘어남"></td>
+                      <td>갈릭페뇨파스타</td>
+                      <td>22,000</td>
                       <td><input type="file" name="" value=""></td>
                     </tr>
+                    <tbody>
+
+                    </tbody>
                   </table>
                  </br></br>
 
+
+
                   <li>브레이크타임 정보</li>
-                    <input type="radio" name="" value="">있음
-                    <input type="radio" name="" value="">없음
-                    <input type="time" name="" value="">&nbsp-
-                    <input type="time" name="" value="">
+                    <input id="radio_checked" type="radio" name="" value="" onchange="setDisplay()">있음
+                    <input type="radio" name="" value="" onchange="setDisplay()">없음
+                    <div id="div_radio">
+                      <input type="time" name="" value="">&nbsp-
+                      <input type="time" name="" value="">
+                    </div>
+
                     </br></br>
 
                   <li>식당 편의시설</li>
