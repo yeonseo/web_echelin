@@ -84,7 +84,7 @@
                     한국
                 </div>
             </div>
-        </div>
+        </div> <!-- end of best_comment -->
 
     </div>
 

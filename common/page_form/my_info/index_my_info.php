@@ -10,6 +10,8 @@
 
   <!-- CSS, JS 파일 링크 시, -->
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
+  <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main.css">
+  <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main_test.css">
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
 
 
@@ -46,43 +48,58 @@
         <!-- 3x3로구역나누기 -->
         <div class="top_content">
           <!-- 1행 -->
-          <div class="box">
-            <!-- 유저정보수정 -->
-            <a href="#">유저정보관리</a>
+          <div class="main_comment">
+            <div class="best_comment">
+              <div class="best_comment_first">
+                <a href="#">
+                  <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/review_1.jpg">
+                </a>
+              </div>
+
+              <div class="best_comment_second">
+                <a href="#">
+                  <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/review_2.jpg">
+                </a>
+              </div>
+              <div class="best_comment_third">
+                <a href="#">
+                  <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/review_3.jpg">
+                </a>
+              </div>
+            </div> <!-- end of best_comment -->
+            <div class="box">
+              <!-- 판매자정보수정 -->
+              <a href="#">업주정보관리</a>
+            </div>
+            <div class="box">
+              <!-- 문의게시판수정 -->
+              <a href="#">문의게시판관리</a>
+            </div>
+          </div><!-- 탑켄텐트div -->
+          <div class="center_content">
+            <div class="box">
+              2행1열
+            </div>
+            <div class="box">
+              2행2열
+            </div>
+            <div class="box">
+              2행3열
+            </div>
           </div>
-          <div class="box">
-            <!-- 판매자정보수정 -->
-            <a href="#">업주정보관리</a>
-          </div>
-          <div class="box">
-            <!-- 문의게시판수정 -->
-            <a href="#">문의게시판관리</a>
-          </div>
-        </div><!-- 탑켄텐트div -->
-        <div class="center_content">
-          <div class="box">
-            2행1열
-          </div>
-          <div class="box">
-            2행2열
-          </div>
-          <div class="box">
-            2행3열
-          </div>
-        </div>
-        <div class="bottom_content">
-          <div class="box">
-            3행1열
-          </div>
-          <div class="box">
-            3행2열
-          </div>
-          <div class="box">
-            3행3열
+          <div class="bottom_content">
+            <div class="box">
+              3행1열
+            </div>
+            <div class="box">
+              3행2열
+            </div>
+            <div class="box">
+              3행3열
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
   <footer>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
