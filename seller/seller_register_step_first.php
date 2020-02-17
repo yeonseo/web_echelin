@@ -14,7 +14,6 @@
       </div>
 
       <progress value="25" max="100"></progress>
-
         <div class="div_register_shape">
           <div class="div_register_inner_shape">
             <span class="span_user_name">김지수</span>
@@ -29,7 +28,7 @@
                     </br></br>
                     <li>사업자등록번호를 등록해주세요</li>
                       <input class="input_info" type="text" name="" value="">
-                      <button class="button_find_add" type="button" name="button">찾기</button>
+                      <button class="button_find_add_comp" type="button" name="button">찾기</button>
                   </ul>
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">

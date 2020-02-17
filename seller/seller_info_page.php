@@ -3,21 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="../common/css/seller_register_step.css">
+    <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
   </head>
   <body>
     <section>
-      <div class="">
+      <div class="div_seller_info">
         <div class="">
           <h3>엽기꼼닭발 </h3>
           <ul>
-            <li>판매자번호 : 2465785</li>
+            <li>판매자번호 : <input input class="input_info" type="text" name="" value="" readonly></li>
           </ul>
           <form class="" action="index.html" method="post">
             <ul>
               <li>식당 이름</li>
-              <button type="button" name="button">변경하기</button>
-              <input type="text" name="" value="">
-              <input type="button" name="" value="완료">
+              <button class="button_find_add_comp" type="button" name="button">변경하기</button>
+              <input class="input_info" type="text" name="" value="">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </ul>
           </form>
         </div>
@@ -36,7 +38,7 @@
             <ul>
               <li>식당 소개글 쓰기</li>
               <textarea name="name" rows="8" cols="80"></textarea>
-              <input type="button" name="" value="완료">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </ul>
           </form>
         </div>
@@ -46,7 +48,7 @@
             <ul>
               <li>식당 특이사항</li>
               <textarea name="name" rows="8" cols="80"></textarea>
-              <input type="button" name="" value="완료">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </ul>
           </form>
         </div>
@@ -61,7 +63,7 @@
               <input type="text" id="input_address" placeholder="주소"><br>
               <input type="text" id="input_detailAddress" placeholder="상세주소">
               <input type="text" id="input_extraAddress" placeholder="참고항목">
-              <input type="button" name="" value="완료" onclick="./seller_register_step_two.php">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </ul>
           </form>
         </div>
@@ -72,7 +74,7 @@
               <li>메뉴</li>
               <input type="text" name="" value="">
               <button type="button" name="button">추가</button>
-              <input type="button" name="" value="완료">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </ul>
           </form>
         </div>
@@ -103,7 +105,7 @@
                 <option value="">16시</option>
                 <option value="">17시</option>
               </select>
-              <input type="button" name="" value="완료">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </form>
           </ul>
         </div>
@@ -165,7 +167,7 @@
                 <option value="">16시</option>
                 <option value="">17시</option>
               </select>
-              <input type="button" name="" value="완료">
+              <button class="button_find_add_comp" type="submit" name="button">완료</button>
             </form>
           </ul>
         </div>

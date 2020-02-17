@@ -25,13 +25,19 @@ progress {
 }
 
 ::-webkit-progress-bar {
-  background-color: lightgray;
+  background-color: #eaeaea;
 }
 
 ::-webkit-progress-value {
   background-color: gold;
 }
 
+.div_just_test {
+  width: 100%;
+  height: 550px;
+  border: 2px solid blue;
+  background-color: lightgray;
+}
 
 .div_register_shape {
   /* border: 3px solid red; */
@@ -47,7 +53,7 @@ progress {
   width: 550px;
   height: auto;
   float: right;
-  font-size: 19px;
+  font-size: 20px;
 }
 
 .div_register_inner_shape ul {
@@ -82,9 +88,9 @@ progress {
 .button_next {
   width: 80px;
   height: 40px;
-  background-color: #FAED7D;
+  background-color: gold;
   border: 0px solid pink;
-  box-shadow: 5px 5px 5px lightgray;
+  /* box-shadow: 5px 5px 5px lightgray; */
   border-radius: 10px;
   padding: 5px;
   font-size: 20px;
@@ -96,9 +102,9 @@ progress {
 .button_prev {
   width: 80px;
   height: 40px;
-  background-color: #FAED7D;
+  background-color: gold;
   border: 0px solid pink;
-  box-shadow: 5px 5px 5px lightgray;
+  /* box-shadow: 5px 5px 5px lightgray; */
   border-radius: 10px;
   padding: 5px;
   font-size: 20px;
@@ -107,7 +113,7 @@ progress {
   float: left;
 }
 
-.button_find_add {
+.button_find_add_comp {
   width: 50px;
   height: 35px;
   margin-left: 5px;
@@ -121,7 +127,6 @@ progress {
   border-radius: 15px;
   text-align: center;
   background-color: darkorange;
-
 }
 
 .div_move_page a {

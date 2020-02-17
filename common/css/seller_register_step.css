@@ -23,3 +23,53 @@
   height: 35px;
   margin-left: 5px;
 }
+
+.div_seller_info {
+  font-size: 20px;
+}
+
+/* 판매자 등록 2단계 */
+.button_circle {
+  background-color: #fff;
+  border:2px solid gold;
+  font-size: 17px;
+  width:40px;
+  height:40px;
+  border-radius:75px;
+  text-align:center;
+  margin:0 auto;
+  vertical-align:middle;
+}
+
+.table_seller_menu {
+  border-collapse: collapse;
+}
+
+.table_seller_menu th {
+  border-collapse: collapse;
+  border: 1px solid #a9a9a9;
+  width: 250px;
+}
+
+.table_seller_menu tr {
+  border-collapse: collapse;
+  border: 1px solid #a9a9a9;
+}
+
+.table_seller_menu td {
+  border-collapse: collapse;
+  border: 1px solid #a9a9a9;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+
+/* 판매자 정보 수정 페이지 */
+.div_seller_info ul {
+  padding: 0px;
+}
+
+.div_seller_info ul li {
+  list-style: none;
+}
