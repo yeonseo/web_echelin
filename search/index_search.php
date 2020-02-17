@@ -18,6 +18,7 @@
     <script src="./js/vendor/modernizr.custom.min.js"></script>
     <script src="./js/vendor/jquery-1.10.2.min.js"></script>
     <script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+    </script>
 </head>
 
 <body>
