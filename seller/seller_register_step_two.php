@@ -18,7 +18,20 @@
 
       <progress value="75" max="100">0%</progress>
       <div  class="div_outside">
-        dhd?
+        <ul>
+          <li>#해쉬태그 만들기</li>
+        </ul>
+
+
+        <form action="#">
+          <p>
+            <label for="name">우리 식당 해쉬태그를 만들어보아요</label>
+            <input type="text" name="name" id="write_hashtag" placeholder="Your text">
+            <input type="submit" value="추가하기">
+          </p>
+        </form>
+        <h3 id="hashtag_output"></h3>
+
       </div>
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
@@ -77,6 +90,8 @@
 
                   <li>특이사항</li>
                     <textarea name="name" rows="8" cols="74"></textarea>
+
+
                 </ul>
               </div> <!-- div_except_button -->
               <div class="div_prv_next_button">

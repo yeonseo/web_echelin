@@ -33,6 +33,18 @@
 }
 
 /* 판매자 등록 2단계 */
+
+#hashtag_output {
+
+}
+
+.div_hashtag {
+  border: 2px solid gold;
+  border-radius: 20px;
+  width: 100px;
+}
+
+
 .button_circle_add {
   background-color: #fff;
   border:2px solid gold;

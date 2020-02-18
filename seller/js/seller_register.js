@@ -46,4 +46,49 @@ $(document).ready(function(){
 
   });
 
+
+  $(function () {
+    function camelCaseIt(str) {
+      return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+        if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+        return index == 0 ? match.toLowerCase() : match.toUpperCase();
+      });
+    }
+
+// 기존
+    // $('form').on('submit', function ( e ) {
+    //   e.preventDefault();
+    //   var text = $('#write_hashtag').val();
+    //   $('#output').empty().append( '#'+camelCaseIt( text ) );
+    // });
+
+    $('form').on('submit', function ( e ) {
+      e.preventDefault();
+      var text = $('#write_hashtag').val();
+      $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'<button class="button_x">'+'X'+'</button>'+'</div>');
+
+
+          // var hashgTag = $( "div[class=hashtag_output]:last" ); //last를 사용하여 trStaff라는 명을 가진 마지막 태그 호출
+          //
+          // hashgTag.after('#'+text); //마지막 trStaff명 뒤에 붙인다.
+
+
+
+
+
+
+
+
+
+    });
+  });
+
+
+
+
+
+
+
+
+
 });// end of ready
