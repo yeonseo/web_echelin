@@ -28,6 +28,10 @@
   font-size: 20px;
 }
 
+#li_menu {
+  display: inline;
+}
+
 /* 판매자 등록 2단계 */
 .button_circle_add {
   background-color: #fff;
@@ -60,12 +64,14 @@
 .table_seller_menu th {
   border-collapse: collapse;
   border: 1px solid #a9a9a9;
-  width: 250px;
+  /* width: 100px; */
+
 }
 
 .table_seller_menu tr {
   border-collapse: collapse;
   border: 1px solid #a9a9a9;
+    /* width: 100px; */
 }
 
 .table_seller_menu td {
@@ -73,6 +79,11 @@
   border: 1px solid #a9a9a9;
   text-align: center;
   font-size: 12px;
+    /* width: 100px; */
+}
+
+.table_seller_menu td>input {
+  width: 150px;
 }
 
 
