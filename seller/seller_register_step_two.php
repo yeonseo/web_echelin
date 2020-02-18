@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
   </head>
   <body class="body_margin">
+
     <section>
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
@@ -28,9 +29,9 @@
                   </br></br>
 
                   <li>식당 메뉴</li>
-                  <div id="div_add_input_table">
+                  <div id="div_add_input">
                     <input input class="input_info" type="text" name="" value="">
-                    <button id="button_add" class="button_circle" type="button" name="button">+</button>
+                    <button id="button_add" class="button_circle_add" type="button" name="button">+</button>
                   </div>
                   </br></br>
 
@@ -43,11 +44,11 @@
                     </tr>
 
                     <tr>
-
                       <td>갈릭페뇨파스타</td>
                       <td>22,000</td>
                       <td><input type="file" name="" value=""></td>
                     </tr>
+
                     <tbody>
 
                     </tbody>
@@ -57,10 +58,10 @@
 
 
                   <li>브레이크타임 정보</li>
-                    <input id="radio_checked" type="radio" name="" value="" onchange="setDisplay()">있음
-                    <input type="radio" name="" value="" onchange="setDisplay()">없음
-                    <div id="div_radio">
-                      <input type="time" name="" value="">&nbsp-
+                    <input type="radio" name="break_time" value="true">있음
+                    <input type="radio" name="break_time" value="false">없음
+                    <div id="div_radio" hidden>
+                      <input id="ccc"type="time" name="" value="">&nbsp-
                       <input type="time" name="" value="">
                     </div>
 
@@ -71,8 +72,8 @@
                     <input type="checkbox" name="" value="">건물 화장실 이용</br>
                     <input type="checkbox" name="" value="">자전거 거치대
                     <input type="checkbox" name="" value="">아기 의자
-                    <input type="checkbox" name="" value="">기타
-                    <input type="text" name="" value="기타 클릭 시 input 활성화">
+                    <input type="checkbox" name="checkbox_etc" value="">기타
+                    <input id="input_etc" type="text" name="" value="기타 클릭 시 input 활성화" disabled>
                     </br></br>
 
                   <li>식당 사진</li>

@@ -29,7 +29,19 @@
 }
 
 /* 판매자 등록 2단계 */
-.button_circle {
+.button_circle_add {
+  background-color: #fff;
+  border:2px solid gold;
+  font-size: 17px;
+  width:40px;
+  height:40px;
+  border-radius:75px;
+  text-align:center;
+  margin:0 auto;
+  vertical-align:middle;
+}
+
+.button_circle_del {
   background-color: #fff;
   border:2px solid gold;
   font-size: 17px;
