@@ -23,14 +23,13 @@ ul{ list-style: none; }
 
 
 
-
 /* my info page */
 .my_info_content{
     margin: 15px;
     width: 100%;
     min-width: 1080px;
-    height: 1000px;
     position: relative;
+    display: inline-block;
 }
 .my_info_content > *{
    float: left;
