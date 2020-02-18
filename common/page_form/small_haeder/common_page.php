@@ -13,11 +13,8 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-    <!-- <link rel="stylesheet" href="./css/main.css"> -->
-    <script src="./js/vendor/modernizr.custom.min.js"></script>
-    <script src="./js/vendor/jquery-1.10.2.min.js"></script>
-    <script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+    <!-- 공통으로 사용하는 link & script -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 </head>
 
 <body>
