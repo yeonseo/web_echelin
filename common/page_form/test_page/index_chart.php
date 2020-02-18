@@ -70,8 +70,12 @@
                 // Set chart options
                 var options = {
                   'title': 'How Much Pizza I Ate Last Night',
-                  'width': 400,
-                  'height': 300
+                  'width': 300,
+                  'height': 300,
+                  legend: 'none',
+                  colors: ['#e2431e', '#d3362d', '#e7711b',
+                    '#e49307', '#e49307', '#b9c246'
+                  ]
                 };
 
                 // Instantiate and draw our chart, passing in some options.
@@ -121,9 +125,14 @@
                 // Set chart options
                 var options = {
                   'title': 'How Much Pizza I Ate Last Night',
-                  'width': 400,
-                  'height': 300
+                  'width': 300,
+                  'height': 300,
+                  legend: 'none',
+                  colors: ['#e2431e', '#d3362d', '#e7711b',
+                    '#e49307', '#e49307', '#b9c246'
+                  ]
                 };
+
 
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div2'));
