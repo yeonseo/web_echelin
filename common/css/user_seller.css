@@ -43,7 +43,7 @@ progress {
 /* 입력했던 값 그대로 들고 오는 거 테스트 */
 
 .div_outside {
-  border: 1px solid green;
+  border: 4px solid green;
   width: 44%;
   height: auto;
   float:right;
