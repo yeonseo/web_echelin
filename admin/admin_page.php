@@ -28,18 +28,7 @@
   <section>
     <div class="admin_content">
       <div class="left_menu">
-        <!-- 순서대로쭉쭉 -->
-        <ul>
-          <li class="user_modify"><a href="#">유저정보관리</a> </li>
-          <li class="seller_modify"><a href="#">업주정보관리</a> </li>
-          <li class="qna_modify"><a href="#">문의게시판관리</a> </li>
-          <li><a href="#">2행1열</a></li>
-          <li><a href="#">2행2열</a></li>
-          <li><a href="#">2행3열</a></li>
-          <li><a href="#">3행1열</a></li>
-          <li><a href="#">3행2열</a></li>
-          <li><a href="#">3행3열</a></li>
-        </ul>
+        <?php include $_SERVER['DOCUMENT_ROOT']. "/echelin/admin/left_menu.php" ?>
       </div>
       <div class="right_content">
         <!-- 3x3로구역나누기 -->
@@ -47,7 +36,7 @@
           <!-- 1행 -->
           <div class="box">
             <!-- 유저정보수정 -->
-            <a href="#">유저정보관리</a>
+            <a href="http://localhost/echelin/admin/edit_user.php">유저정보관리</a>
           </div>
           <div class="box">
             <!-- 판매자정보수정 -->
