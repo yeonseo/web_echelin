@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="./css/calendar.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <title>Vanilla Coding | Bootcamp Prep</title>
   <script type="text/javascript" src="./js/calendar.js" defer>
 
   </script>
