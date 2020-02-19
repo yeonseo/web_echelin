@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="../common/css/seller_register_step.css">
     <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
   </head>
   <body>
@@ -32,6 +31,9 @@
             </ul>
           </form>
         </div>
+
+
+
 
         <div class="">
           <form class="" action="index.html" method="post">

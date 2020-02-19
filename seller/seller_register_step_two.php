@@ -1,3 +1,4 @@
+ <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,19 +6,38 @@
     <title></title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./js/seller_register.js"></script>
-    <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
+    <link rel="stylesheet" href="./css/seller_register_step.css">
+    <link rel="stylesheet" href="../common/css/user_seller.css">
+    <link rel="stylesheet" href="/echelin/common/css/common.css">
+    <link rel="stylesheet" href="/echelin/common/css/search.css">
   </head>
-  <body class="body_margin">
+  <body>
+
+    <header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
 
     <section>
+      </div>
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
         <span class="span_step_info">2단계 : 상세 정보를 입력해주세요</span>
       </div>
 
       <progress value="75" max="100">0%</progress>
+      <div  class="div_outside">
+        <form action="#">
+          <p>
+            <span class="span_hashtag">#</span>
+            <span class="span_hashtag_intro">우리 식당 해쉬태그를 만들어보아요</span>
+            <input id="write_hashtag" class="input_hashtag" type="text" name="name" placeholder="#맛집 #분위기좋은 ">&nbsp&nbsp
+            <button id="button_hashtag_add" class="button_circle_add" type="button">+</button>
+            <!-- <input type="submit" value="추가하기"> -->
+          </p>
+        </form>
+        <h3 id="hashtag_output"></h3>
 
+      </div>
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
           <div class="div_form">
@@ -25,36 +45,29 @@
               <div class="div_except_button">
                 <ul>
                   <li>식당소개글</li>
-                  <textarea name="name" rows="8" cols="80"></textarea>
+                  <textarea name="name" rows="8" cols="74"></textarea>
                   </br></br>
 
-                  <li>식당 메뉴</li>
-                  <div id="div_add_input">
-                    <input input class="input_info" type="text" name="" value="">
-                    <button id="button_add" class="button_circle_add" type="button" name="button">+</button>
-                  </div>
-                  </br></br>
+                  <li id="li_menu">식당 메뉴</li>
+                  <button id="button_add" class="button_circle_add" type="button">+</button>
+                  <br>
+                  <br>
+                  <table class="table_seller_menu" border="1">
+                      <tbody>
+                          <tr>
+                            <th>메뉴</th>
+                            <th>가격</th>
+                            <th>사진</th>
+                          </tr>
 
-
-                  <table id="table_menu" class="table_seller_menu">
-                    <tr>
-                      <th>메뉴</th>
-                      <th>가격</th>
-                      <th>사진</th>
-                    </tr>
-
-                    <tr>
-                      <td>갈릭페뇨파스타</td>
-                      <td>22,000</td>
-                      <td><input type="file" name="" value=""></td>
-                    </tr>
-
-                    <tbody>
-
-                    </tbody>
+                          <tr name="tr_menu">
+                            <td><input type="text" name="" placeholder="메뉴이름"></td>
+                            <td><input type="number" name="" placeholder="가격"></td>
+                            <td><input type="file" name="" value=""></td>
+                          </tr>
+                      </tbody>
                   </table>
                  </br></br>
-
 
 
                   <li>브레이크타임 정보</li>
@@ -81,7 +94,9 @@
                     </br></br>
 
                   <li>특이사항</li>
-                    <textarea name="name" rows="8" cols="80"></textarea>
+                    <textarea name="name" rows="8" cols="74"></textarea>
+
+
                 </ul>
               </div> <!-- div_except_button -->
               <div class="div_prv_next_button">
@@ -93,5 +108,7 @@
         </div> <!-- div_register_inner_shape -->
       </div> <!--div_register_shape-->
     </section>
+
+
   </body>
 </html>

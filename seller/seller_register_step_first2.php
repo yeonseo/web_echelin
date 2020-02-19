@@ -2,6 +2,7 @@
 $input_store_name = $_POST["input_store_name"];
 // echo "console.log($input_store_name)";
  ?>
+ <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,8 +11,10 @@ $input_store_name = $_POST["input_store_name"];
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="./js/find_postcode.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
-    <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
+    <link rel="stylesheet" href="./css/seller_register_step.css">
+    <link rel="stylesheet" href="/echelin/common/css/user_seller.css">
+    <link rel="stylesheet" href="/echelin/common/css/common.css">
+    <link rel="stylesheet" href="/echelin/common/css/search.css">
     <script type="text/javascript">
     function showMap() {
       var input_address = document.getElementById('input_address').value;
@@ -56,7 +59,13 @@ $input_store_name = $_POST["input_store_name"];
 
     </script>
   </head>
-  <body class="body_margin">
+  <body>
+
+    <header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
+
+
     <section>
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
@@ -98,5 +107,7 @@ $input_store_name = $_POST["input_store_name"];
         </div> <!-- div_register_inner_shape -->
     </div> <!--div_register_shape-->
     </section>
+
+
   </body>
 </html>

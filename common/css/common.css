@@ -4,8 +4,6 @@
     font-weight: normal; font-style: normal;
 }
 
-
-
 .signature { color : GOLD; color : DARKORANGE; color :ORANGERED; color :MAROON;}
 
 * { margin: 0; padding: 0; }
@@ -21,16 +19,14 @@ ul{ list-style: none; }
 .header_main_menu { font-family: 'NanumSquare', sans-serif; font-size: 1.2rem;}
 .header_menu { margin-top: 1rem; }
 
-
-
-
 /* my info page */
 .my_info_content{
     margin: 15px;
     width: 100%;
+    min-height: 500px;
     min-width: 1080px;
-    height: 1000px;
     position: relative;
+    display: inline-block;
 }
 .my_info_content > *{
    float: left;
@@ -91,3 +87,29 @@ ul{ list-style: none; }
 
 .card_menu_btn_name { font-size:  1rem; font-weight: bold;}
 .card_menu_btn_disc { font-family: 'CommentSansLight', sans-serif; font-size:  0.8rem;}
+
+
+/* 테이블 메뉴 */
+/*
+common_table_width
+common_table_head
+common_table_main
+common_table_inner_head
+common_table_inner_text
+common_table_inner_icon
+common_table_inner_link
+common_table_inner_btn
+*/
+
+.common_table_width {
+    width: auto;
+}
+.common_table_width * {
+    border-collapse: collapse;
+}
+
+.common_table_head { text-align: center; font-weight: bold; font-size: 1.2rem; }
+.common_table_main * { text-align: center; padding: 8px; }
+.common_table_main thead { font-weight: bold; }
+.common_table_main tbody * { font-family: 'CommentSansLight', sans-serif; }
+.common_table_main tbody tr:nth-child(odd) {background-color: #f2f2f2;}
