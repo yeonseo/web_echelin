@@ -23,36 +23,36 @@
 <body>
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
   <header>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/header.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header.php"; ?>
   </header>
   <section>
     <div class="admin_content">
 
       <div class="left_menu">
-        <?php include $_SERVER['DOCUMENT_ROOT']. "/echelin/admin/left_menu.php" ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/left_menu.php" ?>
       </div>
       <div class="right_content">
         <h3>유저정보수정</h3>
         <ul id="member_list">
-				<li>
-					<span class="col1">번호</span>
-					<span class="col2">아이디</span>
-					<span class="col3">비밀번호</span>
-					<span class="col4">이름</span>
-					<span class="col5">이메일</span>
-					<span class="col6">가입일</span>
-					<span class="col7">레벨</span>
-					<span class="col8">포인트</span>
-					<span class="col9">수정</span>
-					<span class="col10">삭제</span>
-				</li>
-        <?php
-          $con = mysqli_connect("localhost","root","123456","echelin");
+          <li>
+            <span class="col1">번호</span>
+            <span class="col2">아이디</span>
+            <span class="col3">비밀번호</span>
+            <span class="col4">이름</span>
+            <span class="col5">이메일</span>
+            <span class="col6">가입일</span>
+            <span class="col7">레벨</span>
+            <span class="col8">포인트</span>
+            <span class="col9">수정</span>
+            <span class="col10">삭제</span>
+          </li>
+          <?php
+          $con = mysqli_connect("localhost", "root", "123456", "echelin");
           $sql = "select * from members order by num desc";
-          $result = mysqli_query($con,$sql);
+          $result = mysqli_query($con, $sql);
           $total_record = mysqli_num_rows($result);
           $number = $total_record;
-          while($row = mysqli_fetch_array($result)){
+          while ($row = mysqli_fetch_array($result)) {
             $num = $row["num"];
             $id = $row["id"];
             $pass = $row["pass"];
@@ -61,24 +61,24 @@
             $regist_day = $row["regist_day"];
             $level = $row["level"];
             $point = $row["point"];
-         ?>
-        <li>
-          <form class="" action="update_user.php?num=<?=$num?>" method="post">
-            <span class="col1"><?=$number?></span>
-  					<span class="col2"><?=$id?></span>
-  					<span class="col3"><input type="text" name="pass" value="<?=$pass?>"></span>
-  					<span class="col4"><input type="text" name="name" value="<?=$name?>"></span>
-  					<span class="col5"><input type="text" name="email" value="<?=$email?>"></span>
-  					<span class="col6"><?=$regist_day?></span>
-  					<span class="col7"><input type="text" name="level" value="<?=$level?>"></span>
-  					<span class="col8"><input type="text" name="point" value="<?=$point?>"></span>
-  					<span class="col9"><button type="submit">수정</button></span>
-  					<span class="col10"><button type="button"onclick="location.href='delete_user.php?num=<?=$num?>'">삭제</button></span>
-          </form>
-        </li>
-         <?php
-          $number--;
-        }
+          ?>
+            <li>
+              <form class="" action="update_user.php?num=<?= $num ?>" method="post">
+                <span class="col1"><?= $number ?></span>
+                <span class="col2"><?= $id ?></span>
+                <span class="col3"><input type="text" name="pass" value="<?= $pass ?>"></span>
+                <span class="col4"><input type="text" name="name" value="<?= $name ?>"></span>
+                <span class="col5"><input type="text" name="email" value="<?= $email ?>"></span>
+                <span class="col6"><?= $regist_day ?></span>
+                <span class="col7"><input type="text" name="level" value="<?= $level ?>"></span>
+                <span class="col8"><input type="text" name="point" value="<?= $point ?>"></span>
+                <span class="col9"><button type="submit">수정</button></span>
+                <span class="col10"><button type="button" onclick="location.href='delete_user.php?num=<?= $num ?>'">삭제</button></span>
+              </form>
+            </li>
+          <?php
+            $number--;
+          }
           mysqli_close($con);
           ?>
 
@@ -86,7 +86,7 @@
     </div>
   </section>
   <footer>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
   </footer>
 </body>
 

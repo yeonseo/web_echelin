@@ -20,7 +20,7 @@
 <body>
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
   <header>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/header_small.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
   </header>
   <section>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/my_info/main_my_info.php"; ?>

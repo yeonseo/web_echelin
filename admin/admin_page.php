@@ -23,12 +23,12 @@
 <body>
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
   <header>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/header.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header.php"; ?>
   </header>
   <section>
     <div class="admin_content">
       <div class="left_menu">
-        <?php include $_SERVER['DOCUMENT_ROOT']. "/echelin/admin/left_menu.php" ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/left_menu.php" ?>
       </div>
       <div class="right_content">
         <!-- 3x3로구역나누기 -->
@@ -73,7 +73,7 @@
     </div>
   </section>
   <footer>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
   </footer>
 </body>
 
