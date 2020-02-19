@@ -1,7 +1,3 @@
-.body_margin {
-  margin: 0px;
-}
-
 /* 단계별 진행상황 */
 .div_step {
   height: 64px;
@@ -43,16 +39,17 @@ progress {
 /* 입력했던 값 그대로 들고 오는 거 테스트 */
 
 .div_outside {
-  border: 4px solid green;
+  /* border: 4px solid green; */
   width: 44%;
   height: auto;
+  text-align: center;
   float:right;
 }
 
 
 /* 진행폼 */
 .div_register_shape {
-  border: 3px solid red;
+  /* border: 3px solid red; */
   width: 55%;
   height: auto;
   float: left;
@@ -61,7 +58,7 @@ progress {
 }
 
 .div_register_inner_shape {
-  border: 3px solid black;
+  /* border: 3px solid black; */
   width: 550px;
   height: auto;
   float: right;

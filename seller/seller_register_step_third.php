@@ -1,12 +1,20 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css?ver=3">
+    <link rel="stylesheet" href="./css/seller_register_step.css">
+    <link rel="stylesheet" href="../common/css/user_seller.css">
+    <link rel="stylesheet" href="/echelin/common/css/common.css">
+    <link rel="stylesheet" href="/echelin/common/css/search.css">
   </head>
-  <body class="body_margin">
+  <body>
+
+    <header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
+
     <section>
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
