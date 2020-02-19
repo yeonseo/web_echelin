@@ -32,7 +32,43 @@
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/test_page/main_side_left_menu.php"; ?>
             </div>
             <div class="right_content">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/test_page/bootstrap_join.php"; ?>
+                <div class="<?= COMMON::$css_common_table_width; ?>">
+                    <div class="<?= COMMON::$css_common_table_head; ?>">
+                        사용자 목록
+                    </div>
+                    <?php
+                    echo "<div class=" . COMMON::$css_common_table_main . "> ";
+                    echo "<table>";
+
+                    echo "<thead><tr>";
+                    $colum_length = 10;
+                    for ($i = 0; $i < $colum_length; $i++) {
+                        echo "<th>th $i</th>";
+                    }
+                    echo "<th>수정</th>";
+                    echo "</tr></thead>"; //end of table head
+
+                    echo "<tbody>";
+
+                    $row_length = 5;
+                    for ($j = 0; $j < $row_length; $j++) {
+                        echo "<tr>";
+                        $colum_length = 10;
+                        for ($i = 0; $i < $colum_length; $i++) {
+                            echo "<th>body $i</th>";
+                        }
+                        echo "<th><button></button></th>";
+                        echo "</tr>"; //end of table tr
+                    }
+
+                    echo "</tbody>"; //end of table body
+
+
+                    echo "</table>"; //end of table
+                    echo "</div>"; //end of div common_table_main
+                    ?>
+
+                </div> <!-- end of css_card_menu_row -->
             </div><!-- end of right_content -->
     </section>
     <footer>
