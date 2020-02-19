@@ -27,9 +27,9 @@
     <section>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_register_step_first.php"; ?>
     </section>
-    <footer>
+    <!-- <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
-    </footer>
+    </footer> -->
 </body>
 
 </html>

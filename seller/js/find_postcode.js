@@ -11,8 +11,10 @@ function execDaumPostcode() {
           //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
           if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
               addr = data.roadAddress;
+              showMap(addr);
           } else { // 사용자가 지번 주소를 선택했을 경우(J)
               addr = data.jibunAddress;
+              showMap(addr);
           }
 
           // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.

@@ -4,7 +4,7 @@
         <span class="span_step_info">1단계 : 기본 사항을 입력해주세요.</span>
       </div>
 
-      <progress value="25" max="100"></progress>
+      <progress value="16.6" max="100"></progress>
         <div class="div_register_shape">
           <div class="div_register_inner_shape">
             <span class="span_user_name">김지수</span>
@@ -23,7 +23,7 @@
                   </ul>
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">
-                  <button class="button_next" id="button_next" type="submit" name="button" onclick="location.href='./seller_register_step_first2.php'">다음</button>
+                  <button class="button_next" id="button_next" type="submit" name="button" onclick="location.href='./seller_register_step_second.php'">다음</button>
                 </div>
               </form>
             </div>

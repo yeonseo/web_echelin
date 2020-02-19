@@ -1,3 +1,4 @@
+/*** 판매자 등록 1단계 **********************************/
 .span_user_name {
   display: inline-block;
   clear: both;
@@ -17,11 +18,32 @@
   padding-top: 16px;
   font-size: 25px;
 }
+/*** end of 판매자 등록 1단계 +++++++++******************/
 
+/*** 판매자 등록 2단계 **********************************/
 #button_find_postcode {
-  width: 90px;
+  width: 100px;
   height: 35px;
   margin-left: 5px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: gold;
+  border: 0px solid gold;
+}
+
+.button_show_map {
+  width: 100px;
+  height: 35px;
+  margin-left: 5px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: gold;
+  border: 0px solid gold;
+}
+
+#div_map {
+/* position: relative; */
+z-index: 2;
 }
 
 .div_seller_info {
@@ -32,7 +54,7 @@
   display: inline;
 }
 
-/* 판매자 등록 2단계 */
+
 
 .span_hashtag {
   font-weight: bold;
@@ -61,7 +83,7 @@
 
 .div_hashtag {
   border: 2px solid gold;
-  border-radius: 20px;
+  border-radius: 30px;
   width: auto;
   padding: 10px;
   display: inline-block;
@@ -142,7 +164,27 @@
   width: 150px;
 }
 
+/* 가게 등록 성공 페이지 */
 
+.div_except_button ul li a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.div_except_button ul li div {
+  width: 250px;
+  height: 30px;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: gold;
+  color: gray;
+  padding-top: 6px;
+}
+
+.div_except_button ul li div:hover {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+}
 
 /* 판매자 정보 수정 페이지 */
 .div_seller_info ul {
