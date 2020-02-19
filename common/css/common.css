@@ -21,15 +21,11 @@ ul{ list-style: none; }
 .header_main_menu { font-family: 'NanumSquare', sans-serif; font-size: 1.2rem;}
 .header_menu { margin-top: 1rem; }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> bootstrap_test
 /* my info page */
 .my_info_content{
     margin: 15px;
     width: 100%;
+    min-height: 500px;
     min-width: 1080px;
     position: relative;
     display: inline-block;
