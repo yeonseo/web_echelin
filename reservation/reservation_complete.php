@@ -29,31 +29,22 @@
     </header>
     <section><div class="div_step">
       <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
-      <span class="span_step_info">4단계 : 결제해주세요.</span>
+      <span class="span_step_info">예약이 완료되었습니다.</span>
     </div>
-    <progress value="80" max="100">0%</progress>
+    <progress value="100" max="100">0%</progress>
 
 
 
       <div class="main_section_div">
         <div class="date_check_div">
 
-
-            <h1>카카오페이</h1>
-            <h1>네이버페이</h1>
-            <h1>무통장입금페이</h1>
         </div>
         <div class="notice_check_div">
-          결제 완료시 데이더베이스 인서트
-        <a class="btnnext">결제 완료</a>
+          예약내용@@@ <br>
+          예약이 다 되었음
+        <a class="btnnext">확인</a>
         </div>
 
-
-
-        <div class="div_prv_next_button">
-          <button class="button_next" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_complete.php'">다음</button>
-          <button class="button_prev" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_third.php'">이전</button>
-        </div>
     </section>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/footer.php"; ?>

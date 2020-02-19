@@ -7,14 +7,13 @@
 
         <!-- 순서대로쭉쭉 -->
         <ul>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">유저정보관리</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">업주정보관리</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">문의게시판관리</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">2행1열</a></li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">2행2열</a></li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">2행3열</a></li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">3행1열</a></li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">3행2열</a></li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex유저정보관리</a> </li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex업주정보관리</a> </li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex문의게시판관리</a> </li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김성민</a></li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김지수</a></li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">하동운</a></li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">유영삼</a></li>
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/test_page/index_my_info.php">테스트 페이지</a></li>
         </ul>
     </div>
