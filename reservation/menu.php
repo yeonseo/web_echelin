@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="./css/calendar.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <script type="text/javascript" src="./js/menu.js" defer>
 
   </script>
 </head>
 <body>
   <div class="best_score_content" id="divContentWrap">
+    <table id="table_select_menu" class="table_seller_menu">
+      <tr>
+        <th>메뉴</th>
+        <th>가격</th>
+        <th>수량</th>
+      </tr>
+      </table>
 </div>
 </body>
 </html>
