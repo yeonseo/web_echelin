@@ -9,6 +9,24 @@
   <link rel="stylesheet" href="./common/css/common.css">
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
+  <script type="text/javascript">
+
+      $(function () {
+
+      $(".tab_content").hide();
+      $(".tab_content:first").show();
+
+      $("ul.tabs li").click(function () {
+
+          //$(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
+          $(".tab_content").hide()
+          var activeTab = $(this).attr("rel");
+          $("#" + activeTab).fadeIn()
+        });
+      });
+
+  </script>
+
 </head>
 
 <body>
@@ -16,6 +34,61 @@
   <main>
 
     <div class="my_comment_title">
+      <span class="comment_title_sub">프로필 &nbsp&nbsp > &nbsp&nbsp 후기</span><br><br>
+      <span class="comment_title_main">내가 작성한 후기</span>
+    </div>
+
+    <div id="container">
+
+      <ul class="tabs">
+
+          <li class="active" rel="tab1">나에 대한 후기</li>
+          <li rel="tab2">내가 작성한 후기</li>
+
+      </ul>
+
+      <div class="tab_container">
+          <div id="tab1" class="tab_content">
+
+              <ul>
+                  <li>
+                    <div class="tab_content_first">
+                      <div class="content_title"><span>테스트 탭1 ::: 지난 후기</span></div>
+                    </div>
+                  </li>
+
+              </ul>
+
+          </div>
+          <!-- #tab1 -->
+
+          <div id="tab2" class="tab_content">
+            <ul>
+                <li>
+                  <div class="hidden">
+                    <div class="tab_content_second">
+                      <div class="content_title">
+                        <span>테스트 탭2 ::: 작성해야 할 후기</span>
+                      </div>
+                    </div>
+                    <div class="tab_content_third">
+                      <div class="content_title">
+                        <span>테스트 탭3 ::: 내가 작성한 후기</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+            </ul>
+          </div>
+          <!-- #tab2 -->
+
+        </div>
+      <!-- .tab_container -->
+    </div>
+    <!-- #container -->
+
+    <!-- <div class="my_comment_title">
       <span class="comment_title_sub">프로필 &nbsp&nbsp > &nbsp&nbsp 후기</span><br><br>
       <span class="comment_title_main">내가 작성한 후기</span>
     </div>
@@ -44,7 +117,7 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
 
   </main>
 

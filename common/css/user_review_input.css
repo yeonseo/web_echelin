@@ -76,6 +76,7 @@
   outline: none;
   padding: 8px;
   box-shadow: 2px 2px 5px lightgray;
+  resize: none;
 }
 
 .textarea_form:focus{
@@ -100,6 +101,7 @@
   border-radius: 5px;
   background-color: gold;
   color: white;
+  cursor: pointer;
 }
 
 .comment_div_tag{
