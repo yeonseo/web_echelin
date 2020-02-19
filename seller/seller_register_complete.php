@@ -17,11 +17,15 @@
 
     <section>
       <div class="div_step">
-        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
+        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
         <span class="span_step_info">가게 등록 성공</span>
       </div>
 
       <progress value="100" max="100"></progress>
+
+      <div class="div_outside">
+        <img src="./image/flag.png" alt="">
+      </div>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">

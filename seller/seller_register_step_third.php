@@ -19,7 +19,7 @@
 
     <section>
       <div class="div_step">
-        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
+        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
         <span class="span_step_info">3단계 : 상세 정보를 입력해주세요.</span>
       </div>
 

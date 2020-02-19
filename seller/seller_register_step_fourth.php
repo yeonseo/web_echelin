@@ -17,7 +17,7 @@
 
     <section>
       <div class="div_step">
-        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
+        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
         <span class="span_step_info">4단계 : 손님을 맞이할 준비를 해주세요.</span>
       </div>
 

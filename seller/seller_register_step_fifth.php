@@ -19,7 +19,7 @@
 
     <section>
       <div class="div_step">
-        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
+        <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
         <span class="span_step_info">5단계 : 우리 식당을 해쉬태그로 표현해주세요.</span>
       </div>
 
@@ -40,7 +40,7 @@
 
               </div> <!-- div_except_button -->
               <div class="div_prv_next_button">
-                <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_complete.php'">다음</button>
+                <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_complete.php'">다음</button>
                 <button class="button_prev" type="button" name="button" onclick="location.href='./seller_register_step_fourth.php'">이전</button>
               </div>
             </form>
