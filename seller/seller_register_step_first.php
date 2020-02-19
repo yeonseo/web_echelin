@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css?ver=2">
-  </head>
-  <body class="body_margin">
-    <section>
+
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
         <span class="span_step_info">1단계 : 기본 사항을 입력해주세요.</span>
@@ -38,6 +29,3 @@
             </div>
           </div> <!-- div_register_inner_shape -->
       </div> <!--div_register_shape-->
-    </section>
-  </body>
-</html>
