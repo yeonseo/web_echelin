@@ -31,19 +31,13 @@
   border: 0px solid gold;
 }
 
-.button_show_map {
-  width: 100px;
-  height: 35px;
-  margin-left: 5px;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: gold;
-  border: 0px solid gold;
-}
-
 #div_map {
 /* position: relative; */
-z-index: 2;
+  z-index: 2;
+  width: 80%;
+  height: 350px;
+  margin-top: 15px;
+  margin-left: 30px;
 }
 
 .div_seller_info {
@@ -185,6 +179,16 @@ z-index: 2;
 .div_except_button ul li div:hover {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
 }
+
+
+/* 판매자 등록 성공 페이지 */
+.div_outside img {
+  width: 70%;
+  height: 350px;
+  /* margin-top: 15px; */
+  margin-left: 30px;
+}
+
 
 /* 판매자 정보 수정 페이지 */
 .div_seller_info ul {
