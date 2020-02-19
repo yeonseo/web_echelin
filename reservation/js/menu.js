@@ -17,8 +17,10 @@ var tableSelectMenu = document.getElementById('table_select_menu');
 
 showMene();
 //
-function clickMenuContent(index){
-  console.log('clickMenuContent index = '+index);
+function clickMenuContent(e){
+  var index=Number(e.currentTarget.id.substr(10));
+
+  console.log('select index = '+index);
   var trSelectContent = document.createElement('tr');
   var tdSelectTitle = document.createElement('td');
   var tdSelectPrice = document.createElement('td');
@@ -28,8 +30,9 @@ function clickMenuContent(index){
   trSelectContent.setAttribute('class', 'score_content_first');
   tdSelectTitle.innerHTML=menuTitle[index];
   tdSelectPrice.innerHTML=menuprice[index];
-
-
+  trSelectContent.appendChild(tdSelectTitle);
+  trSelectContent.appendChild(tdSelectPrice);
+  tableSelectMenu.appendChild(trSelectContent);
 }
 
 
@@ -64,9 +67,9 @@ function showMene(){
         divContentWrap.appendChild(divContent[i]);
     }
 
-    for(let i = 1; i < divContent.length; i++){
+    for(let i = 0; i < divContent.length; i++){
         divContent[i] = document.getElementById('divContent'+i);
-        divContent[i].addEventListener('click',clickMenuContent(i));
+        divContent[i].addEventListener('click',clickMenuContent)
 
           console.log('clickMenuContent');
     }
