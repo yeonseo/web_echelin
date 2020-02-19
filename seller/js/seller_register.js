@@ -3,8 +3,8 @@ $(document).ready(function(){
   var $button_add=$("#button_add"),//식당 메뉴 + 버튼 변수
   $div_add_input=$("#div_add_input"),  //input을 div_add_input 안에 넣기 위한 변수
   $table_menu=$("#table_menu"),  //테이블 변수
-  $div_radio=$("#div_radio") //브레이크타임 존재 시 보이는 input_time을 담는 div
-  ;
+  $div_radio=$("#div_radio"), //브레이크타임 존재 시 보이는 input_time을 담는 div
+  $button_hashtag_add=$("#button_hashtag_add");
 
   //브레이크 타임 있음 클릭 시 시간 선택 보이기
   $('input[name="break_time"]').click(function() {
@@ -62,32 +62,12 @@ $(document).ready(function(){
     //   $('#output').empty().append( '#'+camelCaseIt( text ) );
     // });
 
-    $('form').on('submit', function ( e ) {
-      e.preventDefault();
-      var text = $('#write_hashtag').val();
-      $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'<button class="button_x">'+'X'+'</button>'+'</div>');
-
-
-          // var hashgTag = $( "div[class=hashtag_output]:last" ); //last를 사용하여 trStaff라는 명을 가진 마지막 태그 호출
-          //
-          // hashgTag.after('#'+text); //마지막 trStaff명 뒤에 붙인다.
-
-
-
-
-
-
-
-
-
+    $button_hashtag_add.click(function(e){
+        e.preventDefault();
+        var text = $('#write_hashtag').val();
+        $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'&nbsp&nbsp'+'<button class="button_x">'+'<span class="span_x">x<span>'+'</button>'+'</div>');
     });
   });
-
-
-
-
-
-
 
 
 

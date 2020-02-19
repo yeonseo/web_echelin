@@ -1,3 +1,4 @@
+ <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,10 +6,17 @@
     <title></title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./js/seller_register.js"></script>
-    <link rel="stylesheet" href="../common/css/seller_register_step.css">
-    <link rel="stylesheet" href="../common/css/user_seller.css?ver=3">
+    <link rel="stylesheet" href="./css/seller_register_step.css">
+    <link rel="stylesheet" href="../common/css/user_seller.css">
+    <link rel="stylesheet" href="/echelin/common/css/common.css">
+    <link rel="stylesheet" href="/echelin/common/css/search.css">
   </head>
-  <body class="body_margin">
+  <body>
+
+    <header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
+
     <section>
       </div>
       <div class="div_step">
@@ -18,16 +26,13 @@
 
       <progress value="75" max="100">0%</progress>
       <div  class="div_outside">
-        <ul>
-          <li>#해쉬태그 만들기</li>
-        </ul>
-
-
         <form action="#">
           <p>
-            <label for="name">우리 식당 해쉬태그를 만들어보아요</label>
-            <input type="text" name="name" id="write_hashtag" placeholder="Your text">
-            <input type="submit" value="추가하기">
+            <span class="span_hashtag">#</span>
+            <span class="span_hashtag_intro">우리 식당 해쉬태그를 만들어보아요</span>
+            <input id="write_hashtag" class="input_hashtag" type="text" name="name" placeholder="#맛집 #분위기좋은 ">&nbsp&nbsp
+            <button id="button_hashtag_add" class="button_circle_add" type="button">+</button>
+            <!-- <input type="submit" value="추가하기"> -->
           </p>
         </form>
         <h3 id="hashtag_output"></h3>
@@ -103,5 +108,7 @@
         </div> <!-- div_register_inner_shape -->
       </div> <!--div_register_shape-->
     </section>
+
+
   </body>
 </html>
