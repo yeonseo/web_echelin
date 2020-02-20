@@ -33,7 +33,7 @@
           </div>
           <div class="box">
             <!-- 판매자정보수정 -->
-            <a href="#">업주정보관리</a>
+            <a href="http://localhost/echelin/admin/edit_seller.php">업주정보관리</a>
           </div>
           <div class="box">
             <!-- 문의게시판수정 -->
