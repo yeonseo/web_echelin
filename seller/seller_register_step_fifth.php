@@ -30,7 +30,6 @@
           <div class="div_form">
             <form class="" name="" action="" method="post">
               <div class="div_except_button">
-
                 <span class="span_hashtag">#</span>
                 <span class="span_hashtag_intro">우리 식당 해쉬태그를 만들어보아요</span>
                 <input id="write_hashtag" class="input_hashtag" type="text" name="name" placeholder="#맛집 #분위기좋은 ">&nbsp&nbsp
