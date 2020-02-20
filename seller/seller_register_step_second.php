@@ -17,7 +17,11 @@ $input_store_name = $_POST["input_store_name"];
     <link rel="stylesheet" href="/echelin/common/css/common.css">
     <link rel="stylesheet" href="/echelin/common/css/search.css">
     <script type="text/javascript">
+    var center;
+    var latitude;
+    var longitude;
       function showMap(address) {
+
         var mapContainer = document.getElementById('div_map'), // 지도를 표시할 div
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -44,16 +48,26 @@ $input_store_name = $_POST["input_store_name"];
                     position: coords
                 });
 
+
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+
+                center=map.getCenter();
+                latitude=center.getLat();
+                longitude=center.getLng();
+                console.log(latitude, longitude);
+                document.getElementById("lat").value=latitude;
+                document.getElementById("lon").value=longitude;
+
                 // 인포윈도우로 장소에 대한 설명을 표시합니다
                 var infowindow = new kakao.maps.InfoWindow({
                     content: '<div style="width:150px;text-align:center;padding:6px 0;"><? echo $input_store_name;?></div>'
                 });
                 infowindow.open(map, marker);
 
-                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                map.setCenter(coords);
 
                 mapContainer.css('display', ($(this).val() === 'true') ? 'block' : 'none');
+
             }
         });
       }
@@ -97,11 +111,15 @@ $input_store_name = $_POST["input_store_name"];
                   </br></br>
                   <input class="input_info" id="input_detailAddress" type="text" placeholder=" 예) 상가 2층에 위치해있습니다.">
                   </br></br>
+                  <input id="lat" type="text" name="lat" hidden>
+                  </br></br>
+                  <input id="lon" type="text" name="lon" hidden>
+                  </br></br>
 
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">
                   <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_third.php'">다음</button>
-                  <button class="button_prev" type="button" name="button" onclick="location.href='./seller_register_step_second.php'">이전</button>
+                  <button class="button_prev" type="button" name="button" onclick="location.href='./common_page.php'">이전</button>
                 </div>
               </form>
           </div>
