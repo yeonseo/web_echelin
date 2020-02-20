@@ -12,9 +12,12 @@ echo count($json_file_list) . '개 검색됨<br />';
 foreach ($json_file_list as $f) {
     echo $f . ' 시작 ... ';
     $json_file_dir = $dir . "/" . $f;
+    // $json_file_dir = $dir . "/" . "Dobong.json";
     $json_string = file_get_contents($json_file_dir);
     getJsonInsertDB($con, $json_string);
-    echo ' 완료 <br />';
+    echo ' 완료 ... ';
+    checkDoubleDataDel($con);
+    echo ' 중복데이터 제거 ... <br />';
 }
 
 function fileDir($dir, $f = null)
@@ -52,6 +55,34 @@ function fileDir($dir, $f = null)
 function checkJsonIsset($result_json, $i, $column_value)
 {
     return (isset($result_json["DATA"][$i][$column_value]) ? ("'" . addslashes($result_json["DATA"][$i][$column_value]) . "'") : "''") . ", ";
+}
+function checkDoubleDataDel($con)
+{
+    //A_TABLE 테이블에서 tel과 name값이 같은것이 1개 초과인것을 "c"라는 임시필드로 출력하기
+
+    $cnt_query = "SELECT `perm_nt_no`, COUNT( * ) AS c FROM `restaurants` GROUP BY  `perm_nt_no` HAVING c >1";
+
+    $cnt_result = $con->query($cnt_query);
+
+    $cnt = $cnt_result->fetch_array();
+
+    //"c"라는 임시필드 갯수만큼 루프돌리기
+
+    for ($i = 1; $i < $cnt['c']; $i++) {
+
+        //중복된 필드들을 삭제
+
+        $del_query = "delete from `restaurants` where `num` 
+            NOT IN (SELECT * from (SELECT MIN(`num`) FROM `restaurants` GROUP BY `perm_nt_no`) 
+            AS tempTable);";
+
+        $del_result = $con->query($del_query);
+        if ($del_result === TRUE) {
+            echo "<script>console.log('restaurants 테이블에 중복 데이터가 삭제 되었습니다.');</script>";
+        } else {
+            die('DB Delete data Error: ' . mysqli_error($con));
+        }
+    }
 }
 
 function getJsonInsertDB($con, $json_string)
