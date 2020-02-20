@@ -8,14 +8,14 @@
   </script>
 </head>
 <body>
-  <div class="best_score_content" id="divContentWrap">
-    <table id="table_select_menu" class="table_seller_menu">
-      <tr>
-        <th>메뉴</th>
-        <th>가격</th>
-        <th>수량</th>
-      </tr>
-      </table>
+  <div class="div_menu_content">
+    <div class="best_score_content" id="divContentWrap">
+      </div>
+  </div>
+
+<div id="myCartWrap" class="my_cart_wrap">
+    <span class="span_hashtag">#</span>
+    <span id="spanMyCart"class="span_hashtag_intro">장바구니</span>
 </div>
 </body>
 </html>
