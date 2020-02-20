@@ -11,28 +11,173 @@ var aTitleContent =[];
 var pTitleContent =[];
 var pPriceContent =[];
 var divContentWrap = document.getElementById('divContentWrap');
-var tableSelectMenu = document.getElementById('table_select_menu');
-
+var myCartWrap = document.getElementById('myCartWrap');
+var spanMyCart = document.getElementById('spanMyCart');
+var totalPrice =0;
+var menuProductCountPrice=[];
+var menuProductCount=[];
 //
-
+menuProductCountSetting();
 showMene();
 //
+
+function menuProductCountSetting(){
+  for(let i =0 ; i<menuImg.length;i++){
+    menuProductCountPrice[i]=0;
+    menuProductCount[i]=0;
+  }
+}
 function clickMenuContent(e){
   var index=Number(e.currentTarget.id.substr(10));
+  totalPrice+=menuprice[index];
 
   console.log('select index = '+index);
-  var trSelectContent = document.createElement('tr');
-  var tdSelectTitle = document.createElement('td');
-  var tdSelectPrice = document.createElement('td');
-  var tdSelectCount = document.createElement('td');
+  if(document.getElementById('divSelectContent'+index)){
+    menuProductCountPrice[index]+=menuprice[index];
+    menuProductCount[index]+=1;
+    var divSelectContent = document.getElementById('divSelectContent'+index);
+    var pAddPrice=document.getElementById('pAddPrice'+index);
+    var btnX=document.getElementById('btnX'+index);
 
-  trSelectContent.setAttribute('id', 'trSelectContent'+index);
-  trSelectContent.setAttribute('class', 'score_content_first');
-  tdSelectTitle.innerHTML=menuTitle[index];
-  tdSelectPrice.innerHTML=menuprice[index];
-  trSelectContent.appendChild(tdSelectTitle);
-  trSelectContent.appendChild(tdSelectPrice);
-  tableSelectMenu.appendChild(trSelectContent);
+    divSelectContent.removeChild(pAddPrice);
+    divSelectContent.removeChild(btnX);
+
+
+    if(document.getElementById('pAddTitle'+index)){
+      divSelectContent.removeChild(document.getElementById('pAddTitle'+index));
+    }
+    if(document.getElementById('btnMinas'+index)){
+      divSelectContent.removeChild(document.getElementById('btnMinas'+index));
+    }
+    if(document.getElementById('btnPlus'+index)){
+      divSelectContent.removeChild(document.getElementById('btnPlus'+index));
+    }
+    if(document.getElementById('pMenuProductCount'+index)){
+      divSelectContent.removeChild(document.getElementById('pMenuProductCount'+index));
+    }
+
+    // pAddPrice.innerHTML=menuTitle[index]+"&nbsp₩"+menuProductCountPrice[index]+"&nbsp";
+    console.log('if'+menuProductCountPrice[index]);
+    // myCartWrap.removeChild(divSelectContent);
+
+    var pAddPrice = document.createElement('p');
+    pAddPrice.setAttribute('id', 'pAddPrice'+index);
+    pAddPrice.setAttribute('class', 'p_add_price');
+    pAddPrice.innerHTML="&nbsp₩"+menuProductCountPrice[index]+"&nbsp";
+
+    var pAddTitle = document.createElement('p');
+    pAddTitle.setAttribute('id', 'pAddTitle'+index);
+    pAddTitle.setAttribute('class', 'p_add_price');
+    pAddTitle.innerHTML=menuTitle[index]+"&nbsp";
+
+    var pMenuProductCount = document.createElement('p');
+    pMenuProductCount.setAttribute('id', 'pMenuProductCount'+index);
+    pMenuProductCount.setAttribute('class', 'p_add_price');
+    pMenuProductCount.innerHTML="&nbsp"+menuProductCount[index]+"&nbsp";
+
+    var btnX = document.createElement('button');
+    btnX.setAttribute('id', 'btnX'+index);
+    btnX.setAttribute('class', 'button_x');
+    btnX.innerHTML='x';
+    btnX.addEventListener('click',function(){
+      totalPrice-=menuProductCountPrice[index];
+      menuProductCountPrice[index]=0;
+      menuProductCount[index]=0;
+      console.log("menuProductCountPrice[" +index+ "]  =  "+menuProductCountPrice[index]);
+      spanMyCart.innerHTML="장바구니 ₩"+totalPrice;
+      myCartWrap.removeChild(document.getElementById('divSelectContent'+index));
+    });
+
+    var btnPlus = document.createElement('button');
+    btnPlus.setAttribute('id', 'btnPlus'+index);
+    btnPlus.setAttribute('class', 'button_x');
+    btnPlus.innerHTML='+';
+    btnPlus.addEventListener('click',function(){
+      menuProductCountPrice[index]+=menuprice[index];
+      totalPrice+=menuprice[index];
+      menuProductCount[index]+=1;
+      pAddPrice.innerHTML="&nbsp₩"+menuProductCountPrice[index]+"&nbsp";
+      spanMyCart.innerHTML="장바구니 ₩"+totalPrice;
+      pMenuProductCount.innerHTML="&nbsp"+menuProductCount[index]+"&nbsp";
+      console.log('plus menuProductCount[index]===0  menuProductCount[index]= '+menuProductCount[index]);
+    });
+
+    var btnMinas = document.createElement('button');
+    btnMinas.setAttribute('id', 'btnMinas'+index);
+    btnMinas.setAttribute('class', 'button_x');
+    btnMinas.innerHTML='-';
+    btnMinas.addEventListener('click',function(){
+      menuProductCountPrice[index]-=menuprice[index];
+      console.log("menuProductCountPrice[" +index+ "]  =  "+menuProductCountPrice[index]);
+      totalPrice-=menuprice[index];
+      menuProductCount[index]-=1;
+      spanMyCart.innerHTML="장바구니 ₩"+totalPrice;
+      pAddPrice.innerHTML="&nbsp₩"+menuProductCountPrice[index]+"&nbsp";
+      if(menuProductCount[index]===1){
+        if(document.getElementById('btnMinas'+index)){
+          divSelectContent.removeChild(document.getElementById('btnMinas'+index));
+        }
+        if(document.getElementById('btnPlus'+index)){
+          divSelectContent.removeChild(document.getElementById('btnPlus'+index));
+        }
+        if(document.getElementById('pMenuProductCount'+index)){
+          divSelectContent.removeChild(document.getElementById('pMenuProductCount'+index));
+        }
+      }else{
+        pMenuProductCount.innerHTML="&nbsp"+menuProductCount[index]+"&nbsp";
+        console.log('minas menuProductCount[index]===0 else menuProductCount[index]= '+menuProductCount[index]);
+      }
+    });
+    divSelectContent.appendChild(pAddTitle);
+    divSelectContent.appendChild(btnPlus);
+    divSelectContent.appendChild(pMenuProductCount);
+    divSelectContent.appendChild(btnMinas);
+    divSelectContent.appendChild(pAddPrice);
+    divSelectContent.appendChild(btnX);
+  }else{
+      menuProductCountPrice[index]+=menuprice[index];
+      menuProductCount[index]+=1;
+      var divSelectContent = document.createElement('div');
+      divSelectContent.setAttribute('id', 'divSelectContent'+index);
+      divSelectContent.setAttribute('class', 'div_hashtag');
+      var pAddPrice = document.createElement('p');
+      pAddPrice.setAttribute('id', 'pAddPrice'+index);
+      pAddPrice.setAttribute('class', 'p_add_price');
+      pAddPrice.innerHTML=menuTitle[index]+"&nbsp₩"+menuprice[index]+"&nbsp";
+      divSelectContent.appendChild(pAddPrice);
+
+      var btnX = document.createElement('button');
+      btnX.setAttribute('id', 'btnX'+index);
+      btnX.setAttribute('class', 'button_x');
+      btnX.innerHTML='x';
+      btnX.addEventListener('click',function(){
+        totalPrice-=menuProductCountPrice[index];
+        menuProductCountPrice[index]=0;
+        menuProductCount[index]=0;
+        console.log("menuProductCountPrice[" +index+ "]  =  "+menuProductCountPrice[index]);
+        spanMyCart.innerHTML="장바구니 ₩"+totalPrice;
+        myCartWrap.removeChild(document.getElementById('divSelectContent'+index));
+      });
+      divSelectContent.appendChild(btnX);
+      console.log('else');
+      myCartWrap.appendChild(divSelectContent);
+  }
+
+
+  spanMyCart.innerHTML="장바구니 ₩"+totalPrice;
+  //
+  // var trSelectContent = document.createElement('tr');
+  // var tdSelectTitle = document.createElement('td');
+  // var tdSelectPrice = document.createElement('td');
+  // var tdSelectCount = document.createElement('td');
+  //
+  // trSelectContent.setAttribute('id', 'trSelectContent'+index);
+  // trSelectContent.setAttribute('class', 'score_content_first');
+  // tdSelectTitle.innerHTML=menuTitle[index];
+  // tdSelectPrice.innerHTML=menuprice[index];
+  // trSelectContent.appendChild(tdSelectTitle);
+  // trSelectContent.appendChild(tdSelectPrice);
+  // tableSelectMenu.appendChild(trSelectContent);
 }
 
 
@@ -69,8 +214,8 @@ function showMene(){
 
     for(let i = 0; i < divContent.length; i++){
         divContent[i] = document.getElementById('divContent'+i);
-        divContent[i].addEventListener('click',clickMenuContent)
+        divContent[i].addEventListener('click',clickMenuContent);
 
-          console.log('clickMenuContent');
+        console.log('clickMenuContent');
     }
 }

@@ -158,3 +158,12 @@ progress {
 .div_menu_content{
   width: 70%;
 }
+.my_cart_wrap{
+  width: 30%;
+  float: right;
+
+}
+.p_add_price{
+  display: inline-block;
+  position: relative;
+}

@@ -261,7 +261,7 @@ function reshowingList(){
         var $div = document.createElement('div');
         for(var i = 0; i < todoList[keyValue].length; i++){
             var $div = document.createElement('div');
-            $div.textContent = '-' + todoList[keyValue][i];
+            $div.textContent =todoList[keyValue][i];
             var $btn = document.createElement('button');
             $btn.setAttribute('type', 'button');
             $btn.setAttribute('id', 'del-ata');
@@ -276,6 +276,7 @@ function reshowingList(){
             function deleteTodo(){
                 $div.remove();
                 $btn.remove();
+                todoList[keyValue].pop();
             }
         }
     }
@@ -291,7 +292,7 @@ var keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate()
 let todoList = [];
 todoList[keyValue] = [];
 function addTodoList(){
-    var $div = document.createElement('div');
+var $div = document.createElement('div');
     if(typeof clickedTime == "undefined"){
       alert("예약시간을 선택해주세요");
       return false;
@@ -310,15 +311,23 @@ function addTodoList(){
       }
     }
 
+    if(document.getElementById('divReservationSelectTime'+(keyValue))){
+      (document.getElementById('divReservationSelectTime'+(keyValue))).remove();
+      todoList[keyValue].pop();
+    }
+    console.log(document.getElementById("btn"+keyValue));
+    if(document.getElementById("btn"+keyValue)){
+      (document.getElementById("btn"+keyValue)).remove();
+    }
+    $div.setAttribute('id', 'divReservationSelectTime'+keyValue);
     var $btn = document.createElement('button');
     $btn.setAttribute('type', 'button');
-    $btn.setAttribute('id', 'del-ata');
-    $btn.setAttribute('id', dataCnt+keyValue);
+    $btn.setAttribute('id', "btn"+keyValue);
     $btn.setAttribute('class', "del-data");
     $btn.textContent = delText;
     inputList.appendChild($div);
     inputList.appendChild($btn);
-    todoList[keyValue].push(inputBox.value);
+    todoList[keyValue].push(clickedTime.textContent+' - ' + inputBox.value+'명');
     dataCnt++;
     inputBox.value = '';
     $div.addEventListener('click',checkList);
@@ -326,6 +335,7 @@ function addTodoList(){
     function deleteTodo(){
         $div.remove();
         $btn.remove();
+        todoList[keyValue].pop();
     }
 }
 console.log(keyValue);
