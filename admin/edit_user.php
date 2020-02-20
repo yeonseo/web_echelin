@@ -68,10 +68,11 @@
             $find = test_input($_POST["find"]);
             $search = test_input($_POST["search"]);
             $member_search = mysqli_real_escape_string($con,$search);
-            $sql = "select * from members where like '%$member_search%' order by num desc";
+            $sql = "select * from members where $find like '%$member_search%' order by num desc";
           }else{
             $sql = "select * from members order by num desc";
           }
+
           $result = mysqli_query($con, $sql);
           $total_record = mysqli_num_rows($result);
           $number = $total_record;
