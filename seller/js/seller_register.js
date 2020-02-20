@@ -28,8 +28,14 @@ $(document).ready(function(){
         '    </td>'+
         '    <td>'+
         '        <input type="file" name="" value="">'+
-        '        <button class="" name="button_del">삭제</button>'
         '    </td>'+
+        '    <td>'+
+        '        <input type="text" name="" placeholder="메뉴 설명">'+
+        '    </td>'+
+        '    <td class="td_button_del">'+
+        '        <button class="button_circle_del" name="button_del">-</button>'+
+        '    </td>'+
+
         '</tr>';
 
 
@@ -39,7 +45,6 @@ $(document).ready(function(){
   });
 
   //삭제 버튼
-
   $(document).on("click","button[name=button_del]",function(){
 
       $(this).parent().parent().remove();

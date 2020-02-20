@@ -32,56 +32,149 @@
               <div class="div_except_button">
                 <ul>
                   <li>식당소개글</li>
-                  <textarea name="name" rows="8" cols="74" style="resize: none;"></textarea>
-                  </br></br>
+                  <textarea class="textarea_step2" name="name" rows="8" cols="74" style="resize: none;"></textarea>
+                  </br></br></br>
 
-                  <li id="li_menu">식당 메뉴</li>
+                  <li id="li_menu">메뉴 추가하기</li>
                   <button id="button_add" class="button_circle_add" type="button">+</button>
                   <br>
                   <br>
                   <table class="table_seller_menu" border="1">
                       <tbody>
                           <tr>
-                            <th>메뉴</th>
-                            <th>가격</th>
-                            <th>사진</th>
+                            <th class="th_menu">메뉴</th>
+                            <th class="th_menu">가격</th>
+                            <th class="th_menu">사진</th>
+                            <th class="th_menu">설명</th>
+                            <th class="th_menu_del"></th>
                           </tr>
 
-                          <tr name="tr_menu">
-                            <td><input type="text" name="" placeholder="메뉴이름"></td>
-                            <td><input type="number" name="" placeholder="가격"></td>
-                            <td><input type="file" name="" value=""></td>
+                          <tr class="tr_menu" name="tr_menu">
+                            <td class="td_menu"><input type="text" name="" placeholder="메뉴이름"></td>
+                            <td class="td_menu"><input type="number" name="" placeholder="가격"></td>
+                            <td class="td_menu"><input type="file" name="" value=""></td>
+                            <td class="td_menu"><input type="text" name=""></td>
+                            <td class="td_button_del"><input type="text" name=""></td>
                           </tr>
                       </tbody>
                   </table>
-                 </br></br>
+                 </br></br></br>
+
+                 <li>영업시간</li>
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">월</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">화</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">수</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">목</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">금</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">토</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">일</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+                   </br></br></br>
 
 
-                  <li>브레이크타임 정보</li>
-                    <input type="radio" name="break_time" value="true">있음
-                    <input type="radio" name="break_time" value="false">없음
-                    <div id="div_radio" hidden>
-                      <input id="ccc"type="time" name="" value="">&nbsp-
-                      <input type="time" name="" value="">
-                    </div>
+                 <li>브레이크타임 정보</li>
+                  <input type="radio" name="break_time" value="true">
+                  <span class="span_content_font">있음</span>
+                  <input type="radio" name="break_time" value="false">
+                  <span class="span_content_font">없음</span>
+                  <div id="div_radio" hidden>
+                    <input id="ccc" class="input_date_time" type="time" name="" value="">&nbsp-
+                    <input class="input_date_time" type="time" name="" value="">
+                  </div>
+                  </br></br></br>
 
-                    </br></br>
+                  <li>휴무일</li>
+                  <textarea class="textarea_step2" name="name" rows="4" cols="74" style="resize: none;"></textarea>
+                   </br></br></br>
+
 
                   <li>식당 편의시설</li>
-                    <input type="checkbox" name="" value="">식당 내부 화장실
-                    <input type="checkbox" name="" value="">건물 화장실 이용</br>
-                    <input type="checkbox" name="" value="">자전거 거치대
-                    <input type="checkbox" name="" value="">아기 의자
-                    <input type="checkbox" name="checkbox_etc" value="">기타
-                    <input id="input_etc" type="text" name="" value="기타 클릭 시 input 활성화" disabled>
-                    </br></br>
+                    <input type="checkbox" name="" value="">
+                    <span class="span_content_font">식당 내부 화장실</span></br>
+                    <input type="checkbox" name="" value="">
+                    <span class="span_content_font">건물 내부 화장실</span></br>
+                    <input type="checkbox" name="" value="">
+                    <span class="span_content_font">자전거 거치대</span></br>
+                    <input type="checkbox" name="" value="">
+                    <span class="span_content_font">아기 의자</span></br>
+                    <input type="checkbox" name="" value="">
+                    <span class="span_content_font">장애인 시설</span></br>
+                    <input type="checkbox" name="" value="">
+                    <span class="span_content_font">놀이시설</span></br>
+                    <input type="checkbox" name="checkbox_etc" value="">
+                    <span class="span_content_font">수유방</span></br>
+                    <input type="checkbox" name="checkbox_etc" value="">
+                    <span class="span_content_font">기타</span>
+                    <input id="input_etc" type="text" name="" value="" disabled>
+                    </br></br></br>
 
-                  <li>식당 사진</li>
+                  <li>식당 전화번호</li>
+                  <span class="span_content_font">손님이 문의할 수 있는 식당 대표번호를 적어주세요.</span></br>
+                  <select class="input_date_time" name="">
+                    <option value="">02</option>
+                    <option value="">010</option>
+                    <option value="">031</option>
+                    <option value="">032</option>
+                    <option value="">033</option>
+                    <option value="">041</option>
+                    <option value="">042</option>
+                    <option value="">043</option>
+                    <option value="">044</option>
+                    <option value="">051</option>
+                    <option value="">052</option>
+                    <option value="">053</option>
+                    <option value="">054</option>
+                    <option value="">055</option>
+                    <option value="">061</option>
+                    <option value="">062</option>
+                    <option value="">063</option>
+                    <option value="">064</option>
+                  </select>
+                  -
+                  <input class="input_phone" type="number" name="" value="">
+                  -
+                  <input class="input_phone" type="number" name="" value="">
+                  </br></br></br>
+
+
+                  <li>식당 외/내부 사진</li>
                     <input type="file" name="" value="">
-                    </br></br>
+                    </br></br></br>
+
+
+                  <li>개업일</li>
+                    <input class="input_date_time" type="date" name="" value="">
+                    </br></br></br>
 
                   <li>특이사항</li>
-                    <textarea name="name" rows="8" cols="74" style="resize: none;"></textarea>
+                    <textarea class="textarea_step2" name="name" rows="8" cols="74" style="resize: none;"></textarea>
+                    </br></br></br></br>
 
 
                 </ul>
