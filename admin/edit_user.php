@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
   <title> <?= COMMON::$title; ?> </title>
-
 
   <!-- CSS, JS 파일 링크 시, -->
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
@@ -23,7 +21,7 @@
 <body>
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
   <header>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
   </header>
   <section>
     <div class="admin_content">
@@ -32,7 +30,23 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/left_menu.php" ?>
       </div>
       <div class="right_content">
-        <h3>유저정보수정</h3>
+        <h3>유저정보수정
+          <form class="" action="edit_user.php?mode=search" method="post">
+
+              <select name="find">
+                <option value="id">아이디</option>
+                <option value="id">이름</option>
+                <option value="id">이메일</option>
+              </select>
+
+
+              <input type="text" name="search" value="">
+
+
+              <input type="image" src="./img/search_icon.png">
+
+          </form>
+        </h3>
         <ul id="member_list">
           <li>
             <span class="col1">번호</span>
@@ -47,8 +61,17 @@
             <span class="col10">삭제</span>
           </li>
           <?php
+          $find=$search=$member_search="";
+
           $con = mysqli_connect("localhost", "root", "123456", "echelin");
-          $sql = "select * from members order by num desc";
+          if(isset($_GET["mode"])&&$_GET["mode"]=="search"){
+            $find = test_input($_POST["find"]);
+            $search = test_input($_POST["search"]);
+            $member_search = mysqli_real_escape_string($con,$search);
+            $sql = "select * from members where like '%$member_search%' order by num desc";
+          }else{
+            $sql = "select * from members order by num desc";
+          }
           $result = mysqli_query($con, $sql);
           $total_record = mysqli_num_rows($result);
           $number = $total_record;
