@@ -6,3 +6,4 @@ include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table_base.
 create_table($con, $dbname, 'members');
 create_table($con, $dbname, 'message');
 create_table($con, $dbname, 'board');
+create_table($con, $dbname, 'restaurants');
