@@ -8,11 +8,11 @@ html, body{
     border: 4px solid rgba(161, 161, 161, 0.5);
     border-radius: 20px;
     overflow: hidden;
-    background: DARKORANGE;
+    background: GOLD;
   }
   .content-left{
     background: white;
-    color:DARKORANGE;
+    color:GOLD;
     float: left;
     width: 360px;
     height: 600px;
@@ -43,12 +43,12 @@ html, body{
     width: 70%;
     height: auto;
     background: white;
-    color: DARKORANGE;
+    color: GOLD;
     line-height : normal;
     padding: .8em .5em 0 0;
     font-family: inherit;
     border: 0;
-    border-bottom: 1px dashed DARKORANGE;;
+    border-bottom: 1px dashed GOLD;;
     border-radius: 0;
     outline-style: none;
     -webkit-appearance: none;
@@ -60,7 +60,7 @@ html, body{
     font-size: 10px;
     padding: 10px;
     margin: 20px 0 30px 0;
-    background: DARKORANGE;
+    background: GOLD;
     border: none;
     color: white;
     border-radius: 10px;
@@ -73,11 +73,11 @@ html, body{
     font-size: 15px;
     width: 60%;
     float: left;
-    color: DARKORANGE;
+    color: GOLD;
   }
   .del-data{
     display: block;
-    color: DARKORANGE;
+    color: GOLD;
     float: left;
     width: 10%;
     cursor: pointer;
@@ -112,7 +112,7 @@ html, body{
     color: ORANGERED;
   }
   .active2{
-    background: DARKORANGE;
+    background: GOLD;
     color: white;
   }
 }
