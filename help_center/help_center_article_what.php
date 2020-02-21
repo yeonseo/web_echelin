@@ -74,28 +74,6 @@
 
         </div> <!-- end of css_card_menu_row -->
 
-
-
-        <div class="<?= COMMON::$css_card_menu_row; ?>">
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="far fa-id-card"></i>
-            </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">NAME</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충</div>
-          </button>
-
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="far fa-id-card"></i>
-            </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">NAME</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충</div>
-          </button>
-
-        </div> <!-- end of css_card_menu_row -->
-
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php"; ?>
       </div><!-- end of right_content -->
   </section>
   <footer>
