@@ -18,8 +18,13 @@
                       <input class="input_info" type="text" name="input_store_name" value="">
                     </br></br>
                     <li>사업자등록번호를 등록해주세요</li>
-                      <input class="input_info" type="text" name="" value="">
-                      <button class="button_find_add_comp" type="button" name="button">찾기</button>
+                      <input id="input_business_license" class="input_info" type="number" name="input_business_license" value="">
+                      <button id="button_business_find" class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
+                      <div id="div_state" class="div_state">
+
+
+                      </div>
+
                   </ul>
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">

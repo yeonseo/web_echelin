@@ -73,7 +73,25 @@ $(document).ready(function(){
         $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'&nbsp&nbsp'+'<button class="button_x">'+'<span class="span_x">x<span>'+'</button>'+'</div>');
     });
   });
-
-
-
 });// end of ready
+
+
+//사업자 등록번호 등록
+function businessLicense() {
+  // var input_business_license=document.getElementById("input_business_license").value;
+  var div_state=document.getElementById("div_state");
+     $.ajax({
+         type: 'POST',
+         // url: 'seller_business_license.php',
+         url: 'seller_business_license.php',
+         success: function (response) {
+           switch(response) {
+             case 'normal' : div_state.innerHTML="현재상태 : 사업중"; break;
+             case 'down' : div_state.innerHTML="현재상태 : 휴업"; break;
+             case 'close' : div_state.innerHTML="현재상태 : 폐업"; break;
+             case 'unregistered' : div_state.innerHTML="현재상태 : 미등록"; break;
+             default : div_state.innerHTML="현재상태 : 알 수 없음"; break;
+           }
+         },
+     });
+}

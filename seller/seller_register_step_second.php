@@ -1,6 +1,8 @@
 <?php
 $input_store_name = $_POST["input_store_name"];
-// echo "console.log($input_store_name)";
+$input_business_license = $_POST["input_business_license"];
+echo "console.log($input_store_name)";
+echo "console.log($input_business_license)";
  ?>
  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
