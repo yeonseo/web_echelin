@@ -18,7 +18,16 @@ header { margin-bottom: 60px; }
 ul{ list-style: none; }
 .header_main_menu { font-family: 'NanumSquare', sans-serif; font-size: 1.2rem;}
 .header_menu { margin-top: 1rem; }
+.keywords{
+  width: 800px;
+}
+.keywords li{
 
+  display: inline-block;
+  border: 1px solid lightGray;
+  padding: 5px;
+  margin: 5px;
+}
 /* my info page */
 .my_info_content{
     margin: 15px;

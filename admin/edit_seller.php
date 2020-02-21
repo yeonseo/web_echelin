@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
   <title> <?= COMMON::$title; ?> </title>
-
   <!-- CSS, JS 파일 링크 시, -->
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main.css">
@@ -30,7 +29,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/left_menu.php" ?>
       </div>
       <div class="right_content">
-        <h3>유저정보수정
+        <h3>업주정보수정
           <form class="" action="edit_user.php?mode=search" method="post">
 
               <select name="find">
