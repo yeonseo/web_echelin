@@ -23,6 +23,15 @@
           url: '/v2/user/me',
           success: function(res) {
             alert(JSON.stringify(res));
+
+        // var email = naverLogin.user.getEmail();
+	  	  // var name = naverLogin.user.getName();
+	  	  // var profileImage = naverLogin.user.getProfileImage();
+        // var birthday = naverLogin.user.getBirthday();
+        // var age = naverLogin.user.getAge();
+
+        
+            
           },
           fail: function(error) {
             alert(JSON.stringify(error));
@@ -63,23 +72,4 @@
 
 
 
-
-
-<!--<?
-$restAPIKey="29c57ccb4fd8b583b3058cd512a7d804"; // Rest API키
-$callbacURI =urlencode("http://localhost/Final_project/kakao_call.php");
-$kakaoLoginUrl = "https://kauth.kakao.com/oauth/authorize?client_id=".$restAPIKey."&redirect_uri=".$callbacURI."&response_type=code";
-?>
-<!DOCTYPE html>
-<html>
- <head>
-  <meta charset="utf-8"/>
- </head>
- 
- <body>
-  <a href="<?= $kakaoLoginUrl ?>">
-   카카오톡으로 로그인
-  </a>
- </body>
-</html> -->
 
