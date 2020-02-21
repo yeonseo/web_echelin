@@ -30,33 +30,32 @@
               <div class="div_except_button">
                 <ul>
                   <li>최대 예약 가능 인원을 적어주세요.</li>
-                  <input  class="input_info" type="text" name="" value="">&nbsp명
-                  </br></br>
+                  <input class="input_people" type="number" name="" value="">&nbsp명
+                  </br></br></br>
 
-                  <li>예약 가능한 시간을 설정해주세요.</li>
-                  <input type="time" name="" value="">&nbsp-
-                  <input type="time" name="" value="">
-                  </br></br>
+                  <li>사용자가 예약할 수 있는 최대 개월 수를 설정해주세요.</li>
+                    <input type="radio" name="" value="">
+                    <span class="span_content_font">1개월</span>&nbsp&nbsp
+                    <input type="radio" name="" value="">
+                    <span class="span_content_font">2개월</span>&nbsp&nbsp
+                    <input type="radio" name="" value="">
+                    <span class="span_content_font">3개월</span>
+                  </br></br></br>
 
-                  <li>예약 가능한 기간을 설정해주세요.</li>
-                  <input type="date" name="" value="">&nbsp-
-                  <input type="date" name="" value="">
-                  </br></br>
+                  <li>예약 규정 강도를 설정해주세요</li>
+                  <input type="radio" name="" value="">
+                  <span class="span_content_font">상</span>&nbsp&nbsp
+                  <input type="radio" name="" value="">
+                  <span class="span_content_font">중</span>&nbsp&nbsp
+                  <input type="radio" name="" value="">
+                  <span class="span_content_font">하</span></br>
+                  <div class="div_strength">
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 사용자가 방문하기 1주전에 취소시 전액 환불 가능합니다.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp중 : 사용자가 방문하기 4일전에 취소 시 50% 환불 가능합니다.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp하 : 사용자가 방문하기 4일전에 취소 시 50% 환불 가능합니다.</span></br>
+                  </div>
+                  </br></br></br></br>
 
-                  <li>환불 규정 강도</li>
-                  <input type="date" name="" value="">&nbsp-
-                  <input type="date" name="" value="">
-                  </br></br>
-
-                  <li>개업일자</li>
-                  <input type="date" name="" value="">&nbsp-
-                  <input type="date" name="" value="">
-                  </br></br>
-
-                  <li>휴무일</li>
-                  <input type="date" name="" value="">&nbsp-
-                  <input type="date" name="" value="">
-                  </br></br>
                 </ul>
               </div> <!-- div_except_button -->
               <div class="div_prv_next_button">

@@ -1,0 +1,81 @@
+/* *::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;} */
+.singup_form{
+    width: 1000px;
+    display: inline-block;
+    position: relative !important;
+
+}
+.singup_web{
+}
+.singup_web4{
+    padding-left: 62px !important;
+    padding-right: 24px !important;
+    margin: 0px !important;
+    border: 1px solid #e4e4e4 !important;
+    background-color: #ffffff !important
+}
+.email_form{
+     overflow: hidden;
+    text-align: center;
+}
+.view_line{
+    padding-bottom: var(--spacing-rule-text-vertical, 16px) !important;
+    padding-top: var(--spacing-rule-text-vertical, 16px) !important;
+    padding-left: var(--spacing-rule-text-horizontal, 16px) !important;
+    padding-right: var(--spacing-rule-text-horizontal, 16px) !important;
+}
+.view_or{
+    margin: 0px !important;
+    word-wrap: break-word !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.2857142857142858em !important;
+    color: #767676 !important;
+}
+.view_line::before{
+    border-bottom-width: var(--border-rule-border-width, 1px) !important;
+    border-bottom-color: var(--color-panel-border, red) !important;
+    content: '' !important;
+    position: absolute !important;
+    border-bottom-style: 3px solid red !important;
+    top: 50% !important;
+    right: 100% !important;
+    width: 5000px !important;
+
+}
+.view_line::after{
+    border-bottom-width: var(--border-rule-border-width, 10px) !important;
+    border-bottom-color: var(--color-panel-border, #e4e4e4) !important;
+    content: '' !important;
+    position: absolute !important;
+    border-bottom-style: 3px solid red !important;
+    top: 50% !important;
+    right: 100% !important;
+    width: 5000px !important;
+}
+.echelin_email{
+    border-radius: 9px;
+    background:  #FF5A5F;
+    color:  white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    padding-bottom: 8px;
+    padding-top: 6px;
+    margin: 10px;
+}
+.echelin_bottom{
+    margin-bottom: 3px;
+    margin-top: -75px;
+    padding: 5px;
+    border-top: 1px solid lightgray;
+    font-size: 18px;
+    /* border-bottom: 3px solid gray; */
+}
+.location_login{
+    color: var(--color-text-link, #008489) !important;
+    font-family: var(--font-font_family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-decoration: var(--font-link-text-decoration, none) !important;
+}
