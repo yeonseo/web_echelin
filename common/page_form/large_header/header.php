@@ -18,7 +18,7 @@ else $userpoint = "";
                 <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/search/index_search.php">검색</a></li>
                 <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">로그인</a></li>
                 <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_join_main.php">회원가입</a></li>
-                <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">도움말</a></li>
+                <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/help_center/help_center_main.php">도움말</a></li>
             </ul>
         </div>
 
