@@ -18,8 +18,6 @@
                       <?php include "kakao.php"; ?>
                       <?php include "google_login.php"; ?>
                     </form>
-
-
                     <div style="margin-top: 16px; margin-bottom:16px">
                       <div class="email_form">
                         <span class="view_line">
