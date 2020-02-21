@@ -1,15 +1,18 @@
 /* *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;} */
 .singup_form{
-    width: 1000px;
+    width: 500px;
     display: inline-block;
     position: relative !important;
-
 }
 .singup_web{
+    padding: 0px;
+    float: right;
+    left: 5px;
 }
+
 .singup_web4{
-    padding-left: 62px !important;
+    padding-left: 24px !important;
     padding-right: 24px !important;
     margin: 0px !important;
     border: 1px solid #e4e4e4 !important;
