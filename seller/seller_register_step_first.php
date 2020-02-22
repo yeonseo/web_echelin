@@ -19,7 +19,8 @@
                     </br></br>
                     <li>사업자등록번호를 등록해주세요</li>
                       <input id="input_business_license" class="input_info" type="number" name="input_business_license" value="">
-                      <button id="button_business_find" class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
+                      <button class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
+                      <!-- <input type="button" name="" value="등록" onclick="businessLicense()"> -->
                       <div id="div_state" class="div_state">
 
 

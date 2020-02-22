@@ -73,18 +73,55 @@ $(document).ready(function(){
         $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'&nbsp&nbsp'+'<button class="button_x">'+'<span class="span_x">x<span>'+'</button>'+'</div>');
     });
   });
+
+
+  $("#button_business_state").click(function() {
+    $("form").attr("action", "../seller_business_license.php");
+  });
+
+
+
+
+
+
+
+
+
+
+
 });// end of ready
 
 
+// function test() {
+//   // var input_business_license=document.getElementById("input_business_license").value;
+//   var str = $("input[name=input_business_license]").serialize();
+//   $.ajax({
+//       type: 'POSt',
+//       url: 'test.php',
+//       data : str,
+//       success: function (response) {
+//         alert(response);
+//       },
+//   });
+//
+// }
+
 //사업자 등록번호 등록
 function businessLicense() {
-  // var input_business_license=document.getElementById("input_business_license").value;
+  var input_business_license = document.getElementById("input_business_license").value;
+  var business_number = $("input[name=input_business_license]").serialize();
   var div_state=document.getElementById("div_state");
+  if(input_business_license ==="") {
+    // input_business_license.innerHTML="번호를 입력해주세요.";
+    alert("입력먼저");
+  }
      $.ajax({
          type: 'POST',
          // url: 'seller_business_license.php',
          url: 'seller_business_license.php',
+         data : business_number,
          success: function (response) {
+           // alert(response);
            switch(response) {
              case 'normal' : div_state.innerHTML="현재상태 : 사업중"; break;
              case 'down' : div_state.innerHTML="현재상태 : 휴업"; break;
