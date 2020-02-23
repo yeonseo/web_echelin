@@ -39,14 +39,14 @@ var div_hash_tag = document.getElementById("div_hash_tag");
 var div_except_button = document.getElementById("div_except_button");
 var div_hash_content =[];
 var span_hash_content = [];
-var button_x = [];
+var button_o = [];
 showHashTag();
 
   function showHashTag() {
     for(let i = 0; i < hash_tag.length; i++){
       div_hash_content[i]=document.createElement('div');
       span_hash_content[i]=document.createElement('span');
-      button_x[i]=document.createElement('button');
+      button_o[i]=document.createElement('button');
 
       div_hash_content[i].setAttribute('id', 'hashtag'+i);
       div_hash_content[i].setAttribute('class', 'div_hash_content');
@@ -54,11 +54,11 @@ showHashTag();
       span_hash_content[i].setAttribute('id', 'span_hash_content'+i);
       span_hash_content[i].innerHTML=hash_tag[i];
 
-      button_x[i].setAttribute('class', 'button_x');
-      button_x[i].innerHTML="x";
+      button_o[i].setAttribute('class', 'button_x');
+      button_o[i].innerHTML="+";
 
       div_hash_content[i].appendChild(span_hash_content[i]);
-      div_hash_content[i].appendChild(button_x[i]);
+      div_hash_content[i].appendChild(button_o[i]);
 
       div_hash_tag.appendChild(div_hash_content[i]);
 
