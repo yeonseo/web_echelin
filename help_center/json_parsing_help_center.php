@@ -80,9 +80,7 @@ function getJsonData($json_string)
     echo ">
       <button class=";
     print COMMON::$css_card_menu_btn;
-    echo " type='button' onclick='location.href='http\://";
-    $_SERVER['HTTP_HOST'];
-    echo "/echelin/index.php''>
+    echo " type='button' onclick='location.href=\"http\://" . $_SERVER['HTTP_HOST'] . "/echelin/index.php\"'>
         <div class=";
     print COMMON::$css_card_menu_btn_icon;
     echo ">
