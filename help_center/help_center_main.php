@@ -54,48 +54,10 @@
 
         <h2>에슐랭에 처음 오셨나요?</h2>
         <h3>도움이 될 만한 게시글을 확인해보세요.</h3>
-        <div class="<?= COMMON::$css_card_menu_row; ?>">
 
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="fas fa-utensils"></i>
-            </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">긴급 상황이나 불가피한 상황으로 인해 취소해야 하는 경우에는 어떻게 하나요?</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">예기치 않은 불가피한 상황으로 예약을 취소해야 한다면 예약금을 환불하거나 취소 페널티를 면제해 드릴 수 있습니다. 에어비앤비의 '정상참작이 가능한 상황' 정책이 적용되는 경우는 아래와 같습니다. 예약을 취소하기 전에 본인의 상황이 아래 목록에 포함되어 있는지 검토하고, 필요한 증빙 서류를 제출할 수 있는지 확인해보세요.</div>
-          </button>
-
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="far fa-id-card"></i>
-            </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">NAME</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충</div>
-          </button>
-
-        </div> <!-- end of css_card_menu_row -->
-
-
-
-        <div class="<?= COMMON::$css_card_menu_row; ?>">
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="far fa-id-card"></i>
-            </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">NAME</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충</div>
-          </button>
-
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="far fa-id-card"></i>
-            </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">NAME</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충</div>
-          </button>
-
-        </div> <!-- end of css_card_menu_row -->
-
+        <!-- 도움말 json 기사를 css_card_menu_row로 자동 작업 -->
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php"; ?>
+
       </div><!-- end of right_content -->
   </section>
   <footer>

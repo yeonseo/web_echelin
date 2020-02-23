@@ -3,6 +3,7 @@ $dir = $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json";
 $json_file_list = fileDir($dir, true);
 
 //echo count($json_file_list) . '개 검색됨<br />';
+
 // foreach ($json_file_list as $f) {
 //     echo $f . '<br />';
 //     $json_file_dir = $dir . "/" . $f;
@@ -12,13 +13,10 @@ $json_file_list = fileDir($dir, true);
 // }
 
 foreach ($json_file_list as $f) {
-    //echo $f . ' 시작 ... ';
     $json_file_dir = $dir . "/" . $f;
-    // $json_file_dir = $dir . "/" . "Dobong.json";
     $json_string = file_get_contents($json_file_dir);
     $json_file_dir = $dir . "/" . $f;
     getJsonData($json_string);
-    //echo ' 완료 ... ';
 }
 
 function fileDir($dir, $f = null)
@@ -58,8 +56,6 @@ function checkJsonIsset($result_json, $value1, $i, $column_value)
     return (isset($result_json["DATA"][$i][$column_value]) ? ("'" . addslashes($result_json["DATA"][$i][$column_value]) . "'") : "''") . ", ";
 }
 
-
-
 function getJsonData($json_string)
 {
     // 다차원 배열 반복처리
@@ -70,7 +66,6 @@ function getJsonData($json_string)
     if (json_last_error() > 0) {
         echo json_last_error_msg() . PHP_EOL;
     }
-
 
     //print_r($result_json);
     //print_r($sub_json_object_array); // 배열 요소를 출력해준다.
@@ -91,7 +86,7 @@ function getJsonData($json_string)
         <div class=";
     print COMMON::$css_card_menu_btn_icon;
     echo ">
-          <i class='fas fa-utensils'></i>
+          <i class='far fa-lightbulb'></i>
         </div>
         <div class=";
     print COMMON::$css_card_menu_btn_name;
@@ -108,23 +103,5 @@ function getJsonData($json_string)
     echo "</div>";
 
     echo "</button>
-
-      <button class=";
-    print COMMON::$css_card_menu_btn;
-    echo " type='button' onclick='location.href='http\://";
-    $_SERVER['HTTP_HOST'];
-    echo "/echelin/index.php''>
-        <div class=";
-    print COMMON::$css_card_menu_btn_icon;
-    echo ">
-          <i class='far fa-id-card'></i>
-        </div>
-        <div class=";
-    print COMMON::$css_card_menu_btn_name;
-    echo ">dndndndndn</div>
-        <div class=";
-    print COMMON::$css_card_menu_btn_disc;
-    echo ">dbdbdb</div>
-      </button>
     </div> <!-- end of css_card_menu_row -->";
 }
