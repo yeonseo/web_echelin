@@ -23,7 +23,7 @@
 
 
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/header_small.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
     <section><div class="div_step">
       <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
@@ -37,7 +37,7 @@
         </div>
     </section>
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/footer.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
     </footer>
 
   </body>

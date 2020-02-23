@@ -11,6 +11,7 @@ html, body{
     background: GOLD;
   }
   .content-left{
+    font-weight: bold;
     background: white;
     color:GOLD;
     float: left;
@@ -31,13 +32,26 @@ html, body{
     font-weight: bold;
     margin: 20px 0;
   }
-  .todo-wrap{
+  .time-wrap{
     padding: 0 0 0 40px;
+  }
+  .time-wrap2{
+    height: 100px;
+    max-height: 99px;
+    overflow-y: auto;
   }
   .time-list{
     font-size: 15px;
-    font-weight: 100;
-    margin: 0 0 10px 0;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    margin-left: 10px;
+  }
+  .div_time_inner{
+    float: left;
+    width: 135px;
+  }
+  .div_hashtag1{
+    margin-top: 20px;
   }
   .input-box{
     width: 70%;
@@ -115,4 +129,3 @@ html, body{
     background: GOLD;
     color: white;
   }
-}

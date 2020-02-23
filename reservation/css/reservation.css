@@ -166,4 +166,16 @@ progress {
 .p_add_price{
   display: inline-block;
   position: relative;
+  margin: 0 5px 0 5px;
+}
+.todo-wrap{
+  color: black;
+}
+.best_score_content{
+  max-height: 645px;
+  overflow-y: auto;
+  margin-right: 15px;
+}
+footer{
+  margin: 700px auto 0 auto;
 }
