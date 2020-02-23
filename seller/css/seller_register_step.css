@@ -60,41 +60,6 @@ input[type="number"]::-webkit-inner-spin-button {
   display: inline;
 }
 
-.span_hashtag {
-  font-weight: bold;
-  font-size: 40px;
-  color: darkorange;
-  border: 1px solid darkorange;
-}
-
-.span_hashtag_intro {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 40px;
-  font-size: 25px;
-}
-
-.input_hashtag {
-  padding: 8px;
-  outline: none;
-  border: none;
-}
-
-.input_hashtag:focus {
-  /* border-color:white;
-  box-shadow: 2px 2px 5px gold; */
-  border-color: white;
-}
-
-.div_hashtag {
-  border: 2px solid gold;
-  border-radius: 30px;
-  width: auto;
-  padding: 10px;
-  display: inline-block;
-  margin: 6px;
-}
-
 .button_x {
   background-color: #fff;
   border:2px solid gold;
@@ -257,6 +222,55 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 15px;
   text-align: center;
 }
+
+/* 5단계 해시태그 */
+
+/*
+
+.input_hashtag {
+  padding: 8px;
+  outline: none;
+  border: none;
+}
+
+.input_hashtag:focus {
+  border-color:white;
+  box-shadow: 2px 2px 5px gold;
+  border-color: white;
+}
+*/
+
+.span_hashtag {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: darkorange;
+}
+
+.span_hashtag_intro {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.div_hash_content {
+  border: 2px solid gold;
+  border-radius: 30px;
+  width: auto;
+  padding: 10px;
+  display: inline-block;
+  margin: 6px;
+}
+
+.div_hash_content:hover {
+  background-color: gold;
+}
+
 
 
 

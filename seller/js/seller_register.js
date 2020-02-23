@@ -52,13 +52,13 @@ $(document).ready(function(){
   });
 
 
-  $(function () {
-    function camelCaseIt(str) {
-      return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
-        if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
-        return index == 0 ? match.toLowerCase() : match.toUpperCase();
-      });
-    }
+  // $(function () {
+  //   function camelCaseIt(str) {
+  //     return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+  //       if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+  //       return index == 0 ? match.toLowerCase() : match.toUpperCase();
+  //     });
+  //   }
 
 // 기존
     // $('form').on('submit', function ( e ) {
@@ -67,12 +67,12 @@ $(document).ready(function(){
     //   $('#output').empty().append( '#'+camelCaseIt( text ) );
     // });
 
-    $button_hashtag_add.click(function(e){
-        e.preventDefault();
-        var text = $('#write_hashtag').val();
-        $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'&nbsp&nbsp'+'<button class="button_x">'+'<span class="span_x">x<span>'+'</button>'+'</div>');
-    });
-  });
+  //   $button_hashtag_add.click(function(e){
+  //       e.preventDefault();
+  //       var text = $('#write_hashtag').val();
+  //       $('#hashtag_output').append( '<div class="div_hashtag">'+'#'+camelCaseIt( text )+'&nbsp&nbsp'+'<button class="button_x">'+'<span class="span_x">x<span>'+'</button>'+'</div>');
+  //   });
+  // });
 
 
   $("#button_business_state").click(function() {
