@@ -34,7 +34,7 @@
 
         <!-- 도움말 json 기사를 css_card_menu_row로 자동 작업 -->
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php";
-        helpCenterArticlePage("help_page_cancle");
+        helpCenterArticlePage("help_page_cancel");
         ?>
 
       </div><!-- end of right_content -->
