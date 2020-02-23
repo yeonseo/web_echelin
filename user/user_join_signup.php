@@ -9,15 +9,31 @@
     
     <head>  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
     <title> <?= COMMON::$title; ?> </title>
-    
 </head>
+<script>
+function signup_check(){
+    var popupX=(document.body.offsetWidth/2)-(700/2);
+    var popupY=(document.body.offsetHeight/2)-(600/2);
+    // 만들 팝업창의 좌우 , 상하 크기의 1/2 만큼 보정값으로 뺀다
+    
+    var signup_window= window.open('user_signup_window.php','check_signup','width=700,height=600, left='+popupX +',top='+popupY);
+    var input_check=document.signup;
+    input_check='/echelin/user/user_join_signup.php';
+    input_check='check_signup';
+    input_check.method="post";
+    input_check.submit();
+}
+
+</script>
 <body>
 
 <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
 </header>
 
+    <div class="sign_up_popup">
 
+    
     <div class="user_singup_form">
     <div style="margin-top: 24px">
     <div class="singup_border">
@@ -40,7 +56,7 @@
 
             
         </div>
-    <form action="" method="post">
+    <form action="" method="post" name="signup">
         <div style="margin-bottom:16px">
               <div class="input_form">
                   <div class="input_form2">
@@ -363,7 +379,7 @@
             </div><!-- end of checkbox_text -->
 
            
-            <button type="submit" class="data_button">
+            <button id="t" type="submit" class="data_button" onclick="signup_check();">
                 <span>가입하기</span>
             </button>
             <div style="margin-top:16px; margin-bottom:16px">
@@ -384,6 +400,7 @@
     </div>
     
     </form>
+    </div>
 </body>
 </html>
 
