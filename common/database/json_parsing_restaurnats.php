@@ -69,9 +69,7 @@ function checkDoubleDataDel($con)
     //"c"라는 임시필드 갯수만큼 루프돌리기
 
     for ($i = 1; $i < $cnt['c']; $i++) {
-
         //중복된 필드들을 삭제
-
         $del_query = "delete from `restaurants` where `num` 
             NOT IN (SELECT * from (SELECT MIN(`num`) FROM `restaurants` GROUP BY `perm_nt_no`) 
             AS tempTable);";
