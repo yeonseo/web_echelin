@@ -30,6 +30,11 @@ class COMMON
     public static $css_sub_title = "sub_title";
     public static $css_content = "content";
     public static $css_strong_content = "strong_content";
+
+
+    public static $css_article_content_box = "article_content_box";
+    public static $css_article_content_title = "article_content_title";
+    public static $css_article_content_sub_title = "article_content_sub_title";
 }
 
 
