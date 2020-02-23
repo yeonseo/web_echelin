@@ -25,7 +25,7 @@
 
 <body>
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/header_small.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
     <section>
       <div class="main_section_div">
@@ -44,7 +44,7 @@
         </div>
     </section>
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_haeder/footer.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
     </footer>
 </body>
 

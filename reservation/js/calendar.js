@@ -89,6 +89,7 @@ function showTimeList(timeList){
     var $timediv = document.createElement('div');
     $timediv.textContent = timeList[i];
     $timediv.setAttribute('id', 'div_time_inner'+i);
+    $timediv.setAttribute('class', 'div_time_inner');
     timeBody.appendChild($timediv);
   }
 
@@ -152,7 +153,6 @@ function prev(){
     clickedDate1 = document.getElementById(today.getDate());
     clickedDate1.classList.add('active');
     clickStart();
-    reshowingList();
 }
 
 function next(){
@@ -185,7 +185,6 @@ function next(){
     clickedDate1 = document.getElementById(today.getDate());
     clickedDate1.classList.add('active');
     clickStart();
-    reshowingList();
 }
 
 
@@ -220,125 +219,15 @@ function changeToday(e){
     today = new Date(today.getFullYear(), today.getMonth(), clickedDate1.id);
     showMain();
     keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-    reshowingList();
 }
 
-// text 추가
 
-
-function reshowingList(){
-    keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-    if(todoList[keyValue] === undefined){
-        inputList.textContent = '';
-        todoList[keyValue] = [];
-        const $divs = document.querySelectorAll('#input-list > div');
-        $divs.forEach(function(e){
-          e.remove();
-        });
-        const $btns = document.querySelectorAll('#input-list > button');
-        $btns.forEach(function(e1){
-          e1.remove();
-        });
-    }else if(todoList[keyValue].length ===0){
-        inputList.textContent = "";
-        const $divs = document.querySelectorAll('#input-list > div');
-        $divs.forEach(function(e){
-          e.remove();
-        });
-        const $btns = document.querySelectorAll('#input-list > button');
-        $btns.forEach(function(e1){
-          e1.remove();
-        });
-    }else{
-        const $divs = document.querySelectorAll('#input-list > div');
-        $divs.forEach(function(e){
-          e.remove();
-        });
-        const $btns = document.querySelectorAll('#input-list > button');
-        $btns.forEach(function(e1){
-          e1.remove();
-        });
-        var $div = document.createElement('div');
-        for(var i = 0; i < todoList[keyValue].length; i++){
-            var $div = document.createElement('div');
-            $div.textContent =todoList[keyValue][i];
-            var $btn = document.createElement('button');
-            $btn.setAttribute('type', 'button');
-            $btn.setAttribute('id', 'del-ata');
-            $btn.setAttribute('id', dataCnt+keyValue);
-            $btn.setAttribute('class', 'del-data');
-            $btn.textContent = delText;
-            inputList.appendChild($div);
-            inputList.appendChild($btn);
-            $div.addEventListener('click',checkList);
-            $btn.addEventListener('click',deleteTodo);
-            inputBox.value = '';
-            function deleteTodo(){
-                $div.remove();
-                $btn.remove();
-                todoList[keyValue].pop();
-            }
-        }
-    }
-
+function btnPlusClick(p){
+  p.textContent=((Number(p.textContent))+1);
 }
-var inputBox = document.getElementById('input-box');
-var inputDate = document.getElementById('input-data');
-var inputList = document.getElementById('input-list');
-var delText = 'X';
-inputDate.addEventListener('click',addTodoList);
-var dataCnt = 1;
-var keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-let todoList = [];
-todoList[keyValue] = [];
-function addTodoList(){
-var $div = document.createElement('div');
-    if(typeof clickedTime == "undefined"){
-      alert("예약시간을 선택해주세요");
-      return false;
-    }else{
-      if(clickedTime.textContent==null||clickedTime.textContent==""){
-        alert("예약시간을 선택해주세요");
-        return false;
-      }else{
-        if(inputBox.value == ''){
-          console.log(Number(inputBox.value));
-          alert("인원을 입력해주세요");
-          return false;
-        }else{
-          $div.textContent = clickedTime.textContent+' - ' + inputBox.value+'명';
-        }
-      }
-    }
+function btnMinusClick(p){
+  if(Number(p.textContent)>0){
+    p.textContent=((Number(p.textContent))-1);
 
-    if(document.getElementById('divReservationSelectTime'+(keyValue))){
-      (document.getElementById('divReservationSelectTime'+(keyValue))).remove();
-      todoList[keyValue].pop();
-    }
-    console.log(document.getElementById("btn"+keyValue));
-    if(document.getElementById("btn"+keyValue)){
-      (document.getElementById("btn"+keyValue)).remove();
-    }
-    $div.setAttribute('id', 'divReservationSelectTime'+keyValue);
-    var $btn = document.createElement('button');
-    $btn.setAttribute('type', 'button');
-    $btn.setAttribute('id', "btn"+keyValue);
-    $btn.setAttribute('class', "del-data");
-    $btn.textContent = delText;
-    inputList.appendChild($div);
-    inputList.appendChild($btn);
-    todoList[keyValue].push(clickedTime.textContent+' - ' + inputBox.value+'명');
-    dataCnt++;
-    inputBox.value = '';
-    $div.addEventListener('click',checkList);
-    $btn.addEventListener('click',deleteTodo);
-    function deleteTodo(){
-        $div.remove();
-        $btn.remove();
-        todoList[keyValue].pop();
-    }
-}
-console.log(keyValue);
-function checkList(e){
-    e.currentTarget.classList.add('checked');
+  }
 }
