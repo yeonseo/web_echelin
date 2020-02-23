@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start(); // 일반인, 회원가입자, 관리자 구분
 if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
 else $userid = "";
