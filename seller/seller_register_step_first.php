@@ -15,11 +15,11 @@
                 <div class="div_except_button">
                   <ul>
                     <li>등록하시려는 가게 이름을 적어주세요.</li>
-                      <input class="input_info" type="text" name="input_store_name" value="">
+                      <input id="input_store_name" class="input_info" type="text" name="input_store_name" value="">
                     </br></br>
-                    <li>사업자등록번호를 등록해주세요</li>
+                    <li>사업자번호를 등록해주세요</li>
                       <input id="input_business_license" class="input_info" type="number" name="input_business_license" value="">
-                      <button class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
+                      <button id="button_register" class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
                       <!-- <input type="button" name="" value="등록" onclick="businessLicense()"> -->
                       <div id="div_state" class="div_state">
 
@@ -29,7 +29,7 @@
                   </ul>
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">
-                  <button class="button_next" id="button_next" type="submit" name="button" onclick="location.href='./seller_register_step_second.php'">다음</button>
+                  <button class="button_next" id="button_next" type="button" name="button" onclick="stepCheck()">다음</button>
                 </div>
               </form>
             </div>
