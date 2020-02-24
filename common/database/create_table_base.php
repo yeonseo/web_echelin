@@ -96,35 +96,35 @@ function create_table($con, $dbname, $table_name)
                     ";
                 break;
 
-                //판매자테이블
-            // case 'seller':
-            //     $sql = "CREATE TABLE `seller` (
-            //         `seller_num` int unsigned NOT NULL AUTO_INCREMENT,
-            //         `store_name` varchar(45) NOT NULL,
-            //         `business_license` int unsigned,
-            //         `store_address` varchar(45) NOT NULL,
-            //         `store_postcode` char(10) NOT NULL,
-            //         `store_lat` double NOT NULL,
-            //         `store_lon` double NOT NULL,
-            //         `convenient_facilities` varchar(80) NOT NULL,
-            //         `introduction` text DEFAULT NULL,
-            //         `break_start` time DEFAULT NULL,
-            //         `break_end` time DEFAULT NULL,
-            //         `opening_day` date NOT NULL,
-            //         `opening_hours_start` time NOT NULL,
-            //         `opening_hours_end` time NOT NULL,
-            //         `store_closed` text NOT NULL,
-            //         `store_tel` char(13) NOT NULL,
-            //         `store_file_name` varchar(45) DEFAULT NULL,
-            //         `store_file_copied` varchar(45) DEFAULT NULL,
-            //         `store_file_type` varchar(45) DEFAULT NULL,
-            //         `max_reserv_num_of_people` int unsigned NOT NULL,
-            //         `max_reserv_month` char(10) NOT NULL,
-            //         `intensity_of_reserv` char(10) NOT NULL,
-            //         PRIMARY KEY (`seller_num`)
-            //     ) DEFAULT CHARSET=utf8;
-            //     ";
-            //     break;
+            // 판매자테이블
+            case 'seller':
+                $sql = "CREATE TABLE `seller` (
+                    `seller_num` int unsigned NOT NULL AUTO_INCREMENT,
+                    `store_name` varchar(45) NOT NULL,
+                    `business_license` int unsigned,
+                    `store_address` varchar(45) NOT NULL,
+                    `store_postcode` char(10) NOT NULL,
+                    `store_lat` double NOT NULL,
+                    `store_lon` double NOT NULL,
+                    `convenient_facilities` varchar(80) NOT NULL,
+                    `introduction` text DEFAULT NULL,
+                    `break_start` time DEFAULT NULL,
+                    `break_end` time DEFAULT NULL,
+                    `nokids` boolean NOT NULL,
+                    `opening_day` date NOT NULL,
+                    `opening_hours_start` time NOT NULL,
+                    `opening_hours_end` time NOT NULL,
+                    `store_tel` char(13) NOT NULL,
+                    `store_file_name` varchar(45) DEFAULT NULL,
+                    `store_file_copied` varchar(45) DEFAULT NULL,
+                    `store_file_type` varchar(45) DEFAULT NULL,
+                    `max_reserv_time_num_of_people` int unsigned NOT NULL,
+                    `max_reserv_month` char(10) NOT NULL,
+                    `intensity_of_reserv` char(10) NOT NULL,
+                    PRIMARY KEY (`seller_num`)
+                ) DEFAULT CHARSET=utf8;
+                ";
+                break;
         } //end of switch
 
 
