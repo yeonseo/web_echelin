@@ -158,25 +158,19 @@ function getJsonDataMakeArticle($json_string)
     for ($j = 0; $j < count($result_json["SUB_CONTENT"]); $j++) {
         echo "<h2>" . $result_json["SUB_CONTENT"][$j]["sub_title"] . "</h2>";
         for ($i = 0; $i < count($result_json["SUB_CONTENT"][$j]["sub_content"]); $i++) {
-            echo "<p>" . $result_json["SUB_CONTENT"][$j]["sub_content"][$i]["content"] . "</p>";
-        } //end of for
-    }
+            if (is_array($result_json["SUB_CONTENT"][$j]["sub_content"][$i]["content"])) {
+                echo "<ul>";
+                for ($z = 0; $z < count($result_json["SUB_CONTENT"][$j]["sub_content"][$i]["content"]); $z++) {
+                    echo "<li>" . $result_json["SUB_CONTENT"][$j]["sub_content"][$i]["content"][$z]["list"] . "</li>";
+                }
+                echo "</ul>";
+            } else {
+                echo "<p>" . $result_json["SUB_CONTENT"][$j]["sub_content"][$i]["content"] . "</p>";
+            }
+        } //end of $result_json["SUB_CONTENT"][$j]["sub_content"]
+    } //end of for $result_json["SUB_CONTENT"]
 
     echo "</div>";
-
-    echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">";
-    for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
-
-        for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
-            if (is_array($result_json["DESCRIPTION"][$i]["content"])) {
-                for ($j = 0; $j < count($result_json["DESCRIPTION"][$i]["content"]); $j++) {
-                }
-            } else {
-                print $result_json["DESCRIPTION"][$i]["content"];
-            }
-        } //end of for $result_json["DESCRIPTION"][$i]["content"]
-    } //end of for $result_json["DESCRIPTION"]
-    echo "</div> ";
 
     echo "</div> <!-- end of css_article_content_box -->";
 }
