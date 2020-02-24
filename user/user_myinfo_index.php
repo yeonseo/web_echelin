@@ -23,7 +23,7 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
   </header>
   <section>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_sellerinfo_main.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_myinfo_main.php"; ?>
   </section>
   <footer>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
