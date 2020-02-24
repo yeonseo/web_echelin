@@ -13,16 +13,24 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 30px;
 }
 
-.span_hello{
+.span_hello {
   margin: -5px;
   font-size: 30px;
 }
 
-.span_register_info{
+.span_register_info {
   display: block;
   padding-left: 30px;
   padding-top: 16px;
   font-size: 25px;
+}
+
+.div_state {
+  /* border: 1px solid black; */
+  margin-top: 10px;
+  font-size: 15px;
+  color: gray;
+
 }
 /*** end of 판매자 등록 1단계 +++++++++******************/
 

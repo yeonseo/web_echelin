@@ -9,6 +9,9 @@ class COMMON
 
     // my_info.php 에서 사용한 class tag
     public static $css_my_info_content = "my_info_content";
+
+    public static $css_side_left_icon = "side_left_icon";
+
     public static $css_card_menu_row = "card_menu_row";
     public static $css_card_menu_btn = "card_menu_btn";
     public static $css_card_menu_btn_icon = "card_menu_btn_icon";
@@ -27,6 +30,11 @@ class COMMON
     public static $css_sub_title = "sub_title";
     public static $css_content = "content";
     public static $css_strong_content = "strong_content";
+
+
+    public static $css_article_content_box = "article_content_box";
+    public static $css_article_content_title = "article_content_title";
+    public static $css_article_content_sub_title = "article_content_sub_title";
 }
 
 
