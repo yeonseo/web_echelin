@@ -52,8 +52,8 @@
                   <div class="input_form2">
 
                   <!-- // 이메일 설정하기 -->
-                  <input  class="_14fdu48d" id="signup_email" name="user_Email" placeholder="이메일 주소" type="text" value=""  > 
-                  <span id="email_text"><p>a</p></span>
+                  <input  class="_14fdu48d" id="signup_email" name="user_Email" placeholder="이메일 주소" type="text" value="" onkeyup="signup_check('signup_email')" > 
+                  <span id="email_text"></span>
 
                   <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="
                     margin-left: -16px;
@@ -66,7 +66,7 @@
 
 
                     <!-- // 이름 설정 하기 -->
-                  <input  class="_14fdu48d" id="test1" name="user_name" placeholder="이름(예:길동)" type="text" value=""onkeyup="">
+                  <input  class="_14fdu48d" id="user_name" name="user_name" placeholder="이름(예:길동)" type="text" value=""onkeyup="signup_check('user_name')">
                   <span id="user_name_test"></span>
                   <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="
                     margin-left: -16px;
@@ -79,8 +79,8 @@
                   
 
                         <!-- // 성 설정 하기                   -->
-                  <input  class="_14fdu48d" id="test_sung" name="user_sung" placeholder="성(예:홍)" type="text" value=""  onkeyup=""  >
-                  <span  id="user_sung_test"></span>
+                  <input  class="_14fdu48d" id="user_sung" name="user_sung" placeholder="성(예:홍)" type="text" value=""  onkeyup="signup_check('user_sung')">
+                  <span id="user_sung_test"></span>
 
                   <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="
                     margin-left: -16px;
