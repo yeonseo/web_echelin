@@ -164,9 +164,7 @@ function getJsonDataMakeArticle($json_string)
 
     echo "</div>";
 
-    echo "<div class=";
-    print COMMON::$css_card_menu_btn_disc;
-    echo ">";
+    echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">";
     for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
 
         for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
