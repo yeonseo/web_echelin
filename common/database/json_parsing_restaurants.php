@@ -2,6 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/db_connector.php";
 
 $dir = $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/json";
+ini_set('memory_limit', '-1');
 $json_file_list = fileDir($dir, true);
 
 echo count($json_file_list) . '개 검색됨<br />';
@@ -70,8 +71,8 @@ function checkDoubleDataDel($con)
 
     for ($i = 1; $i < $cnt['c']; $i++) {
         //중복된 필드들을 삭제
-        $del_query = "delete from `restaurants` where `num` 
-            NOT IN (SELECT * from (SELECT MIN(`num`) FROM `restaurants` GROUP BY `perm_nt_no`) 
+        $del_query = "delete from `restaurants` where `num`
+            NOT IN (SELECT * from (SELECT MIN(`num`) FROM `restaurants` GROUP BY `perm_nt_no`)
             AS tempTable);";
 
         $del_result = $con->query($del_query);
@@ -104,23 +105,23 @@ function getJsonInsertDB($con, $json_string)
     for ($i = 0; $i < count($result_json["DATA"]); $i++) {
         if ($result_json["DATA"][$i]["dcb_gbn_nm"] === null) {
             $sql = "INSERT INTO `restaurants` (
-            `trdp_area_dress_room`, `trdp_area`, `upso_site_telno`, `upso_sno`, `bdng_jisg_flr_num`, 
+            `trdp_area_dress_room`, `trdp_area`, `upso_site_telno`, `upso_sno`, `bdng_jisg_flr_num`,
             `upso_nm`, `ntn`, `bdng_jisg_flr_num2`, `toil_etc_area_upso`, `bup_nm`,
-            
+
             `grade_facil_gbn`, `area_wrk`, `perm_nt_cn`, `trdp_area_jorijang`, `cn_perm_stdt`,
             `ordtm_ptsof_avg`, `mng_gbn`, `perm_nt_ymd`, `cn_perm_enddt`, `site_addr`,
-            
+
             `ptsof_sort`, `rfn_item`, `snt_cob_code`, `trdp_area_etc`, `cn_perm_nt_sayu`,
             `snt_cob_nm`, `bman_stdt`, `yy`, `one_ptsof_stf`, `site_addr_rd`,
-            
+
             `site_loc_gbn`, `site_stdt`, `eip_woman`, `bdng_under_flr_num2`, `trdp_area_guest_seat`,
             `trdp_disp_sil_ar`, `bdng_tot_flr_num`, `area_isp`, `admdng_nm`, `ed_fin_ymd`,
-            
+
             `kor_frgnr_gbn`, `cgg_code`, `bdng_under_flr_num`, `snt_uptae_nm`, `eip_man`,
             `trdp_area_room`, `trdp_area_dance`, `dcb_gbn_nm`, `trdp_ware_depo_ar`, `toil_area_upso`,
-            
+
             `dcb_why`, `perm_nt_no`, `ge_eh_yn`, `ordtm_ptsof_max`, `avg_food_amt`,
-            `dcb_ymd`, `upso_latitude`, `upso_longitude`) 
+            `dcb_ymd`, `upso_latitude`, `upso_longitude`)
         VALUES (";
 
             $sql .= checkJsonIsset($result_json, $i, "trdp_area_dress_room");
@@ -187,7 +188,7 @@ function getJsonInsertDB($con, $json_string)
             $sql .= checkJsonIsset($result_json, $i, "dcb_ymd");
 
             $sql .= "null,null); ";
-
+            ini_set('max_execution_time', -1);
             $result = $con->query($sql);
             if ($result === TRUE) {
                 echo "<script>console.log('restaurants 테이블에 데이터가 추가되었습니다.');</script>";
