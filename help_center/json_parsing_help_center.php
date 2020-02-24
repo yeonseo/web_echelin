@@ -112,7 +112,11 @@ function getJsonDataMakeButton($json_string, $f)
     print COMMON::$css_card_menu_btn_disc;
     echo ">";
     for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
-        print $result_json["DESCRIPTION"][$i]["content"];
+        if (is_array($result_json["DESCRIPTION"][$i]["content"])) {
+            echo "array data";
+        } else {
+            print $result_json["DESCRIPTION"][$i]["content"];
+        }
     } //end of for
     echo "</div>";
 
@@ -164,8 +168,16 @@ function getJsonDataMakeArticle($json_string)
     print COMMON::$css_card_menu_btn_disc;
     echo ">";
     for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
-        print $result_json["DESCRIPTION"][$i]["content"];
-    } //end of for
+
+        for ($i = 0; $i < count($result_json["DESCRIPTION"]); $i++) {
+            if (is_array($result_json["DESCRIPTION"][$i]["content"])) {
+                for ($j = 0; $j < count($result_json["DESCRIPTION"][$i]["content"]); $j++) {
+                }
+            } else {
+                print $result_json["DESCRIPTION"][$i]["content"];
+            }
+        } //end of for $result_json["DESCRIPTION"][$i]["content"]
+    } //end of for $result_json["DESCRIPTION"]
     echo "</div> ";
 
     echo "</div> <!-- end of css_article_content_box -->";

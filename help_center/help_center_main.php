@@ -30,8 +30,7 @@
       </div>
       <div class="right_content">
 
-        <h2>에슐랭에 처음 오셨나요?</h2>
-        <h3>도움이 될 만한 게시글을 확인해보세요.</h3>
+        <h2>안녕하세요. 무엇을 도와드릴까요?</h2>
         <div class="<?= COMMON::$css_card_menu_row; ?>">
           <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
             <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
