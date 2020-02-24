@@ -1,0 +1,506 @@
+[33mcommit d47360c29606aeec5eed5a4bc2bc5c9e30127e68[m[33m ([m[1;36mHEAD -> [m[1;32mj222su[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/j222su[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 23f69e7 9bf5655
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Fri Feb 21 17:59:28 2020 +0900
+
+    Merge branch 'j222su'
+
+[33mcommit 9bf56553b67d63a998acfdd4c0112952974b30c5[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Fri Feb 21 17:58:21 2020 +0900
+
+    사업자등록번호 클릭 시 예시 결과 값 ajax로 가져오기
+
+[33mcommit 23f69e764914f4678ad2a63c5f3f03f2b4d98c19[m
+Author: youyoungsam <tls1577@nate.com>
+Date:   Fri Feb 21 17:57:41 2020 +0900
+
+    검색기능구현중
+
+[33mcommit 85bf0791ee0c3603dd390b92abfb67807227a83a[m[33m ([m[1;31morigin/sungmin[m[33m)[m
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Fri Feb 21 17:53:33 2020 +0900
+
+    commit error 해결
+
+[33mcommit ef0c12368e57bb5ba8bf9886d6453ff2de84c02e[m[33m ([m[1;31morigin/reverce_commit[m[33m)[m
+Merge: 87fc60c f5715a5
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Fri Feb 21 17:48:46 2020 +0900
+
+    Merge branch 'reverce_commit' into sungmin
+
+[33mcommit f5715a5bd8424513581e356a23639a30030593b2[m
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Fri Feb 21 17:48:28 2020 +0900
+
+    no message
+
+[33mcommit 87fc60c47999da5d3818e33e89b012a089de345f[m
+Merge: d7becdd 44df7e1
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Fri Feb 21 17:38:31 2020 +0900
+
+    Merge branch 'sungmin'
+    
+    # Conflicts:
+    #       user/user_join_method_select.php
+
+[33mcommit 44df7e10c6c122155ca3e5e7ced102558cdb218a[m
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Fri Feb 21 17:36:07 2020 +0900
+
+    카카오 콜백 페이지 저장 및 페이스북 가입시 데이터베이스 등록기능 php 파일 수정 완료 추후 다른 api 기능 수정 예정
+
+[33mcommit 5a22bd48e9f8863827dccac8d344ccfaed06d24e[m
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Fri Feb 21 17:33:59 2020 +0900
+
+    회원 가입 폼 완성 및 적용
+
+[33mcommit d7becddefe79ad46dc1f3a12f0950ba666b1833b[m[33m ([m[1;31morigin/bootstrap_test[m[33m, [m[1;31morigin/DB_test[m[33m)[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Fri Feb 21 11:39:58 2020 +0900
+
+    도움말 센터 페이지 작업 중
+
+[33mcommit 01dcb5c4a28b5a5089102ee16cb85418bfd60400[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Fri Feb 21 09:31:57 2020 +0900
+
+    줄맞춤
+
+[33mcommit 377b899891e3121bf5cd869fbfb8c02ac0cc8850[m
+Merge: 27784e4 460b93c
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Fri Feb 21 09:27:14 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 27784e4e8a6f4d630111e5332c34f4573d2c07c2[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Fri Feb 21 09:27:09 2020 +0900
+
+    no message
+
+[33mcommit 460b93cecc5eed9f747e310ec3a787630851f9d2[m
+Merge: e9cd3bd df3fde5
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Thu Feb 20 19:23:43 2020 +0900
+
+    Merge branch 'sungmin'
+
+[33mcommit df3fde5ac47c317b5dece43f5c64e85365cde45f[m
+Author: ksm03071 <ksm03071@gmail.com>
+Date:   Thu Feb 20 19:20:43 2020 +0900
+
+    user 가입 페이지 폼 양식 수정중
+
+[33mcommit e9cd3bd4a67a98b5ee5ec34b62b61af0222444b4[m[33m ([m[1;31morigin/dongwoonE[m[33m)[m
+Merge: e8e09e5 05e9153
+Author: hadongwoon <hadong302@naver.com>
+Date:   Thu Feb 20 17:52:18 2020 +0900
+
+    Merge branch 'dongwoonE'
+
+[33mcommit 05e9153dbad0b3e2f9923c43250b613be52720fd[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Thu Feb 20 17:49:25 2020 +0900
+
+    사용자 예약 음식메뉴 장바구니 기능 구현, 캘린더 오류 수정
+
+[33mcommit e8e09e57b3e42edb8eb248894af41a1c81550c0b[m
+Merge: 1c56fce d1488da
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Thu Feb 20 17:22:20 2020 +0900
+
+    Merge branch 'j222su'
+
+[33mcommit d1488da75ccd6bf32e3c347a7407180f3c9ba246[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Thu Feb 20 17:20:54 2020 +0900
+
+    판매자 등록 단계 폼 수정 및 사업자등록번호 조회 api 테스트
+
+[33mcommit 1c56fce81e5ba63b36ae2ddd8ee7248deb9d9a7d[m
+Merge: 10734b8 26c9302
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Thu Feb 20 17:19:13 2020 +0900
+
+    Merge branch 'bootstrap_test'
+
+[33mcommit 26c9302e9badb4abb1e4c4428a778d940dd3ab63[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Thu Feb 20 17:18:36 2020 +0900
+
+    json 데이터 가져올 시, 허가(신고)번호 기준으로 DB 중복 데이터 조회 및 삭제 기능 구현
+
+[33mcommit 10734b8d66dff5dba39e6cedd4eacef363748bf4[m
+Merge: 0de4a14 5e2ce23
+Author: youyoungsam <tls1577@nate.com>
+Date:   Thu Feb 20 15:20:37 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 0de4a14aafce2dddfa150886751f79b41d0f5a9c[m
+Author: youyoungsam <tls1577@nate.com>
+Date:   Thu Feb 20 15:20:32 2020 +0900
+
+    판매자정보수정진행중
+
+[33mcommit 5e2ce23af612fc9cd01c0459db9c06b3bdfa377d[m
+Merge: 7bb2a73 604428f
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Thu Feb 20 14:50:29 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 7bb2a7370041814a2bec68253dc5219c231743f8[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Thu Feb 20 14:49:57 2020 +0900
+
+    서울 식당 json파일 파싱 후,  DB 자동 insert 기능 완료
+
+[33mcommit 604428fcc4d9a82061f455f8476aa1390c133bdb[m
+Author: youyoungsam <tls1577@nate.com>
+Date:   Thu Feb 20 14:44:19 2020 +0900
+
+    유정정보수정검색기능수정
+
+[33mcommit e0c2ae649a127eb0b699dfb4b3ae661524f5e968[m
+Author: youyoungsam <tls1577@nate.com>
+Date:   Thu Feb 20 14:04:14 2020 +0900
+
+    유저수정게시판검색기능
+
+[33mcommit 5a4174ed486b4eae9d266a199a40e3cb83149371[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Thu Feb 20 13:47:14 2020 +0900
+
+    주소 클릭 시 위도, 경도 값 가져오기
+
+[33mcommit 314b2ad387add0be72fe4a61bdd41b21222c495a[m[33m ([m[1;31morigin/mukwon[m[33m)[m
+Merge: 5bb9a91 b698f7f
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 21:48:39 2020 +0900
+
+    Merge branch 'j222su'
+
+[33mcommit b698f7fc2b689c3b5718fa5816275400d7cb43a4[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 21:47:52 2020 +0900
+
+    판매자 등록 지도 위치 재조정, 로고 클릭시 메인 페이지로 이동
+
+[33mcommit 5bb9a918ee7f7b693c9c8951b7a2817b34992249[m
+Merge: dac9ae3 7a984a6
+Author: mu338666 <58577791+mu338666@users.noreply.github.com>
+Date:   Wed Feb 19 18:04:40 2020 +0900
+
+    Merge branch 'mukwon'
+
+[33mcommit 7a984a6a3759d6814f8fe77c78032e5eb03e3ea5[m
+Author: mu338666 <58577791+mu338666@users.noreply.github.com>
+Date:   Wed Feb 19 18:03:17 2020 +0900
+
+    ( advertise, my_page_review, user_review_input ) . css 일부 수정
+
+[33mcommit 82a7b5ca17e8f5c66f55c1c50774d3e8660f1b4d[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Wed Feb 19 17:50:46 2020 +0900
+
+    사용자 예약 메뉴선택 장바구니 작업 중 백업
+
+[33mcommit dac9ae3a8397a17949f0803bf9b1d0fcd0798718[m
+Merge: e9a6ab0 4024885
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 17:47:52 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit e9a6ab0ed64b1442d43f16c658db308dc8898fcc[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 17:47:46 2020 +0900
+
+    해시태그 기능 분리, 파일 이름 수정, 우편번호 api 주소 클릭 시 지도 보이기
+
+[33mcommit 4024885a829eeaa6d814c43675bdf1f991d63aa4[m
+Merge: f2c1472 5454d02
+Author: hadongwoon <hadong302@naver.com>
+Date:   Wed Feb 19 16:17:05 2020 +0900
+
+    Merge branch 'master' into dongwoonE
+    
+    # Conflicts:
+    #       reservation/css/reservation.css
+
+[33mcommit f2c14720b705aff0deb5da4a3a8944cd136395ca[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Wed Feb 19 16:11:53 2020 +0900
+
+    사용자 예약 css 색상 수정
+
+[33mcommit 5454d020271515fa2f85d5bc36acb60ea2b10843[m
+Merge: adf6dc3 4f039aa
+Author: hadongwoon <hadong302@naver.com>
+Date:   Wed Feb 19 15:56:59 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 4f039aa7ec0d597db5af024dd8b282371db7a4cd[m
+Merge: 6e3f3f6 1541322
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Wed Feb 19 14:46:49 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 6e3f3f654dcabeb7950e21a3f817cf6db1d86214[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Wed Feb 19 14:46:38 2020 +0900
+
+    관리자 유저 관리페이지 테이블 작업
+
+[33mcommit 1541322967e0d7fa8eb44cba41b66aac05ae640a[m
+Merge: 46be544 a0e5ddc
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 14:42:42 2020 +0900
+
+    Merge branch 'j222su'
+
+[33mcommit a0e5ddcefdf0721ec43d5295e79ffecfb3e389ab[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 14:41:39 2020 +0900
+
+    해시태그 입력 css 수정 및 페이지 연결
+
+[33mcommit 46be5449aac7e37bf3a61aeb6a6544f075e82a26[m
+Author: mu338666 <58577791+mu338666@users.noreply.github.com>
+Date:   Wed Feb 19 14:20:18 2020 +0900
+
+    small_header 오타 수정
+
+[33mcommit 4c0d137d844e5429edd28bb0a7d8ca37c55a8e2a[m
+Author: mu338666 <58577791+mu338666@users.noreply.github.com>
+Date:   Wed Feb 19 14:10:37 2020 +0900
+
+    줄바꿈 오류 수정
+
+[33mcommit adf6dc3ad2dec47aff5ba17cb79fd206727a74cc[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Wed Feb 19 13:51:32 2020 +0900
+
+    사용자 예약 스몰헤더, 푸터 추가
+
+[33mcommit e6ab7f0399f27494846f7107023bec1d798b6d4d[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Wed Feb 19 13:48:13 2020 +0900
+
+    사용자 예약 스몰헤더, 푸터 추가
+
+[33mcommit 818a21c7631703fd7df1db4299871e9922a88c20[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Wed Feb 19 13:34:54 2020 +0900
+
+    header 오타 수정
+
+[33mcommit c37a7124ab3ad7261f6d2aa3b858596716265029[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Wed Feb 19 11:41:05 2020 +0900
+
+    오타 수정
+
+[33mcommit 4d631a7b1d33e58497f93369ae22a8825fab986c[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Wed Feb 19 11:34:22 2020 +0900
+
+    min-height 수정
+
+[33mcommit 7eb9f2aa3b2e6a6c23fa156cecb6ac0b2f4f69d8[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 06:46:04 2020 +0900
+
+    common_page에 판매자 등록 1단계 연결
+
+[33mcommit de09a01819ea8c5b3718234c516e71c68e0f689c[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Wed Feb 19 00:34:03 2020 +0900
+
+    해시태그 기능 추가
+
+[33mcommit c09e78944d821b8aea66bf50992ef423aa6e596f[m
+Merge: e43db6d c992839
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Tue Feb 18 22:48:57 2020 +0900
+
+    Merge branch 'j222su'
+
+[33mcommit c992839eaeeb27b347ef7687aaf2d5ea5c079ba0[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Tue Feb 18 22:48:09 2020 +0900
+
+    판매자 등록 2단계 메뉴 추가시 테이블 생성 완료(기존 input값 삭제)
+
+[33mcommit e43db6d73f9edb1f215fc0339318908d812378db[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Tue Feb 18 18:13:44 2020 +0900
+
+    google chart color option 수정
+
+[33mcommit 644bfceec139be4b11373713aead9ec38a984b3f[m
+Merge: 950323c 6b42506
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Tue Feb 18 18:05:33 2020 +0900
+
+    Merge branch 'bootstrap_test'
+    
+    # Conflicts:
+    #       common/css/common.css
+
+[33mcommit 6b42506692f00caea9d45e901e711e7296ff05a3[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Tue Feb 18 18:04:16 2020 +0900
+
+    페이지 php 캡슐화 및 무한 스크롤 기능 테스트
+
+[33mcommit 950323cca5a790e47d60de9d09c75aa519b0462b[m
+Author: youyoungsam <tls1577@nate.com>
+Date:   Tue Feb 18 17:54:04 2020 +0900
+
+    어드민 유저정보수정 게시판 만듬
+
+[33mcommit d50deca6ab813f81003cb08c20bdd1396e79e61e[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Tue Feb 18 15:35:20 2020 +0900
+
+    메뉴 사진 업로드시 미리보기 구현 중
+
+[33mcommit a3d8d1ece53021727c3da34a8fb83313b9087f0e[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Tue Feb 18 15:32:48 2020 +0900
+
+    헤더부분의 link&script, 왼쪽 사이드 메뉴 구조화 및 구글 차트 테스트 작업
+
+[33mcommit 7e0a3c458278f7f17a9004af64bda99e6d6a5d7d[m
+Merge: 618e789 acdcbc6
+Author: hadongwoon <hadong302@naver.com>
+Date:   Tue Feb 18 15:32:24 2020 +0900
+
+    Merge branch 'master' into dongwoonE
+
+[33mcommit acdcbc69ae5f7a88b20122a97f9f9b26e0baf354[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Tue Feb 18 15:27:29 2020 +0900
+
+    사용자 예약 음식메뉴 선택 폼 작업중 2
+
+[33mcommit 618e789a08e607c61449bbe7183f72e9dc513886[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Tue Feb 18 15:14:13 2020 +0900
+
+    사용자 예약 음식메뉴 선택 폼 작업중
+
+[33mcommit 18350b236208564035eaba3afb2a63feff40fa32[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Tue Feb 18 13:36:35 2020 +0900
+
+    판매자 등록 2단계 +/-버튼 클릭 시 input, table 생성 삭제 구현 및 체크박스 이벤트 등록
+
+[33mcommit af22d53b506615cdb8c5810089dacecc61b24542[m[33m ([m[1;31morigin/yeonseo[m[33m, [m[1;31morigin/mysql_test[m[33m)[m
+Merge: 0d7fe6c 242a035
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Mon Feb 17 22:01:33 2020 +0900
+
+    Merge branch 'j222su'
+
+[33mcommit 242a03515ce6443737a235c767aabd26f09bbe10[m
+Merge: 0b080cb 52750ef
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Mon Feb 17 22:00:47 2020 +0900
+
+    Merge commit '52750ef2e9dbb88f107bc1e36afc19768d24739c' into j222su
+
+[33mcommit 0d7fe6ccdee5ef751ab6c0a64b0c8bc716ef6037[m
+Merge: 52750ef 1197bc2
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Mon Feb 17 21:59:36 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 52750ef2e9dbb88f107bc1e36afc19768d24739c[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Mon Feb 17 21:59:05 2020 +0900
+
+    버튼 클릭시 input table 동적으로 생성 테스트
+
+[33mcommit 1197bc216c7ce23c15d789dc03ff0e4acd914f4f[m
+Merge: 5159168 1fd0bd8
+Author: youyoungsam <tls1577@nate.com>
+Date:   Mon Feb 17 18:15:04 2020 +0900
+
+    겹친부분수정
+
+[33mcommit 515916836516cc0d15570366639490f2b5c52cb6[m
+Author: youyoungsam <tls1577@nate.com>
+Date:   Mon Feb 17 18:13:22 2020 +0900
+
+    키워드검색하는기능추가중
+
+[33mcommit 1fd0bd81436be4ce8cfd5497db957ecf05929677[m
+Merge: e4f483f 0f9519c
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Mon Feb 17 17:55:29 2020 +0900
+
+    Merge branch 'yeonseo'
+
+[33mcommit 0f9519cab7ea2a475e6073d9b0278dcf69a6d256[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Mon Feb 17 17:54:55 2020 +0900
+
+    각각 나의 페이지 기본 틀 페이지 만듬
+
+[33mcommit 0b080cb7239689cc70946baf20c2ca72a818fb01[m
+Author: j222su <patrickstar0910@gmail.com>
+Date:   Mon Feb 17 17:50:13 2020 +0900
+
+    판매자 등록 2단계 메뉴 추가 생성버튼
+
+[33mcommit e4f483fc583008ddce08a75200b2af90caf72e60[m
+Merge: 134732b 84b24ee
+Author: hadongwoon <hadong302@naver.com>
+Date:   Mon Feb 17 16:12:02 2020 +0900
+
+    Merge branch 'master' into dongwoonE
+    
+    # Conflicts:
+    #       common/database/db_connector.php
+
+[33mcommit 84b24ee2e4073c8e47c3da7d4cb7f5cfeb1ce92c[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Mon Feb 17 16:06:42 2020 +0900
+
+    캘린더 기능 구현 완료 및 DB적용 진행중 2
+
+[33mcommit 134732b34cf13af75ef221f69da445bba1c7d81d[m
+Author: hadongwoon <hadong302@naver.com>
+Date:   Mon Feb 17 16:02:21 2020 +0900
+
+    캘린더 기능 구현 완료 및 DB 적용 진행중
+
+[33mcommit ebcc12ae971799a6daff661c9959d20691bf5918[m
+Merge: 55859da 0087977
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Mon Feb 17 14:49:23 2020 +0900
+
+    Merge branch 'master' of https://github.com/yeonseo/web_echelin
+
+[33mcommit 55859da8375b0caafb4e192b48ae5908437a5765[m
+Author: yeonseo <yulga_nara@naver.com>
+Date:   Mon Feb 17 14:48:47 2020 +0900
+
+    no message
+
+[33mcommit 0087977e2c2d66477bb96b2e1492c7536f7bd1c3[m
+Author: mu338666 <58577791+mu338666@users.noreply.github.com>
+Date:   Mon Feb 17 14:45:40 2020 +0900
+
+    메인페이지, 검색페이지 비율 수정, 메인페이지 키워드 div 제거

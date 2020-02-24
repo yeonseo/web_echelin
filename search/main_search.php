@@ -1,15 +1,4 @@
-<div class="keyword_div">
-  <ul>
-    <li>#분위기좋은</li>
-    <li>#몽롱한</li>
-    <li>#ㅈ같은</li>
-    <li>#힙한</li>
-    <li>#깔끔한</li>
-    <li>#슈밤</li>
-    <li>#더러운</li>
-    <li>#ㅋㅋㅋ</li>
-  </ul>
-</div>
+
 <div class="search_banner">
 
     <span class="search_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 이 키워드는 어떠세요?</span>

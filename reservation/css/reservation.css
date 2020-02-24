@@ -72,3 +72,110 @@ progress {
   bottom: 0;
 
 }
+
+
+/* 장바구니 */
+
+
+.span_hashtag {
+  font-weight: bold;
+  font-size: 40px;
+  color: darkorange;
+}
+
+.span_hashtag_intro {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  font-size: 25px;
+}
+
+.input_hashtag {
+  padding: 8px;
+  outline: none;
+  border: none;
+}
+
+.input_hashtag:focus {
+  /* border-color:white;
+  box-shadow: 2px 2px 5px gold; */
+  border-color: white;
+}
+
+.div_hashtag {
+  border: 2px solid gold;
+  border-radius: 20px;
+  width: auto;
+  padding: 10px;
+  display: inline-block;
+  margin: 6px;
+}
+
+.button_x {
+  background-color: #fff;
+  border:2px solid gold;
+  /* font-size: 17px; */
+  width:20px;
+  height:20px;
+  border-radius:75px;
+  /* text-align:center; */
+  margin:0 auto;
+  /* vertical-align:middle; */
+  position: relative;
+}
+
+.span_x {
+  font-size:14px;
+  /* border: 1px solid black; */
+  position: absolute;
+  right: 4.4px;
+  bottom: 0.65px;
+}
+
+.button_circle_add {
+  background-color: #fff;
+  border:2px solid gold;
+  font-size: 17px;
+  width:40px;
+  height:40px;
+  border-radius:75px;
+  text-align:center;
+  margin:0 auto;
+  vertical-align:middle;
+}
+
+.button_circle_del {
+  background-color: #fff;
+  border:2px solid gold;
+  font-size: 17px;
+  width:40px;
+  height:40px;
+  border-radius:75px;
+  text-align:center;
+  margin:0 auto;
+  vertical-align:middle;
+}
+.div_menu_content{
+  width: 70%;
+}
+.my_cart_wrap{
+  width: 30%;
+  float: right;
+
+}
+.p_add_price{
+  display: inline-block;
+  position: relative;
+  margin: 0 5px 0 5px;
+}
+.todo-wrap{
+  color: black;
+}
+.best_score_content{
+  max-height: 645px;
+  overflow-y: auto;
+  margin-right: 15px;
+}
+footer{
+  margin: 700px auto 0 auto;
+}

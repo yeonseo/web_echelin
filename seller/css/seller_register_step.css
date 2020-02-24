@@ -1,3 +1,9 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
 /*** 판매자 등록 1단계 **********************************/
 .span_user_name {
   display: inline-block;
@@ -7,16 +13,24 @@
   font-size: 30px;
 }
 
-.span_hello{
+.span_hello {
   margin: -5px;
   font-size: 30px;
 }
 
-.span_register_info{
+.span_register_info {
   display: block;
   padding-left: 30px;
   padding-top: 16px;
   font-size: 25px;
+}
+
+.div_state {
+  /* border: 1px solid black; */
+  margin-top: 10px;
+  font-size: 15px;
+  color: gray;
+
 }
 /*** end of 판매자 등록 1단계 +++++++++******************/
 
@@ -48,12 +62,11 @@
   display: inline;
 }
 
-
-
 .span_hashtag {
   font-weight: bold;
   font-size: 40px;
   color: darkorange;
+  border: 1px solid darkorange;
 }
 
 .span_hashtag_intro {
@@ -121,45 +134,135 @@
   background-color: #fff;
   border:2px solid gold;
   font-size: 17px;
-  width:40px;
-  height:40px;
+  width:30px;
+  height:30px;
   border-radius:75px;
   text-align:center;
   margin:0 auto;
   vertical-align:middle;
 }
 
+
+.textarea_step2{
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  margin-top: 10px;
+}
+
+/* 메뉴 추가 테이블 */
+
 .table_seller_menu {
   border-collapse: collapse;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  text-align: center;
 }
 
-.table_seller_menu th {
+.th_menu {
   border-collapse: collapse;
-  border: 1px solid #a9a9a9;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  font-size: 12px;
   /* width: 100px; */
-
 }
 
-.table_seller_menu tr {
+.th_menu_del {
+  border: 1px solid #fff;
+    border-radius: 8px;
+}
+
+.tr_menu {
   border-collapse: collapse;
-  border: 1px solid #a9a9a9;
+  border: 1px solid lightgray;
+    border-radius: 8px;
     /* width: 100px; */
 }
 
-.table_seller_menu td {
+.td_menu {
   border-collapse: collapse;
-  border: 1px solid #a9a9a9;
+  border: 1px solid lightgray;
   text-align: center;
   font-size: 12px;
+    border-radius: 8px;
     /* width: 100px; */
 }
 
 .table_seller_menu td>input {
-  width: 150px;
+  width: 100%;
+  border: none;
+  font-size: 12px;
+
 }
 
-/* 가게 등록 성공 페이지 */
+.table_seller_menu td>input:focus {
+  outline: none;
+}
 
+.td_button_del {
+  border-left: 1px solid lightgray;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding-left: 3px;
+}
+
+/* 영업시간 */
+.input_date_time {
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+/* 브레이크 타임 정보  */
+.span_content_font {
+  font-size: 15px;
+}
+
+/* 식당 편의시설 기타란 */
+#input_etc{
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 식당 전화번호 */
+.input_phone {
+  width: 50px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  text-align: center;
+}
+
+/* 최대 예약 가능 인원 */
+.input_people {
+  width: 50px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  font-size: 15px;
+  text-align: center;
+}
+
+.div_strength {
+  width: 420px;
+  border: 2px solid #e9e9e9;
+  border-radius: 15px;
+}
+
+.span_strength {
+  width: 50px;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+
+/* 가게 등록 성공 페이지 */
 .div_except_button ul li a {
   text-decoration: none;
   text-align: center;
@@ -181,7 +284,6 @@
 }
 
 
-/* 판매자 등록 성공 페이지 */
 .div_outside img {
   width: 70%;
   height: 350px;
