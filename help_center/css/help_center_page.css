@@ -1,0 +1,19 @@
+.article_content_box {
+    width: 800px;
+}
+.article_content_box * {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.article_content_box h1 {
+    font-size: 2rem;
+}
+
+.article_content_box h2 {
+    font-size: 1.5rem;
+}
+
+.article_content_box p {
+    font-size: 1.2rem;
+}
