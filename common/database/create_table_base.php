@@ -95,45 +95,6 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8;
                     ";
                 break;
-
-                // 판매자테이블
-            case 'seller':
-                $sql = "CREATE TABLE `seller` (
-                    `seller_num` int unsigned NOT NULL AUTO_INCREMENT,
-                    `store_name` varchar(45) NOT NULL,
-                    `business_license` varchar(10) NOT NULL,
-                    `store_address` varchar(45) NOT NULL,
-                    `store_postcode` char(10) NOT NULL,
-                    `store_lat` double NOT NULL,
-                    `store_lon` double NOT NULL,
-                    `convenient_facilities` varchar(80) NOT NULL,
-                    `introduction` text DEFAULT NULL,
-                    `break_start` time DEFAULT NULL,
-                    `break_end` time DEFAULT NULL,
-                    `nokids` boolean NOT NULL,
-                    `opening_day` date NOT NULL,
-                    `opening_hours_start` time NOT NULL,
-                    `opening_hours_end` time NOT NULL,
-                    `store_tel` char(13) NOT NULL,
-                    `store_file_name` varchar(45) DEFAULT NULL,
-                    `store_file_copied` varchar(45) DEFAULT NULL,
-                    `store_file_type` varchar(45) DEFAULT NULL,
-                    `max_reserv_time_num_of_people` int unsigned NOT NULL,
-                    `max_reserv_month` char(10) NOT NULL,
-                    `intensity_of_reserv` char(10) NOT NULL,
-                    PRIMARY KEY (`seller_num`)
-                ) DEFAULT CHARSET=utf8;
-                ";
-                break;
-
-            case 'keyword':
-                $sql = "CREATE TABLE `keyword` (
-                    `keywords_type` varchar(50) NOT NULL,
-                    `keywords` varchar(500),
-                    PRIMARY KEY (`keywords_type`)
-                ) DEFAULT CHARSET=utf8;
-                ";
-                break;
         } //end of switch
 
 
@@ -221,20 +182,6 @@ function insert_table($con, $table_name)
                                     '폐업사유', '허가(신고)번호', '모범음식점여부', '최대급식인원수', '일인당평균급식비',
                                     '폐업일자', '업소 위도', '위도 경도');
                                     ";
-            break;
-
-        case 'keyword':
-            $sql = "INSERT INTO `keyword` (`keywords_type`, `keywords`) VALUES
-                ('tag_class', '조용한,편안한,시끌벅적한,푸짐한,캐쥬얼한,아이와함께,모임하기좋은,특별한날,코스요리,프로포즈,데이트,백종원의3대천왕,생활의달인,수요미식회,혼밥'),
-                ('food_class', '한식,양식,아시아음식,일식,중식,분식,카페,뷔페,기타');
-             ";
-            break;
-
-
-        case 'seller':
-            $sql = "INSERT INTO `seller` (`seller_num`, `store_name`, `business_license`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `store_file_name`, `store_file_copied`, `store_file_type`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
-                (null, '지수네', '6618700621','경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, null, null, 5, '3개월', '상');
-                ";
             break;
     } //end of switch
 

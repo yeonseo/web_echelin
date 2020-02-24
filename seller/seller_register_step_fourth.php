@@ -29,11 +29,11 @@
             <form class="" name="" action="" method="post">
               <div class="div_except_button">
                 <ul>
-                  <li>시간 당 최대 예약 가능 인원을 적어주세요.</li>
+                  <li>최대 예약 가능 인원을 적어주세요.</li>
                   <input class="input_people" type="number" name="" value="">&nbsp명
                   </br></br></br>
 
-                  <li>예약 가능한 최대 개월 수를 설정해주세요.</li>
+                  <li>사용자가 예약할 수 있는 최대 개월 수를 설정해주세요.</li>
                     <input type="radio" name="" value="">
                     <span class="span_content_font">1개월</span>&nbsp&nbsp
                     <input type="radio" name="" value="">

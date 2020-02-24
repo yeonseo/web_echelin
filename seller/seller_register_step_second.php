@@ -63,11 +63,12 @@ echo "console.log($input_business_license)";
 
                 // 인포윈도우로 장소에 대한 설명을 표시합니다
                 var infowindow = new kakao.maps.InfoWindow({
-                  position: new kakao.maps.LatLng(latitude, longitude),
-                  content: '<div style="width:150px;text-align:center; padding:6px 0;"><? echo $input_store_name;?></div>'
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;"><? echo $input_store_name;?></div>'
                 });
                 infowindow.open(map, marker);
 
+
+                mapContainer.css('display', ($(this).val() === 'true') ? 'block' : 'none');
 
             }
         });
@@ -98,7 +99,7 @@ echo "console.log($input_business_license)";
         <div class="div_register_inner_shape">
           <div class="div_form">
             <!-- 우편번호 찾기 폼 -->
-              <form class="" action="./seller_register_step_third.php" method="post">
+              <form class="" action="" method="post">
                 <div class="div_except_button">
                   <ul>
                     <li>식당 주소를 입력해주세요</li>

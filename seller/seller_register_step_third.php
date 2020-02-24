@@ -61,9 +61,41 @@
                  </br></br></br>
 
                  <li>영업시간</li>
-                  <input class="input_date_time" type="time" name="" value="">&nbsp-
-                  <input class="input_date_time" type="time" name="" value="">
-                  </br></br></br>
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">월</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">화</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">수</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">목</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">금</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">토</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+
+                   <input type="checkbox" name="" value="">
+                   <span class="span_content_font">일</span>
+                   <input class="input_date_time" type="time" name="" value="">&nbsp-
+                   <input class="input_date_time" type="time" name="" value=""></br>
+                   </br></br></br>
 
 
                  <li>브레이크타임 정보</li>
@@ -77,12 +109,10 @@
                   </div>
                   </br></br></br>
 
-                  <li>노키즈 존 여부</li>
-                  <input type="radio" name="nokids_check" value="true">
-                  <span class="span_content_font">해당없음</span>
-                  <input type="radio" name="nokids_check" value="false">
-                  <span class="span_content_font">있음</span>
-                  </br></br></br>
+                  <li>휴무일</li>
+                  <textarea class="textarea_step2" name="name" rows="4" cols="74" style="resize: none;"></textarea>
+                   </br></br></br>
+
 
                   <li>식당 편의시설</li>
                     <input type="checkbox" name="" value="">
