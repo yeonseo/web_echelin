@@ -6,5 +6,5 @@
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/test_page/index_chart.php">통계보기</a></li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">후기관리</a></li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">문의 게시판</a></li>
-    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">3행1열</a></li>
+    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/test_page/index_my_database_setting.php">음식점 DB관리하러 가기</a></li>
 </ul>
