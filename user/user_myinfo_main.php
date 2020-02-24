@@ -7,9 +7,8 @@
 
         <!-- 순서대로쭉쭉 -->
         <ul>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php">셀러 정보변경(업뎃예정)</a> </li>
+            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php">가게 등록하기</a> </li>
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
@@ -21,20 +20,21 @@
 
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                    <i class="fas fa-user-cog"></i>
-                </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
-            </button>
 
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">셀러 정보변경(업뎃예정)</div>
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+            </button>
+
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php'">
+                <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">가게 등록하기</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">돈을벌자 돈을벌자 뜐뜐!</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->
