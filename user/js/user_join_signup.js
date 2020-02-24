@@ -1,50 +1,59 @@
-function signup_check(){
+let confirmArray =[false,false,false,false,false];
+function signup_check(id){
+    var value1 = /^[a-zA-Z가-힣]{1}[a-zA-Z가-힣\x20]{1,20}$/;
+    var value2 = /^[a-zA-Z가-힣]{1,10}$/;
+    
+    var value3 = /^[a-zA-Z0-9]{6,12}$/;
+    var value4 = /^[A-Z]{1}[a-zA-Z0-9]{7,11}$/;
+    var value5 = /^[\w]+@[a-z]+.[a-z]+$/;
+    
+    var check_case = document.getElementById(id).value;
+    
+    switch(id){
+        case "signup_email":
+            if(!value5.test(check_case)){
+                confirmArray[0]=false;
+                $(document).ready(function(){
+                    $("#email_text").text("이메일을 입력하세요 !").css("color","red","visibility","visible");
+                });
+            }else{
+                confirmArray[0]=true;
+                $(document).ready(function (){
+                    $("#email_text").text("사용가능한 이메일 입니다 !").css("color","teal", "visibility","hidden");
+                });
+            }
+            break;
+            // user_name_test
+        case "user_name" :
+            if(!value1.test(check_case)){
+                confirmArray[1]=false;
+                $(document).ready(function(){
+                    $("#user_name_test").text("숫자 또는 특수기호가 포함되었습니다. ").css("color","red","visibility","visible");
+                });
+            }else{
+                confirmArray[1]=true;
+                $(document).ready(function(){
+                    $("#user_name_test").text("사용 가능합니다.").css("color","teal","visibility","hidden");
+                });
+            }
+            break;
+            case "user_sung" :
+                if(!value2.test(check_case)){
+                    confirmArray[2]=false;
+                    $(document).ready(function(){
+                        $("#user_sung_test").text("숫자 또는 특수기호가 포함되었습니다. ").css("color","red","visibility","visible");
+                    });
+                }else{
+                    confirmArray[2]=true;
+                    $(document).ready(function(){
+                        $("#user_sung_test").text("사용 가능합니다.").css("color","teal","visibility","hidden");
+                    });
+                }
+                break;
 
-    var pattern=/([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i;
-    var flag = pattern.test($("#test1").val());
-    var pattern2=/([^가-힣ㄱ-ㅎㅏ-ㅣ\x10])/i;
-    var flag2 = pattern2.test($("#test_sung").val());
-    if(flag){
-        $("#user_name_test").text("영문장 또는 특수기호 (이)가 포함되어 있는 문장이 있습니다").css("color","red");
 
-    }else{
-        $("#user_name_test").text("사용 가능합니다").css("color","teal");
     }
-   
-    if(flag2){
-        $("#user_sung_test").text("영문장 또는 특수기호 (이)가 포함되어 있는 문장이 있습니다").css("color","red");
-    }else{
-        $("#user_sung_test").text("사용 가능").css("color","teal");
-    }
-      if (!document.myForm.user_Email.value) {
-        //  alert("이메일 주소를 입력하세요!");    
-          $("#email_text").text("이메일 주소를 입력하세요").css("color","red");
-          document.member_form.user_Email.focus();
-          return;
-      }
-      
-      if (!document.myForm.user_name.value) {
-          alert("이름을 입력하세요!");    
-          document.myForm.user_name.focus();
-          return;
-      }
-      
-      if (!document.myForm.user_sung.value) {
-          alert("성 을 입력하세요!");    
-          document.myForm.user_sung.focus();
-          return;
-      }
-      if (!document.myForm.user_password.value) {
-          alert("비밀번호를 입력하세요!");    
-          document.myForm.user_password.focus();
-          return;
-      }
-      var popupX=(document.body.offsetWidth/2)-(700/2);
-        var popupY=(document.body.offsetHeight/2)-(600/2);
-        // 만들 팝업창의 좌우 , 상하 크기의 1/2 만큼 보정값으로 뺀다
-        var signup_window= window.open('user_signup_window.php','check_signup','width=700,height=600, left='+popupX +',top='+popupY);
-        var input_check=document.signup;
-        input_check='/echelin/user/user_join_signup.php';
-        input_check='check_signup';
-        input_check.method="post";  
-   }
+
+    // document.myForm.submit();
+
+}
