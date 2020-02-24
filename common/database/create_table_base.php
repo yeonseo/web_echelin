@@ -225,17 +225,17 @@ function insert_table($con, $table_name)
 
         case 'keyword':
             $sql = "INSERT INTO `keyword` (`keywords_type`, `keywords`) VALUES
-                (`tag_class`, '	조용한,편안한,시끌벅적한,푸짐한,캐쥬얼한,아이와함께,모임하기좋은,특별한날,코스요리,프로포즈,데이트,백종원의3대천왕,생활의달인,수요미식회,혼밥'),
-                (`food_class`, '	한식,양식,아시아음식,일식,중식,분식,카페,뷔페,기타');
+                ('tag_class', '조용한,편안한,시끌벅적한,푸짐한,캐쥬얼한,아이와함께,모임하기좋은,특별한날,코스요리,프로포즈,데이트,백종원의3대천왕,생활의달인,수요미식회,혼밥'),
+                ('food_class', '한식,양식,아시아음식,일식,중식,분식,카페,뷔페,기타');
              ";
             break;
 
 
-            case 'seller':
-                $sql = "INSERT INTO `seller` (`seller_num`, `store_name`, `business_license`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `store_file_name`, `store_file_copied`, `store_file_type`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
-                    (null, '지수네', '6618700621','경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, null, null, 5, '3개월', '상');
-                 ";
-                break;
+        case 'seller':
+            $sql = "INSERT INTO `seller` (`seller_num`, `store_name`, `business_license`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `store_file_name`, `store_file_copied`, `store_file_type`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
+                (null, '지수네', '6618700621','경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, null, null, 5, '3개월', '상');
+                ";
+            break;
     } //end of switch
 
     $result = $con->query($sql);
