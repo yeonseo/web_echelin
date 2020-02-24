@@ -13,7 +13,6 @@
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/??.php">문의게시판(유저들의)</a> </li>
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/??.php">통계보기</a> </li>
             <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">리스트를 넣어요~</a> </li>
         </ul>
     </div>
     <div class="right_content">
