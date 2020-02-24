@@ -8,3 +8,4 @@ create_table($con, $dbname, 'message');
 create_table($con, $dbname, 'board');
 create_table($con, $dbname, 'restaurants');
 create_table($con, $dbname, 'seller');
+create_table($con, $dbname, 'keyword');
