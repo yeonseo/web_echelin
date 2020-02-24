@@ -74,27 +74,57 @@ function create_table($con, $dbname, $table_name)
             case 'restaurants':
                 $sql = "CREATE TABLE `restaurants` (
                     `num` int unsigned NOT NULL AUTO_INCREMENT,
-                    `trdp_area_dress_room` varchar(200), `trdp_area` varchar(200), `upso_site_telno` varchar(200), `upso_sno` varchar(200), `bdng_jisg_flr_num` varchar(200), 
+                    `trdp_area_dress_room` varchar(200), `trdp_area` varchar(200), `upso_site_telno` varchar(200), `upso_sno` varchar(200), `bdng_jisg_flr_num` varchar(200),
                     `upso_nm` varchar(200), `ntn` varchar(200), `bdng_jisg_flr_num2` varchar(200), `toil_etc_area_upso` varchar(200), `bup_nm` varchar(200),
-                    
+
                     `grade_facil_gbn` varchar(200), `area_wrk` varchar(200), `perm_nt_cn` varchar(200), `trdp_area_jorijang` varchar(200), `cn_perm_stdt` varchar(200),
                     `ordtm_ptsof_avg` varchar(200), `mng_gbn` varchar(200), `perm_nt_ymd` varchar(200), `cn_perm_enddt` varchar(200), `site_addr` varchar(200),
-                    
+
                     `ptsof_sort` varchar(200), `rfn_item` varchar(200), `snt_cob_code` varchar(200), `trdp_area_etc` varchar(200), `cn_perm_nt_sayu` varchar(200),
                     `snt_cob_nm` varchar(200), `bman_stdt` varchar(200), `yy` varchar(200), `one_ptsof_stf` varchar(200), `site_addr_rd` varchar(200),
-                    
+
                     `site_loc_gbn` varchar(200), `site_stdt` varchar(200), `eip_woman` varchar(200), `bdng_under_flr_num2` varchar(200), `trdp_area_guest_seat` varchar(200),
                     `trdp_disp_sil_ar` varchar(200), `bdng_tot_flr_num` varchar(200), `area_isp` varchar(200), `admdng_nm` varchar(200), `ed_fin_ymd` varchar(200),
-                    
+
                     `kor_frgnr_gbn` varchar(200), `cgg_code` varchar(200), `bdng_under_flr_num` varchar(200), `snt_uptae_nm` varchar(200), `eip_man` varchar(200),
                     `trdp_area_room` varchar(200), `trdp_area_dance` varchar(200), `dcb_gbn_nm` varchar(200), `trdp_ware_depo_ar` varchar(200), `toil_area_upso` varchar(200),
-                    
+
                     `dcb_why` varchar(200), `perm_nt_no` varchar(200), `ge_eh_yn` varchar(200), `ordtm_ptsof_max` varchar(200), `avg_food_amt` varchar(200),
-                    `dcb_ymd` varchar(200), `upso_latitude` varchar(200), `upso_longitude` varchar(200), 
+                    `dcb_ymd` varchar(200), `upso_latitude` varchar(200), `upso_longitude` varchar(200),
                     PRIMARY KEY (`num`)
                     ) DEFAULT CHARSET=utf8;
                     ";
                 break;
+
+                //판매자테이블
+            // case 'seller':
+            //     $sql = "CREATE TABLE `seller` (
+            //         `seller_num` int unsigned NOT NULL AUTO_INCREMENT,
+            //         `store_name` varchar(45) NOT NULL,
+            //         `business_license` int unsigned,
+            //         `store_address` varchar(45) NOT NULL,
+            //         `store_postcode` char(10) NOT NULL,
+            //         `store_lat` double NOT NULL,
+            //         `store_lon` double NOT NULL,
+            //         `convenient_facilities` varchar(80) NOT NULL,
+            //         `introduction` text DEFAULT NULL,
+            //         `break_start` time DEFAULT NULL,
+            //         `break_end` time DEFAULT NULL,
+            //         `opening_day` date NOT NULL,
+            //         `opening_hours_start` time NOT NULL,
+            //         `opening_hours_end` time NOT NULL,
+            //         `store_closed` text NOT NULL,
+            //         `store_tel` char(13) NOT NULL,
+            //         `store_file_name` varchar(45) DEFAULT NULL,
+            //         `store_file_copied` varchar(45) DEFAULT NULL,
+            //         `store_file_type` varchar(45) DEFAULT NULL,
+            //         `max_reserv_num_of_people` int unsigned NOT NULL,
+            //         `max_reserv_month` char(10) NOT NULL,
+            //         `intensity_of_reserv` char(10) NOT NULL,
+            //         PRIMARY KEY (`seller_num`)
+            //     ) DEFAULT CHARSET=utf8;
+            //     ";
+            //     break;
         } //end of switch
 
 
@@ -147,38 +177,38 @@ function insert_table($con, $table_name)
             ";
             break;
         case 'restaurants':
-            $sql = "INSERT INTO `restaurants` (`trdp_area_dress_room`, `trdp_area`, `upso_site_telno`, `upso_sno`, `bdng_jisg_flr_num`, 
+            $sql = "INSERT INTO `restaurants` (`trdp_area_dress_room`, `trdp_area`, `upso_site_telno`, `upso_sno`, `bdng_jisg_flr_num`,
                                     `upso_nm`, `ntn`, `bdng_jisg_flr_num2`, `toil_etc_area_upso`, `bup_nm`,
-                                    
+
                                     `grade_facil_gbn`, `area_wrk`, `perm_nt_cn`, `trdp_area_jorijang`, `cn_perm_stdt`,
                                     `ordtm_ptsof_avg`, `mng_gbn`, `perm_nt_ymd`, `cn_perm_enddt`, `site_addr`,
-                                    
+
                                     `ptsof_sort`, `rfn_item`, `snt_cob_code`, `trdp_area_etc`, `cn_perm_nt_sayu`,
                                     `snt_cob_nm`, `bman_stdt`, `yy`, `one_ptsof_stf`, `site_addr_rd`,
-                                    
+
                                     `site_loc_gbn`, `site_stdt`, `eip_woman`, `bdng_under_flr_num2`, `trdp_area_guest_seat`,
                                     `trdp_disp_sil_ar`, `bdng_tot_flr_num`, `area_isp`, `admdng_nm`, `ed_fin_ymd`,
-                                    
+
                                     `kor_frgnr_gbn`, `cgg_code`, `bdng_under_flr_num`, `snt_uptae_nm`, `eip_man`,
                                     `trdp_area_room`, `trdp_area_dance`, `dcb_gbn_nm`, `trdp_ware_depo_ar`, `toil_area_upso`,
-                                    
+
                                     `dcb_why`, `perm_nt_no`, `ge_eh_yn`, `ordtm_ptsof_max`, `avg_food_amt`,
-                                    `dcb_ymd`, `upso_latitude`, `upso_longitude`) 
-                            VALUES ('영업장탈의실면적', '영업장면적(m)', '소재지전화번호', '업소일련번호', '지상_부터', 
+                                    `dcb_ymd`, `upso_latitude`, `upso_longitude`)
+                            VALUES ('영업장탈의실면적', '영업장면적(m)', '소재지전화번호', '업소일련번호', '지상_부터',
                                     '업소명', '국적', '지상_까지', '타업소공동화장실면적', '법인명',
-                                    
+
                                     '급수시설', '작업장면적', '신고조건', '영업장조리장면적', '조건부허가시작일',
                                     '평균급식인원수', '운영형태', '허가신고일', '조건부허가종료일', '소재지지번',
-                                    
+
                                     '급식소종류', '참고사항', '업종코드', '영업장기타면적', '조건부허가신고사유',
                                     '업종명', '영업자시작일', '년도', '1일급식인원수', '소재지도로명',
-                                    
+
                                     '업소위치', '소재지시작일', '종업원여', '지하_까지', '영업장객석면적',
                                     '진열(판매)대면적', '총층수', '검사실면적', '행정동명', '교육수료일자',
-                                    
+
                                     '내외국인구분', '시군구코드', '지하_부터', '업태명', '종업원남',
                                     '영업장객실면적', '영업장무도장면적', '폐업구분', '창고(보관소)면적', '업소내화장실면적',
-                                    
+
                                     '폐업사유', '허가(신고)번호', '모범음식점여부', '최대급식인원수', '일인당평균급식비',
                                     '폐업일자', '업소 위도', '위도 경도');
                                     ";
