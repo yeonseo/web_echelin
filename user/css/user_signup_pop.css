@@ -1,0 +1,72 @@
+.dialog{
+    background-color: rgb(255, 255, 255);
+    max-width: 568px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.dialog_padding{
+    padding: 0px 20px 20px;
+}
+.signup_introduce{
+    font-size: 28px;
+    font-weight: 800;
+    color: rgb(72, 72, 72);
+    padding-top: 2px;
+}
+.dialog2{
+    background-color: rgb(255, 255, 255);
+    max-width: 568px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.dialog_padding2{
+    padding: 0px 20px 20px;
+}
+.signup_introduce2{
+    font-size: 15px;
+    font-weight: 800;
+    color: rgb(72, 72, 72);
+    padding-top: 2px;
+}
+
+.dialog3{
+    background-color: rgb(255, 255, 255);
+    max-width: 568px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.dialog_padding3{
+    padding: 0px 20px 20px;
+}
+.signup_introduce3{
+    font-size: 15px;
+    font-weight: 800;
+    color: rgb(72, 72, 72);
+    padding-top: 2px;
+}
+.signup_button{
+    width: 12%;
+    height: 50px;
+    background-color:teal;
+    color: white;
+    font-size: 15px;
+    border: 1px solid teal;
+    font-weight: bold;
+    margin: 15px;
+    border-radius: 8px;
+
+}
+.signup_button2{
+    width: 12%;
+    height: 50px;
+    background-color:white;
+    color: teal;
+    font-size: 15px;
+    border: 2px solid teal;
+    font-weight: bold;
+    margin: 15px;
+    border-radius: 8px;
+}

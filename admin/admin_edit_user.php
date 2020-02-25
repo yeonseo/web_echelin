@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
   <title> <?= COMMON::$title; ?> </title>
+
+
   <!-- CSS, JS 파일 링크 시, -->
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
-  <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main.css">
-  <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main_test.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+  <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/css/admin_page.css">
-  <!-- <link rel="stylesheet" href="./css/main.css"> -->
-  <script src="./js/vendor/modernizr.custom.min.js"></script>
-  <script src="./js/vendor/jquery-1.10.2.min.js"></script>
-  <script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+
+  <!-- 공통으로 사용하는 link & script -->
+  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
+
 </head>
 
 <body>
@@ -23,26 +24,26 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
   </header>
   <section>
-    <div class="admin_content">
-
+    <div class="my_info_content">
       <div class="left_menu">
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/left_menu.php" ?>
+        <!-- 순서대로쭉쭉 -->
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/admin_side_left_menu.php"; ?>
       </div>
       <div class="right_content">
-        <h3>업주정보수정
+        <h3>유저정보수정
           <form class="" action="edit_user.php?mode=search" method="post">
 
-              <select name="find">
-                <option value="id">아이디</option>
-                <option value="id">이름</option>
-                <option value="id">이메일</option>
-              </select>
+            <select name="find">
+              <option value="id">아이디</option>
+              <option value="id">이름</option>
+              <option value="id">이메일</option>
+            </select>
 
 
-              <input type="text" name="search" value="">
+            <input type="text" name="search" value="">
 
 
-              <input type="image" src="./img/search_icon.png">
+            <input type="image" src="./img/search_icon.png">
 
           </form>
         </h3>
@@ -60,15 +61,15 @@
             <span class="col10">삭제</span>
           </li>
           <?php
-          $find=$search=$member_search="";
+          $find = $search = $member_search = "";
 
           $con = mysqli_connect("localhost", "root", "123456", "echelin");
-          if(isset($_GET["mode"])&&$_GET["mode"]=="search"){
+          if (isset($_GET["mode"]) && $_GET["mode"] == "search") {
             $find = test_input($_POST["find"]);
             $search = test_input($_POST["search"]);
-            $member_search = mysqli_real_escape_string($con,$search);
+            $member_search = mysqli_real_escape_string($con, $search);
             $sql = "select * from members where $find like '%$member_search%' order by num desc";
-          }else{
+          } else {
             $sql = "select * from members order by num desc";
           }
 
@@ -105,8 +106,8 @@
           mysqli_close($con);
           ?>
 
-      </div>
-    </div>
+      </div><!-- end of right_content -->
+
   </section>
   <footer>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>

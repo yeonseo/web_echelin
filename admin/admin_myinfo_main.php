@@ -1,40 +1,26 @@
 <div class="my_info_content">
     <div class="left_menu">
-
-        <div class="my_info_profile">
-            <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/my_info/index_my_info.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu1.jpg"></a>
-        </div>
-
         <!-- 순서대로쭉쭉 -->
-        <ul>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php">유저 정보변경(업뎃예정)</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php">예약내역 보기</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php">메세지</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php">찜목록</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php">내가 남긴 후기</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php">문의게시판(관리자랑)</a> </li>
-            <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">더 필요한 리스트를 넣어요~</a> </li>
-        </ul>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/admin_side_left_menu.php"; ?>
     </div>
     <div class="right_content">
 
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_edit_user.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                    <i class="far fa-id-card"></i>
+                    <i class="fas fa-user-cog"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">정보변경(업뎃예정)</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">유저정보관리</div>
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/??.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_edit_seller.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                    <i class="fas fa-clipboard-list"></i>
+                    <i class="far fa-id-card"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">예약내역 확인</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">돈을벌자 돈을벌자 뜐뜐!</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">업주정보관리</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->

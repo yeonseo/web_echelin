@@ -35,9 +35,9 @@ else $userpoint = "";
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">회원가입</a></li>
 
       <!-- 각각 보여질 부분 -->
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/#.php">유저</a></li>
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">셀러</a></li>
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">관리자</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php">유저</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/seller_sellerinfo_index.php">셀러</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_myinfo_index.php">관리자</a></li>
 
       <!-- 공통 -->
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">도움말</a></li>
