@@ -1,4 +1,6 @@
 
+
+<!-- 키워드테이블에서가져와서뿌리기 -->
 <div id="keyword_header" style=" display:none; position:relative;">
   <ul class="keywords">
     <li id="keyword1" onclick="selectKeyword('keyword1');">#조용한</li>
@@ -18,6 +20,8 @@
     <li id="keyword15">#수요미식회</li>
   </ul>
 </div>
+
+<!-- 많이검색된키워드db에서가져와서정렬 -->
 <div class="search_banner">
 
     <span class="search_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 이 키워드는 어떠세요?</span>
@@ -51,10 +55,10 @@
 
 <div class="search_all">
 
-    <span class="search_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; "#" 에 대한 모든 검색결과 입니다. => 무한 스크롤</span>
+    <span class="search_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; "#" 에 대한 모든 검색결과 입니다. 무한 스크롤</span>
 
     <div class="search_member">
-
+        <?php  ?>
         <div class="all_content_first"></div>
         <div class="all_content"></div>
         <div class="all_content"></div>

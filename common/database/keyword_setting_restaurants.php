@@ -48,6 +48,8 @@ function keyword_setting($con, $dbname)
         $sql = "INSERT INTO `keyword_restaurant` (`upso_nm`, `snt_uptae_nm`, `tag_class`) VALUES
                 ('" . addslashes($restaurant_row['upso_nm']) . "', '" . $restaurant_row['snt_uptae_nm'] . "', '" . $insert_random_tag . "');
              ";
+             ini_set('max_execution_time', -1);
+
         $insert_result = $con->query($sql);
         if ($insert_result === FALSE) {
             die('DB Database Connect Error: ' . mysqli_error($con));
