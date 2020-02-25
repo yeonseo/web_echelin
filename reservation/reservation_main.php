@@ -28,19 +28,9 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
     <section>
-      <div class="main_section_div">
-          <img src="./img/topmain.png" alt="">
-          <img src="./img/topmain1.png" alt="">
-          <img src="./img/topmain2.png" alt="">
-          <img src="./img/topmain3.png" alt="">
-          <img src="./img/topmain3_1.png" alt="">
-          <img src="./img/topmain4.png" alt="">
-          <img src="./img/topmain5.png" alt="">
-        </div>
-
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/information.php"; ?>
         <div class="div_prv_next_button">
-          <button class="button_next" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_first.php'">다음</button>
-          <button class="button_prev" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_main.php'">이전</button>
+          <button class="button_next" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_first.php'">예약</button>
         </div>
     </section>
     <footer>

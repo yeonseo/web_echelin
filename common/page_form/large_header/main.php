@@ -96,7 +96,7 @@
         <div class="best_score_content">
 
             <div class="score_content_first">
-                <a href="#">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_1.jpg">
                 </a>
 
@@ -113,7 +113,7 @@
 
             <div class="score_content_second">
 
-                <a href="#">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_2.jpg">
                 </a>
 
