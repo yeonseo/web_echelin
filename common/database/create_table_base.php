@@ -125,6 +125,23 @@ function create_table($con, $dbname, $table_name)
                 ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
               ";
                 break;
+
+
+            case 'storeImg':
+                $sql = "CREATE TABLE `storeImg` (
+                  `num` int unsigned NOT NULL AUTO_INCREMENT,
+                	`seller_num` varchar(20) NOT NULL,
+                	`store_name` varchar(45) NOT NULL,
+                	`file_name` varchar(45) NOT NULL,
+                	`file_type` varchar(45) NOT NULL,
+                	`file_copied` varchar(45) NOT NULL,
+                    PRIMARY KEY (num),
+                    FOREIGN KEY (seller_num)
+                        REFERENCES seller (seller_num)
+                        ON UPDATE CASCADE ON DELETE CASCADE
+                ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+              ";
+                break;
         } //end of switch
 
 
@@ -219,6 +236,17 @@ function insert_table($con, $table_name)
               (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, 5, '3개월', '상');
           ";
           break;
+
+      case 'storeImg':
+          $sql = "INSERT INTO `storeImg` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
+              (null, 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
+              (null, 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
+              (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
+              (null, 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
+              (null, 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
+          ";
+          break;
+
     } //end of switch
 
     $result = $con->query($sql);
