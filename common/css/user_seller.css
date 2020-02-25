@@ -83,7 +83,7 @@ progress {
   height: 70px;
   position: fixed;
   /* position: relative; */
-  bottom: 5px;
+  bottom: 1px;
   text-align: center;
   background-color: #ffffff;
   border-top: 2px solid lightgray;
