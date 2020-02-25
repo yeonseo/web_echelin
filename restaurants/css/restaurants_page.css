@@ -31,13 +31,13 @@
 
 }
 
-.restaurants_main_upper_btn_box{
+.restaurants_upper_btn_box{
     position: absolute;
     top : 24px;
     right : 24px;
 }
 
-.restaurants_main_upper_btn_box button{
+.restaurants_upper_btn_box button{
     width: 100px;
     height: 36px;
     margin-right: 20px;
@@ -45,16 +45,72 @@
     border-radius: 5px;
 }
 
-.restaurants_main_bottom_btn_box {
+.restaurants_bottom_btn_box {
     position: absolute;
     top : 685px;
     right : 24px;
 }
 
-.restaurants_main_bottom_btn_box button{
+.restaurants_bottom_btn_box button{
     width: 100px;
     height: 36px;
     margin-right: 20px;
     font-size: 1rem;
     border-radius: 5px;
+}
+
+
+
+
+
+.restaurants_main_content_box {
+    display: inline-block;
+    position: relative;
+    padding: 0 20%;
+    width: 60%;
+    min-width: 1200px;
+}
+
+.restaurants_center_content{
+    position: relative;
+}
+
+.restaurants_main_content_right_btn_box{
+    position: absolute;
+    top : 24px;
+    right : 30%;
+}
+
+.restaurants_main_content_right_btn_box button{
+    width: 200px;
+    height: 50px;
+    margin-right: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+ul.restaurant_keyword_list, ul.restaurant_facilities_list {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.restaurant_keyword_list li{
+    float: left;
+    padding-right: 1rem;
+}
+
+.restaurant_facilities_list li{
+    float: left;
+    width: 50%;
+}
+
+.restaurant_facilities_list li div{
+    height: 2rem;
+}
+
+.restaurant_facilities_list li i{
+    padding: 10px;
+    font-size: 2rem;
+    padding: auto 0;
 }
