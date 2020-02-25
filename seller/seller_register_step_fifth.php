@@ -42,7 +42,5 @@
         </div> <!-- div_register_inner_shape -->
       </div> <!--div_register_shape-->
     </section>
-
-
   </body>
 </html>

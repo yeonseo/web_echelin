@@ -35,6 +35,19 @@
                   <textarea class="textarea_step2" name="name" rows="8" cols="74" style="resize: none;"></textarea>
                   </br></br></br>
 
+
+                  <li>식당 타입은 어떻게 되나요?</li>
+                  <input type="radio" name="store_type" value="true">
+                  <span class="span_content_font">한식</span>
+                  <input type="radio" name="store_type" value="false">
+                  <span class="span_content_font">중식</span>
+                  <input type="radio" name="store_type" value="false">
+                  <span class="span_content_font">양식</span>
+                  <input type="radio" name="store_type" value="false">
+                  <span class="span_content_font">기타</span>
+                  <input id="input_etc" type="text" name="" value="" disabled>
+                  </br></br></br>
+
                   <li id="li_menu">메뉴 추가하기</li>
                   <button id="button_add" class="button_circle_add" type="button">+</button>
                   <br>
@@ -61,40 +74,8 @@
                  </br></br></br>
 
                  <li>영업시간</li>
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">월</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
-
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">화</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
-
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">수</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
-
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">목</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
-
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">금</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
-
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">토</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
-
-                   <input type="checkbox" name="" value="">
-                   <span class="span_content_font">일</span>
-                   <input class="input_date_time" type="time" name="" value="">&nbsp-
-                   <input class="input_date_time" type="time" name="" value=""></br>
+                 <input id="" class="input_date_time" type="time" name="" value="">&nbsp-
+                 <input class="input_date_time" type="time" name="" value="">
                    </br></br></br>
 
 
@@ -104,15 +85,10 @@
                   <input type="radio" name="break_time" value="false">
                   <span class="span_content_font">없음</span>
                   <div id="div_radio" hidden>
-                    <input id="ccc" class="input_date_time" type="time" name="" value="">&nbsp-
+                    <input id="" class="input_date_time" type="time" name="" value="">&nbsp-
                     <input class="input_date_time" type="time" name="" value="">
                   </div>
                   </br></br></br>
-
-                  <li>휴무일</li>
-                  <textarea class="textarea_step2" name="name" rows="4" cols="74" style="resize: none;"></textarea>
-                   </br></br></br>
-
 
                   <li>식당 편의시설</li>
                     <input type="checkbox" name="" value="">
@@ -164,8 +140,48 @@
 
 
                   <li>식당 외/내부 사진</li>
-                    <input type="file" name="" value="">
-                    </br></br></br>
+                    <div class="store_pic">
+                      <div class="store_inner_pic1">
+                        <div class="filebox">
+                          <label for="ex_file">업로드</label>
+                          <input type="file" class="ex_file">
+                        </div>
+                      </div>
+
+                      <div class="store_inner_pic2">
+                        <div class="filebox">
+                          <label for="ex_file">업로드</label>
+                          <input type="file" class="ex_file">
+                        </div>
+                      </div>
+
+                      <div class="store_inner_pic3">
+                        <div class="filebox">
+                          <label for="ex_file">업로드</label>
+                          <input type="file" class="ex_file">
+                        </div>
+                      </div>
+
+                      <div class="store_inner_pic4">
+                        <div class="filebox">
+                          <label for="ex_file">업로드</label>
+                          <input type="file" class="ex_file">
+                        </div>
+                      </div>
+
+                      <div class="store_inner_pic5">
+                        <div class="filebox">
+                          <label for="ex_file">업로드</label>
+                          <input type="file" class="ex_file">
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="div_clear_both">
+
+                    </div>
+                    </br></br>
 
 
                   <li>개업일</li>

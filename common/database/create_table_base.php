@@ -95,6 +95,36 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8;
                     ";
                 break;
+
+            // 판매자테이블
+            case 'seller':
+                $sql = "CREATE TABLE `seller` (
+                  `seller_num` int unsigned NOT NULL AUTO_INCREMENT,
+                  `user_id` varchar(20) NOT NULL,
+                  `business_license` char(10) NOT NULL,
+                  `store_name` varchar(45) NOT NULL,
+                  `store_type` varchar(45) NOT NULL,
+                  `store_address` varchar(45) NOT NULL,
+                  `store_postcode` char(10) NOT NULL,
+                  `store_lat` double NOT NULL,
+                  `store_lon` double NOT NULL,
+                  `convenient_facilities` varchar(80) NOT NULL,
+                  `introduction` text DEFAULT NULL,
+                  `break_start` time DEFAULT NULL,
+                  `break_end` time DEFAULT NULL,
+                  `nokids` boolean NOT NULL,
+                  `opening_day` date NOT NULL,
+                  `opening_hours_start` time NOT NULL,
+                  `opening_hours_end` time NOT NULL,
+                  `store_tel` char(13) NOT NULL,
+                  `special_note` text DEFAULT NULL,
+                  `max_reserv_time_num_of_people` int unsigned NOT NULL,
+                  `max_reserv_month` char(10) NOT NULL,
+                  `intensity_of_reserv` char(10) NOT NULL,
+                  PRIMARY KEY (`seller_num`)
+                ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+              ";
+                break;
         } //end of switch
 
 
@@ -183,6 +213,12 @@ function insert_table($con, $table_name)
                                     '폐업일자', '업소 위도', '위도 경도');
                                     ";
             break;
+
+      case 'seller':
+          $sql = "INSERT INTO `seller` (`seller_num`, `user_id`, `business_license`, `store_name`, `store_type`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `special_note`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
+              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, 5, '3개월', '상');
+          ";
+          break;
     } //end of switch
 
     $result = $con->query($sql);
