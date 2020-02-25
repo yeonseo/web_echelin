@@ -237,6 +237,89 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+/* 식당 외/내부 사진 */
+.store_pic {
+
+}
+
+.store_inner_pic1 {
+  width: 48%;
+  height: 220px;
+  border: 1px dashed gold;
+  border-radius: 20px;
+  float: left;
+}
+
+.store_inner_pic2 {
+  width: 23%;
+  height: 110px;
+  border: 1px dashed gold;
+  border-radius: 20px;
+  float: left;
+}
+
+.store_inner_pic3 {
+  width: 23%;
+  height: 110px;
+  border: 1px dashed gold;
+  border-radius: 20px;
+  float: left;
+}
+
+.store_inner_pic4 {
+  width: 23%;
+  height: 110px;
+  border: 1px dashed gold;
+  border-radius: 20px;
+  float: left;
+}
+
+.store_inner_pic5 {
+  width: 23%;
+  height: 110px;
+  border: 1px dashed gold;
+  border-radius: 20px;
+  float: left;
+}
+
+.filebox label {
+  display: inline-block;
+  padding: 10px;
+  color: gray;
+  font-size: 15px;
+  /* line-height: normal; */
+  /* vertical-align: middle; */
+  /* background-color: gold; */
+  /* cursor: pointer; */
+  border: 1px dashed gold;
+  border-radius: 25px;
+  /* -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s; */
+}
+
+.filebox label:hover {
+  background-color: gold;
+}
+
+.filebox label:active {
+  background-color: gold;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.div_clear_both{
+  clear: both;
+}
+
 /* 최대 예약 가능 인원 */
 .input_people {
   width: 50px;

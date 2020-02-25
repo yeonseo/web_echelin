@@ -14,9 +14,10 @@
               <form class="" name="form_seller_register_step_first" action="./seller_register_step_second.php" method="post">
                 <div class="div_except_button">
                   <ul>
-                    <li>등록하시려는 가게 이름을 적어주세요.</li>
+                    <li>등록하시려는 식당 이름을 적어주세요.</li>
                       <input class="input_info" type="text" name="input_store_name" value="">
                     </br></br>
+
                     <li>사업자등록번호를 등록해주세요</li>
                       <input id="input_business_license" class="input_info" type="number" name="input_business_license" value="">
                       <button class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
@@ -25,7 +26,6 @@
 
 
                       </div>
-
                   </ul>
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">
