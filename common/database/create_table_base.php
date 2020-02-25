@@ -122,8 +122,8 @@ function create_table($con, $dbname, $table_name)
                   `max_reserv_month` char(10) NOT NULL,
                   `intensity_of_reserv` char(10) NOT NULL,
                   PRIMARY KEY (`seller_num`)
-                    ) DEFAULT CHARSET=utf8;
-                    ";
+                ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+              ";
                 break;
         } //end of switch
 
