@@ -3,8 +3,9 @@ session_start();
 $sns = $_POST["user_sns"];
 $Email = $_POST["user_Email"];
 $Checkemail = $_POST["user_checkEmail"];
-$Password = $_POST["user_password"];
+$Password = $_POST["user_pass"];
 $Name = $_POST["user_name"];
+$Sung = $_POST["user_sung"];
 $Age = $_POST["user_age"];
 $jumin = $_POST["user_jumin"];
 $Phone = $_POST["user_phone"];
@@ -19,9 +20,12 @@ $LikeC = $_POST["user_likeCount"];
 $Payment = $_POST["user_payment"];
 
 
-$con = mysqli_connect("localhost" , "root" , "123456" , "echelin_user");
-$sql = "INSERT INTO `echelin_user`(`user_sns`, `user_Email`, `user_name`) VALUES 
-(\"$sns\",\"$Email\",\"$Name\")";
+$con = mysqli_connect("localhost" , "root" , "123456" , "echelin");
+   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_sung`,`user_password`)VALUES
+   (\"$sns\",\"$Email\",\"$Name\",\"$Sung\",\"$Password\")";
+ 
+//    $sql = "INSERT INTO `echelin_user`(`user_sns`, `user_Email`, `user_name`) VALUES 
+//    (\"$sns\",\"$Email\",\"$Name\")";
 
 
 //mysqli_query($con,$sql);
@@ -33,6 +37,14 @@ $result = $con->query($sql);
  } else {
  	die('INSERTPHP insert Error: ' . mysqli_error($con));
  }
+
+
+ echo "
+   <script>
+         location.href = 'user_myinfo_index.php';
+   </script>      
+ ";
+
 
 
 ?>

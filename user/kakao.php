@@ -10,6 +10,9 @@
 </head>
 <body>
 <div id="kakao-login-btn"></div>
+
+
+
 <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -22,7 +25,21 @@
         Kakao.API.request({
           url: '/v2/user/me',
           success: function(res) {
-            alert(JSON.stringify(res));
+            var sns="KaKao";
+           
+
+          
+            // alert(JSON.stringify(res));
+            console.log(res.id);
+            console.log(res.kakao_account.email);
+            console.log(res.properties.nickname);
+
+      document.getElementsByName('kakao-login-btn').innerHTML=
+      $(document).ready(function(){
+        $('#kakao_sns').val(sns);
+        $('#kakao_email').val(res.kakao_account.email);
+        $('#kakao_name').val(res.properties.nickname);
+      });
 
         // var email = naverLogin.user.getEmail();
 	  	  // var name = naverLogin.user.getName();
@@ -36,15 +53,27 @@
           fail: function(error) {
             alert(JSON.stringify(error));
           }
+          
         });
+     
       },
       fail: function(err) {
         alert(JSON.stringify(err));
       }
       
+      
     });
+  
+  
   //]]>
 </script>
+<form name="kakao_form" action="user_join_insert.php" method="post">
+    <input id="kakao_sns" type="hidden" name="user_sns">
+    <input id="kakao_email" type="hidden" name="user_Email">
+    <input id="kakao_name" type="hidden" name="user_name">
+    <input type="submit">
+</form>
+
 
 </body>
 </html>

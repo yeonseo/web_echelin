@@ -39,7 +39,7 @@
                   <div style="margin-top:16px; margin-bottom:16px">
                     <div class="echelin_bottom">
                       이미 echelin 계정이 있으신가요?<br>
-                      <a href="#" class="location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
+                      <a href="user_login_select.php" class="location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
                     </div>
                   </div>
                 </div>

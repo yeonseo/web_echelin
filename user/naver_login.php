@@ -19,7 +19,6 @@
         callbackUrl : "http://localhost/final_project/naver_call.php",
         isPopup: false,
         loginButton:{color:"green", type: 3, height : 60}
-
     }
   );
   naverLogin.init();
@@ -27,6 +26,7 @@
       if(status){
         // var uniqId = naverLogin.user.getId();
         // console.log(uniqId);
+        var sns = "Naver";
         var email = naverLogin.user.getEmail();
 	  	  var name = naverLogin.user.getName();
 	  	  var profileImage = naverLogin.user.getProfileImage();
@@ -40,10 +40,20 @@
       }else{
           consoe.log("AccessToken 이 올바르지 않습니다.");
       }
-    
-  });
-  
+      document.getElementsByName('naverIdLogin').innerHTML=
+      $(document).ready(function(){
+        $('#user_sns').val(sns);
+        $('#naver_email').val(email);
+        $('#user_name').val(name);
+      });
+
+  });  
 </script>
-    
+<form name="naver_form" action="user_join_insert.php" method="post">
+    <input id="user_sns" type="hidden" name="user_sns">
+    <input id="naver_email" type="hidden" name="user_Email">
+    <input id="user_name" type="hidden" name="user_name">
+    <input type="submit">
+</form>
 </body>
 </html>

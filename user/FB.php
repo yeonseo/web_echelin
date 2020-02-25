@@ -8,7 +8,6 @@
 </head>
 <body>
 <script type="text/javascript">
-  var user_sns="FaceBook";
   
    
   // This is called with the results from from FB.getLoginStatus().
@@ -76,6 +75,7 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
   	// 로그인이 성공시 다음 아래 코드에서 실행 하면 된다.
+  var user_sns="FaceBook";
   	
   
     console.log('Welcome!  Fetching your information.... ');
@@ -147,7 +147,7 @@ function facebookLogOut(){
 
     </div>
 </div>
- <form name="fb_form" action="echelin_insert2.php" method="post">
+ <form name="fb_form" action="user_join_insert.php" method="post">
     <input id="test0" type="hidden" name="user_sns">
     <input id="test" type="hidden" name="user_Email">
     <input id="test2" type="hidden" name="user_name">

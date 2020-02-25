@@ -21,8 +21,6 @@
 </header>
 
     <div class="sign_up_popup">
-
-    
     <div class="user_singup_form">
     <div style="margin-top: 24px">
     <div class="singup_border">
@@ -46,13 +44,14 @@
             
         </div>
         <!-- onsubmit="return check()" -->
-    <form name="myForm" action="#" method="post" >
+    <form name="myForm" action="user_join_insert.php" method="post" >
         <div style="margin-bottom:16px">
               <div class="input_form">
                   <div class="input_form2">
 
                   <!-- // 이메일 설정하기 -->
                   <input  class="_14fdu48d" id="signup_email" name="user_Email" placeholder="이메일 주소" type="text" value="" onkeyup="signup_check('signup_email')" > 
+                  <input id="input_form25" type="hidden" name="user_sns"> 
                   <span id="email_text"></span>
 
                   <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="
@@ -94,7 +93,7 @@
 
 
                   <!-- // 비밀번호 설정하기 -->
-                  <input  class="_14fdu48d" id="user_password" name="user_password" placeholder="비밀번호 설정하기" type="password" value=""  >
+                  <input  class="_14fdu48d" id="user" name="user_pass" placeholder="비밀번호 설정하기" type="password" value="" onkeyup="signup_check('user_pass')">
                   <span id="user_password"></span>
                   <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true" focusable="false" style="
                     margin-left: -16px;
@@ -365,8 +364,6 @@
                     
                 <svg viewBox="0 0 52 52" fill="currentColor" fill-opacity="0" stroke="currentColor" stroke-width="8" focusable="false" aria-hidden="true" role="presentation" stroke-linecap="round" stroke-linejoin="round" style="height: 1.5em;  color:white; width: 1.39em; display: block; overflow: visible;">
                 <path d="m19.1 25.2 4.7 6.2 12.1-11.2">
-                    
-                    
                 </path>
                 
             </svg>
@@ -387,7 +384,7 @@
             <div style="margin-top:16px; margin-bottom:16px">
                     <div class="echelin_bottom_form">
                       이미 echelin 계정이 있으신가요?
-                      <a href="#" class="location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
+                      <a href="user_login_select.php" class="location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
                     </div>
             </div>
             </div>
