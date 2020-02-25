@@ -117,9 +117,7 @@ function create_table($con, $dbname, $table_name)
                   `opening_hours_start` time NOT NULL,
                   `opening_hours_end` time NOT NULL,
                   `store_tel` char(13) NOT NULL,
-                  `store_file_name` varchar(300) DEFAULT NULL,
-                  `store_file_copied` varchar(300) DEFAULT NULL,
-                  `store_file_type` varchar(300) DEFAULT NULL,
+                  `special_note` text DEFAULT NULL,
                   `max_reserv_time_num_of_people` int unsigned NOT NULL,
                   `max_reserv_month` char(10) NOT NULL,
                   `intensity_of_reserv` char(10) NOT NULL,
@@ -217,8 +215,8 @@ function insert_table($con, $table_name)
             break;
 
       case 'seller':
-          $sql = "INSERT INTO `seller` (`seller_num`, `user_id`, `business_license`, `store_name`, `store_type`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `store_file_name`, `store_file_copied`, `store_file_type`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
-              (null, 'infor15', '6618700621', '지수네', '양식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, null, null, 5, '3개월', '상');
+          $sql = "INSERT INTO `seller` (`seller_num`, `user_id`, `business_license`, `store_name`, `store_type`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `special_note`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
+              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, 5, '3개월', '상');
           ";
           break;
     } //end of switch
