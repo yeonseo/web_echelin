@@ -9,3 +9,4 @@ create_table($con, $dbname, 'board');
 create_table($con, $dbname, 'restaurants');
 create_table($con, $dbname, 'seller');
 create_table($con, $dbname, 'keyword_list');
+create_table($con, $dbname, 'storeImg');

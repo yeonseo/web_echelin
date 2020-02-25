@@ -131,7 +131,7 @@ function create_table($con, $dbname, $table_name)
               ";
                 break;
 
-                //유저 가게 찜목록
+                //유저 가게 찜목록 테이블
             case 'seller':
                 $sql = "CREATE TABLE `user_mylist` (
                     `mylist_num` int unsigned NOT NULL AUTO_INCREMENT,
@@ -145,6 +145,7 @@ function create_table($con, $dbname, $table_name)
               ";
                 break;
 
+                //키워드 모음 테이블
             case 'keyword_list':
                 $sql = "CREATE TABLE `keyword_list` (
                         `keyword_num` int unsigned NOT NULL AUTO_INCREMENT,
@@ -152,6 +153,20 @@ function create_table($con, $dbname, $table_name)
                         `keywords` varchar(80) DEFAULT NULL,
                         PRIMARY KEY (`keyword_num`)
                         ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                  ";
+                break;
+
+                // 식당 외/내부 사진 테이블
+            case 'storeImg':
+                $sql = "CREATE TABLE `storeImg` (
+                      `num` int unsigned NOT NULL AUTO_INCREMENT,
+                         `seller_num` int unsigned NOT NULL,
+                         `store_name` varchar(45) NOT NULL,
+                         `store_file_name` varchar(45) NOT NULL,
+                         `store_file_type` varchar(45) NOT NULL,
+                         `store_file_copied` varchar(45) NOT NULL,
+                          PRIMARY KEY (`num`)
+                    ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
         } //end of switch
@@ -259,6 +274,16 @@ function insert_table($con, $table_name)
                   ('food_class', '한식,양식,아시아음식,일식,중식,분식,카페,뷔페,기타'),
                   ('tag_class', '조용한,편안한,시끌벅적한,푸짐한,캐쥬얼한,아이와함께,모임하기좋은,특별한날,코스요리,프로포즈,데이트,백종원의3대천왕,생활의달인,수요미식회,혼밥');
               ";
+            break;
+
+        case 'storeImg':
+            $sql = "INSERT INTO `storeImg` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
+                    (null, 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
+                    (null, 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
+                    (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
+                    (null, 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
+                    (null, 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
+                ";
             break;
     } //end of switch
 
