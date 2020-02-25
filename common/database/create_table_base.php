@@ -126,18 +126,18 @@ function create_table($con, $dbname, $table_name)
               ";
                 break;
 
-
+            // 식당 외/내부 사진 테이블
             case 'storeImg':
                 $sql = "CREATE TABLE `storeImg` (
                   `num` int unsigned NOT NULL AUTO_INCREMENT,
-                	`seller_num` varchar(20) NOT NULL,
-                	`store_name` varchar(45) NOT NULL,
-                	`file_name` varchar(45) NOT NULL,
-                	`file_type` varchar(45) NOT NULL,
-                	`file_copied` varchar(45) NOT NULL,
-                    PRIMARY KEY (num),
-                    FOREIGN KEY (seller_num)
-                        REFERENCES seller (seller_num)
+                  	`seller_num` int unsigned NOT NULL,
+                  	`store_name` varchar(45) NOT NULL,
+                  	`store_file_name` varchar(45) NOT NULL,
+                  	`store_file_type` varchar(45) NOT NULL,
+                  	`store_file_copied` varchar(45) NOT NULL,
+                      PRIMARY KEY (`num`),
+                      FOREIGN KEY (`seller_num`)
+                        REFERENCES seller (`seller_num`)
                         ON UPDATE CASCADE ON DELETE CASCADE
                 ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
               ";
