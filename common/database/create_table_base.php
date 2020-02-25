@@ -135,10 +135,7 @@ function create_table($con, $dbname, $table_name)
                   	`store_file_name` varchar(45) NOT NULL,
                   	`store_file_type` varchar(45) NOT NULL,
                   	`store_file_copied` varchar(45) NOT NULL,
-                      PRIMARY KEY (`num`),
-                      FOREIGN KEY (`seller_num`)
-                        REFERENCES seller (`seller_num`)
-                        ON UPDATE CASCADE ON DELETE CASCADE
+                      PRIMARY KEY (`num`)
                 ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
               ";
                 break;
