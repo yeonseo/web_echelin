@@ -16,6 +16,38 @@
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 
+
+    <script>
+        function check_input() {
+            //쪽지용
+            if (!document.message_form.subject.value) {
+                alert("내용을 입력하세요!");
+                document.board_form.subject.focus();
+                return;
+            }
+            if (!document.message_form.content.value) {
+                alert("내용을 입력하세요!");
+                document.board_form.content.focus();
+                return;
+            }
+            document.board_form.submit();
+
+
+            //문의 게시판 용
+            if (!document.board_form.subject.value) {
+                alert("제목을 입력하세요!");
+                document.board_form.subject.focus();
+                return;
+            }
+            if (!document.board_form.content.value) {
+                alert("내용을 입력하세요!");
+                document.board_form.content.focus();
+                return;
+            }
+            document.board_form.submit();
+        }
+    </script>
+
 </head>
 
 <body>
@@ -30,48 +62,66 @@
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_side_left_menu.php"; ?>
             </div>
             <div class="right_content">
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_message_receive" class="card_message" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">받은거</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19 바이러스의 전파경로는 비말(침방울) 및 호흡기 분비물(콧물, 가래 등)과의 접촉입니다.
 
-                            바이러스에 감염된 사람이 기침, 재채기를 했을 때 공기 중으로 날아간 비말이 다른 사람의 호흡기로 들어가거나, 손에 묻은 바이러스가 눈·코·입 등을 만질 때 점막을 통해 바이러스가 침투하여 전염이 됩니다.</div></br>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
+                <?php
+
+                if (isset($_GET['message'])) {
+                    $message_num  = $_GET['message'];
+                } else {
+                    // echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
+                }
 
 
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_message_send" class="card_message" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">여기는 보낸거다</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19는 어떻게 전염되나요?</div></br>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
+                function createMessageTalk($con, $dbname, $message_num)
+                {
+                    $sql = "select * from message where group_num=" . $message_num . " order by message_num desc";
+                    $result = $con->query($sql);
+                    if ($result === FALSE) {
+                        die('DB message_num Connect Error: ' . mysqli_error($con));
+                    }
+                    $total_rows_talk = mysqli_num_rows($result);
 
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_message_receive" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">받은거</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19 바이러스의 전파경로는 비말(침방울) 및 호흡기 분비물(콧물, 가래 등)과의 접촉입니다.
+                    // 다차원 배열 반복처리 (필요시 사용)
+                    ini_set('memory_limit', '-1');
 
-                            바이러스에 감염된 사람이 기침, 재채기를 했을 때 공기 중으로 날아간 비말이 다른 사람의 호흡기로 들어가거나, 손에 묻은 바이러스가 눈·코·입 등을 만질 때 점막을 통해 바이러스가 침투하여 전염이 됩니다.</div></br>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
+                    for ($i = 0; $i < $total_rows_talk; $i++) {
+                        mysqli_data_seek($result, $i);
+                        $result_message = mysqli_fetch_array($result);
+
+                        $send_id = $result_message["send_id"];
+                        $rv_id = $result_message["rv_id"];
+                        $subject    = $result_message["subject"];
+                        $content    = $result_message["content"];
+                        $regist_day  = $result_message["regist_day"];
+                        $file_name  = $result_message["file_name"];
 
 
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_message_send" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">여기는 보낸거다</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19는 어떻게 전염되나요?</div></br>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
 
+                        echo "<div class=" . COMMON::$css_card_menu_row . ">";
+
+                        //나중에 유저 세션 들고와서 할 거임
+                        if ($send_id === "aaaaaa") {
+                            echo "<button class='card_message_send' class=" . COMMON::$css_card_menu_btn . ">";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
+                        } else {
+                            echo "<button class='card_message_receive' class=" . COMMON::$css_card_menu_btn . ">";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
+                        }
+                        echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">$content</div></br>";
+                        echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">2020년 2월 2일</div>";
+                        echo "</button> <!-- end of message -->";
+                        echo "</div> <!-- end of css_card_menu_row -->";
+                    }
+                }
+
+
+                //메세지 겟방식으로 들고오기
+                $message_num = 0;
+                createMessageTalk($con, $dbname, $message_num);
+
+                ?>
             </div><!-- end of right_content -->
     </section>
     <footer>
