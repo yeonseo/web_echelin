@@ -76,6 +76,11 @@ progress {
   margin-top: 10px;
 }
 
+.input_info:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
 
 /* 이전 다음 버튼 고정 div */
 .div_prv_next_button{
