@@ -31,25 +31,44 @@
             </div>
             <div class="right_content">
                 <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_message_send" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+                    <button class="card_message_receive" class="card_message" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">받은거</div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19 바이러스의 전파경로는 비말(침방울) 및 호흡기 분비물(콧물, 가래 등)과의 접촉입니다.
+
+                            바이러스에 감염된 사람이 기침, 재채기를 했을 때 공기 중으로 날아간 비말이 다른 사람의 호흡기로 들어가거나, 손에 묻은 바이러스가 눈·코·입 등을 만질 때 점막을 통해 바이러스가 침투하여 전염이 됩니다.</div></br>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
                     </button>
                 </div> <!-- end of css_card_menu_row -->
 
-            </div><!-- end of right_content -->
 
-            <div class="right_content">
                 <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_message_receive" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+                    <button class="card_message_send" class="card_message" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">여기는 보낸거다</div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19는 어떻게 전염되나요?</div></br>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
+                    </button>
+                </div> <!-- end of css_card_menu_row -->
+
+                <div class="<?= COMMON::$css_card_menu_row; ?>">
+                    <button class="card_message_receive" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">받은거</div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19 바이러스의 전파경로는 비말(침방울) 및 호흡기 분비물(콧물, 가래 등)과의 접촉입니다.
+
+                            바이러스에 감염된 사람이 기침, 재채기를 했을 때 공기 중으로 날아간 비말이 다른 사람의 호흡기로 들어가거나, 손에 묻은 바이러스가 눈·코·입 등을 만질 때 점막을 통해 바이러스가 침투하여 전염이 됩니다.</div></br>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
+                    </button>
+                </div> <!-- end of css_card_menu_row -->
+
+
+                <div class="<?= COMMON::$css_card_menu_row; ?>">
+                    <button class="card_message_send" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>"><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">여기는 보낸거다</div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">코로나19는 어떻게 전염되나요?</div></br>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">2020년 2월 2일</div>
                     </button>
                 </div> <!-- end of css_card_menu_row -->
 
