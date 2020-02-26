@@ -127,8 +127,8 @@ function create_table($con, $dbname, $table_name)
                 break;
 
             // 식당 외/내부 사진 테이블
-            case 'storeImg':
-                $sql = "CREATE TABLE `storeImg` (
+            case 'store_img':
+                $sql = "CREATE TABLE `store_img` (
                   `num` int unsigned NOT NULL AUTO_INCREMENT,
                   	`seller_num` int unsigned NOT NULL,
                   	`store_name` varchar(45) NOT NULL,
@@ -234,8 +234,8 @@ function insert_table($con, $table_name)
           ";
           break;
 
-      case 'storeImg':
-          $sql = "INSERT INTO `storeImg` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
+      case 'store_img':
+          $sql = "INSERT INTO `store_img` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
               (null, 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
               (null, 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
               (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),

@@ -92,20 +92,6 @@ $(document).ready(function(){
 });// end of ready
 
 
-// function test() {
-//   // var input_business_license=document.getElementById("input_business_license").value;
-//   var str = $("input[name=input_business_license]").serialize();
-//   $.ajax({
-//       type: 'POSt',
-//       url: 'test.php',
-//       data : str,
-//       success: function (response) {
-//         alert(response);
-//       },
-//   });
-//
-// }
-
 //사업자 등록번호 등록
 function businessLicense() {
   var input_business_license = document.getElementById("input_business_license").value;
@@ -113,22 +99,46 @@ function businessLicense() {
   var div_state=document.getElementById("div_state");
   if(input_business_license ==="") {
     // input_business_license.innerHTML="번호를 입력해주세요.";
-    alert("입력먼저");
+    alert("사업자번호를 먼저 입력한 후 진행해주세요.");
+  } else {
+    $.ajax({
+      type: 'POST',
+      // url: 'seller_business_license.php',
+      url: 'seller_business_license.php',
+      data : business_number,
+      success: function (response) {
+        // alert(response);
+        switch(response) {
+          case 'normal' : div_state.innerHTML="현재상태 : 사업중"; break;
+          case 'down' : div_state.innerHTML="현재상태 : 휴업"; break;
+          case 'close' : div_state.innerHTML="현재상태 : 폐업"; break;
+          case 'unregistered' : div_state.innerHTML="현재상태 : 미등록"; break;
+          default : div_state.innerHTML="현재상태 : 알 수 없음"+response; break;
+        }
+      },
+    });
   }
-     $.ajax({
-         type: 'POST',
-         // url: 'seller_business_license.php',
-         url: 'seller_business_license.php',
-         data : business_number,
-         success: function (response) {
-           // alert(response);
-           switch(response) {
-             case 'normal' : div_state.innerHTML="현재상태 : 사업중"; break;
-             case 'down' : div_state.innerHTML="현재상태 : 휴업"; break;
-             case 'close' : div_state.innerHTML="현재상태 : 폐업"; break;
-             case 'unregistered' : div_state.innerHTML="현재상태 : 미등록"; break;
-             default : div_state.innerHTML="현재상태 : 알 수 없음"; break;
-           }
-         },
-     });
+}
+
+function stepCheck() {
+  var input_store_name=document.getElementById("input_store_name");
+  var input_business_license=document.getElementById("input_business_license");
+  var button_register=document.getElementById("button_register");
+
+  if(input_store_name.value==="") {
+    alert("식당 이름을 입력해주세요.");
+    input_store_name.focus();
+    return false;
+  } else if (input_business_license.value==="") {
+    alert("사업자번호를 입력해주세요.");
+    input_business_license.forcus();
+    return false;
+  } else if (button_register.attr("businessLicense", "fail")) {
+    alert("사업자번호 등록을 진행해주세요.");
+    return false;
+  } else {
+    document.form_seller_register_step_first.submit();
+    // location.href="seller_register_step_second.php";
+    return true;
+  }
 }
