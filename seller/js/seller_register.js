@@ -167,7 +167,7 @@ function businessLicense() {
 function stepCheck() {
   var input_store_name=document.getElementById("input_store_name");
   var input_business_license=document.getElementById("input_business_license");
-  var button_register=document.getElementById("button_register");
+  var step1_form = $("form[name=form_seller_register_step_first]").serialize();
 
   if(input_store_name.value==="") {
     alert("식당 이름을 입력해주세요.");
@@ -178,7 +178,25 @@ function stepCheck() {
     input_business_license.forcus();
     return false;
   } else {
-    document.form_seller_register_step_first.submit;
-    return true;
+    // document.form_seller_register_step_first.submit();
+    // return true;
+    $.ajax({
+      url : './seller_register_step_second.php',
+      type :'POST',
+      data: step1_form,  //key값과 value값
+      success : function(data){
+           alert("등록2단계로 전송완료");
+           location.href="./seller_register_step_second.php";
+      }
+    })
+    .done(function(){
+      console.log("success");
+    })
+    .fail(function(e){
+      console.log("error");
+    })
+    .always(function(){
+      console.log("complete");
+    });
   }
 }
