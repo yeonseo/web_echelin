@@ -44,14 +44,19 @@ function create_table($con, $dbname, $table_name)
                 //메세지
             case 'message':
                 $sql = "CREATE TABLE `message` (
-                    `num` int unsigned NOT NULL AUTO_INCREMENT,
+                    `message_num` int unsigned NOT NULL AUTO_INCREMENT,
+                    `group_num` int unsigned NOT NULL,
+                    `group_order` int unsigned NOT NULL,
                     `send_id` varchar(20) NOT NULL,
                     `rv_id` varchar(20) NOT NULL,
                     `subject` varchar(200) NOT NULL,
                     `content` text NOT NULL,
                     `regist_day` varchar(20) NOT NULL,
-                    PRIMARY KEY (`num`)
-                ) DEFAULT CHARSET=utf8;
+                    `file_name` varchar(45) DEFAULT NULL,
+                    `file_copied` varchar(45) DEFAULT NULL,
+                    `file_type` varchar(45) DEFAULT NULL,
+                    PRIMARY KEY (`message_num`)
+                    ) DEFAULT CHARSET=utf8;
                 ";
                 break;
 
@@ -207,11 +212,11 @@ function insert_table($con, $table_name)
             break;
 
         case 'message':
-            $sql = "INSERT INTO `message` (`num`, `send_id`, `rv_id`, `subject`, `content`, `regist_day`) VALUES
-                (1, 'aaaaaa', 'aaaaaa1', '일기예보 보고도 우산안챙겨따...', 'ㅜㅜㅜㅜㅜㅜㅜㅜㅜ', '2020-02-10 (20:55)'),
-                (2, 'aaaaaa', 'aaaaaa1', 'bbbbbb', 'bbbbbbbbbb', '2020-02-10 (21:28)'),
-                (3, 'mooguan', 'dustjnara', '지금 DB테이블 확인해주세요~', '수정사항 적용해서 다시 만들어 보았습니다.', '2020-02-11 (16:34)'),
-                (4, 'mooguan', 'dongun', '사용자가 로그인시 보여야할 사항이있을까요?', '지금 메인화면을 구현하고 있습니다. \r\n참고사항 알려주시면 적용해서 메인페이지 만들겠습니다. :-)', '2020-02-11 (16:35)');
+            $sql = "INSERT INTO `message` (`message_num`, `send_id`, `rv_id`, `group_num`, `group_order`, `subject`, `content`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+                (1, 'aaaaaa', 'aaaaaa1', 0,0, '일기예보 보고도 우산안챙겨따...', 'ㅜㅜㅜㅜㅜㅜㅜㅜㅜ', '2020-02-10 (20:55)','','',''),
+                (2, 'aaaaaa', 'aaaaaa1', 0,0, 'bbbbbb', 'bbbbbbbbbb', '2020-02-10 (21:28)','','',''),
+                (3, 'mooguan', 'dustjnara', 0,0, '지금 DB테이블 확인해주세요~', '수정사항 적용해서 다시 만들어 보았습니다.', '2020-02-11 (16:34)','','',''),
+                (4, 'mooguan', 'dongun',  0,0,'사용자가 로그인시 보여야할 사항이있을까요?', '지금 메인화면을 구현하고 있습니다. \r\n참고사항 알려주시면 적용해서 메인페이지 만들겠습니다. :-)', '2020-02-11 (16:35)','','','');
             ";
             break;
 
