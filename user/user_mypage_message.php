@@ -29,15 +29,72 @@
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_side_left_menu.php"; ?>
             </div>
 
-            <?php
-            //디비에서 사용자 아이디로 만들어진 메세지 목록 가져올 예정
-            //메세지 번호로 어쩌구 저쩌구 할 예정
 
-            //메세지로 가져온 목록 수 대로 포문 돌려서 밑에 애들 만들 예정
-            $massage_num = "123123123"
-
-            ?>
             <div class="right_content">
+
+                <?php
+
+                if (isset($_SESSION['user_email'])) {
+                    $user_email = $_SESSION['user_email'];
+                } else {
+                    // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
+                }
+
+
+                function createMessageList($con, $dbname, $user_email)
+                {
+                    //메세지 그룹 계산하기 위한 것
+                    $sql = "select ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num`";
+                    $result = $con->query($sql);
+                    if ($result === FALSE) {
+                        die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
+                    }
+                    $total_rows_message_group = mysqli_num_rows($result);
+
+                    // 다차원 배열 반복처리 (필요시 사용)
+                    ini_set('memory_limit', '-1');
+
+                    for ($i = 0; $i < $total_rows_message_group; $i++) {
+                        mysqli_data_seek($result, $i);
+                        $result_message = mysqli_fetch_array($result);
+
+                        //가장 최신의 메세지를 가져오기 위한 sql
+                        $sql = "select * from message where `group_num`='" . $total_rows_message_group['group_num'] . "' order by `message_num` desc";
+                        $result = $con->query($sql);
+                        if ($result === FALSE) {
+                            die('DB message where group_num Connect Error: ' . mysqli_error($con));
+                        }
+                        $result_message_content = mysqli_fetch_array($result);
+
+                        $message_num = $result_message_content["message_num"];
+                        $send_id = $result_message_content["send_id"];
+                        $rv_id = $result_message_content["rv_id"];
+                        $subject    = $result_message_content["subject"];
+                        $content    = $result_message_content["content"];
+                        $regist_day  = $result_message_content["regist_day"];
+                        $file_name  = $result_message_content["file_name"];
+
+
+                        echo "<div class=" . COMMON::$css_card_menu_row . ">";
+                        echo "<button class='card_menu_btn_wider' class=" . COMMON::$css_card_menu_btn . "type='button' onclick=\"location.href='http\://" . $_SERVER['HTTP_HOST'] . "/echelin/user/user_mypage_message_talk.php?message=" . $message_num . "'\">";
+                        echo "<div class=" . COMMON::$css_card_menu_btn_icon . "><i class='fas fa-utensils'></i></div>";
+                        echo "<div class=" . COMMON::$css_card_menu_btn_name . ">";
+                        echo "<div>" . "여기는 식당 이름" . "</div>";
+                        echo "<div>" . $send_id . "</div>";
+                        echo "</div>";
+                        echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">" . $content . "</div>";
+                        echo "</button> <!-- end of card_menu_btn_wider -->";
+                        echo "</div> <!-- end of css_card_menu_row -->";
+                    }
+                }
+
+                //나중에 유저 세션 들고와서 할 거임
+                //메세지 그룹 계산하기 위한 것
+                $user_email = "aaaaaa";
+                createMessageList($con, $dbname, $user_email);
+
+                ?>
+
                 <div class="<?= COMMON::$css_card_menu_row; ?>">
                     <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_mypage_message_talk.php?message=<?= $massage_num ?>'">
                         <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
