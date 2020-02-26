@@ -44,11 +44,13 @@
                 function createMessageList($con, $dbname, $user_email)
                 {
                     //메세지 그룹 계산하기 위한 것
-                    $sql = "select ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num`";
+                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num`";
                     $result = $con->query($sql);
                     if ($result === FALSE) {
                         die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
                     }
+
+                    //쪽지 리스트 갯수
                     $total_rows_message_group = mysqli_num_rows($result);
 
                     // 다차원 배열 반복처리 (필요시 사용)
@@ -59,12 +61,12 @@
                         $result_message = mysqli_fetch_array($result);
 
                         //가장 최신의 메세지를 가져오기 위한 sql
-                        $sql = "select * from message where `group_num`='" . $total_rows_message_group['group_num'] . "' order by `message_num` desc";
-                        $result = $con->query($sql);
-                        if ($result === FALSE) {
+                        $sql = "select * from message where `group_num`='" . $result_message['group_num'] . "' order by `message_num` desc";
+                        $result_message_group = $con->query($sql);
+                        if ($result_message_group === FALSE) {
                             die('DB message where group_num Connect Error: ' . mysqli_error($con));
                         }
-                        $result_message_content = mysqli_fetch_array($result);
+                        $result_message_content = mysqli_fetch_array($result_message_group);
 
                         $message_num = $result_message_content["message_num"];
                         $send_id = $result_message_content["send_id"];
