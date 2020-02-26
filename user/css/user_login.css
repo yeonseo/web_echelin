@@ -1,16 +1,16 @@
 /* *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;} */
-.singup_form{
+.login_form{
     width: 500px;
     display: inline-block;
 }
-.singup_web{
+.login_web{
     padding: 0px;
     float: right;
     left: 5px;
 }
 
-.singup_web4{
+.login_web4{
     padding-left: 24px !important;
     padding-right: 24px !important;
     margin: 0px !important;
