@@ -21,8 +21,12 @@ $Payment = $_POST["user_payment"];
 
 
 $con = mysqli_connect("localhost" , "root" , "123456" , "echelin");
-   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_sung`,`user_password`)VALUES
-   (\"$sns\",\"$Email\",\"$Name\",\"$Sung\",\"$Password\")";
+ $Name = $Sung. $Name;
+   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`)VALUES
+   (\"$sns\",\"$Email\",\"$Name\",\"$Password\")";
+
+// $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_sung`,`user_password`)VALUES
+// (\"$sns\",\"$Email\",\"$Name\",\"$Sung\",\"$Password\")";
  
 //    $sql = "INSERT INTO `echelin_user`(`user_sns`, `user_Email`, `user_name`) VALUES 
 //    (\"$sns\",\"$Email\",\"$Name\")";
@@ -44,7 +48,3 @@ $result = $con->query($sql);
          location.href = 'user_myinfo_index.php';
    </script>      
  ";
-
-
-
-?>

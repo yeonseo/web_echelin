@@ -1,0 +1,28 @@
+/* 오른쪽 사이드 메세지 버전 */
+.right_content .card_message_send {
+    min-width: 400px;
+    max-width: 600px;
+    height: 190px;
+    float: right;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    margin: 5px;
+    border-color: rgba(0, 0, 0, 0);
+    clear: both;
+    text-align: center;
+}
+
+.right_content .card_message_receive {
+    min-width: 400px;
+    max-width: 600px;
+    height: 190px;
+    float: left;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    margin: 5px;
+    border-color: rgba(0, 0, 0, 0);
+    clear: both;
+    text-align: center;
+}
