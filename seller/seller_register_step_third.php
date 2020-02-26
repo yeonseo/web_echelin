@@ -66,7 +66,7 @@
                             <td class="td_menu"><input type="text" name="" placeholder="메뉴이름"></td>
                             <td class="td_menu"><input type="number" name="" placeholder="가격"></td>
                             <td class="td_menu"><input type="file" name="" value=""></td>
-                            <td class="td_menu"><input type="text" name=""></td>
+                            <td class="td_menu"><input type="text" name="" placeholder="메뉴 설명"></td>
                             <td class="td_button_del"><input type="text" name=""></td>
                           </tr>
                       </tbody>
