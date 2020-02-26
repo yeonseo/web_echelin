@@ -115,12 +115,12 @@ function create_table($con, $dbname, $table_name)
                   `store_lon` double NOT NULL,
                   `convenient_facilities` varchar(80) NOT NULL,
                   `introduction` text DEFAULT NULL,
-                  `break_start` time DEFAULT NULL,
-                  `break_end` time DEFAULT NULL,
+                  `break_start` char(10) DEFAULT NULL,
+                  `break_end` char(10) DEFAULT NULL,
                   `nokids` boolean NOT NULL,
                   `opening_day` date NOT NULL,
-                  `opening_hours_start` time NOT NULL,
-                  `opening_hours_end` time NOT NULL,
+                  `opening_hours_start` char(10) NOT NULL,
+                  `opening_hours_end` char(10) NOT NULL,
                   `store_tel` char(13) NOT NULL,
                   `special_note` text DEFAULT NULL,
                   `max_reserv_time_num_of_people` int unsigned NOT NULL,
@@ -157,8 +157,8 @@ function create_table($con, $dbname, $table_name)
                 break;
 
                 // 식당 외/내부 사진 테이블
-            case 'storeImg':
-                $sql = "CREATE TABLE `storeImg` (
+            case 'store_img':
+                $sql = "CREATE TABLE `store_img` (
                       `num` int unsigned NOT NULL AUTO_INCREMENT,
                          `seller_num` int unsigned NOT NULL,
                          `store_name` varchar(45) NOT NULL,
@@ -189,7 +189,7 @@ function insert_table($con, $table_name)
     switch ($table_name) {
             //멤버테이블
         case 'echelin_user':
-            $sql = "INSERT INTO `echelin_user` (`user_sns`,`user_Email`,`user_checkEmail`,`user_password`,`user_name`,`user_age`,`user_phone`,`user_regist_day`,`user_aboutme`) 
+            $sql = "INSERT INTO `echelin_user` (`user_sns`,`user_Email`,`user_checkEmail`,`user_password`,`user_name`,`user_age`,`user_phone`,`user_regist_day`,`user_aboutme`)
             VALUES ('Kakao','ornare.In@Donec.ca','1','W03yzx416','Ori',38,'010-3246-0293','2019-08-31 08:58:15','ligula. Aenean gravida nunc sed pede. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec'),('Google','faucibus.orci.luctus@Nuncmaurissapien.net','0','F93dlf966','Cleo',63,'010-3611-9724','2020-12-30 02:25:15','ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere'),('Kakao','ullamcorper.magna.Sed@fringilla.ca','0','L91ioi092','Brandon',49,'010-4883-8793','2019-12-19 09:02:25','magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa'),('Google','dignissim@elitpellentesque.edu','0','O53zpj578','Pandora',38,'010-3924-0719','2021-01-02 00:05:50','Phasellus fermentum convallis ligula. Donec luctus'),('Facebook','dolor.sit.amet@ipsumnunc.edu','1','M94tdq703','Blythe',76,'010-6733-8696','2019-12-26 08:12:53','Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae,'),('Naver','ante.dictum.mi@felisorciadipiscing.edu','1','N53kfm689','Stacey',32,'010-4630-4526','2019-11-16 13:25:39','nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo'),('Kakao','amet@sitamet.co.uk','1','C88yvu590','Yardley',80,'010-2327-7034','2021-02-11 02:42:16','imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non, sollicitudin'),
             ('Naver','enim.Etiam@amet.edu','0','A67ysx483','Chelsea',64,'010-8983-1250','2020-04-05 09:34:41','molestie arcu. Sed eu nibh vulputate mauris sagittis placerat. Cras dictum ultricies ligula. Nullam enim. Sed nulla ante, iaculis nec, eleifend non,'),('Google','ultrices.Duis.volutpat@felisullamcorperviverra.ca','0','B50pbg780','Aimee',63,'010-9485-0223','2020-01-19 16:55:23','pharetra sed, hendrerit a, arcu. Sed et libero. Proin mi. Aliquam gravida'),('Naver','mollis.non.cursus@euismodurnaNullam.com','0','I42zaw722','Fiona',56,'010-1133-7679','2020-12-25 11:10:40','orci, adipiscing non, luctus sit amet, faucibus ut, nulla.'),('Google','lorem@idsapien.ca','1','T80epf359','Chaim',24,'010-7658-9186','2019-02-26 14:52:51','est. Mauris eu turpis. Nulla'),('Kakao','dui.nec.urna@pede.co.uk','0','V70jiy380','Derek',37,'010-4895-8075','2020-01-09 14:15:46','turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras'),('Google','ornare.sagittis@dolor.net','0','F46yvx354','Logan',53,'010-9487-6338','2020-11-07 02:50:04','magna. Duis dignissim tempor arcu. Vestibulum ut'),('Naver','non@mi.com','0','V73won373','Dolan',55,'010-7099-6002','2020-11-02 11:43:01','Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae,'),('Google','Etiam@magna.co.uk','0','W14nug396','Honorato',59,'010-6844-8349','2020-09-02 04:42:07','ac, eleifend vitae, erat. Vivamus nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam'),
             ('Facebook','convallis.est.vitae@ut.ca','1','F33urq821','Leilani',50,'010-8795-0736','2019-05-11 10:33:39','turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt, neque vitae'),('Google','vulputate@malesuadafames.net','0','S45uqi762','Ferdinand',60,'010-6100-7713','2019-03-02 09:14:11','parturient montes, nascetur ridiculus mus. Proin vel nisl. Quisque fringilla euismod enim. Etiam gravida molestie arcu. Sed eu nibh vulputate mauris sagittis placerat.'),('Google','volutpat.Nulla.dignissim@facilisisSuspendissecommodo.edu','1','X49ppg371','Alexander',47,'010-4871-2420','2020-10-09 22:09:47','purus mauris a nunc. In at'),('Google','Nullam@euismod.org','1','V49jmd135','Kaitlin',30,'010-7592-5492','2021-01-01 06:10:55','molestie tortor nibh sit amet orci. Ut sagittis lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit neque. In ornare sagittis felis. Donec tempor, est ac mattis semper, dui'),('Google','In.at.pede@magna.net','1','D71icv504','Rose',61,'010-9225-8115','2020-03-27 19:59:23','pharetra sed, hendrerit a, arcu. Sed et libero. Proin mi.'),('Facebook','Class@ante.net','0','I75hpd050','Harding',15,'010-6012-1057','2019-08-01 06:02:50','magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean sed pede nec ante blandit viverra. Donec'),('Facebook','diam@afacilisisnon.edu','1','K85jxp966','Nora',28,'010-5414-3956','2019-11-23 00:59:33','ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec'),('Kakao','morbi.tristique.senectus@auctor.net','0','B42ctu924','Kylie',54,'010-4661-9392','2020-12-26 01:35:03','sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum risus, at fringilla purus'),
@@ -265,7 +265,7 @@ function insert_table($con, $table_name)
 
         case 'seller':
             $sql = "INSERT INTO `seller` (`seller_num`, `user_id`, `business_license`, `store_name`, `store_type`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `special_note`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
-              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15:00:00', '17:00:00', false, '2008-12-31', '09:00:00', '22:00:00', '010-2828-8705', null, 5, '3개월', '상');
+              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15 : 00', '17 : 00', false, '2008-12-31', '09 : 00', '22 : 00', '010-2828-8705', null, 5, '3개월', '상');
           ";
             break;
 
@@ -276,8 +276,8 @@ function insert_table($con, $table_name)
               ";
             break;
 
-        case 'storeImg':
-            $sql = "INSERT INTO `storeImg` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
+        case 'store_img':
+            $sql = "INSERT INTO `store_img` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
                     (null, 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
                     (null, 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
                     (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
