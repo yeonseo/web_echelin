@@ -31,8 +31,8 @@ else $userpoint = "";
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">메세지</a></li>
 
       <!-- 로그인 전 나타나야할 메뉴 -->
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">로그인</a></li>
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">회원가입</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_login_select.php">로그인</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_join_main.php">회원가입</a></li>
 
       <!-- 각각 보여질 부분 -->
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php">유저</a></li>
@@ -40,7 +40,7 @@ else $userpoint = "";
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_myinfo_index.php">관리자</a></li>
 
       <!-- 공통 -->
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">도움말</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/help_center/help_center_main.php">도움말</a></li>
     </ul>
 
   </div>
