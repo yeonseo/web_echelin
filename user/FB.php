@@ -113,7 +113,7 @@
       
          '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
          location.href = 'user_myinfo_index.php';
-        alert("a");
+        alert("로그인 성공");
       // document.FB.submit();
         
         
