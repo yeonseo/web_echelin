@@ -5,6 +5,7 @@ $Email = $_POST["user_Email"];
 $Checkemail = $_POST["user_checkEmail"];
 $Password = $_POST["user_pass"];
 $Name = $_POST["user_name"];
+$Level = $_POST["user_Level"];
 $Sung = $_POST["user_sung"];
 $Age = $_POST["user_age"];
 $jumin = $_POST["user_jumin"];
@@ -22,8 +23,8 @@ $Payment = $_POST["user_payment"];
 
 $con = mysqli_connect("localhost" , "root" , "123456" , "echelin");
  $Name = $Sung. $Name;
-   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`)VALUES
-   (\"$sns\",\"$Email\",\"$Name\",\"$Password\")";
+   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`,`user_Level`)VALUES
+   (\"$sns\",\"$Email\",\"$Name\",\"$Password\",\"$Level\")";
 
 // $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_sung`,`user_password`)VALUES
 // (\"$sns\",\"$Email\",\"$Name\",\"$Sung\",\"$Password\")";

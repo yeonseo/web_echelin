@@ -1,6 +1,8 @@
 <?
 $user_email = $_POST["user_Email"];
 $user_pass =  $_POST["user_pass"];
+$user_Level = $_POST["user_Level"];
+$user_Name =  $_POST["user_name"];
 
 $con = mysqli_connect("localhost","root","123456","echelin");
 $sql = "select * from echelin_user where user_email='$user_email'";
@@ -35,18 +37,19 @@ else{
     }
     else{
         session_start();
-        $_SESSION["user_em"]=$row["user_Email"];
-        $_SESSION["user_pa"]=$row["user_password"];
+        $_SESSION["user_email"]=$row["user_Email"];
+        $_SESSION["user_password"]=$row["user_password"];
+        $_SESSION["user_level"]=$row["user_Level"];
+        $_SESSION["user_name"]=$row["user_name"];
         echo("
         <script>
           window.alert('로그인 성공')
-          history.go(-1)
         </script>
      ");
     }
     echo("
               <script>
-                location.href = 'index_search.php';
+              location.href = 'user_myinfo_index.php';
               </script>
             ");
 }
