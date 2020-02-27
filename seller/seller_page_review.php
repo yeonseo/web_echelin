@@ -19,6 +19,11 @@
       var html = "<div class='content_yes'>";
 
             html += "<div class='yes_top'>";
+            
+            html += "<div class='comment_profile_img'>";
+            html += "<a href='#'><img src='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu1.jpg'></a>"
+            html += "</div>";
+
             html += "<span><a href='#'>유저 이름</a> &nbsp·&nbsp 등록 시간</span>";
             html += "<div class='div_chu'>";
             html += "<div id='like_count'><img src='./image/like.png'> &nbsp;0</div>";

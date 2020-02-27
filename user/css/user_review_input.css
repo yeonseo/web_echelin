@@ -32,7 +32,7 @@
 .comment_user_form{
   margin-left: 40px;
   width: 700px;
-  height: 570px;
+  height: 550px;
   border: 2px solid #D9D9D9;
   border-radius: 10px;
 }
@@ -129,6 +129,7 @@
 
 .comment_div_button{
   float: right;
+  margin-top: 55px;
   margin-right: 35px;
 }
 
@@ -141,7 +142,7 @@
   color: white;
   cursor: pointer;
 }
-
+/*
 .comment_div_tag{
   margin-top: 20px;
   margin-left: 35px;
@@ -157,3 +158,4 @@
   text-decoration: underline;
   color: #02B5F0;
 }
+*/
