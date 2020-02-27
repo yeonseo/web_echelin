@@ -1,6 +1,6 @@
 <?
 $user_email = $_POST["user_Email"];
-$user_pass =  $_POST["user_password"];
+$user_pass =  $_POST["user_pass"];
 
 $con = mysqli_connect("localhost","root","123456","echelin");
 $sql = "select * from echelin_user where user_email='$user_email'";
@@ -19,15 +19,15 @@ if(!$num_match){
 else{
 
     $row = mysqli_fetch_array($result);
-    $echelin_pass = $row["user_pass"];
+    $echelin_pass = $row["user_password"];
 
     mysqli_close($con);
 
-    if($user_pass != $echelin_pass){
+    if($user_pass!==$echelin_pass){
         
         echo("
         <script>
-          window.alert('비밀번호가 틀립니다!')
+          window.alert('비밀번호가 틀립니다! $echelin_pass , $user_pass')
           history.go(-1)
         </script>
      ");
@@ -36,7 +36,7 @@ else{
     else{
         session_start();
         $_SESSION["user_em"]=$row["user_Email"];
-        $_SESSION["user_pa"]=$row["user_pass"];
+        $_SESSION["user_pa"]=$row["user_password"];
         echo("
         <script>
           window.alert('로그인 성공')
@@ -46,7 +46,7 @@ else{
     }
     echo("
               <script>
-                location.href = 'user_myinfo_index.php';
+                location.href = 'index_search.php';
               </script>
             ");
 }

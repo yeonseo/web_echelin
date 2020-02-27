@@ -1,7 +1,5 @@
 <?php
-//만약 라지 헤더에서 세션이 있다면 중복을 막음
-if (!isset($_SESSION["userid"])) session_start(); 
-// 일반인, 회원가입자, 관리자 구분
+@session_start(); // 일반인, 회원가입자, 관리자 구분
 if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
 else $userid = "";
 if (isset($_SESSION["username"])) $username = $_SESSION["username"];

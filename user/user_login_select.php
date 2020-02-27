@@ -87,7 +87,7 @@
             <div style="margin-top:16px; margin-bottom:16px">
                     <div class="login_echelin_bottom_form">
                       이미 echelin 계정이 있으신가요?
-                      <a href="user_login_select.php" class="login_location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
+                      <a href="header_small.php" class="login_location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
                     </div>
               </div>  
             </div>
