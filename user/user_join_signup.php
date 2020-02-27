@@ -377,15 +377,15 @@
              &nbsp;Echelin 에서 보내는 마케팅 메시지를 받고 싶지 않습니다. 
             </div><!-- end of checkbox_text -->
 
-           
             <button id="t" type="submit" class="data_button" onclick="signup_check();">
                 <span>가입하기</span>
             </button>
+         
             <div style="margin-top:16px; margin-bottom:16px">
                     <div class="echelin_bottom_form">
                       이미 echelin 계정이 있으신가요?
                       <a href="user_login_select.php" class="location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
-                      <button href="user_login_select.php" type="submit">asds</button>
+                      <button href="user_login_select.php" type="submit"></button>
                     </div>
             </div>
             </div>

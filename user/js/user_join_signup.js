@@ -10,6 +10,7 @@ function signup_check(id){
     
     var check_case = document.getElementById(id).value;
     
+    
     switch(id){
         case "signup_email":
             
@@ -17,9 +18,9 @@ function signup_check(id){
                 confirmArray[0]=false;
                 $(document).ready(function(){
                     $("#email_text").text("이메일을 입력하세요 !").css("color","red","visibility","visible");
-                    
-                
+                 
                 });
+            
             }else{
                 confirmArray[0]=true;
                 $(document).ready(function (){
@@ -69,7 +70,8 @@ function signup_check(id){
                     break;
                     document.myForm.submit();
                     
-    } // end of switch 
+    } // end of switch
+   
 
     // var sns = "Echelin";
     // 수정중 2-25 / 1:22
@@ -77,8 +79,11 @@ function signup_check(id){
     // $(document).ready(function(){
     //     $('#user_sns').val(sns);
     // });
-   
 }
+    function check_email(){
+        window.open("user_login_check_email.php?user_Email="+document.myForm.check_case.value,
+        "signup_email","left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes");
+    }
 
 // var popupX=(document.body.offsetWidth/2)-(700/2);
 // var popupY=(document.body.offsetHeight/2)-(600/2);
