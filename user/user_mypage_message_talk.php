@@ -134,17 +134,9 @@
 
                 <!-- 메세지 가져오기 -->
                 <?php
-
-                if (isset($_GET['message'])) {
-                    $message_num  = $_GET['message'];
-                } else {
-                    // echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
-                }
-
-
-                function createMessageTalk($con, $dbname, $message_num)
+                function createMessageTalk($con, $dbname, $message_group_num)
                 {
-                    $sql = "select * from message where group_num=" . $message_num . " order by message_num desc";
+                    $sql = "select * from message where group_num=" . $message_group_num . " order by message_num desc";
                     $result = $con->query($sql);
                     if ($result === FALSE) {
                         die('DB message_num Connect Error: ' . mysqli_error($con));
@@ -188,8 +180,12 @@
 
 
                 //메세지 겟방식으로 들고오기
-                $message_num = 0;
-                createMessageTalk($con, $dbname, $message_num);
+                if (isset($_GET['message'])) {
+                    $message_group_num  = $_GET['message'];
+                } else {
+                    // echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
+                }
+                createMessageTalk($con, $dbname, $message_group_num);
 
                 ?>
             </div><!-- end of right_content -->
