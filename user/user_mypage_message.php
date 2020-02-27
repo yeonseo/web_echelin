@@ -44,7 +44,7 @@
                 function createMessageList($con, $dbname, $user_email)
                 {
                     //메세지 그룹 계산하기 위한 것
-                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num`";
+                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num` order by group_num desc";
                     $result = $con->query($sql);
                     if ($result === FALSE) {
                         die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
@@ -77,8 +77,9 @@
                         $file_name  = $result_message_content["file_name"];
 
 
+                        //메세지 그룹넘버를 겟방식으로 넘김
                         echo "<div class=" . COMMON::$css_card_menu_row . ">";
-                        echo "<button class='card_menu_btn_wider' class=" . COMMON::$css_card_menu_btn . "type='button' onclick=\"location.href='http\://" . $_SERVER['HTTP_HOST'] . "/echelin/user/user_mypage_message_talk.php?message=" . $message_num . "'\">";
+                        echo "<button class='card_menu_btn_wider' class=" . COMMON::$css_card_menu_btn . "type='button' onclick=\"location.href='http\://" . $_SERVER['HTTP_HOST'] . "/echelin/user/user_mypage_message_talk.php?message=" . $result_message['group_num'] . "'\">";
                         echo "<div class=" . COMMON::$css_card_menu_btn_icon . "><i class='fas fa-utensils'></i></div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_name . ">";
                         echo "<div>" . "여기는 식당 이름" . "</div>";
