@@ -385,6 +385,7 @@
                     <div class="echelin_bottom_form">
                       이미 echelin 계정이 있으신가요?
                       <a href="user_login_select.php" class="location_login" aria-busy="false">&nbsp;&nbsp; 로그인</a>
+                      <button href="user_login_select.php" type="submit">asds</button>
                     </div>
             </div>
             </div>

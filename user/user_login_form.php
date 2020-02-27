@@ -1,11 +1,11 @@
 <!-- <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
 
        -->
-       <div class="singup_form">
-  <div class="singup_web">
+       <div class="login_form">
+  <div class="login_web">
     <div style="margin-top :0px;margin-bottom:0px;margin-left:0px;margin-right:0px;position: relative;">
       <div style="margin-top: 24px">
-        <div class="singup_web4">
+        <div class="login_web4">
           <div style="margin-top: 24px; margin-bottom:24px;">
             <div>
               <div>
