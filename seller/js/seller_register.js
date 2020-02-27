@@ -178,19 +178,52 @@ function stepCheck() {
     input_business_license.forcus();
     return false;
   } else {
-    // document.form_seller_register_step_first.submit();
-    // return true;
     $.ajax({
       url : './seller_register_step_second.php',
       type :'POST',
-      data: step1_form,  //key값과 value값
+      data: step1_form,
       success : function(data){
-           alert("등록2단계로 전송완료");
-           location.href="./seller_register_step_second.php";
+        alert("등록2단계로 전송완료");
+        document.form_seller_register_step_first.submit();
       }
     })
     .done(function(){
-      console.log("success");
+      console.log("판매자 등록 1단계");
+    })
+    .fail(function(e){
+      console.log("error");
+    })
+    .always(function(){
+      console.log("complete");
+    });
+  }
+}
+
+function stepCheck2() {
+  var button_find_postcode=document.getElementById("button_find_postcode");
+  var input_postcode=document.getElementById("input_postcode");
+  var input_address=document.getElementById("input_address");
+  var input_extraAddress=document.getElementById("input_extraAddress");
+  var input_detailAddress=document.getElementById("input_detailAddress");
+  var step2_form = $("#form_first_show, #form_seller_register_step_second").serialize();
+
+  if(input_postcode.value==="") {
+    alert("우편번호 찾기로 주소를 입력해주세요.");
+    button_find_postcode.focus();
+    return false;
+  } else {
+    $.ajax({
+      url : './seller_register_step_third.php',
+      type :'POST',
+      data: step2_form,
+      success : function(data){
+        alert("등록3단계로 전송완료");
+        document.form_first_show.submit();
+        document.form_seller_register_step_second.submit();
+      }
+    })
+    .done(function(){
+      console.log("판매자 등록 2단계");
     })
     .fail(function(e){
       console.log("error");

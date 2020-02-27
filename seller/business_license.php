@@ -18,11 +18,11 @@ if (curl_errno($ch)) {
 }
 curl_close($ch);
 
-echo "$result </br>";
+// echo "$result </br>";
 
 $business_lice=json_decode($result);
 
 echo $business_lice->bizNum;
-echo $business_lice->state;
+// echo $business_lice->state;
 
  ?>
