@@ -43,6 +43,24 @@
   left: 240px;
 }
 
+.content_main2{
+  width: 600px;
+  height: auto;
+  margin: 30px 0 30px 30px;
+}
+
+.content_main2 .content_no2{
+  width: 600px;
+  height: 150px;
+  position: relative;
+}
+
+.content_main2 .no_span{
+  position: absolute;
+  top: 70px;
+  left: 240px;
+}
+
 .content_title{
   margin: 0;
   padding-top: 20px;
@@ -96,10 +114,9 @@ ul.tabs li {
 
 .content_yes{
   width: 600px;
-  height: 175px;
-
+  height: 155px;
   border-radius: 10px;
-  margin: 30px 0 30px 0;
+  margin: 30px 0 20px 0;
 }
 
 .yes_top{
@@ -122,8 +139,8 @@ ul.tabs li {
   color: #02B5F0;
 }
 
+
 .yes_top button{
-  width: 50px;
   height: 25px;
   border: none;
   border-radius: 5px;
@@ -131,19 +148,27 @@ ul.tabs li {
   color: white;
   cursor: pointer;
   font-size: 10px;
+  position: absolute;
 }
 
 .btn_init{
-  position: absolute;
+  width: 50px;
   right: 195px;
   top: 0;
 }
 
 .btn_delete{
-  position: absolute;
+  width: 50px;
   right: 140px;
   top: 0;
 }
+
+.btn_review_insert{
+  width: 120px;
+  right: 0px;
+  top: 0;
+}
+
 
 .div_chu{
   width: 160px;
