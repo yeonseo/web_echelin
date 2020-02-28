@@ -178,6 +178,7 @@ function create_table($con, $dbname, $table_name)
             case 'menu_img':
                 $sql = "CREATE TABLE `menu_img` (
                       `num` int unsigned NOT NULL AUTO_INCREMENT,
+                      `user_id` varchar(20) NOT NULL,
                       `seller_num` int unsigned NOT NULL,
                     	`store_name` varchar(45) NOT NULL,
                       `menu_name` varchar(45) NOT NULL,
@@ -312,12 +313,12 @@ function insert_table($con, $table_name)
             break;
 
         case 'menu_img':
-            $sql = "INSERT INTO `menu_img` (`num`, `seller_num`, `store_name`, `menu_name`, `menu_price`, `menu_file_name`, `menu_file_type`, `menu_file_copied`, `menu_explain`) VALUES
-                    (null, 1, '지수네', '치즈떡볶이', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_7362.jpg', '치즈가 쭈욱'),
-                    (null, 1, '지수네', '무뼈닭발', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5232.jpg', '한입에 쏘오옥'),
-                    (null, 1, '지수네', '내사랑닭갈비', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5727.jpg', '진짜 존맛탱'),
-                    (null, 1, '지수네', '얼큰우동', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_9603.jpg', '해장에 따악'),
-                    (null, 1, '지수네', '곱창', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_29_9893.jpg', '떡이랑 함께 드세염');
+            $sql = "INSERT INTO `menu_img` (`num`, `user_id`, `seller_num`, `store_name`, `menu_name`, `menu_price`, `menu_file_name`, `menu_file_type`, `menu_file_copied`, `menu_explain`) VALUES
+                    (null, 'infor15', 1, '지수네', '치즈떡볶이', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_7362.jpg', '치즈가 쭈욱'),
+                    (null, 'infor15', 1, '지수네', '무뼈닭발', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5232.jpg', '한입에 쏘오옥'),
+                    (null, 'infor15', 1, '지수네', '내사랑닭갈비', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5727.jpg', '진짜 존맛탱'),
+                    (null, 'infor15', 1, '지수네', '얼큰우동', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_9603.jpg', '해장에 따악'),
+                    (null, 'infor15', 1, '지수네', '곱창', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_29_9893.jpg', '떡이랑 함께 드세염');
                 ";
             break;
     } //end of switch
