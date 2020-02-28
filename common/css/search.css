@@ -1,4 +1,7 @@
-.food_type_form ul li{
+#keyword_header {
+  height: 80px;
+}
+#food_type_form ul li{
   float: left;
   width: calc(100%/2);
   height: 50px;
@@ -6,9 +9,9 @@
   border-bottom: 2px solid lightgray;
   box-sizing: border-box;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 14px;
 }
-.food_type_form{
+#food_type_form{
   position: absolute;
   z-index: 1px;
   margin-left: 105px;
@@ -18,8 +21,16 @@
   border: 1px solid lightgray;
   display: none;
 }
+.keywords li{
+  height: 25px;
+  text-align: center;
+  padding-top: 18px;
+  border-radius: 25px;
+  color: gray;
+}
 .keywords{
   margin-left: 100px;
+  height: 80px;
 }
 header {
   margin-bottom: 0px;
