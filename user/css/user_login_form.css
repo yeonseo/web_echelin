@@ -1,0 +1,298 @@
+.user_login_form{
+    position: relative;
+    width: 19.5%;
+    float: left;
+    margin-left: 40%;
+}
+.login_border{
+    position: relative;
+    padding-left: 2px;
+    /* padding-right: 24px; */
+    margin: 0px;
+    border: 1px solid lightgray;
+    background-color: white;
+    top:1px;
+}
+.login_bottom_border{
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 10px;
+}
+.sns_login_select{
+    position: relative;
+    left: 55px;
+}
+.form_center{
+    text-align: center;
+}
+.form_font{
+    overflow-wrap: break-word;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 15.5px ;
+    font-weight: 600 ;
+    line-height: 2.5em;
+    color: rgb(72, 72, 72) ;
+    
+}
+/* .echelin_bottom_form a:link,.echelin_bottom_form a:visited,.echelin_bottom_form a:hover{
+    color: orangered;
+    text-decoration: none;
+} */
+.form_font a:link,.form_font a:visited,.form_font a:hover{
+    text-decoration: none;
+    color: orangered;
+}
+.before_O{
+    overflow: hidden;
+    text-align: center;
+}
+.before_T{
+    padding-bottom: var(--spacing-rule-text-vertical, 16px) !important;
+    padding-top: var(--spacing-rule-text-vertical, 16px) !important;
+    padding-left: var(--spacing-rule-text-horizontal, 16px) !important;
+    padding-right: var(--spacing-rule-text-horizontal, 16px) !important;
+}
+.login_form3{
+    margin: 0px !important;
+    word-wrap: break-word !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    line-height: 6.2em !important;
+    color: orangered;
+}
+.input_form{
+    box-sizing: border-box;
+}
+.input_form2{
+    display: inline-grid;
+    width: 100%;
+}
+.label_text{    
+    border: 0px !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0px !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important
+}
+._14fdu48d{
+    font-size: var(--font-form-element-font-size, 16px) !important;
+    line-height: var(--font-form-element-line-height, 24px) !important;
+    letter-spacing: var(--font-form-element-letter-spacing, normal) !important;
+    font-family: var(--font-form-element-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-transform: var(--font-form-element-text-transform, undefined) !important;
+    color: #484848 !important;
+    padding-top: var(--spacing-form-element-vertical, 11px) !important;
+    padding-bottom: var(--spacing-form-element-vertical, 11px) !important;
+    font-weight: var(--font-light-font-weight, normal) !important;
+    padding-left: var(--spacing-form-element-horizontal, 11px) !important;
+    padding-right: var(--spacing-form-element-horizontal, 11px) !important;
+    border-width: 1px !important;
+    border: 1px solid lightgray;
+    margin: 10px !important
+}
+.birth_day{
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 16px;
+    color: #484848;
+}
+._1jlnvra2 {
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.28571em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+}
+.birth_iuput{
+    display: inline-block;
+}
+.birth_input2{
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.28571em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+}
+.month_form{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.month_form2{
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 1px;
+    position: relative;
+    width: 33%;
+    float: left;
+}
+.month_form3{
+    display: block;
+    width: 100%;
+}
+.month_form4{
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: initial;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 8px;       
+    background-color: transparent !important;
+    color: #484848;
+}
+.month_form5{
+    overflow: hidden;
+}
+.final_month_form{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+
+    text-transform: initial;
+    padding-top: 11px;
+    color: rgb(72, 72, 72) !important;
+    background-color: #ffffff;
+    padding-bottom: 11px;
+    padding-left: 11px;
+    padding-right: 40px;
+}
+.day_form{
+    width: 25%;
+    float: left;
+}
+.day_form2{
+    display: block;
+    width: 100%;
+}
+.day_form3{
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: inherit;
+    color: #484848;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+    margin-bottom: 8px;
+}
+.day_form4{
+    overflow: hidden;
+}
+.day_final_form{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    text-transform: initial;
+    padding-top: 11px;
+    color: rgb(72, 72, 72) !important;
+    background-color: #ffffff;
+    padding-bottom: 11px;
+    padding-left: 11px;
+    padding-right: 40px;
+}
+.year_form{
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 1px;
+    position: relative;
+    width: 33%;
+    float: left;
+}
+.year_form2{
+    display: block;
+    width: 100%;
+}
+.year_form3{
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: inherit;
+    color: #484848;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+    margin-bottom: 8px;
+}
+.year_form4{
+    overflow: hidden;
+}
+.final_year_form{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    text-transform: initial;
+    padding-top: 11px;
+    color: rgb(72, 72, 72) !important;
+    background-color: #ffffff;
+    padding-bottom: 11px;
+    padding-left: 11px;
+    padding-right: 40px;
+}
+.bottom_form{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 15px;
+    font-weight: 450;
+    line-height: 1.58em;
+    color: rgb(72, 72, 72);
+    margin: 5.8px;
+}
+.check_box_form .check_box_form2 input[type="checkbox"]{
+    display: none;
+}
+.check_box_form .check_box_form2 input[type="checkbox"]+label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+.check_box_form .check_box_form2:after{
+    display: block;
+    clear: both;
+    content: "";
+}
+.login_data_button{
+    position: relative;
+    left: 45.8px;
+    top: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    line-height:24px;
+    font-size: 22px;
+    font-family:font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 90px;
+    padding-right: 90px;
+    font-weight: 800;
+    border-width: 4px;
+    background: #FF5A5F;
+    border-color:transparent;
+    color: #ffffff;
+    text-align: center;
+}
+.login_echelin_bottom_form{
+    margin-bottom: 3px;
+    padding: 5px;
+    border-top: 1px solid lightgray;
+    font-size: 18px;
+    color:black;
+    font-weight: 450;
+}
+.login_echelin_bottom_form a:link,.login_echelin_bottom_form a:visited,.login_echelin_bottom_form a:hover{
+    color: orangered;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+

@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+   
+    
     <title>Document</title>
+
 </head>
 <body>
 <script type="text/javascript">
-  var user_sns="FaceBook";
   
    
   // This is called with the results from from FB.getLoginStatus().
@@ -28,10 +30,14 @@
      //여기에서 로그인 버튼을 만들어서 화면에 붙인다.
      
    	var loginHtml ='<a href="javascript:fbLogin();"'+ 
-   	'class="btn btn-block btn-social btn-facebook"> <i class="fa fa-facebook"></i>페이스북으로 가입하기</a>' +
-   	' <p></p> ' +   
-   	'<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button> ' ;
-  	document.getElementById('status').innerHTML =loginHtml;     
+   	'class="btn btn-block btn-social btn-facebook"> <i class="fb-login-button scope="public_profile,email" onlogin="checkLoginState();" data-width="270px" data-height="250px" data-size="large" data-button-type="login_with"></i>' +
+   	' <p></p> ';
+
+    //  +   
+   	// '<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button> ' ;
+    //  
+
+    document.getElementById('status').innerHTML =loginHtml;     
     }
   }
 
@@ -76,6 +82,7 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
   	// 로그인이 성공시 다음 아래 코드에서 실행 하면 된다.
+  var user_sns="FaceBook";
   	
   
     console.log('Welcome!  Fetching your information.... ');
@@ -100,12 +107,13 @@
 
 
       
-      // document.getElementById('status').innerHTML =
-      //   'Thanks for logging in 유저 이름: , ' + response.name + '!'+
-      //   ' <br>email : ' + response.email +
-      //    ' <br>ID : ' + response.id +
+      document.getElementById('status').innerHTML =
+        // 'Thanks for logging in 유저 이름: , ' + response.name + '!'+
+      
       
          '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
+         location.href = 'user_myinfo_index.php';
+        alert("로그인 성공");
       // document.FB.submit();
         
         
@@ -147,7 +155,7 @@ function facebookLogOut(){
 
     </div>
 </div>
- <form name="fb_form" action="echelin_insert2.php" method="post">
+ <form name="fb_form" action="user_join_insert.php" method="post">
     <input id="test0" type="hidden" name="user_sns">
     <input id="test" type="hidden" name="user_Email">
     <input id="test2" type="hidden" name="user_name">

@@ -1,0 +1,50 @@
+/* 오른쪽 사이드 메세지 버전 */
+.right_content .card_message_send {
+    min-width: 400px;
+    max-width: 600px;
+    height: 190px;
+    float: right;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    margin: 5px;
+    border-color: rgba(0, 0, 0, 0);
+    clear: both;
+    text-align: center;
+}
+
+.right_content .card_message_receive {
+    min-width: 400px;
+    max-width: 600px;
+    height: 190px;
+    float: left;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    margin: 5px;
+    border-color: rgba(0, 0, 0, 0);
+    clear: both;
+    text-align: center;
+}
+
+
+.message_talk_send {
+    padding: 3%;
+    position: relative;
+}
+
+.message_talk_send textarea{
+    height: 110px;
+    width: 80%;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+.message_talk_send button {
+    position: absolute;
+    bottom : 20px;
+    right : 20px;
+}
