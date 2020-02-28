@@ -17,9 +17,6 @@
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 
-
-
-
 </head>
 
 <body>
@@ -107,8 +104,6 @@
                 }
                 ?>
 
-
-
                 <!-- 메세지 가져오기 -->
                 <?php
                 //메세지 겟방식으로 들고오기
@@ -123,44 +118,7 @@
 
                 ?>
 
-                <script type="text/javascript">
-                    $('#message_send_btn').click(function() {
-                        //쪽지용
-                        if (!$('#message_content').val() | $('#message_content').val() === '') {
-                            alert("내용을 입력하세요!");
-                            $('#message_content').focus();
-                            return;
-                        } else {
-                            var clickBtnValue = $('#message_send_btn').val();
-                            var message_group_num = $('#message_group_num').val();
-                            var message_content = $('#message_content').val();
-                            // alert("값 가져옴!!!" + clickBtnValue + " " + message_group_num + " " + message_content + " ");
-                            $.ajax({
-                                type: "POST",
-                                url: './user_mypage_message_insert.php',
-                                data: {
-                                    'action': clickBtnValue,
-                                    'message_group_num': message_group_num,
-                                    'message_content': message_content
-                                },
-                                success: function(data) {
-                                    $(document).ready(function() {
-                                        $('#message_input_row').after(data);
-                                    });
-                                },
-                                error: function(data) {
-                                    alert("Data return: " + data);
-                                }
-                            }).done(function(msg) {
-                                // alert("Data Saved: " + msg);
-                            });
-                        }
-                    });
-
-                    function check_input($message_group_num) {
-
-                    }
-                </script>
+                <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_mypage_message_talk.js"></script>
 
             </div><!-- end of right_content -->
     </section>
