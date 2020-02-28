@@ -1,8 +1,8 @@
 <?php
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
-echo "console.log($input_store_name)";
-echo "console.log($input_business_license)";
+echo $input_store_name;
+echo $input_business_license;
  ?>
  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
@@ -13,6 +13,8 @@ echo "console.log($input_business_license)";
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="./js/find_postcode.js"></script>
     <script src="./js/map.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./js/seller_register.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
     <link rel="stylesheet" href="./css/seller_register_step.css">
     <link rel="stylesheet" href="/echelin/common/css/user_seller.css">
@@ -68,7 +70,7 @@ echo "console.log($input_business_license)";
                 infowindow.open(map, marker);
 
 
-                mapContainer.css('display', ($(this).val() === 'true') ? 'block' : 'none');
+                // mapContainer.css('display', ($(this).val() === 'true') ? 'block' : 'none');
 
             }
         });
@@ -91,7 +93,12 @@ echo "console.log($input_business_license)";
       <progress value="33.2" max="100"></progress>
 
       <div class="div_outside">
-        <div id="div_map"></div> <!-- 지도 담는 div -->
+        <form class="" id="form_first_show" name="form_first_show" action="./seller_register_step_third.php" method="post">
+          <span>내 식당 : </span>
+          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
+          <span>사업자번호 : </span>
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>">
+        </form>
       </div>
 
 
@@ -99,20 +106,21 @@ echo "console.log($input_business_license)";
         <div class="div_register_inner_shape">
           <div class="div_form">
             <!-- 우편번호 찾기 폼 -->
-              <form class="" action="" method="post">
+              <form class="" id="form_seller_register_step_second" name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post">
                 <div class="div_except_button">
                   <ul>
                     <li>식당 주소를 입력해주세요</li>
                   </ul>
-                  <input class="input_info" type="text" id="input_postcode" placeholder=" 우편번호">
+                  <input class="input_info" id="input_postcode" name="input_postcode" type="text" placeholder=" 우편번호">
                   <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>
                   </br></br>
-                  <input class="input_info" id="input_address"type="text" placeholder=" 주소">
+                  <input class="input_info" id="input_address" name="input_address" type="text" placeholder=" 주소">
                   </br></br>
-                  <input class="input_info" id="input_extraAddress" type="text" placeholder=" 참고항목">
+                  <input class="input_info" id="input_extraAddress" name="input_extraAddress" type="text" placeholder=" 참고항목">
                   </br></br>
-                  <input class="input_info" id="input_detailAddress" type="text" placeholder=" 예) 상가 2층에 위치해있습니다.">
+                  <input class="input_info" id="input_detailAddress" name="input_detailAddress" type="text" placeholder=" 예) 상가 2층에 위치해있습니다.">
                   </br></br>
+                  <div id="div_map"></div> <!-- 지도 담는 div -->
                   <input id="lat" type="text" name="lat" hidden>
                   </br></br>
                   <input id="lon" type="text" name="lon" hidden>
@@ -120,8 +128,8 @@ echo "console.log($input_business_license)";
 
                 </div> <!-- div_except_button -->
                 <div class="div_prv_next_button">
-                  <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_third.php'">다음</button>
-                  <button class="button_prev" type="button" name="button" onclick="location.href='./common_page.php'">이전</button>
+                  <button class="button_next" type="button" name="button" onclick="stepCheck2()">다음</button>
+                  <button class="button_prev" type="button" name="button" onclick="history.go(-1)">이전</button>
                 </div>
               </form>
           </div>
@@ -129,7 +137,5 @@ echo "console.log($input_business_license)";
         </div> <!-- div_register_inner_shape -->
     </div> <!--div_register_shape-->
     </section>
-
-
   </body>
 </html>
