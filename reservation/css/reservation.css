@@ -105,10 +105,17 @@ progress {
 .div_hashtag {
   border: 2px solid gold;
   border-radius: 20px;
-  width: auto;
-  padding: 10px;
+  width: 250px;
+  padding: 10px 20px 10px 20px;
   display: inline-block;
   margin: 6px;
+}
+.div_hashtag_nokids {
+  border: 2px solid lightgray !important;
+  color: gray !important;
+}
+.div_hashtag1{
+  margin-top: 20px;
 }
 
 .button_x {
@@ -122,6 +129,7 @@ progress {
   margin:0 auto;
   /* vertical-align:middle; */
   position: relative;
+  float: right;
 }
 
 .span_x {
@@ -167,6 +175,10 @@ progress {
   display: inline-block;
   position: relative;
   margin: 0 5px 0 5px;
+  float: left;
+}
+.p_add_price_right{
+  float: right;
 }
 .todo-wrap{
   color: black;

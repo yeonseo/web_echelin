@@ -32,20 +32,22 @@
 
 
         <div class="restaurants_center_content">
+          <?php
 
+              if (isset($_GET['seller_num'])) {
+                  $seller_num = $_GET['seller_num'];
+              } else {
+                  // echo "console.log('레스토랑 주소가 이상한데에~')";
+              }
+
+              $seller_num = 1;
+           ?>
             <div class="restaurants_main_content_right_btn_box">
-                <button><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
+                <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?=$seller_num?>'"><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
             </div>
 
             <?php
 
-            if (isset($_GET['seller_num'])) {
-                $seller_num = $_GET['seller_num'];
-            } else {
-                // echo "console.log('레스토랑 주소가 이상한데에~')";
-            }
-
-            $seller_num = 1;
             function getJsonDataMakeArticle($con, $dbname, $seller_num)
             {
 
