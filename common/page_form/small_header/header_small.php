@@ -64,8 +64,9 @@ else $userpoint = "";
         }
       ?>
       
+      <!-- 사용자 판매자 관리자 화면 나누는 부분 -->
       <?
-        if($userlevel == 1){     
+        if($userlevel == 0){     
       ?>
         <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php">유저</a></li>
      <?
@@ -89,6 +90,7 @@ else $userpoint = "";
       <?
         }
       ?>
+      <!-- 끝 -->
    
       
     

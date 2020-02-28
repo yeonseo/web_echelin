@@ -29,6 +29,7 @@ function create_table($con, $dbname, $table_name)
                     `user_checkEmail` varchar(20) DEFAULT NULL,
                     `user_password` varchar(20) DEFAULT NULL,
                     `user_name` varchar(20) DEFAULT NULL,
+                    `user_sung` varchar(20) DEFAULT NULL,
                     `user_age` varchar(20) DEFAULT NULL,
                     `user_phone` varchar(20) DEFAULT NULL,
                     `user_regist_day` varchar(20) DEFAULT NULL,
@@ -36,6 +37,7 @@ function create_table($con, $dbname, $table_name)
                     `user_profile_copied` varchar(80) DEFAULT NULL,
                     `user_profile_type` varchar(80) DEFAULT NULL,
                     `user_aboutme` varchar(300) DEFAULT NULL,
+                    `user_Level` varchar(20) DEFAULT NULL,
                     PRIMARY KEY (`user_num`)
                     )DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                 ";

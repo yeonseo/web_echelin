@@ -36,10 +36,10 @@
     <div class="login_border">
         <div class="login_bottom_border">
         <div class="sns_login_select">
-                      <?php include "FB.php"; ?>
-                      <?php include "naver_login.php"; ?>
-                      <?php include "kakao.php"; ?>
-                      <?php include "google_login.php"; ?>       
+                      <?php include "FB.login.php"; ?>
+                      <?php include "naver_login_form.php"; ?>
+                      <?php include "kakao_login.php"; ?>
+                      <?php include "google_login_form.php"; ?>       
         </div>
  
         </div>

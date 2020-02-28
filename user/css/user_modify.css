@@ -1,0 +1,82 @@
+.modify_form{
+    position: relative;
+    width: 325.33px;
+    height: 352px;
+    float: left;
+    margin: 0 auto;
+    border: 1px solid  lightgray;
+    margin-left: 15%;
+}
+.user_photo{
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    margin-left: 80px;
+    top: 45px;
+}
+
+.modify_photo{
+    position: relative;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: teal;
+    top: 150px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+}
+.modify_user{
+    position: relative;
+    color: teal;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    top: 55px;
+    text-align: center;
+}
+.user_in{
+    position: relative;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    top: 55px;
+    text-align: center;
+    margin: 20px;
+    right: 67px;
+    padding-bottom: 5px;
+}
+.text_number{
+    position: relative;
+    right: 15px;
+    color: gold;
+}
+.modify_form_2{
+    position: relative;
+    right: 22px;
+}
+.data_number{
+    position: relative;
+    padding: 2px;
+    right: 11px;
+}
+.about_me{
+    position: relative;
+    font-size: 44px;
+    text-align: center;
+    right: 50px;
+}
+.about_me2{
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    right: 195px;
+    top: 15px;
+}
+.button_background{
+    background-color: white;
+    color: orangered;
+    background: white;
+    border: 1px solid white;
+    font-size: 16px;
+
+}
