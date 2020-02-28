@@ -36,6 +36,7 @@ function create_table($con, $dbname, $table_name)
                     `user_profile_copied` varchar(80) DEFAULT NULL,
                     `user_profile_type` varchar(80) DEFAULT NULL,
                     `user_aboutme` varchar(300) DEFAULT NULL,
+                    `user_Level` varchar(20) DEFAULT 1,
                     PRIMARY KEY (`user_num`)
                     )DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                 ";
@@ -174,6 +175,23 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
+
+            case 'menu_img':
+                $sql = "CREATE TABLE `menu_img` (
+                      `num` int unsigned NOT NULL AUTO_INCREMENT,
+                      `user_id` varchar(20) NOT NULL,
+                      `seller_num` int unsigned NOT NULL,
+                    	`store_name` varchar(45) NOT NULL,
+                      `menu_name` varchar(45) NOT NULL,
+                      `menu_price` int unsigned NOT NULL,
+                    	`menu_file_name` varchar(45) NOT NULL,
+                    	`menu_file_type` varchar(45) NOT NULL,
+                    	`menu_file_copied` varchar(45) NOT NULL,
+                    	`menu_explain` text DEFAULT NULL,
+                      PRIMARY KEY (`num`)
+                    ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                  ";
+                break;
         } //end of switch
 
 
@@ -207,7 +225,10 @@ function insert_table($con, $table_name)
             ('Kakao','Quisque.imperdiet@eulacus.com','1','O43tun642','Zenaida',28,'010-5405-3479','2019-05-10 19:25:11','penatibus et magnis dis parturient montes, nascetur'),('Facebook','neque@Nullaeu.edu','0','X17qvf457','Rashad',70,'010-3690-0432','2020-10-11 15:23:37','luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.'),('Kakao','et@tinciduntvehicula.org','1','A82pda326','Whoopi',29,'010-6103-7630','2020-11-09 13:41:01','libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet nec, leo. Morbi neque tellus, imperdiet'),('Kakao','et@elitpede.com','1','S49hwz088','Jescie',70,'010-2809-1230','2020-12-14 07:08:51','tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec'),('Kakao','in.aliquet.lobortis@posuereenim.com','0','W49wgn696','Nero',56,'010-5591-4757','2019-11-25 03:20:56','lobortis tellus justo sit amet nulla. Donec non justo. Proin'),('Google','Phasellus@egetodio.org','1','P71opa304','Emi',23,'010-2409-1952','2019-07-17 14:33:56','blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc'),('Kakao','nisi@Aliquam.com','1','B52xhq089','Veronica',36,'010-2683-9664','2020-04-12 04:04:02','elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum'),('Kakao','dui.nec@Maurisblandit.net','1','D20tmc577','Arsenio',42,'010-4880-7676','2020-12-19 23:55:33','Nulla tempor augue ac ipsum. Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie in,'),
             ('Kakao','elit.dictum.eu@Maurisblandit.ca','1','Z31evz752','Lavinia',40,'010-3396-6271','2021-02-05 22:02:14','velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia'),('Kakao','rutrum@risusa.net','1','R61prh658','Alan',60,'010-1698-5174','2021-02-18 11:36:15','sapien, gravida non, sollicitudin a, malesuada id, erat. Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget'),('Facebook','id@orcitinciduntadipiscing.com','1','G61qnk056','Casey',65,'010-3521-4412','2019-08-09 10:57:48','Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec'),('Naver','eu.nibh.vulputate@tellusimperdietnon.ca','1','D30lnl095','Rebekah',16,'010-3644-2291','2020-06-18 14:33:28','cursus in, hendrerit consectetuer, cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum'),('Google','purus@erat.co.uk','0','S33rmc060','Ciara',38,'010-9919-6665','2019-04-21 22:55:17','ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget metus. In nec orci. Donec nibh.'),('Naver','metus.Aenean.sed@ac.net','1','H54uhb805','Marny',54,'010-9745-1480','2019-06-26 04:24:04','Nullam scelerisque neque sed sem egestas blandit. Nam'),('Kakao','Cras@sagittisaugueeu.org','0','W85vjr708','Tad',60,'010-2176-6539','2019-08-31 22:58:39','elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet nec, leo.'),
             ('Naver','dictum.mi.ac@tristique.com','0','Y84kmj892','Halee',72,'010-5455-4553','2019-04-27 00:52:41','Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed pede.'),('Google','Quisque.ac.libero@mipede.edu','1','I39qwr846','Dominique',59,'010-8134-4027','2019-12-24 22:51:55','Proin sed turpis nec mauris blandit mattis. Cras eget nisi dictum augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris'),('Kakao','tristique.ac@estNunc.edu','1','J06jcp338','Aquila',40,'010-4627-7461','2020-12-11 12:17:32','nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed'),('Facebook','nec.mollis.vitae@Donecestmauris.edu','0','R51oog808','Clarke',29,'010-1820-0513','2020-12-15 04:10:45','convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam,'),('Facebook','faucibus.orci.luctus@dictumsapien.edu','0','U74iwy346','Macey',55,'010-6235-9724','2020-03-15 00:12:43','pede. Suspendisse dui. Fusce diam nunc, ullamcorper eu, euismod ac,'),('Facebook','bibendum@auctorMauris.org','1','J55zgh984','Lane',76,'010-4353-2736','2020-09-22 13:07:04','Phasellus vitae mauris sit amet lorem'),('Google','vitae.sodales@quis.ca','0','X08rtq895','Bruce',78,'010-9027-7229','2020-11-30 23:07:37','Cum sociis natoque penatibus et magnis dis'),('Facebook','erat.volutpat.Nulla@egestaslacinia.co.uk','0','L42waf038','Jarrod',58,'010-7963-0557','2019-12-31 17:19:10','magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam'),('Naver','vitae.erat@per.com','0','S99cwd599','Quinn',54,'010-3867-4474','2020-09-04 16:39:09','vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum.'),
-            ('Naver','sed.sem.egestas@erosNamconsequat.ca','1','Q08elb268','Cassandra',58,'010-8853-4600','2020-06-04 20:19:00','Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas'),('Facebook','Mauris.vestibulum.neque@laciniaorci.ca','1','R39oei422','Deanna',18,'010-9507-4763','2019-03-31 03:38:14','tristique pellentesque, tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis.'),('Naver','Vivamus@mattisIntegereu.co.uk','0','T73uki435','Phillip',14,'010-5397-8400','2020-03-07 06:43:39','ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at,'),('Facebook','pretium.aliquet.metus@facilisismagnatellus.net','1','A91htd308','Nolan',61,'010-3778-1073','2020-10-26 19:17:32','Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt,'),('Naver','Donec.fringilla@Integertincidunt.org','0','N16zxg446','Christian',36,'010-1921-7815','2019-08-15 21:04:38','sem molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est,'),('Facebook','convallis.convallis@arcuVestibulumante.co.uk','0','X11eiv584','Rhea',19,'010-8642-1606','2020-08-31 18:57:58','et netus et malesuada fames ac turpis'),('Kakao','Cum.sociis@laoreetlectusquis.co.uk','1','Q10yds264','Bruno',47,'010-8770-2583','2020-05-04 18:08:02','metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non');
+            ('Naver','sed.sem.egestas@erosNamconsequat.ca','1','Q08elb268','Cassandra',58,'010-8853-4600','2020-06-04 20:19:00','Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas'),('Facebook','Mauris.vestibulum.neque@laciniaorci.ca','1','R39oei422','Deanna',18,'010-9507-4763','2019-03-31 03:38:14','tristique pellentesque, tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis.'),('Naver','Vivamus@mattisIntegereu.co.uk','0','T73uki435','Phillip',14,'010-5397-8400','2020-03-07 06:43:39','ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at,'),('Facebook','pretium.aliquet.metus@facilisismagnatellus.net','1','A91htd308','Nolan',61,'010-3778-1073','2020-10-26 19:17:32','Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt,'),('Naver','Donec.fringilla@Integertincidunt.org','0','N16zxg446','Christian',36,'010-1921-7815','2019-08-15 21:04:38','sem molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est,'),('Facebook','convallis.convallis@arcuVestibulumante.co.uk','0','X11eiv584','Rhea',19,'010-8642-1606','2020-08-31 18:57:58','et netus et malesuada fames ac turpis'),('Kakao','Cum.sociis@laoreetlectusquis.co.uk','1','Q10yds264','Bruno',47,'010-8770-2583','2020-05-04 18:08:02','metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non'),
+            ('','k@naver.com',NULL,'1','유저1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1'),
+            ('','s@naver.com',NULL,'1','판매자1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'10'),
+            ('','m@naver.com',NULL,'1','관리자1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'100'),
              ";
             break;
 
@@ -292,6 +313,16 @@ function insert_table($con, $table_name)
                     (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
                     (null, 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
                     (null, 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
+                ";
+            break;
+
+        case 'menu_img':
+            $sql = "INSERT INTO `menu_img` (`num`, `user_id`, `seller_num`, `store_name`, `menu_name`, `menu_price`, `menu_file_name`, `menu_file_type`, `menu_file_copied`, `menu_explain`) VALUES
+                    (null, 'infor15', 1, '지수네', '치즈떡볶이', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_7362.jpg', '치즈가 쭈욱'),
+                    (null, 'infor15', 1, '지수네', '무뼈닭발', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5232.jpg', '한입에 쏘오옥'),
+                    (null, 'infor15', 1, '지수네', '내사랑닭갈비', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5727.jpg', '진짜 존맛탱'),
+                    (null, 'infor15', 1, '지수네', '얼큰우동', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_9603.jpg', '해장에 따악'),
+                    (null, 'infor15', 1, '지수네', '곱창', 4000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_29_9893.jpg', '떡이랑 함께 드세염');
                 ";
             break;
     } //end of switch

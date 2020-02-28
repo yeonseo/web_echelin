@@ -18,91 +18,6 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 
 
-    <script type="text/javascript">
-        function check_input() {
-            //쪽지용
-            if (!document.message_form.subject.value) {
-                alert("내용을 입력하세요!");
-                document.board_form.subject.focus();
-                return;
-            }
-            if (!document.message_form.content.value) {
-                alert("내용을 입력하세요!");
-                document.board_form.content.focus();
-                return;
-            }
-            document.board_form.submit();
-
-
-            //문의 게시판 용
-            if (!document.board_form.subject.value) {
-                alert("제목을 입력하세요!");
-                document.board_form.subject.focus();
-                return;
-            }
-            if (!document.board_form.content.value) {
-                alert("내용을 입력하세요!");
-                document.board_form.content.focus();
-                return;
-            }
-            document.board_form.submit();
-        }
-
-
-        function test() {
-
-            var html = "<div class='content_yes'>";
-
-            html += "<div class='yes_top'>";
-            html += "<span><a href='#'>식당 링크</a> &nbsp·&nbsp 등록 시간</span>";
-            html += "<div><button class='btn_init'>수정</button> <button class='btn_delete'>삭제</button></div>";
-            html += "<div class='div_chu'>";
-            html += "<div id='like_count'><img src='./image/like.png'> &nbsp;0</div>";
-            html += "<div id='dislike_count'><img src='./image/dislike.png'> &nbsp;0</div>";
-            html += "</div>";
-
-            html += "</div>";
-
-            html += "<div class='yes_main'>";
-            html += "후기 내용 공간";
-            html += "</div>";
-
-            html += "</div>";
-
-            $(".content_main .content_no").remove();
-            $(".content_main").append(html);
-
-
-
-            $.ajax({
-                url: "member_check_id_ajax.php?id=" + inputID,
-                type: "get",
-                success: function(returnData) {
-                    //아이디 중복시
-                    if (returnData === "ID_overlap") {
-                        $(document).ready(function() {
-                            $("#inputID ~ .warningIcon, #inputID ~ .warningMessage").css("visibility", "visible");
-                        });
-                        $("#inputID ~ .warningMessage").text("사용중인 아이디입니다.");
-                        confirmArray[1] = false;
-                    } else if (returnData === "ID_possible") {
-                        //사용가능한 아이디
-                        $(document).ready(function() {
-                            $("#inputID ~ .warningIcon, #inputID ~ .warningMessage").css("visibility", "hidden");
-                        });
-                        confirmArray[1] = true;
-                    } else {
-                        console.log("DB 통신 오류" + returnData);
-                        confirmArray[1] = false;
-                    }
-                },
-                error: function() {
-                    console.log("아이디 중복확인 ajax 실패");
-                }
-            });
-
-        }
-    </script>
 
 
 </head>
@@ -119,21 +34,10 @@
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_side_left_menu.php"; ?>
             </div>
             <div class="right_content">
-
-
-                <!-- 메세지 입력칸 -->
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <div class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>">
-                        <form class="message_talk_send" name="message_talk_send" action="">
-                            <textarea type="text"></textarea>
-                            <button class="button_next"> <i class="fas fa-utensils"></i> </button>
-                        </form>
-                    </div>
-                </div> <!-- end of css_card_menu_row -->
-
-
-                <!-- 메세지 가져오기 -->
                 <?php
+                $message_group_num = 1;
+                $message_;
+
                 function createMessageTalk($con, $dbname, $message_group_num)
                 {
                     $sql = "select * from message where group_num=" . $message_group_num . " order by message_num desc";
@@ -141,11 +45,37 @@
                     if ($result === FALSE) {
                         die('DB message_num Connect Error: ' . mysqli_error($con));
                     }
+
                     $total_rows_talk = mysqli_num_rows($result);
 
                     // 다차원 배열 반복처리 (필요시 사용)
                     ini_set('memory_limit', '-1');
 
+                    $result_message = mysqli_fetch_array($result);
+
+                    $send_id = $result_message["send_id"];
+                    $rv_id = $result_message["rv_id"];
+                    $subject    = $result_message["subject"];
+                    $content    = $result_message["content"];
+                    $regist_day  = $result_message["regist_day"];
+                    $file_name  = $result_message["file_name"];
+
+
+                    //입력창 생성
+                    echo "<div class=" . COMMON::$css_card_menu_row . " id='message_input_row' >";
+
+                    echo "<div class='card_menu_btn_wider' class=" . COMMON::$css_card_menu_btn . ">";
+
+                    echo "<form id='message_talk_send' name='message_talk_send' method='POST' >";
+                    echo "<input id='message_group_num' type='text' value='$message_group_num' hidden>";
+                    echo "<textarea id='message_content' name='message_content' type='text'></textarea>";
+                    echo "<button type='button' id='message_send_btn' class='button_next' value='insert_message'><i class='fas fa-utensils'></i></button>";
+                    echo "</form>";
+
+                    echo "</div> <!-- end of card_menu_btn_wider -->";
+                    echo "</div> <!-- end of css_card_menu_row -->";
+
+                    //메세지 리스트 부름
                     for ($i = 0; $i < $total_rows_talk; $i++) {
                         mysqli_data_seek($result, $i);
                         $result_message = mysqli_fetch_array($result);
@@ -157,18 +87,16 @@
                         $regist_day  = $result_message["regist_day"];
                         $file_name  = $result_message["file_name"];
 
-
-
                         echo "<div class=" . COMMON::$css_card_menu_row . ">";
 
                         //나중에 유저 세션 들고와서 할 거임
                         if ($send_id === "aaaaaa") {
                             echo "<button class='card_message_send' class=" . COMMON::$css_card_menu_btn . ">";
-                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
                         } else {
                             echo "<button class='card_message_receive' class=" . COMMON::$css_card_menu_btn . ">";
-                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
                         }
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">$content</div></br>";
@@ -177,17 +105,63 @@
                         echo "</div> <!-- end of css_card_menu_row -->";
                     }
                 }
+                ?>
 
 
+
+                <!-- 메세지 가져오기 -->
+                <?php
                 //메세지 겟방식으로 들고오기
                 if (isset($_GET['message'])) {
                     $message_group_num  = $_GET['message'];
                 } else {
-                    // echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
+                    echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
                 }
+
+                $message_group_num = $_GET['message'];
                 createMessageTalk($con, $dbname, $message_group_num);
 
                 ?>
+
+                <script type="text/javascript">
+                    $('#message_send_btn').click(function() {
+                        //쪽지용
+                        if (!$('#message_content').val() | $('#message_content').val() === '') {
+                            alert("내용을 입력하세요!");
+                            $('#message_content').focus();
+                            return;
+                        } else {
+                            var clickBtnValue = $('#message_send_btn').val();
+                            var message_group_num = $('#message_group_num').val();
+                            var message_content = $('#message_content').val();
+                            // alert("값 가져옴!!!" + clickBtnValue + " " + message_group_num + " " + message_content + " ");
+                            $.ajax({
+                                type: "POST",
+                                url: './user_mypage_message_insert.php',
+                                data: {
+                                    'action': clickBtnValue,
+                                    'message_group_num': message_group_num,
+                                    'message_content': message_content
+                                },
+                                success: function(data) {
+                                    $(document).ready(function() {
+                                        $('#message_input_row').after(data);
+                                    });
+                                },
+                                error: function(data) {
+                                    alert("Data return: " + data);
+                                }
+                            }).done(function(msg) {
+                                // alert("Data Saved: " + msg);
+                            });
+                        }
+                    });
+
+                    function check_input($message_group_num) {
+
+                    }
+                </script>
+
             </div><!-- end of right_content -->
     </section>
     <footer>

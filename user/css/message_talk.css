@@ -28,12 +28,12 @@
 }
 
 
-.message_talk_send {
+#message_talk_send {
     padding: 3%;
     position: relative;
 }
 
-.message_talk_send textarea{
+#message_talk_send textarea{
     height: 110px;
     width: 80%;
     padding: 10px;
@@ -43,7 +43,7 @@
     box-shadow: 1px 1px 1px #999;
 }
 
-.message_talk_send button {
+#message_talk_send button {
     position: absolute;
     bottom : 20px;
     right : 20px;

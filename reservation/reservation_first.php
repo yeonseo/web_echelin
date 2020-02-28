@@ -18,10 +18,17 @@
     <script src="./js/vendor/modernizr.custom.min.js"></script>
     <script src="./js/vendor/jquery-1.10.2.min.js"></script>
     <script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+    <!-- 공통으로 사용하는 link & script -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
+
+
+    <link rel="stylesheet" href="./css/calendar.css">
+    <script type="text/javascript" src="./js/calendar.js" defer>
+    </script>
   </head>
   <body>
 
-
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
@@ -31,10 +38,6 @@
     </div>
     <progress value="20" max="100">0%</progress>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/calendar.php"; ?>
-        <div class="div_prv_next_button">
-          <button class="button_next" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_second.php'">다음</button>
-          <button class="button_prev" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_main.php'">이전</button>
-        </div>
     </section>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>

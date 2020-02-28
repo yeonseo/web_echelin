@@ -1,64 +1,6 @@
-
 <div class="restaurants_content">
 
-    <div class="restaurants_main_pic_box">
-<?php
 
-    if (isset($_GET['seller_num'])) {
-        $seller_num = $_GET['seller_num'];
-    } else {
-        // echo "console.log('레스토랑 주소가 이상한데에~')";
-    }
-
-    $seller_num = 1;
-
-
-
-    function setMenuImg($con, $dbname, $seller_num)
-    {
-
-        //restaurants 테이블에서 값들고옴
-        $seller_num = 1;
-
-        $sql = "select * from " . $dbname . ".store_img where seller_num=" . $seller_num;
-        $result = $con->query($sql);
-        if ($result === FALSE) {
-            die('DB seller Connect Error: ' . mysqli_error($con));
-        }
-        $rowcount=0;
-        while ($row = mysqli_fetch_array($result))
-        {
-           $store_file_copied  = $row["store_file_copied"];
-           if($rowcount ==0){
-             ?>
-             <div class="pic_box_left">
-                 <img src="../seller/storeimg/<?=$store_file_copied?>" alt="">
-             </div>
-
-     <?php
-           }else{
-             ?>
-             <div class="pic_box_right">
-                 <img src="../seller/storeimg/<?=$store_file_copied?>" alt="">
-             </div>
-
-     <?php
-           }
-
-$rowcount++;
-}
-}
-    setMenuImg($con, $dbname, $seller_num);
- ?>
-    </div>
-
-    <div class="restaurants_upper_btn_box">
-        <button><i class="fas fa-heart"></i> &nbsp; List </button>
-        <button><i class="fas fa-share-alt"></i> &nbsp; Share</button>
-    </div>
-    <div class="restaurants_bottom_btn_box">
-        <button><i class="fas fa-heart"></i> &nbsp; List </button>
-    </div>
 
 
 
@@ -66,13 +8,27 @@ $rowcount++;
 
 
         <div class="restaurants_center_content">
+          <?php
 
+            $seller_num=get('seller_num');
+            echo "seller_num = ($seller_num);";
+            $seller_num = 1;
+
+
+           ?>
             <div class="restaurants_main_content_right_btn_box">
                 <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?=$seller_num?>'"><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
             </div>
 
             <?php
-
+            function get($name){
+              if (isset($_GET[$name])) {
+                  $get_result= $_GET[$name];
+              } else {
+                  $get_result= '엥';
+              }
+              return $get_result;
+            }
             function getJsonDataMakeArticle($con, $dbname, $seller_num)
             {
 

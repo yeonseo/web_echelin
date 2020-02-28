@@ -1,7 +1,7 @@
 /* *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;} */
 .singup_form{
-    width: 500px;
+    width: 38%;
     display: inline-block;
     position: relative !important;
 }
