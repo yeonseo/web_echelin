@@ -11,9 +11,13 @@
     <!-- CSS, JS 파일 링크 시, -->
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
-
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./js/search.js"></script>
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
+    </script>
+    <script src="">
+
     </script>
 </head>
 

@@ -1,3 +1,19 @@
+<?php
+$input_store_name = $_POST["input_store_name"];
+$input_business_license = $_POST["input_business_license"];
+$input_postcode = $_POST["input_postcode"];
+$input_address = $_POST["input_address"];
+$input_extraAddress = $_POST["input_extraAddress"];
+$input_detailAddress = $_POST["input_detailAddress"];
+
+echo $input_store_name;
+echo $input_business_license;
+echo $input_postcode;
+echo $input_address;
+echo $input_extraAddress;
+echo $input_detailAddress;
+ ?>
+
  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,6 +40,23 @@
       </div>
 
       <progress value="49.8" max="100"></progress>
+
+      <div class="div_outside">
+        <form class="" action="index.html" method="post">
+          <span>내 식당 : </span>
+          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>" disabled>&nbsp&nbsp
+          <span>사업자번호 : </span>
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>" disabled>
+          <span>우편번호 : </span>
+          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_postcode?>" disabled>&nbsp&nbsp
+          <span>주소 : </span>
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_address?>" disabled>
+          <span>참고항목 : </span>
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_extraAddress?>" disabled>
+          <span>상세주소 : </span>
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_detailAddress?>" disabled>
+        </form>
+      </div>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">

@@ -65,6 +65,7 @@ progress {
 
 .div_except_button {
   padding: 30px 30px 16px;
+  z-index: 2;
 }
 
 

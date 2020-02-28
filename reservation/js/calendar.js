@@ -1,11 +1,11 @@
 
 //테스트용 변수
 
-timeList=["11 : 00","12 : 00","13 : 00","14 : 00"];
 
 
 //달력 셋팅
 
+var timeList=[];
 var currentTitle = document.getElementById('current-year-month');
 var calendarBody = document.getElementById('calendar-body');
 var timeBody = document.getElementById('time-list');
@@ -20,7 +20,17 @@ var pageYear;
 var tdGroup = [];
 var timeDivGroup = [];
 var clickedTime;
+var opening_hours_val = document.getElementById('opening_hours_val').value;
+var opening_hours = opening_hours_val.split(',');
 
+var pAdultCount = document.getElementById('pAdultCount')
+var pChildrenCount = document.getElementById('pChildrenCount')
+var pBabyCount = document.getElementById('pBabyCount')
+
+
+for(let i = 0 ; i < opening_hours.length ; i++){
+  timeList[i]=opening_hours[i];
+}
 
 if(first.getFullYear() % 4 === 0){
     pageYear = leapYear;
@@ -30,8 +40,7 @@ if(first.getFullYear() % 4 === 0){
 showCalendar();
 showMain();
 showTimeList(timeList);
-
-
+nokids();
 
 function showCalendar(){
     let monthCnt = 100;
@@ -124,7 +133,6 @@ function timeChangeToday(e){
 // 월간 이동
 
 function prev(){
-    inputBox.value = "";
     const $divs = document.querySelectorAll('#input-list > div');
     $divs.forEach(function(e){
       e.remove();
@@ -156,7 +164,6 @@ function prev(){
 }
 
 function next(){
-    inputBox.value = "";
     const $divs = document.querySelectorAll('#input-list > div');
     $divs.forEach(function(e){
       e.remove();
@@ -229,5 +236,65 @@ function btnMinusClick(p){
   if(Number(p.textContent)>0){
     p.textContent=((Number(p.textContent))-1);
 
+  }
+}
+
+
+
+
+function prevPage(address,get){
+  location.href=address+get;
+}
+function nextPage(address,get){
+  var year_result=currentTitle.textContent.substr(-4,4);
+  var mounth_result=currentTitle.textContent.substr(-10,2);
+  var day_result=clickedDate1.id;
+
+  if(clickedTime===undefined){
+    alert("시간을 선택해주세요");
+  }else{
+    console.log("clickedTime = "+clickedTime.textContent);
+    var time_result=clickedTime.textContent;
+
+    if(pAdultCount.textContent==0){
+      alert("인원을 선택해주세요");
+
+    }else{
+      var adult_result = pAdultCount.textContent;
+      var child_result = pChildrenCount.textContent;
+      var baby_result = pBabyCount.textContent;
+
+      console.log("adult_result = "+adult_result);
+      console.log("child_result = "+child_result);
+      console.log("baby_result = "+baby_result);
+    }
+  }
+
+  location.href=address+get+"&year_result="+year_result+"&mounth_result="+mounth_result+"&day_result="+day_result+"&time_result="+time_result+"&adult_result="+adult_result+"&child_result="+child_result+"&baby_result="+baby_result;
+}
+function testbtn(){
+
+}
+
+
+function nokids(){
+  console.log("nokids()");
+  if(document.getElementById('nokids').value==1){
+    document.getElementById('div_kids').classList.add('div_hashtag_nokids');
+    document.getElementById('div_babys').classList.add('div_hashtag_nokids');
+    document.getElementById('btnChildrenPlus').classList.add('div_hashtag_nokids');
+    document.getElementById('btnChildrenPlus').disabled=true;
+    document.getElementById('btnChildrenMinus').classList.add('div_hashtag_nokids');
+    document.getElementById('btnChildrenMinus').disabled=true;
+    document.getElementById('btnBabyPlus').classList.add('div_hashtag_nokids');
+    document.getElementById('btnBabyPlus').disabled=true;
+    document.getElementById('btnBabyMinus').classList.add('div_hashtag_nokids');
+    document.getElementById('btnBabyMinus').disabled=true;
+
+    document.getElementById('pChildrenText').textContent="어린이 동반 불가 매장";
+    document.getElementById('pBabyText').textContent="유아 동반 불가 매장";
+  }else{
+    document.getElementById('pChildrenText').textContent="어린이 (8세 이하)";
+    document.getElementById('pBabyText').textContent="유아 (2세 이하)";
   }
 }
