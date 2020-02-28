@@ -47,7 +47,7 @@ else $userpoint = "";
   <form class="" action="index_search.php" method="post">
     <input class="search_input" type="text" placeholder=" 식당이름을 검색해 주세요." name="r_name">
     <button class="search_result_btn">검색</button>
-    <button type="button" name="button" class="search_result_btn" id="keyword_btn">&nbsp키워드 ▼</button>
+    <button type="button" name="button" class="search_result_btn" id="keyword_btn">&nbsp필터 ▼</button>
   </form>
 
 </div>
