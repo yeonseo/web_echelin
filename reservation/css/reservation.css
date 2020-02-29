@@ -101,6 +101,14 @@ progress {
   box-shadow: 2px 2px 5px gold; */
   border-color: white;
 }
+.div_hashtag_menu {
+  border: 2px solid gold;
+  border-radius: 20px;
+  width: auto;
+  padding: 10px;
+  display: inline-block;
+  margin: 6px;
+}
 
 .div_hashtag {
   border: 2px solid gold;
@@ -130,6 +138,19 @@ progress {
   /* vertical-align:middle; */
   position: relative;
   float: right;
+}
+.button_menu {
+  background-color: #fff;
+  border:2px solid gold;
+  /* font-size: 17px; */
+  width:20px;
+  height:20px;
+  border-radius:75px;
+  /* text-align:center; */
+  margin:0 auto;
+  /* vertical-align:middle; */
+  position: relative;
+  float: left;
 }
 
 .span_x {
@@ -190,4 +211,32 @@ progress {
 }
 footer{
   margin: 700px auto 0 auto;
+}
+
+.span_explain_content{
+  visibility: hidden; /* 최초에는 툴팁 박스 안 보이게 */
+  width: 110px;
+  background-color: black;
+  color: #fff;
+  text-align: center; /*툴팁 박스 안의 글자가 가운데로 모이도록 */
+  border-radius: 6px; /* 툴팁 박스 모서리가 약간 둥글게 */
+  padding: 10px; /* 위아래 padding을 5 좌우 패딩을 5로 */
+  z-index: 100; /* 툴팁이 화면의 다른 요소들 위에 보이고 가려지지 않도록 하기 위해 */
+  position: relative; /* 툴팁 박스의 위치 지정 방식 설정 */
+  left: 50%;
+  top: -170px;
+  margin-left: -90px;
+}
+.span_explain_content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid; /* border-color의 Top Right Bottom Left의 색상 지정 */
+    border-color: black transparent transparent transparent; /*border-color: black red blue cyan;*/
+} /* 아래 코드가 의미하는 것은 height를 250px로 잡았던 영역이 tootip이라는 이름의 div 영역인데 이 영역 위에 마우스가 hover하면 클래스명 tooltip 엘리먼트 안에 있는 클래스명 tooltiptext 엘리먼트를 보이라는 뜻. 즉 클래스명 tooltiptext가 툴팁 박스 자체인데 tootip이라는 클래스명을 가진 엘리먼트(여기서는 div) 영역위에 마우스가 hover하면 툴팁 박스를 보이라는 뜻임 */
+.score_content_first:hover .span_explain_content {
+    visibility: visible;
 }

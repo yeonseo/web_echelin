@@ -1,15 +1,34 @@
-//테스트용 변수
+//menu.php 에서 불러온 데이터
+var menu_file_copied =document.getElementById('menu_file_copied').value;
+var menu_name =document.getElementById('menu_name').value;
+var menu_price =document.getElementById('menu_price').value;
+var menu_explain =document.getElementById('menu_explain').value;
+console.log("menu_file_copied = "+menu_file_copied);
+console.log("menu_name = "+menu_name);
+console.log("menu_price = "+menu_price);
+console.log("menu_explain = "+menu_explain);
 
-var menuImg = ['./img/cabbage.jpg','./img/fish.jpg','./img/omurice.jpg','./img/pasta.jpg','./img/pilaf.jpg','./img/pizza.jpg','./img/salad.jpg','./img/steak.jpg'];
-var menuTitle = ['cabbage','fish','omurice','pasta','pilaf','pizza','salad','steak'];
-var menuprice = [1000,2000,3000,4000,5000,6000,7000,8000];
-var selectMenuNum=0;
+var menuImg = menu_file_copied.split(',');
+var menuTotalCount = menuImg.length;
+var menuTitle = menu_name.split(',');
+var menuprice = menu_price.split(',');
+var menuExplain = menu_explain.split(',');
+
+for(let i=0 ; i <menuTotalCount; i++){
+  menuImg[i]="../seller/menuimg/"+menuImg[i];
+}
+
+for(let i=0 ; i <menuTotalCount; i++){
+  menuprice[i]=Number(menuprice[i]);
+}
+
 //
 var divContent =[];
 var imgContent =[];
 var aTitleContent =[];
 var pTitleContent =[];
 var pPriceContent =[];
+var spanExplainContent =[];
 var divContentWrap = document.getElementById('divContentWrap');
 var myCartWrap = document.getElementById('myCartWrap');
 var spanMyCart = document.getElementById('spanMyCart');
@@ -21,8 +40,9 @@ menuProductCountSetting();
 showMene();
 //
 
+
 function menuProductCountSetting(){
-  for(let i =0 ; i<menuImg.length;i++){
+  for(let i =0 ; i<menuTotalCount;i++){
     menuProductCountPrice[i]=0;
     menuProductCount[i]=0;
   }
@@ -77,7 +97,7 @@ function clickMenuContent(e){
 
     var btnX = document.createElement('button');
     btnX.setAttribute('id', 'btnX'+index);
-    btnX.setAttribute('class', 'button_x');
+    btnX.setAttribute('class', 'button_menu');
     btnX.innerHTML='x';
     btnX.addEventListener('click',function(){
       totalPrice-=menuProductCountPrice[index];
@@ -90,7 +110,7 @@ function clickMenuContent(e){
 
     var btnPlus = document.createElement('button');
     btnPlus.setAttribute('id', 'btnPlus'+index);
-    btnPlus.setAttribute('class', 'button_x');
+    btnPlus.setAttribute('class', 'button_menu');
     btnPlus.innerHTML='+';
     btnPlus.addEventListener('click',function(){
       menuProductCountPrice[index]+=menuprice[index];
@@ -104,7 +124,7 @@ function clickMenuContent(e){
 
     var btnMinas = document.createElement('button');
     btnMinas.setAttribute('id', 'btnMinas'+index);
-    btnMinas.setAttribute('class', 'button_x');
+    btnMinas.setAttribute('class', 'button_menu');
     btnMinas.innerHTML='-';
     btnMinas.addEventListener('click',function(){
       menuProductCountPrice[index]-=menuprice[index];
@@ -139,7 +159,7 @@ function clickMenuContent(e){
       menuProductCount[index]+=1;
       var divSelectContent = document.createElement('div');
       divSelectContent.setAttribute('id', 'divSelectContent'+index);
-      divSelectContent.setAttribute('class', 'div_hashtag');
+      divSelectContent.setAttribute('class', 'div_hashtag_menu');
       var pAddPrice = document.createElement('p');
       pAddPrice.setAttribute('id', 'pAddPrice'+index);
       pAddPrice.setAttribute('class', 'p_add_price');
@@ -148,7 +168,7 @@ function clickMenuContent(e){
 
       var btnX = document.createElement('button');
       btnX.setAttribute('id', 'btnX'+index);
-      btnX.setAttribute('class', 'button_x');
+      btnX.setAttribute('class', 'button_menu');
       btnX.innerHTML='x';
       btnX.addEventListener('click',function(){
         totalPrice-=menuProductCountPrice[index];
@@ -182,12 +202,13 @@ function clickMenuContent(e){
 
 
 function showMene(){
-    for(let i = 0; i < menuImg.length; i++){
+    for(let i = 0; i < menuTotalCount; i++){
         divContent[i] = document.createElement('div');
         imgContent[i] = document.createElement('img');
         aTitleContent[i] = document.createElement('a');
         pTitleContent[i] = document.createElement('p');
         pPriceContent[i] = document.createElement('p');
+        spanExplainContent[i] = document.createElement('span');
 
         divContent[i].setAttribute('id', divContent+i);
         divContent[i].setAttribute('class', 'score_content_first');
@@ -203,11 +224,16 @@ function showMene(){
         pPriceContent[i].setAttribute('id', 'pPriceContent'+i);
         pPriceContent[i].innerHTML='&nbsp&nbsp'+menuprice[i]+'₩';
 
+        spanExplainContent[i].setAttribute('id', 'span_explain_content'+i);
+        spanExplainContent[i].setAttribute('class', 'span_explain_content');
+        spanExplainContent[i].innerHTML='&nbsp'+menuExplain[i];
+
         aTitleContent[i].appendChild(imgContent[i]);
         aTitleContent[i].appendChild(pTitleContent[i]);
         aTitleContent[i].appendChild(pPriceContent[i]);
         console.log();
         divContent[i].appendChild(aTitleContent[i]);
+        divContent[i].appendChild(spanExplainContent[i]);
 
         divContentWrap.appendChild(divContent[i]);
     }
