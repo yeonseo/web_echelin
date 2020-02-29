@@ -22,6 +22,7 @@ echo $input_detailAddress;
     <title></title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./js/seller_register.js"></script>
+    <script src="./js/preview.js"></script>
     <link rel="stylesheet" href="./css/seller_register_step.css">
     <link rel="stylesheet" href="../common/css/user_seller.css">
     <link rel="stylesheet" href="/echelin/common/css/common.css">
@@ -41,8 +42,8 @@ echo $input_detailAddress;
 
       <progress value="49.8" max="100"></progress>
 
+      <form class="" name="form_seller_register_step_third" action="./seller_register_step_fourth.php" method="post">
       <div class="div_outside">
-        <form class="" action="index.html" method="post">
           <span>내 식당 : </span>
           <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>" disabled>&nbsp&nbsp
           <span>사업자번호 : </span>
@@ -55,13 +56,12 @@ echo $input_detailAddress;
           <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_extraAddress?>" disabled>
           <span>상세주소 : </span>
           <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_detailAddress?>" disabled>
-        </form>
       </div>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
           <div class="div_form">
-            <form class="" name="" action="" method="post">
+            <!-- <form class="" name="" action="" method="post"> -->
               <div class="div_except_button">
                 <ul>
                   <li>식당소개글</li>
@@ -70,15 +70,15 @@ echo $input_detailAddress;
 
 
                   <li>식당 타입은 어떻게 되나요?</li>
-                  <input type="radio" name="store_type" value="true">
+                  <input type="radio" name="store_type" value="한식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">한식</span>
-                  <input type="radio" name="store_type" value="false">
+                  <input type="radio" name="store_type" value="중식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">중식</span>
-                  <input type="radio" name="store_type" value="false">
+                  <input type="radio" name="store_type" value="양식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">양식</span>
-                  <input type="radio" name="store_type" value="false">
+                  <input type="radio" name="store_type" value="기타" onclick="this.form.type_of_etc.disabled=false">
                   <span class="span_content_font">기타</span>
-                  <input id="input_etc" type="text" name="" value="" disabled>
+                  <input class="input_etc" type="text" name="type_of_etc" value="" disabled>
                   </br></br></br>
 
                   <li id="li_menu">메뉴 추가하기</li>
@@ -138,9 +138,9 @@ echo $input_detailAddress;
                     <span class="span_content_font">놀이시설</span></br>
                     <input type="checkbox" name="checkbox_etc" value="">
                     <span class="span_content_font">수유방</span></br>
-                    <input type="checkbox" name="checkbox_etc" value="">
+                    <input id="input_checkbox_etc" type="checkbox" name="checkbox_etc" value="" onclick="checkbox_disable()">
                     <span class="span_content_font">기타</span>
-                    <input id="input_etc" type="text" name="" value="" disabled>
+                    <input id="input_checkbox_etc_text" class="input_etc" type="text" name="" value="" disabled>
                     </br></br></br>
 
                   <li>식당 전화번호</li>
@@ -175,37 +175,47 @@ echo $input_detailAddress;
                   <li>식당 외/내부 사진</li>
                     <div class="store_pic">
                       <div class="store_inner_pic1">
-                        <div class="filebox">
-                          <label for="ex_file">업로드</label>
-                          <input type="file" class="ex_file">
+                        <!-- <label for="image"></label> -->
+                        <input type="file" name="image" id="store_image1" />
+
+                        <div class="image_preview1">
+                            <img src="#" />
                         </div>
                       </div>
 
                       <div class="store_inner_pic2">
-                        <div class="filebox">
-                          <label for="ex_file">업로드</label>
-                          <input type="file" class="ex_file">
+                        <!-- <label for="image"></label> -->
+                        <input type="file" name="image" id="store_image2" />
+
+                        <div class="image_preview2">
+                            <img src="#" />
                         </div>
                       </div>
 
                       <div class="store_inner_pic3">
-                        <div class="filebox">
-                          <label for="ex_file">업로드</label>
-                          <input type="file" class="ex_file">
+                        <!-- <label for="image"></label> -->
+                        <input type="file" name="image" id="store_image3" />
+
+                        <div class="image_preview3">
+                            <img src="#" />
                         </div>
                       </div>
 
                       <div class="store_inner_pic4">
-                        <div class="filebox">
-                          <label for="ex_file">업로드</label>
-                          <input type="file" class="ex_file">
+                        <!-- <label for="image"></label> -->
+                        <input type="file" name="image" id="store_image4" />
+
+                        <div class="image_preview4">
+                            <img src="#" />
                         </div>
                       </div>
 
                       <div class="store_inner_pic5">
-                        <div class="filebox">
-                          <label for="ex_file">업로드</label>
-                          <input type="file" class="ex_file">
+                        <!-- <label for="image"></label> -->
+                        <input type="file" name="image" id="store_image5" />
+
+                        <div class="image_preview5">
+                            <img src="#" />
                         </div>
                       </div>
                     </div>

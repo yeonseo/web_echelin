@@ -7,30 +7,35 @@ $(document).ready(function(){
   $button_hashtag_add=$("#button_hashtag_add"),
   $input_business_license=$("#input_business_license");
 
+  // //기타 체크박스 클릭 시 기타란 활성화
+  // $('input[name="type_of_etc"]').click(function(){
+  //   $("#input_type_of_etc").removeAttr("disabled");
+  // });
+
   //브레이크 타임 있음 클릭 시 시간 선택 보이기
   $('input[name="break_time"]').click(function() {
     $div_radio.css('display', ($(this).val() === 'true') ? 'block' : 'none');
   });
 
   //기타 체크박스 클릭 시 기타란 활성화
-  $('input[name="checkbox_etc"]').click(function(){
-    $("#input_etc").removeAttr("disabled");
-  });
+  // $('input[name="checkbox_etc"]').click(function(){
+  //   $("#input_etc").removeAttr("disabled");
+  // });
 
 
   $button_add.click(function(){
 
     var addStaffText =     '<tr name="tr_menu">'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="text" name="" placeholder="메뉴이름">'+
         '    </td>'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="number" name="" placeholder="가격">'+
         '    </td>'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="file" name="" value="">'+
         '    </td>'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="text" name="" placeholder="메뉴 설명">'+
         '    </td>'+
         '    <td class="td_button_del">'+
@@ -205,7 +210,7 @@ function stepCheck2() {
   var input_address=document.getElementById("input_address");
   var input_extraAddress=document.getElementById("input_extraAddress");
   var input_detailAddress=document.getElementById("input_detailAddress");
-  var step2_form = $("#form_first_show, #form_seller_register_step_second").serialize();
+  var step2_form = $("form[name=form_seller_register_step_second]").serialize();
 
   if(input_postcode.value==="") {
     alert("우편번호 찾기로 주소를 입력해주세요.");
@@ -217,9 +222,9 @@ function stepCheck2() {
       type :'POST',
       data: step2_form,
       success : function(data){
-        alert("등록3단계로 전송완료");
-        document.form_first_show.submit();
+        // document.form_first_show.submit();
         document.form_seller_register_step_second.submit();
+        alert("등록3단계로 전송완료");
       }
     })
     .done(function(){
@@ -231,5 +236,15 @@ function stepCheck2() {
     .always(function(){
       console.log("complete");
     });
+  }
+}
+
+function checkbox_disable() {
+  var input_checkbox_etc = document.getElementById("input_checkbox_etc");
+  var input_checkbox_etc_text = document.getElementById("input_checkbox_etc_text");
+  if(input_checkbox_etc.checked === true) {
+    input_checkbox_etc_text.disabled=false;
+  } else {
+    input_checkbox_etc_text.disabled=true;
   }
 }
