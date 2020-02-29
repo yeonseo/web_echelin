@@ -155,32 +155,37 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 10px;
 }
 
+.textarea_step2:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
 /* 메뉴 추가 테이블 */
 
 .table_seller_menu {
   border-collapse: collapse;
   border: 1px solid lightgray;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
 }
 
 .th_menu {
   border-collapse: collapse;
   border: 1px solid lightgray;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 12px;
   /* width: 100px; */
 }
 
 .th_menu_del {
   border: 1px solid #fff;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .tr_menu {
   border-collapse: collapse;
   border: 1px solid lightgray;
-    border-radius: 8px;
+    border-radius: 10px;
     /* width: 100px; */
 }
 
@@ -189,7 +194,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border: 1px solid lightgray;
   text-align: center;
   font-size: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     /* width: 100px; */
 }
 
@@ -227,7 +232,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* 식당 편의시설 기타란 */
-#input_etc{
+.input_etc{
   border-radius: 5px;
   border: 1px solid lightgray;
   margin-top: 10px;
@@ -244,8 +249,16 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* 식당 외/내부 사진 */
-.store_pic {
 
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.image_preview {
+  /* border: 1px solid black; */
+  border-radius: 20px;
 }
 
 .store_inner_pic1 {
@@ -288,27 +301,27 @@ input[type="number"]::-webkit-inner-spin-button {
   float: left;
 }
 
-.filebox label {
+/* .filebox label {
   display: inline-block;
-  padding: 10px;
-  color: gray;
-  font-size: 15px;
-  /* line-height: normal; */
-  /* vertical-align: middle; */
-  /* background-color: gold; */
-  /* cursor: pointer; */
-  border: 1px dashed gold;
-  border-radius: 25px;
-  /* -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s; */
+  padding: .5em .75em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #5cb85c;
+  cursor: pointer;
+  border: 1px solid #4cae4c;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 
 .filebox label:hover {
-  background-color: gold;
+  background-color: #6ed36e;
 }
 
 .filebox label:active {
-  background-color: gold;
+  background-color: #367c36;
 }
 
 .filebox input[type="file"] {
@@ -320,7 +333,7 @@ input[type="number"]::-webkit-inner-spin-button {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
+} */
 
 .div_clear_both{
   clear: both;
