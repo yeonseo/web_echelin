@@ -95,9 +95,9 @@ echo $input_business_license;
       <form name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post">
       <div class="div_outside">
           <span>내 식당 : </span>
-          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
+          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>" readonly>&nbsp&nbsp
           <span>사업자번호 : </span>
-          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>">
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>" readonly>
       </div>
 
 
