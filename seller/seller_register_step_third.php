@@ -70,15 +70,15 @@ echo $input_detailAddress;
 
 
                   <li>식당 타입은 어떻게 되나요?</li>
-                  <input type="radio" name="store_type" value="true">
+                  <input type="radio" name="store_type" value="한식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">한식</span>
-                  <input type="radio" name="store_type" value="false">
+                  <input type="radio" name="store_type" value="중식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">중식</span>
-                  <input type="radio" name="store_type" value="false">
+                  <input type="radio" name="store_type" value="양식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">양식</span>
-                  <input type="radio" name="store_type" value="false">
+                  <input type="radio" name="store_type" value="기타" onclick="this.form.type_of_etc.disabled=false">
                   <span class="span_content_font">기타</span>
-                  <input id="input_etc" type="text" name="" value="" disabled>
+                  <input class="input_etc" type="text" name="type_of_etc" value="" disabled>
                   </br></br></br>
 
                   <li id="li_menu">메뉴 추가하기</li>
@@ -138,9 +138,9 @@ echo $input_detailAddress;
                     <span class="span_content_font">놀이시설</span></br>
                     <input type="checkbox" name="checkbox_etc" value="">
                     <span class="span_content_font">수유방</span></br>
-                    <input type="checkbox" name="checkbox_etc" value="">
+                    <input id="input_checkbox_etc" type="checkbox" name="checkbox_etc" value="" onclick="checkbox_disable()">
                     <span class="span_content_font">기타</span>
-                    <input id="input_etc" type="text" name="" value="" disabled>
+                    <input id="input_checkbox_etc_text" class="input_etc" type="text" name="" value="" disabled>
                     </br></br></br>
 
                   <li>식당 전화번호</li>
@@ -175,9 +175,9 @@ echo $input_detailAddress;
                   <li>식당 외/내부 사진</li>
                     <div class="store_pic">
                       <div class="store_inner_pic1">
-                        <div class="filebox">
+                        <div id="View_area" class="filebox" style='position:relative; width: 100px; height: 100px; color: black; border: 0px solid black; dispaly: inline;'
                           <label for="ex_file">업로드</label>
-                          <input type="file" class="ex_file">
+                          <input type="file" class="ex_file" name="profile_pt" id="profile_pt" onchange="previewImage(this,'filebox')">
                         </div>
                       </div>
 

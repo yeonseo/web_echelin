@@ -92,13 +92,12 @@ echo $input_business_license;
 
       <progress value="33.2" max="100"></progress>
 
+      <form name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post">
       <div class="div_outside">
-        <form class="" id="form_first_show" name="form_first_show" action="./seller_register_step_third.php" method="post">
           <span>내 식당 : </span>
           <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
           <span>사업자번호 : </span>
           <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>">
-        </form>
       </div>
 
 
@@ -106,7 +105,7 @@ echo $input_business_license;
         <div class="div_register_inner_shape">
           <div class="div_form">
             <!-- 우편번호 찾기 폼 -->
-              <form class="" id="form_seller_register_step_second" name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post">
+              <!-- <form class="forms" id="form_seller_register_step_second" name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post"> -->
                 <div class="div_except_button">
                   <ul>
                     <li>식당 주소를 입력해주세요</li>

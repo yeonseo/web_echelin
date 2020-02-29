@@ -7,30 +7,35 @@ $(document).ready(function(){
   $button_hashtag_add=$("#button_hashtag_add"),
   $input_business_license=$("#input_business_license");
 
+  // //기타 체크박스 클릭 시 기타란 활성화
+  // $('input[name="type_of_etc"]').click(function(){
+  //   $("#input_type_of_etc").removeAttr("disabled");
+  // });
+
   //브레이크 타임 있음 클릭 시 시간 선택 보이기
   $('input[name="break_time"]').click(function() {
     $div_radio.css('display', ($(this).val() === 'true') ? 'block' : 'none');
   });
 
   //기타 체크박스 클릭 시 기타란 활성화
-  $('input[name="checkbox_etc"]').click(function(){
-    $("#input_etc").removeAttr("disabled");
-  });
+  // $('input[name="checkbox_etc"]').click(function(){
+  //   $("#input_etc").removeAttr("disabled");
+  // });
 
 
   $button_add.click(function(){
 
     var addStaffText =     '<tr name="tr_menu">'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="text" name="" placeholder="메뉴이름">'+
         '    </td>'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="number" name="" placeholder="가격">'+
         '    </td>'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="file" name="" value="">'+
         '    </td>'+
-        '    <td>'+
+        '    <td class="td_menu">'+
         '        <input type="text" name="" placeholder="메뉴 설명">'+
         '    </td>'+
         '    <td class="td_button_del">'+
@@ -205,7 +210,7 @@ function stepCheck2() {
   var input_address=document.getElementById("input_address");
   var input_extraAddress=document.getElementById("input_extraAddress");
   var input_detailAddress=document.getElementById("input_detailAddress");
-  var step2_form = $("#form_first_show, #form_seller_register_step_second").serialize();
+  var step2_form = $("form[name=form_seller_register_step_second]").serialize();
 
   if(input_postcode.value==="") {
     alert("우편번호 찾기로 주소를 입력해주세요.");
@@ -217,9 +222,9 @@ function stepCheck2() {
       type :'POST',
       data: step2_form,
       success : function(data){
-        alert("등록3단계로 전송완료");
-        document.form_first_show.submit();
+        // document.form_first_show.submit();
         document.form_seller_register_step_second.submit();
+        alert("등록3단계로 전송완료");
       }
     })
     .done(function(){
@@ -232,4 +237,83 @@ function stepCheck2() {
       console.log("complete");
     });
   }
+}
+
+function checkbox_disable() {
+  var input_checkbox_etc = document.getElementById("input_checkbox_etc");
+  var input_checkbox_etc_text = document.getElementById("input_checkbox_etc_text");
+  if(input_checkbox_etc.checked === true) {
+    input_checkbox_etc_text.disabled=false;
+  } else {
+    input_checkbox_etc_text.disabled=true;
+  }
+}
+
+function previewImage(targetObj, View_area) {
+	var preview = document.getElementById(View_area); //div id
+	var ua = window.navigator.userAgent;
+
+  //ie일때(IE8 이하에서만 작동)
+	if (ua.indexOf("MSIE") > -1) {
+		targetObj.select();
+		try {
+			var src = document.selection.createRange().text; // get file full path(IE9, IE10에서 사용 불가)
+			var ie_preview_error = document.getElementById("ie_preview_error_" + View_area);
+
+
+			if (ie_preview_error) {
+				preview.removeChild(ie_preview_error); //error가 있으면 delete
+			}
+
+			var img = document.getElementById(View_area); //이미지가 뿌려질 곳
+
+			//이미지 로딩, sizingMethod는 div에 맞춰서 사이즈를 자동조절 하는 역할
+			img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+src+"', sizingMethod='scale')";
+		} catch (e) {
+			if (!document.getElementById("ie_preview_error_" + View_area)) {
+				var info = document.createElement("<p>");
+				info.id = "ie_preview_error_" + View_area;
+				info.innerHTML = e.name;
+				preview.insertBefore(info, null);
+			}
+		}
+  //ie가 아닐때(크롬, 사파리, FF)
+	} else {
+		var files = targetObj.files;
+		for ( var i = 0; i < files.length; i++) {
+			var file = files[i];
+			var imageType = /image.*/; //이미지 파일일경우만.. 뿌려준다.
+			if (!file.type.match(imageType))
+				continue;
+			var prevImg = document.getElementById("prev_" + View_area); //이전에 미리보기가 있다면 삭제
+			if (prevImg) {
+				preview.removeChild(prevImg);
+			}
+			var img = document.createElement("img");
+			img.id = "prev_" + View_area;
+			img.classList.add("obj");
+			img.file = file;
+			img.style.width = '100px';
+			img.style.height = '100px';
+			preview.appendChild(img);
+			if (window.FileReader) { // FireFox, Chrome, Opera 확인.
+				var reader = new FileReader();
+				reader.onloadend = (function(aImg) {
+					return function(e) {
+						aImg.src = e.target.result;
+					};
+				})(img);
+				reader.readAsDataURL(file);
+			} else { // safari is not supported FileReader
+				//alert('not supported FileReader');
+				if (!document.getElementById("sfr_preview_error_"
+						+ View_area)) {
+					var info = document.createElement("p");
+					info.id = "sfr_preview_error_" + View_area;
+					info.innerHTML = "not supported FileReader";
+					preview.insertBefore(info, null);
+				}
+			}
+		}
+	}
 }
