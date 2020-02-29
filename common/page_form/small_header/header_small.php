@@ -1,6 +1,6 @@
 <?php
 //만약 라지 헤더에서 세션이 있다면 중복을 막음
-if (!isset($_SESSION["userid"])) session_start(); 
+if (!isset($_SESSION["userid"])) session_start();
 
 // 일반인, 회원가입자, 관리자 구분
 if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
@@ -32,11 +32,11 @@ else $userpoint = "";
     <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/restaurant.png"></a>
 
     <ul class="header_main_menu">
-    
+
       <!-- 공통 -->
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/search/index_search.php">검색</a></li>
       <?
-      if(! $useremail){      
+      if(! $useremail){
       ?>
       <!-- 로그인 전 나타나야할 메뉴 -->
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_login_select.php">로그인</a></li>
@@ -48,25 +48,25 @@ else $userpoint = "";
       <li><?=$log?></li>
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>
 
-        
+
 
 
       <!-- 로그인 성공시 나타나야할 메뉴 -->
       <!-- <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">저장목록</a></li>
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">일정</a></li>
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="#">메세지</a></li> -->
-     
+
 
         <!-- 각각 보여질 부분 -->
         <!-- <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_myinfo_index.php">관리자</a></li> -->
-     
+
       <?
         }
       ?>
-      
+
       <!-- 사용자 판매자 관리자 화면 나누는 부분 -->
       <?
-        if($userlevel == 0){     
+        if($userlevel == 0){
       ?>
         <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php">유저</a></li>
      <?
@@ -74,7 +74,7 @@ else $userpoint = "";
       ?>
 
       <?
-        if($userlevel == 10){     
+        if($userlevel == 10){
       ?>
 
 
@@ -84,16 +84,16 @@ else $userpoint = "";
       ?>
 
       <?
-        if($userlevel == 100){     
+        if($userlevel == 100){
       ?>
         <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_myinfo_index.php">관리자</a></li>
       <?
         }
       ?>
       <!-- 끝 -->
-   
-      
-    
+
+
+
       <!-- 공통 -->
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/help_center/help_center_main.php">도움말</a></li>
     </ul>
