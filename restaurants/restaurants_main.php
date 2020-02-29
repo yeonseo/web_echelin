@@ -1,74 +1,106 @@
-
 <div class="restaurants_content">
 
     <div class="restaurants_main_pic_box">
-<?php
+        <?php
 
-    if (isset($_GET['seller_num'])) {
-        $seller_num = $_GET['seller_num'];
-    } else {
-        // echo "console.log('레스토랑 주소가 이상한데에~')";
-    }
+        if (isset($_GET['seller_num'])) {
+            $seller_num = $_GET['seller_num'];
+        } else {
+            // echo "console.log('레스토랑 주소가 이상한데에~')";
+        }
 
-    $seller_num = 1;
-
-
-
-    function setMenuImg($con, $dbname, $seller_num)
-    {
-
-        //restaurants 테이블에서 값들고옴
         $seller_num = 1;
 
-        $sql = "select * from " . $dbname . ".store_img where seller_num=" . $seller_num;
-        $result = $con->query($sql);
-        if ($result === FALSE) {
-            die('DB seller Connect Error: ' . mysqli_error($con));
-        }
-        $rowcount=0;
-        while ($row = mysqli_fetch_array($result))
+
+
+        function setMenuImg($con, $dbname, $seller_num)
         {
-           $store_file_copied  = $row["store_file_copied"];
-           if($rowcount ==0){
-             ?>
-             <div class="pic_box_left">
-                 <img src="../seller/storeimg/<?=$store_file_copied?>" alt="">
-             </div>
 
-     <?php
-           }else{
-             ?>
-             <div class="pic_box_right">
-                 <img src="../seller/storeimg/<?=$store_file_copied?>" alt="">
-             </div>
+            //restaurants 테이블에서 값들고옴
+            $seller_num = 1;
 
-     <?php
-           }
+            $sql = "select * from " . $dbname . ".store_img where seller_num=" . $seller_num;
+            $result = $con->query($sql);
+            if ($result === FALSE) {
+                die('DB seller Connect Error: ' . mysqli_error($con));
+            }
+            $rowcount = 0;
+            while ($row = mysqli_fetch_array($result)) {
+                $store_file_copied  = $row["store_file_copied"];
+                if ($rowcount == 0) {
+        ?>
+                    <div class="pic_box_left">
+                        <img src="../seller/storeimg/<?= $store_file_copied ?>" alt="">
+                    </div>
 
-$rowcount++;
-}
-}
-    setMenuImg($con, $dbname, $seller_num);
- ?>
+                <?php
+                } else {
+                ?>
+                    <div class="pic_box_right">
+                        <img src="../seller/storeimg/<?= $store_file_copied ?>" alt="">
+                    </div>
+
+        <?php
+                }
+
+                $rowcount++;
+            }
+        }
+        setMenuImg($con, $dbname, $seller_num);
+        ?>
     </div>
 
-    <div class="restaurants_upper_btn_box">
-        <button><i class="fas fa-heart"></i> &nbsp; List </button>
-        <button><i class="fas fa-share-alt"></i> &nbsp; Share</button>
-    </div>
-    <div class="restaurants_bottom_btn_box">
-        <button><i class="fas fa-heart"></i> &nbsp; List </button>
-    </div>
+
+
+    <!-- 화면 위쪽의 버튼들 -->
+    <?php
+    echo "<form id='restaurant_upper_buttons' name='restaurant_upper_buttons' method='POST' >";
+    echo "<div class='restaurants_upper_btn_box'>";
+    echo "<input id='restaurant_seller_id' type='text' value='$seller_num' hidden>";
+    echo "<button type='button' id='restaurant_bookmark_btn' class='button_next' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; List </button>";
+    echo "<button type='button' id='restaurant_share_btn' class='button_next' value='restaurant_share'><i class='fas fa-share-alt'></i> &nbsp; Share </button>";
+    echo "</div> <!-- end of restaurants_upper_btn_box -->";
+
+    echo "<div class='restaurants_bottom_btn_box'>";
+    echo "<button type='button' id='restaurant_bookmark_btn' class='button_next' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; List </button>";
+    echo "</div> <!-- end of restaurants_bottom_btn_box -->";
+    echo "</form>";
+
+
+    echo "<div class='dim-layer'>";
+    echo "<div class='dimBg'></div>";
+
+    echo "<div id='layer2' class='pop-layer'>";
+    echo "<div class='pop-container'>";
+    echo "<div class='pop-conts'>";
+    // content
+    echo "<p class='ctxt mb20'>Thank you.<br>
+    Your registration was submitted successfully.<br>
+    Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
+    Hope to see you soon!
+    </p>
+
+    <div class='btn-r'>
+        <a href='#' class='btn-layerClose'>Close</a>
+    </div>";
+    // content
+
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div> <!-- end of dim-layer -->";
+    ?>
+
+    <a href="#layer2" class="btn-example">딤처리 팝업레이어 1</a>
+
 
 
 
     <div class="restaurants_main_content_box">
-
-
         <div class="restaurants_center_content">
 
             <div class="restaurants_main_content_right_btn_box">
-                <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?=$seller_num?>'"><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
+                <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?= $seller_num ?>'"><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
             </div>
 
             <?php
@@ -139,6 +171,8 @@ $rowcount++;
 
             getJsonDataMakeArticle($con, $dbname, $seller_num);
             ?>
+
+            <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/js/restaurants_bookmark.js"></script>
 
         </div><!-- end of restaurants_center_content -->
 
