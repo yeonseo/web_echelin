@@ -1,7 +1,7 @@
 .modify_form{
     position: relative;
     width: 325.33px;
-    height: 352px;
+    height: 400px;
     float: left;
     margin: 0 auto;
     border: 1px solid  lightgray;
@@ -24,6 +24,14 @@
     top: 150px;
     border-bottom: 1px solid lightgray;
     margin-bottom: 5px;
+}
+.photo_update{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 13.5px ;
+    font-weight: 600 ;
+    line-height: 2.5em;
+    color:orangered;
+    text-decoration: none;
 }
 .modify_user{
     position: relative;
@@ -79,4 +87,24 @@
     border: 1px solid white;
     font-size: 16px;
 
+}
+.my_hugi{
+    position: relative;
+    top: 15px;
+    right: 65px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 13.5px ;
+    font-weight: 600 ;
+    line-height: 2.5em;
+    color:orangered;
+    text-decoration: none;
+}
+
+.my_hugi a:hover{
+    color: orangered;
+}
+
+.my_hugi a:link,.my_hugi a:visited,.my_hugi a:hover{
+    text-decoration: none;
+    color: orangered;
 }
