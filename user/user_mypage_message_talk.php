@@ -32,9 +32,6 @@
             </div>
             <div class="right_content">
                 <?php
-                $message_group_num = 1;
-                $message_;
-
                 function createMessageTalk($con, $dbname, $message_group_num)
                 {
                     $sql = "select * from message where group_num=" . $message_group_num . " order by message_num desc";

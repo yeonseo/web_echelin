@@ -20,6 +20,7 @@ $('#message_send_btn').click(function () {
             success: function (data) {
                 $(document).ready(function () {
                     $('#message_input_row').after(data);
+                    $('#message_content').val('');
                 });
             },
             error: function (data) {
