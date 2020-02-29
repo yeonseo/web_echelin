@@ -6,7 +6,6 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
     <title> <?= COMMON::$title; ?> </title>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_join_signup.js"></script>
     <!-- CSS, JS 파일 링크 시, -->
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">

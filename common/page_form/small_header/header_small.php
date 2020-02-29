@@ -43,10 +43,13 @@ else $userpoint = "";
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_join_main.php">회원가입</a></li>
       <?
       }else{
+          
         $log = $useremail."(".$username."님] [Level:".$userlevel."Point:".$userpoint."]";
       ?>
-      <li><?=$log?></li>
-      <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>
+      <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php"><?=$log?></a></li>
+
+
+      <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>
 
 
 
@@ -66,7 +69,7 @@ else $userpoint = "";
 
       <!-- 사용자 판매자 관리자 화면 나누는 부분 -->
       <?
-        if($userlevel == 0){
+        if($userlevel == 1){
       ?>
         <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php">유저</a></li>
      <?
