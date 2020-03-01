@@ -192,6 +192,21 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
+            case 'bookmark':
+                $sql = "CREATE TABLE `bookmark` (
+                    `bookmark_num` int unsigned NOT NULL AUTO_INCREMENT,
+                    `user_id` varchar(20) NOT NULL,
+                    `bookmark_subject` varchar(200) NOT NULL,
+                    `group_num` int unsigned NOT NULL,
+                    `seller_num` text NOT NULL,
+                    `regist_day` varchar(20) NOT NULL,
+                    `file_name` varchar(45) DEFAULT NULL,
+                    `file_copied` varchar(45) DEFAULT NULL,
+                    `file_type` varchar(45) DEFAULT NULL,
+                    PRIMARY KEY (`bookmark_num`)
+                    ) DEFAULT CHARSET=utf8;
+                  ";
+                break;
         } //end of switch
 
 
@@ -310,6 +325,16 @@ function insert_table($con, $table_name)
                     (null, 'infor15', 1, '지수네', '내사랑닭갈비', 12000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5727.jpg', '진짜 존맛탱'),
                     (null, 'infor15', 1, '지수네', '얼큰우동', 8000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_9603.jpg', '해장에 따악'),
                     (null, 'infor15', 1, '지수네', '곱창', 18000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_29_9893.jpg', '떡이랑 함께 드세염');
+                ";
+            break;
+        case 'bookmark':
+            $sql = "INSERT INTO `bookmark` (`bookmark_num`, `user_id`, `bookmark_subject`, `group_num`, `seller_num`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+            (1, 'aaaaaa', '즐겨찾기 테스트', 1, 1,'2020-02-10 (20:55)','','',''),
+            (2, 'aaaaaa', '즐겨찾기 테스트', 1, 2,'2020-02-10 (20:55)','','',''),
+            (3, 'aaaaaa', '즐겨찾기 테스트', 1, 3,'2020-02-10 (20:55)','','',''),
+            (4, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','',''),
+            (5, 'aaaaaa', '즐겨찾기 테스트3', 3, 1,'2020-02-10 (20:55)','','',''),
+            (6, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','','');
                 ";
             break;
     } //end of switch
