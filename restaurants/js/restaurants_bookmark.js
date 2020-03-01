@@ -92,7 +92,7 @@ $('#restaurant_bookmark_update').click(function () {
         alert("값 가져옴!!!" + clickBtnValue + " " + bookmark_subject + " " + bookmark_group_num + " " + seller_num + " ");
         $.ajax({
             type: "POST",
-            url: '../user/user_mypage_message_insert.php',
+            url: '../user/user_mypage_manage_db.php',
             data: {
                 'action': clickBtnValue,
                 'bookmark_subject': bookmark_subject,
