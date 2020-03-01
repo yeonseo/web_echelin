@@ -1,5 +1,6 @@
 
 <?php
+
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
 $input_postcode = $_POST["input_postcode"];
@@ -8,80 +9,30 @@ $input_extraAddress = $_POST["input_extraAddress"];
 $input_detailAddress = $_POST["input_detailAddress"];
 
 
-// $introduction = $_POST["introduction"];
-// $store_type = $_POST["store_type"];
-// $type_of_etc = $_POST["type_of_etc"];
-// $input_menu = $_POST["input_menu"];
-// $input_price = $_POST["input_price"];
-// $input_menu_img = $_POST["input_menu_img"];
-// $input_menu_explain = $_POST["input_menu_explain"];
-// $opening_hours_start = $_POST["opening_hours_start"];
-// $opening_hours_end = $_POST["opening_hours_end"];
-// $break_start = $_POST["break_start"];
-// $break_end = $_POST["break_end"];
-// $chkbox = $_POST["chkbox"];
-// $phone1 = $_POST["phone1"];
-// $phone2 = $_POST["phone2"];
-// $phone3 = $_POST["phone3"];
+$introduction = $_POST["introduction"];
+$store_type = $_POST["store_type"];
+$type_of_etc = $_POST["type_of_etc"];
+$opening_hours_start = $_POST["opening_hours_start"];
+$opening_hours_end = $_POST["opening_hours_end"];
+$break_time = $_POST["break_time"];
+$break_start = $_POST["break_start"];
+$break_end = $_POST["break_end"];
 
-//
-//
-// for($i=1; $i<6; $i++) {
-// $random=mt_rand(1,9999);
-// $file_name	 = $_FILES["file".$i]["name"];
-// $file_type	 = $_FILES["file".$i]["type"];
-// $file_tmp_name	 = $_FILES["file".$i]["tmp_name"];
-// $file_error    = $_FILES["file".$i]["error"];
-// $file_size	 = $_FILES["file".$i]["size"];
-//
-// // print_r($_FILES);
-//
-// if ($file_name && !$file_error)
-// {
-//
-//   $file = explode(".", $file_name);
-//
-//   $file_name = $file[0];
-//   $file_ext  = $file[1];
-//
-//   $new_file_name = date("Y_m_d_H_i_s")."_".$random;
-//
-//   $copied_file_name = $new_file_name.".".$file_ext;
-//
-//   $uploaded_file = $upload_dir.$copied_file_name;
-//
-//   if( $file_size  > 6000000 ) {
-//       echo("
-//       <script>
-//       alert('업로드 파일 크기가 지정된 용량(6MB)을 초과합니다!<br>파일 크기를 체크해주세요! ');
-//       history.go(-1)
-//       </script>
-//       ");
-//       exit;
-//   }
-//
-//   if (!move_uploaded_file($file_tmp_name, $uploaded_file) )
-//   {
-//       echo("
-//         <script>
-//         alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다.');
-//         </script>
-//       ");
-//       exit;
-//   }
-// }
-// else
-// {
-//   $file_name      = "";
-//   $file_type      = "";
-//   $copied_file_name = "";
-// }
-//
-//
 
-//
-// $input_opening_day = $_POST["input_opening_day"];
-// $special_note = $_POST["special_note"];
+
+$nokids = $_POST["nokids"];
+$input_checkbox_etc_text = $_POST["input_checkbox_etc_text"];
+
+$phone1 = $_POST["phone1"];
+$phone2 = $_POST["phone2"];
+$phone3 = $_POST["phone3"];
+
+$input_opening_day = $_POST["input_opening_day"];
+$special_note = $_POST["special_note"];
+
+$lat = $_POST["lat"];
+$lon = $_POST["lon"];
+
  ?>
 
 
@@ -110,7 +61,7 @@ $input_detailAddress = $_POST["input_detailAddress"];
         <span class="span_step_info">4단계 : 손님을 맞이할 준비를 해주세요.</span>
       </div>
 
-      <progress value="66.4" max="100"></progress>
+      <progress value="80" max="100"></progress>
 
       <div class="div_outside">
         <span>내 식당 : </span>
@@ -125,34 +76,33 @@ $input_detailAddress = $_POST["input_detailAddress"];
         <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>">
         <span>상세주소 : </span>
         <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>">
+        <span>식당 소개글 : </span>
+        <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><? echo $introduction?></textarea>
         <span>식당 종류 : </span>
-        <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>">
-
-        <!-- <? echo $input_store_name?> </br>
-        <? echo $input_business_license?> </br>
-        <? echo $input_postcode?> </br>
-        <? echo $input_extraAddress?> </br>
-        <? echo $input_detailAddress?> </br>
-
-        <? echo $introduction?> </br>
-        <? echo $store_type?> </br>
-        <? echo $type_of_etc?> </br>
-        <? echo $input_menu?> </br>
-        <? echo $input_price?> </br>
-        <? echo $input_menu_img?> </br>
-        <? echo $input_menu_explain?> </br>
-        <? echo $opening_hours_start?> </br>
-        <? echo $opening_hours_end?> </br>
-        <? echo $break_start?> </br>
-        <? echo $break_end?> </br>
-        <? echo $chkbox?> </br>
-        <? echo $phone1?> </br>
-        <? echo $phone2?> </br>
-        <? echo $phone3?> </br>
-        <? echo $phone3?> </br>
-        <? echo $image?> </br>
-        <? echo $input_opening_day?> </br>
-        <? echo $special_note?> </br> -->
+        <input class="input_info_dis" type="text" name="input_store_type" value="<?php if($store_type=="기타") {?> <? echo $type_of_etc?> <?php } else {?> <? echo $store_type?> <?php }?>">
+        <span>영업시간 : </span>
+        <input class="input_info_dis" type="text" name="opening_hours_start" value="<? echo $opening_hours_start?>">
+        <span>영업시간 : </span>
+        <input class="input_info_dis" type="text" name="opening_hours_end" value="<? echo $opening_hours_end?>">
+        <span>브레이크타임 : </span>
+        <input class="input_info_dis" type="text" name="input_break_time1" value="<?php if($break_time=="true") {?> <? echo $break_start?> <?php } else {?> <? echo ""?> <?php }?>">
+        <span>브레이크타임 : </span>
+        <input class="input_info_dis" type="text" name="input_break_time2" value="<?php if($break_time=="true") {?> <? echo $break_end?> <?php } else {?> <? echo ""?> <?php }?>">
+        <span>노키즈존 여부 : </span>
+        <input class="input_info_dis" type="text" name="nokids" value="<?php echo $nokids?>">
+        <span>식당 편의시설 : </span>
+        <input class="input_info_dis" type="text" name="input_checkbox" value="<? for($i=0; $i<count($_POST["chkbox"]); $i++) {
+          $set = $_POST["chkbox"];
+          echo $set[$i].",";
+        }?>">
+        <span>식당 전화번호 : </span>
+        <input class="input_info_dis" type="text" name="input_phone" value="<? echo $phone1."-".$phone2."-".$phone3?>">
+        <span>개업일 : </span>
+        <input class="input_info_dis" type="text" name="input_opening_day" value="<? echo $input_opening_day?>">
+        <span>특이사항 : </span>
+        <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><? echo $special_note?></textarea>
+        <input class="input_info_dis" type="text" name="input_lat" value="<? echo $lat?>" hidden>
+        <input class="input_info_dis" type="text" name="input_lon" value="<? echo $lon?>" hidden>
       </div>
 
       <div class="div_register_shape">
@@ -191,8 +141,8 @@ $input_detailAddress = $_POST["input_detailAddress"];
                 </ul>
               </div> <!-- div_except_button -->
               <div class="div_prv_next_button">
-                <button class="button_next" type="button" name="button" onclick="location.href='./seller_register_step_fifth.php'">다음</button>
-                <button class="button_prev" type="button" name="button" onclick="location.href='./seller_register_step_third.php'">이전</button>
+                <button class="button_next" type="button" name="button" onclick="stepCheck4()">다음</button>
+                <button class="button_prev" type="button" name="button" onclick="history.go(-1)">이전</button>
               </div>
             </form>
           </div>

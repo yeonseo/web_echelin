@@ -5,6 +5,8 @@ $input_postcode = $_POST["input_postcode"];
 $input_address = $_POST["input_address"];
 $input_extraAddress = $_POST["input_extraAddress"];
 $input_detailAddress = $_POST["input_detailAddress"];
+$lat = $_POST["lat"];
+$lon = $_POST["lon"];
 
 echo $input_store_name;
 echo $input_business_license;
@@ -12,6 +14,8 @@ echo $input_postcode;
 echo $input_address;
 echo $input_extraAddress;
 echo $input_detailAddress;
+echo $lat;
+echo $lon;
  ?>
 
  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
@@ -40,7 +44,7 @@ echo $input_detailAddress;
         <span class="span_step_info">3단계 : 상세 정보를 입력해주세요.</span>
       </div>
 
-      <progress value="49.8" max="100"></progress>
+      <progress value="60" max="100"></progress>
 
       <form class="" name="form_seller_register_step_third" action="./seller_register_step_fourth.php" method="post">
       <div class="div_outside">
@@ -56,6 +60,8 @@ echo $input_detailAddress;
           <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>">
           <span>상세주소 : </span>
           <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>">
+          <input class="input_info_dis" type="text" name="input_lat" value="<? echo $lat?>" hidden>
+          <input class="input_info_dis" type="text" name="input_lon" value="<? echo $lon?>" hidden>
       </div>
 
       <div class="div_register_shape">
@@ -81,31 +87,6 @@ echo $input_detailAddress;
                   <input id="input_store_type_etc" class="input_etc" type="text" name="type_of_etc" value="" disabled>
                   </br></br></br>
 
-                  <li id="li_menu">메뉴 추가하기</li>
-                  <button id="button_add" class="button_circle_add" type="button">+</button>
-                  <br>
-                  <br>
-                  <table class="table_seller_menu" border="1">
-                      <tbody>
-                          <tr>
-                            <th class="th_menu">메뉴</th>
-                            <th class="th_menu">가격</th>
-                            <th class="th_menu">사진</th>
-                            <th class="th_menu">설명</th>
-                            <th class="th_menu_del"></th>
-                          </tr>
-
-                          <tr class="tr_menu" name="tr_menu">
-                            <td class="td_menu"><input type="text" name="input_menu" placeholder="메뉴이름" value="치즈떡볶이"></td>
-                            <td class="td_menu"><input type="number" name="input_price" placeholder="가격" value="4000"></td>
-                            <td class="td_menu"><input type="file" name="input_menu_img" value=""></td>
-                            <td class="td_menu"><input type="text" name="input_menu_explain" placeholder="메뉴 설명"></td>
-                            <td class="td_button_del"><input type="text" name=""></td>
-                          </tr>
-                      </tbody>
-                  </table>
-                 </br></br></br>
-
 
                  <li>영업시간</li>
                  <input id="input_date_time1" class="input_date_time" type="time" name="opening_hours_start" value="09:00">&nbsp-
@@ -114,7 +95,7 @@ echo $input_detailAddress;
 
 
                  <li>브레이크타임 정보</li>
-                  <input type="radio" name="break_time" value="true" checked>
+                  <input id="break_time_chk" type="radio" name="break_time" value="true">
                   <span class="span_content_font">있음</span>
                   <input type="radio" name="break_time" value="false">
                   <span class="span_content_font">없음</span>
@@ -124,108 +105,60 @@ echo $input_detailAddress;
                   </div>
                   </br></br></br>
 
+                  <li>노키즈존 여부</li>
+                  <input type="radio" name="nokids" value="true">
+                  <span class="span_content_font">있음</span>
+                  <input type="radio" name="break_time" value="false">
+                  <span class="span_content_font">없음</span>
+                  </br></br></br>
+
                   <li>식당 편의시설</li>
-                    <input type="checkbox" name="chkbox" value="식당 내부 화장실" checked>
+                    <input type="checkbox" name="chkbox[]" value="식당 내부 화장실">
                     <span class="span_content_font">식당 내부 화장실</span></br>
-                    <input type="checkbox" name="chkbox" value="건물 내부 화장실">
+                    <input type="checkbox" name="chkbox[]" value="건물 내부 화장실">
                     <span class="span_content_font">건물 내부 화장실</span></br>
-                    <input type="checkbox" name="chkbox" value="자전거 거치대">
+                    <input type="checkbox" name="chkbox[]" value="자전거 거치대">
                     <span class="span_content_font">자전거 거치대</span></br>
-                    <input type="checkbox" name="chkbox" value="아기 의자">
+                    <input type="checkbox" name="chkbox[]" value="아기 의자">
                     <span class="span_content_font">아기 의자</span></br>
-                    <input type="checkbox" name="chkbox" value="장애인 시설">
+                    <input type="checkbox" name="chkbox[]" value="장애인 시설">
                     <span class="span_content_font">장애인 시설</span></br>
-                    <input type="checkbox" name="chkbox" value="놀이시설">
+                    <input type="checkbox" name="chkbox[]" value="놀이시설">
                     <span class="span_content_font">놀이시설</span></br>
-                    <input type="checkbox" name="chkbox" value=수유방"">
+                    <input type="checkbox" name="chkbox[]" value=수유방"">
                     <span class="span_content_font">수유방</span></br>
-                    <input id="input_checkbox_etc" type="checkbox" name="chkbox" value="" onclick="checkbox_disable()">
+                    <input id="input_checkbox_etc" type="checkbox" name="chkbox[]" value="" onclick="checkbox_disable()">
                     <span class="span_content_font">기타</span>
-                    <input id="input_checkbox_etc_text" class="input_etc" type="text" name="" value="" disabled>
+                    <input id="input_checkbox_etc_text" class="input_etc" type="text" name="input_checkbox_etc_text" value="" disabled>
                     </br></br></br>
 
                   <li>식당 전화번호</li>
                   <span class="span_content_font">손님이 문의할 수 있는 식당 대표번호를 적어주세요.</span></br>
                   <select class="input_date_time" name="phone1">
-                    <option value="">02</option>
-                    <option value="">010</option>
-                    <option value="">031</option>
-                    <option value="">032</option>
-                    <option value="">033</option>
-                    <option value="">041</option>
-                    <option value="">042</option>
-                    <option value="">043</option>
-                    <option value="">044</option>
-                    <option value="">051</option>
-                    <option value="">052</option>
-                    <option value="">053</option>
-                    <option value="">054</option>
-                    <option value="">055</option>
-                    <option value="">061</option>
-                    <option value="">062</option>
-                    <option value="">063</option>
-                    <option value="">064</option>
+                    <option value="02">02</option>
+                    <option value="010">010</option>
+                    <option value="031">031</option>
+                    <option value="032">032</option>
+                    <option value="033">033</option>
+                    <option value="041">041</option>
+                    <option value="042">042</option>
+                    <option value="043">043</option>
+                    <option value="044">044</option>
+                    <option value="051">051</option>
+                    <option value="052">052</option>
+                    <option value="053">053</option>
+                    <option value="054">054</option>
+                    <option value="055">055</option>
+                    <option value="061">061</option>
+                    <option value="062">062</option>
+                    <option value="063">063</option>
+                    <option value="064">064</option>
                   </select>
                   -
                   <input id="input_phone2" class="input_phone" type="number" name="phone2" value="" onchange="chkPhone(this)">
                   -
-                  <input id="input_phone3" class="input_phone" type="number" name="" value="phone3" onchange="chkPhone(this)">
+                  <input id="input_phone3" class="input_phone" type="number" name="phone3" value="" onchange="chkPhone(this)">
                   </br></br></br>
-
-
-                  <li>식당 외/내부 사진</li>
-                    <div class="store_pic">
-                      <div class="store_inner_pic1">
-                        <label for="store_image1">업로드</label>
-                        <input type="file" name="file1" id="store_image1" />
-
-                        <div class="image_preview1">
-                            <img class="store_img" src="./image/cheese.png" />
-                        </div>
-                      </div>
-
-                      <div class="store_inner_pic">
-                      <label for="store_image2">업로드</label>
-                        <input type="file" name="file2" id="store_image2" />
-
-                        <div class="image_preview2">
-                            <img class="store_img" src="./image/cheese.png" />
-                        </div>
-                      </div>
-
-                      <div class="store_inner_pic">
-                        <label for="store_image3">업로드</label>
-                        <input type="file" name="file3" id="store_image3" />
-
-                        <div class="image_preview3">
-                            <img class="store_img" src="./image/cheese.png" />
-                        </div>
-                      </div>
-
-                      <div class="store_inner_pic">
-                        <label for="store_image4">업로드</label>
-                        <input type="file" name="file4" id="store_image4" />
-
-                        <div class="image_preview4">
-                          <img class="store_img" src="./image/cheese.png" />
-                        </div>
-                      </div>
-
-                      <div class="store_inner_pic">
-                          <label for="store_image5">업로드</label>
-                        <input type="file" name="file5" id="store_image5" />
-
-                        <div class="image_preview5">
-                            <img class="store_img" src="./image/cheese.png" />
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="div_clear_both">
-
-                    </div>
-                    </br></br>
 
 
                   <li>개업일</li>

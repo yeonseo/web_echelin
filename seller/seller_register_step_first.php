@@ -4,7 +4,7 @@
         <span class="span_step_info">1단계 : 기본 사항을 입력해주세요.</span>
       </div>
 
-      <progress value="16.6" max="100"></progress>
+      <progress value="10" max="100"></progress>
 
       <div class="div_outside">
       </div>

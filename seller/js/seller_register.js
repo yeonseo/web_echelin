@@ -5,7 +5,8 @@ $(document).ready(function(){
   $table_menu=$("#table_menu"),  //테이블 변수
   $div_radio=$("#div_radio"), //브레이크타임 존재 시 보이는 input_time을 담는 div
   $button_hashtag_add=$("#button_hashtag_add"),
-  $input_business_license=$("#input_business_license");
+  $input_business_license=$("#input_business_license"),
+  $break_time_chk=$("#break_time_chk");
 
   // //기타 체크박스 클릭 시 기타란 활성화
   // $('input[name="type_of_etc"]').click(function(){
@@ -13,7 +14,7 @@ $(document).ready(function(){
   // });
 
   //브레이크 타임 있음 클릭 시 시간 선택 보이기
-  $('input[name="break_time"]').click(function() {
+  $break_time_chk.click(function() {
     $div_radio.css('display', ($(this).val() === 'true') ? 'block' : 'none');
   });
 
@@ -27,7 +28,7 @@ $(document).ready(function(){
 
     var addStaffText =     '<tr name="tr_menu">'+
         '    <td class="td_menu">'+
-        '        <input type="text" name="input_menu" placeholder="메뉴이름">'+
+        '        <input type="text" name="input_menu[]" placeholder="메뉴이름">'+
         '    </td>'+
         '    <td class="td_menu">'+
         '        <input type="number" name="input_price" placeholder="가격">'+
@@ -253,7 +254,7 @@ function stepCheck3() {
 
   var store_type = document.getElementsByName("store_type");
   var input_store_type_etc = document.getElementById("input_store_type_etc");
-  var input_menu = document.getElementsByName("input_menu");
+  var input_menu = document.getElementsByName("input_menu[]");
   var input_price = document.getElementsByName("input_price");
   var input_menu_img = document.getElementsByName("input_menu_img");
   var input_date_time1 = document.getElementById("input_date_time1");
@@ -285,17 +286,17 @@ function stepCheck3() {
     }
   }
 
-  var menu_count = document.getElementsByTagName( 'tbody' )[0].childElementCount-1;
-
-  for(var i=0; i<menu_count; i++) {
-  if(input_menu[i].value==="") {
-    alert("메뉴 이름을 입력해주세요.");
-  } else if (input_price[i].value === "") {
-    alert("메뉴 가격을 입력해주세요.");
-  } else if (input_menu_img[i].value === "") {
-    alert("메뉴 사진을 업로드해주세요.");
-  }
-}
+//   var menu_count = document.getElementsByTagName( 'tbody' )[0].childElementCount-1;
+//
+//   for(var i=0; i<menu_count; i++) {
+//   if(input_menu[i].value==="") {
+//     alert("메뉴 이름을 입력해주세요.");
+//   } else if (input_price[i].value === "") {
+//     alert("메뉴 가격을 입력해주세요.");
+//   } else if (input_menu_img[i].value === "") {
+//     alert("메뉴 사진을 업로드해주세요.");
+//   }
+// }
 
 if(input_date_time1.value==="" || input_date_time2.value==="") {
     alert("영업시간을 입력해주세요.");
@@ -317,47 +318,47 @@ if(break_time[0].checked===true) {
   }
 }
 
-var check_fac=0;
-for( var i=0; i<chkbox.length; i++) {
-  if(chkbox[i].checked===true) {
-    check_fac++;
-  }
-}
-if(check_fac<1) {
-  alert("식당 편의시설을 1개 이상 체크해주세요.");
-}
+// var check_fac=0;
+// for( var i=0; i<chkbox.length; i++) {
+//   if(chkbox[i].checked===true) {
+//     check_fac++;
+//   }
+// }
+// if(check_fac<1) {
+//   alert("식당 편의시설을 1개 이상 체크해주세요.");
+// }
+//
+// if(chkbox[7].checked===true) {
+//   if(input_checkbox_etc_text.value==="") {
+//     alert("식당 편의시설 기타란에 내용을 입력해주세요.");
+//   }
+// }
+//
+//
+// if(input_phone2.value==="") {
+//   alert("번호를 입력해주세요");
+//   input_phone2.focus();
+// } else if (input_phone3.value==="") {
+//   alert("번호를 입력해주세요");
+//   input_phone3.focus();
+// }
 
-if(chkbox[7].checked===true) {
-  if(input_checkbox_etc_text.value==="") {
-    alert("식당 편의시설 기타란에 내용을 입력해주세요.");
-  }
-}
-
-
-if(input_phone2.value==="") {
-  alert("번호를 입력해주세요");
-  input_phone2.focus();
-} else if (input_phone3.value==="") {
-  alert("번호를 입력해주세요");
-  input_phone3.focus();
-}
-
-if(store_image1.value==="") {
-  alert("식당 사진을 업로드해주세요.");
-  store_image1.focus();
-} else if (store_image2.value==="") {
-  alert("식당 사진을 업로드해주세요.");
-  store_image2.focus();
-} else if (store_image3.value==="") {
-  alert("식당 사진을 업로드해주세요.");
-  store_image3.focus();
-} else if (store_image4.value==="") {
-  alert("식당 사진을 업로드해주세요.");
-  store_image4.focus();
-} else if (store_image5.value==="") {
-  alert("식당 사진을 업로드해주세요.");
-  store_image5.focus();
-}
+// if(store_image1.value==="") {
+//   alert("식당 사진을 업로드해주세요.");
+//   store_image1.focus();
+// } else if (store_image2.value==="") {
+//   alert("식당 사진을 업로드해주세요.");
+//   store_image2.focus();
+// } else if (store_image3.value==="") {
+//   alert("식당 사진을 업로드해주세요.");
+//   store_image3.focus();
+// } else if (store_image4.value==="") {
+//   alert("식당 사진을 업로드해주세요.");
+//   store_image4.focus();
+// } else if (store_image5.value==="") {
+//   alert("식당 사진을 업로드해주세요.");
+//   store_image5.focus();
+// }
 
 if(input_opening_day.value==="") {
   alert("개업일을 입력해주세요.");
