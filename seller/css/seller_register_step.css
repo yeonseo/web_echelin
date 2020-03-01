@@ -136,6 +136,11 @@ input[type="number"]::-webkit-inner-spin-button {
   vertical-align:middle;
 }
 
+.button_circle_add:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
 .button_circle_del {
   background-color: #fff;
   border:2px solid gold;
@@ -146,6 +151,11 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align:center;
   margin:0 auto;
   vertical-align:middle;
+}
+
+.button_circle_del:focus {
+  outline: none;
+  border: 1.2px solid gold;
 }
 
 
@@ -163,21 +173,25 @@ input[type="number"]::-webkit-inner-spin-button {
 /* 메뉴 추가 테이블 */
 
 .table_seller_menu {
+  width: 100%;
   border-collapse: collapse;
   border: 1px solid lightgray;
   border-radius: 10px;
   text-align: center;
+  float: right;
 }
 
 .th_menu {
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   border: 1px solid lightgray;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 18px;
+  height: 50px;
   /* width: 100px; */
 }
 
 .th_menu_del {
+  width: 50px;
   border: 1px solid #fff;
     border-radius: 10px;
 }
@@ -185,7 +199,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .tr_menu {
   border-collapse: collapse;
   border: 1px solid lightgray;
-    border-radius: 10px;
+  border-radius: 10px;
+  height: 50px;
     /* width: 100px; */
 }
 
@@ -193,15 +208,16 @@ input[type="number"]::-webkit-inner-spin-button {
   border-collapse: collapse;
   border: 1px solid lightgray;
   text-align: center;
-  font-size: 12px;
-    border-radius: 10px;
+  border-radius: 10px;
+  height: 50px;
     /* width: 100px; */
 }
 
 .table_seller_menu td>input {
   width: 100%;
   border: none;
-  font-size: 12px;
+  font-size: 15px;
+  text-align: center;
 
 }
 
@@ -262,108 +278,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .input_phone:focus {
   outline: none;
   border: 1.2px solid gold;
-}
-
-/* 식당 외/내부 사진 */
-
-.store_img {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  border: 1px dashed lightgray;
-  border-radius: 20px;
-}
-
-.image_preview {
-  border-radius: 20px;
-
-}
-
-.store_inner_pic1 {
-  width: 48%;
-  height: 220px;
-  float: left;
-}
-
-.store_inner_pic1 label {
-    display: inline-block;
-    padding: .5em .75em;
-    color: gray;
-    font-size: inherit;
-    line-height: normal;
-    vertical-align: middle;
-    font-size: 12px;
-    background-color: gold;
-    cursor: pointer;
-    border: 1.2px solid gold;
-    border-radius: 10px;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-}
-
-.store_inner_pic1 label:hover {
-  background-color: #fff;
-}
-
-.store_inner_pic1 label:active {
-  background-color: gold;
-}
-
-.store_inner_pic1 input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-.store_inner_pic {
-  width: 23%;
-  height: 110px;
-  float: left;
-}
-
-.store_inner_pic label {
-    display: inline-block;
-    padding: .5em .75em;
-    color: gray;
-    font-size: inherit;
-    line-height: normal;
-    vertical-align: middle;
-    font-size: 12px;
-    background-color: gold;
-    cursor: pointer;
-    border: 1.2px solid gold;
-    border-radius: 10px;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-}
-
-.store_inner_pic label:hover {
-  background-color: #fff;
-}
-
-.store_inner_pic label:active {
-  background-color: gold;
-}
-
-.store_inner_pic input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-
-.div_clear_both{
-  clear: both;
 }
 
 /* 최대 예약 가능 인원 */
@@ -433,4 +347,140 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .div_seller_info ul li {
   list-style: none;
+}
+
+
+/* 식당 사진 */
+.right_content_store {
+  width: 50px;
+}
+
+.store_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px dashed lightgray;
+  border-radius: 20px;
+}
+
+.image_preview1 {
+  border-radius: 20px;
+  border: 0px dashed lightgray;
+  width: 100%;
+  height: 400px;
+}
+
+.image_preview2 {
+  border-radius: 20px;
+  border: 0px dashed lightgray;
+  width: 100%;
+  height: 200px;
+}
+
+.image_preview3 {
+  border-radius: 20px;
+  border: 0px dashed lightgray;
+  width: 100%;
+  height: 200px;
+}
+
+.image_preview4 {
+  border-radius: 20px;
+  border: 0px dashed lightgray;
+  width: 100%;
+  height: 200px;
+}
+
+.image_preview5 {
+  border-radius: 20px;
+  border: 0px dashed lightgray;
+  width: 100%;
+  height: 200px;
+}
+
+.store_inner_pic1 {
+  width: 48%;
+  height: 220px;
+  float: left;
+}
+
+.store_inner_pic1 label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: gray;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    font-size: 12px;
+    background-color: gold;
+    cursor: pointer;
+    border: 1.2px solid gold;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.store_inner_pic1 label:hover {
+  background-color: #fff;
+}
+
+.store_inner_pic1 label:active {
+  background-color: gold;
+}
+
+.store_inner_pic1 input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.store_inner_pic {
+  width: 23%;
+  height: 200px;
+  float: left;
+}
+
+.store_inner_pic label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: gray;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    font-size: 12px;
+    background-color: gold;
+    cursor: pointer;
+    border: 1.2px solid gold;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.store_inner_pic label:hover {
+  background-color: #fff;
+}
+
+.store_inner_pic label:active {
+  background-color: gold;
+}
+
+.store_inner_pic input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+.div_clear_both{
+  clear: both;
 }
