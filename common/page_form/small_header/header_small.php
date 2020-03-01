@@ -43,7 +43,7 @@ else $userpoint = "";
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_join_main.php">회원가입</a></li>
       <?
       }else{
-          
+
         $log = $useremail."(".$username."님] [Level:".$userlevel."Point:".$userpoint."]";
       ?>
       <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php"><?=$log?></a></li>
@@ -104,6 +104,7 @@ else $userpoint = "";
   </div>
   <form class="" action="index_search.php" method="post">
     <input class="search_input" type="text" placeholder=" 식당이름을 검색해 주세요." name="r_name">
+    <input class="search_input" type="hidden"  name="keywords" >
     <button class="search_result_btn">검색</button>
     <button type="button" name="button" class="search_result_btn" id="keyword_btn">&nbsp필터 ▼</button>
   </form>
