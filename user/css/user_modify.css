@@ -7,6 +7,7 @@
     border: 1px solid  lightgray;
     margin-left: 15%;
 }
+
 .user_photo{
     position: relative;
     display: inline-block;
@@ -57,6 +58,7 @@
     position: relative;
     right: 15px;
     color: gold;
+    border-bottom: 1px solid lightgray;
 }
 .modify_form_2{
     position: relative;
@@ -71,32 +73,58 @@
     position: relative;
     font-size: 44px;
     text-align: center;
-    right: 50px;
+    width: 660px;
 }
 .about_me2{
+    width: 82%;
     position: relative;
     font-size: 18px;
+    display: inline-block ;
     text-align: center;
-    right: 195px;
-    top: 15px;
+    margin: 0 auto;
 }
+.about_me3{
+    display: none;
+    position: relative;
+    font-size: 18px;
+    float: left;
+    text-align: center;
+  
+}
+.legend_text{
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    color: orangered;
+    text-align: left;
+}
+.text_move{
+    position: relative;
+    margin: 5px 0px;
+    color: black;
+    border-bottom: 1px solid lightgray;
+    bottom: 26.5px;
+    border: none;
+}
+
 .button_background{
     background-color: white;
     color: orangered;
     background: white;
     border: 1px solid white;
     font-size: 16px;
+   
 
 }
 .my_hugi{
+    width: 82%;
     position: relative;
-    top: 15px;
-    right: 65px;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
     font-size: 13.5px ;
     font-weight: 600 ;
     line-height: 2.5em;
     color:orangered;
+    text-align: center;
     text-decoration: none;
 }
 
@@ -108,3 +136,85 @@
     text-decoration: none;
     color: orangered;
 }
+
+
+/* input 요소 실명에 들어가는 css */
+.view_name{
+    width: 40%;
+    height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    text-align: center;
+}
+.hide_save_button{
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    height: 40px;
+    background: white;
+    background-color: white;
+    color: orangered;
+    font-size: 18px;
+    font-weight: 800;
+}
+.input_save_form{
+    position: relative;
+    display: none;
+    width: 100%;
+    left: 15px;
+    bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+.update_button{
+    position: relative;
+    background-color: white;
+    color: orangered;
+    background: white;
+    border: 1px solid white;
+    font-size: 16px;
+    font-weight: bold;
+    float: right;
+    bottom: 27px;
+}
+
+.view_pass{
+    width: 40%;
+    height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    text-align: center;
+}
+.hide_save_button_pass{
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    height: 40px;
+    background: white;
+    background-color: white;
+    color: orangered;
+    font-size: 18px;
+    font-weight: 800;
+}
+.input_save_pass_form{
+    position: relative;
+    display: none;
+    width: 100%;
+    left: 15px;
+    bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+.update_button_2{
+    position: relative;
+    background-color: white;
+    color: orangered;
+    background: white;
+    border: 1px solid white;
+    font-size: 16px;
+    font-weight: bold;
+    float: right;
+    bottom: 27px;
+}
+
+

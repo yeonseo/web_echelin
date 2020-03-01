@@ -5,13 +5,13 @@ $Email = $_POST["user_Email"];
 $Checkemail = $_POST["user_checkEmail"];
 $Password = $_POST["user_pass"];
 $Name = $_POST["user_name"];
-$Level = $_POST["user_Level"];
+$Level = $_POST["user_Level"]+1;
 $Sung = $_POST["user_sung"];
 $Age = $_POST["user_age"];
 $jumin = $_POST["user_jumin"];
 $Phone = $_POST["user_phone"];
 $Geoju = $_POST["user_geoju"];
-$Regist = $_POST["user_regist_day"];
+$Regist = date("Y-m-d");
 $LikeTag = $_POST["user_likeTag"];
 $VisitC = $_POST["user_VisitCount"];
 $YeyagC = $_POST["user_yeyagCount"];
@@ -23,8 +23,8 @@ $Payment = $_POST["user_payment"];
 
 $con = mysqli_connect("localhost" , "root" , "123456" , "echelin");
  $Name = $Sung. $Name;
-   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`,`user_Level`)VALUES
-   (\"$sns\",\"$Email\",\"$Name\",\"$Password\",\"$Level\")";
+   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`,`user_Level`,`user_regist_day`)VALUES
+   (\"$sns\",\"$Email\",\"$Name\",\"$Password\",\"$Level\",\"$Regist\")";
 
 // $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_sung`,`user_password`)VALUES
 // (\"$sns\",\"$Email\",\"$Name\",\"$Sung\",\"$Password\")";

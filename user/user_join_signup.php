@@ -128,7 +128,7 @@
                     <div class="month_form3">
                         <div class="month_form4">
                             <div class="month_form5">
-                                <select name="" id="" class="final_month_form">
+                                <select name="user_regist_day" id="" class="final_month_form">
                                 <option value="">월</option>
                                 <option value="1">1월</option>
                                 <option value="2">2월</option>
