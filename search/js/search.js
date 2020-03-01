@@ -14,6 +14,9 @@ $(document).ready(function(){
   var $keyword_search_btn=$("#keyword_search_btn");
   var $keyword_search_form=$("#keyword_search_form");
   var k_count=0;
+  var $keywords_select=$(".keywords_select");
+  var $keywords_select_delete=$("#keywords_select_delete");
+
   // 필터버튼클릭시
   $keyword_btn.click(function(){
     if(count==0){
@@ -46,7 +49,7 @@ $(document).ready(function(){
     $food_type_btn.text("식당종류");
   });
   //******************************************************
-  //키워드버튼클릭시
+  //#키워드로검색 버튼클릭시
   $keyword_search_btn.click(function(){
     if(k_count==0){
       $keyword_search_form.css("display","block");
@@ -56,7 +59,16 @@ $(document).ready(function(){
       k_count=0;
     }
   });
-
-
+  //키워드들클릭시
+  $keywords_select.click(function(){
+    $keywords_select.css("color","black");
+    $(this).css("color","red");
+    $keyword_search_btn.text($(this).text());
+  });
+  //키워드지우기
+  $keywords_select_delete.click(function(){
+    $keywords_select.css("color","black");
+    $keyword_search_btn.text("#키워드로검색");
+  });
 
 });//ready
