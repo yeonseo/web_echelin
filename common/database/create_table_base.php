@@ -288,7 +288,9 @@ function insert_table($con, $table_name)
 
         case 'keyword_list':
             $sql = "INSERT INTO `keyword_list` (`keywords_type`, `keywords`) VALUES
-                  ('food_class', '한식,양식,아시아음식,일식,중식,분식,카페,뷔페,기타'),
+                  ('food_class', '한식,까페,호프,통닭(치킨),일식,중국식,분식
+                  ,패스트푸드,경양식,뷔페,정종/대포집/소주방,식육(숯불구이),
+                  회집,이동조리,외국음식전문점,기타'),
                   ('tag_class', '조용한,편안한,시끌벅적한,푸짐한,캐쥬얼한,아이와함께,모임하기좋은,특별한날,코스요리,프로포즈,데이트,백종원의3대천왕,생활의달인,수요미식회,혼밥');
               ";
             break;

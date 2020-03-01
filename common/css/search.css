@@ -1,3 +1,23 @@
+#keyword_search_form ul li{
+  float: left;
+  width: calc(100%/2);
+  height: 50px;
+  border-right: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 14px;
+}
+#keyword_search_form{
+  position: absolute;
+  z-index: 2px;
+  margin-left: 190px;
+  background-color: white;
+  width: 300px;
+  height: 312px;
+  border: 1px solid lightgray;
+  display: none;
+}
 #keyword_header {
   height: 80px;
 }
@@ -206,6 +226,7 @@ header {
   float: left;
   margin-top: 20px;
   border-radius: 5px;
+  margin-right: 5px;
 }
 
 .search_member>div:hover{
