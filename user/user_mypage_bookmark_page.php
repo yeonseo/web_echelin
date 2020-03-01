@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
-    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/message_talk.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_bookmark.css">
 
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
@@ -46,8 +46,9 @@
 
                     //수정버튼 생성
                     echo "<form id='user_myinfo_bookmark' name='user_myinfo_bookmark' method='POST' >";
-                    echo "<div class='btn_r'>
-                        <button type='button' class='button_next' id='restaurant_bookmark_modify' value='modify_bookmark' ><i class='fas fa-heart'></i> &nbsp; 편집하기 </button>
+                    echo "<div class='bookmark_btn_box'>
+                            <button type='button' class='button_next' id='restaurant_bookmark_modify' value='modify_bookmark' onclick='setModifyButton();'>편집하기</button>
+                            <div class='check_all_box'><input type='checkbox' name='all' class='check_all'> <label>모두 선택</label></div>
                         </div>";
 
                     echo "</form>";
@@ -75,7 +76,8 @@
 
                         //북마크 그룹넘버를 겟방식으로 넘김
                         echo "<div class=" . COMMON::$css_card_menu_row . ">";
-                        echo "<button class=" . COMMON::$css_card_menu_btn . "type='button' value='$seller_num'>";
+                        echo "<button class=" . COMMON::$css_card_menu_btn . " type='button' value='$seller_num'>";
+                        echo "<input type='checkbox' name='seller_num$seller_num' class='bookmark_checkbox'> <label></label>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_icon . "><i class='fas fa-utensils'></i></div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_name . ">" . $result_seller_array['store_name'] . "</div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">" . $result_seller_array['store_type'] . "</div>";
@@ -85,6 +87,7 @@
                         echo "</div> <!-- end of css_card_menu_row -->";
                     }
                 }
+
                 ?>
 
                 <!-- 북마크 가져오기 -->
@@ -101,7 +104,7 @@
 
                 ?>
 
-                <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_mypage_message_talk.js"></script>
+                <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_mypage_bookmark_page.js"></script>
 
             </div><!-- end of right_content -->
     </section>
