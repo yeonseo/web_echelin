@@ -128,16 +128,16 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
 
 /* 팝업을 위한 css */
 
-.pop-layer .pop-container {
+.pop_layer .pop_container {
     padding: 20px 25px;
   }
   
-  .pop-layer p.ctxt {
+  .pop_layer p.ctxt {
     color: #666;
     line-height: 25px;
   }
   
-  .pop-layer .btn-r {
+  .pop_layer .btn_r {
     width: 100%;
     margin: 10px 0 20px;
     padding-top: 10px;
@@ -145,7 +145,7 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
     text-align: right;
   }
   
-  .pop-layer {
+  .pop_layer {
     display: none;
     position: absolute;
     top: 50%;
@@ -157,7 +157,7 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
     z-index: 10;
   }
   
-  .dim-layer {
+  .dim_layer {
     display: none;
     position: fixed;
     _position: absolute;
@@ -168,7 +168,7 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
     z-index: 100;
   }
   
-  .dim-layer .dimBg {
+  .dim_layer .dimBg {
     position: absolute;
     top: 0;
     left: 0;
@@ -179,23 +179,20 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
     filter: alpha(opacity=50);
   }
   
-  .dim-layer .pop-layer {
+  .dim_layer .pop_layer {
     display: block;
   }
   
-  a.btn-layerClose {
+  .btn_layerClose {
     display: inline-block;
     height: 25px;
     padding: 0 14px 0;
-    border: 1px solid #304a8a;
-    background-color: #3f5a9d;
     font-size: 13px;
     color: #fff;
     line-height: 25px;
   }
   
-  a.btn-layerClose:hover {
-    border: 1px solid #091940;
-    background-color: #1f326a;
-    color: #fff;
+  .btn_layerClose:hover {
+    background-color:GOLD;
+    color: #000;
   }

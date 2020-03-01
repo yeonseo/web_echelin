@@ -5,20 +5,29 @@ if (!isset($con)) {
     include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php";
 }
 
-$message_group_num = $_POST['message_group_num'];
-$content = $_POST['message_content'];
-
 // echo "alert(ajax : $message_group_num, $content);";
 
 if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'insert_message':
+            $message_group_num = $_POST['message_group_num'];
+            $content = $_POST['message_content'];
             insert_message($con, $message_group_num, $content);
             break;
         case 'select':
             select();
             break;
+        case 'update_bookmark':
+            $bookmark_subject = $_POST['bookmark_subject'];
+            $bookmark_group_num = $_POST['bookmark_group_num'];
+            $seller_num = $_POST['seller_num'];
+            update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num);
+            break;
+        default:
+            echo "alert(action wrong!);";
     }
+} else {
+    echo "alert(action action wrong!);";
 }
 
 function insert_message($con, $message_group_num, $content)
@@ -81,5 +90,42 @@ function select()
     exit;
 }
 
-insert_message($con, $message_group_num, $content);
-exit;
+
+function update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num)
+{
+    //디비에 저장된 북마크 확인하기
+    $sql = "select * from bookmark where user_id='aaaaaa' and group_num='" . $bookmark_group_num . "' and seller_num='" . $seller_num . "' order by bookmark_num desc";
+    $result = $con->query($sql);
+    if ($result === FALSE) {
+        die('DB bookmark check Connect Error: ' . mysqli_error($con));
+    }
+
+    if (mysqli_fetch_row($result) > 0) {
+        echo "bookmarked";
+        return;
+    }
+
+    //디비에 북마크 저장하기
+    $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
+    $sql = "INSERT INTO `bookmark` (`user_id`, `bookmark_subject`, `group_num`, `seller_num`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+            ('aaaaaa', '$bookmark_subject', '$bookmark_group_num', '$seller_num','$regist_day','','','');
+        ";
+    $result = $con->query($sql);
+    if ($result === FALSE) {
+        die('DB ajax insertMessageTalk Connect Error: ' . mysqli_error($con));
+    }
+
+
+
+    // $result_message = mysqli_fetch_array($result);
+
+    // $send_id = $result_message["send_id"];
+    // $rv_id = $result_message["rv_id"];
+    // $subject    = $result_message["subject"];
+    // $content    = $result_message["content"];
+    // $regist_day  = $result_message["regist_day"];
+    // $file_name  = $result_message["file_name"];
+
+    mysqli_close($con);
+    exit;
+}
