@@ -6,23 +6,18 @@ $(document).ready(function(){
   $div_radio=$("#div_radio"), //브레이크타임 존재 시 보이는 input_time을 담는 div
   $button_hashtag_add=$("#button_hashtag_add"),
   $input_business_license=$("#input_business_license"),
-  $break_time_chk=$("#break_time_chk");
-
-  // //기타 체크박스 클릭 시 기타란 활성화
-  // $('input[name="type_of_etc"]').click(function(){
-  //   $("#input_type_of_etc").removeAttr("disabled");
-  // });
+  $break_time_true=$("#break_time_true"),
+  $break_time_false=$("#break_time_false");
 
   //브레이크 타임 있음 클릭 시 시간 선택 보이기
-  $break_time_chk.click(function() {
+  $break_time_true.click(function() {
     $div_radio.css('display', ($(this).val() === 'true') ? 'block' : 'none');
   });
 
-  //기타 체크박스 클릭 시 기타란 활성화
-  // $('input[name="checkbox_etc"]').click(function(){
-  //   $("#input_etc").removeAttr("disabled");
-  // });
-
+  //브레이크 타임 없음 클릭 시 시간 선택 div hidden처리
+  $break_time_false.click(function() {
+    $div_radio.css('display', 'none');
+  });
 
   $button_add.click(function(){
 
@@ -254,15 +249,16 @@ function stepCheck3() {
 
   var store_type = document.getElementsByName("store_type");
   var input_store_type_etc = document.getElementById("input_store_type_etc");
-  var input_menu = document.getElementsByName("input_menu[]");
-  var input_price = document.getElementsByName("input_price");
-  var input_menu_img = document.getElementsByName("input_menu_img");
+  // var input_menu = document.getElementsByName("input_menu[]");
+  // var input_price = document.getElementsByName("input_price");
+  // var input_menu_img = document.getElementsByName("input_menu_img");
   var input_date_time1 = document.getElementById("input_date_time1");
   var input_date_time2 = document.getElementById("input_date_time2");
   var break_time = document.getElementsByName("break_time");
   var input_break_time1 = document.getElementById("input_break_time1");
   var input_break_time2 = document.getElementById("input_break_time2");
-  var chkbox = document.getElementsByName("chkbox");
+  var nokids = document.getElementsByName("nokids");
+  var chkbox = document.getElementsByName("chkbox[]");
   var store_image1 = document.getElementById("store_image1");
   var store_image2 = document.getElementById("store_image2");
   var store_image3 = document.getElementById("store_image3");
@@ -276,14 +272,94 @@ function stepCheck3() {
       check_store_stype++;
     }
   }
-  if(check_store_stype<1) {
-    alert("식당 종류를 체크해주세요.");
+
+  var check_break_time=0;
+  for( var i=0; i<break_time.length; i++) {
+    if(break_time[i].checked===true) {
+      check_break_time++;
+    }
   }
 
-  if(store_type[3].checked===true) {
-    if(input_store_type_etc.value=="") {
-      alert("식당 종류 기타란에 내용을 입력해주세요.");
+  var check_nokids=0;
+  for( var i=0; i<nokids.length; i++) {
+    if(nokids[i].checked===true) {
+      check_nokids++;
     }
+  }
+
+  var check_fac=0;
+  for( var i=0; i<chkbox.length; i++) {
+    if(chkbox[i].checked===true) {
+      check_fac++;
+    }
+  }
+
+
+  // if(input_store_type_etc.value=="") {
+  //   alert("식당 종류 기타란에 내용을 입력해주세요.");
+  //   input_store_type_etc.focus();
+  // }
+
+  // if(input_break_time1.value==="" || input_break_time2.value==="") {
+  //   alert("브레이크 타입 시간을 입력해주세요.");
+  // }
+
+  // if(input_checkbox_etc_text.value==="") {
+  //   alert("식당 편의시설 기타란에 내용을 입력해주세요.");
+  // }
+
+  if(check_store_stype<1) {
+    alert("식당 종류를 체크해주세요.");
+  } else if(store_type[3].checked===true && input_store_type_etc.value=="") {
+      alert("식당 종류를 체크 및 기타란에 내용을 입력해주세요.");
+  } else if(input_date_time1.value==="") {
+    alert("영업시간을 입력해주세요.");
+    input_date_time1.focus();
+  } else if (input_date_time2.value==="") {
+    alert("영업시간을 입력해주세요.");
+    input_date_time2.focus();
+  } else if(check_break_time<1) {
+    alert("브레이크 타임 정보에 체크해주세요.");
+  } else if(break_time[0].checked===true && (input_break_time1.value==="" || input_break_time2.value==="")) {
+    alert("브레이크 타임 시간을 입력해주세요.");
+  } else if (check_nokids<1) {
+    alert("노키즈존 여부에 체크해주세요.");
+  } else if(check_fac<1) {
+    alert("식당 편의시설을 1개 이상 체크해주세요.");
+  } else if(chkbox[7].checked===true && input_checkbox_etc_text.value==="") {
+    alert("식당 편의시설 기타란에 내용을 입력해주세요.");
+  } else if(input_phone2.value==="") {
+    alert("번호를 입력해주세요");
+    input_phone2.focus();
+  } else if (input_phone3.value==="") {
+    alert("번호를 입력해주세요");
+    input_phone3.focus();
+  } else if(input_opening_day.value==="") {
+    alert("개업일을 입력해주세요.");
+    input_opening_day.focus();
+  } else {
+    var step3_form = $("form[name=form_seller_register_step_third]").serialize();
+
+      $.ajax({
+        url : './seller_register_step_fourth.php',
+        type :'POST',
+        data: step3_form,
+        success : function(data){
+          // document.form_first_show.submit();
+          document.form_seller_register_step_third.submit();
+          alert("등록4단계로 전송완료");
+        }
+      })
+      .done(function(){
+        console.log("판매자 등록 3단계");
+      })
+      .fail(function(e){
+        console.log("error");
+      })
+      .always(function(){
+        console.log("complete");
+      });
+
   }
 
 //   var menu_count = document.getElementsByTagName( 'tbody' )[0].childElementCount-1;
@@ -298,25 +374,12 @@ function stepCheck3() {
 //   }
 // }
 
-if(input_date_time1.value==="" || input_date_time2.value==="") {
-    alert("영업시간을 입력해주세요.");
-}
 
-var check_break_time=0;
-for( var i=0; i<break_time.length; i++) {
-  if(break_time[i].checked===true) {
-    check_break_time++;
-  }
-}
-if(check_break_time<1) {
-  alert("브레이크 타임 정보에 체크해주세요.");
-}
 
-if(break_time[0].checked===true) {
-  if(input_break_time1.value==="" || input_break_time2.value==="") {
-    alert("브레이크 타입 시간을 입력해주세요.");
-  }
-}
+
+
+
+
 
 // var check_fac=0;
 // for( var i=0; i<chkbox.length; i++) {
@@ -360,37 +423,62 @@ if(break_time[0].checked===true) {
 //   store_image5.focus();
 // }
 
-if(input_opening_day.value==="") {
-  alert("개업일을 입력해주세요.");
-  input_opening_day.focus();
-}
-
-  var step3_form = $("form[name=form_seller_register_step_third]").serialize();
-
-    $.ajax({
-      url : './seller_register_step_fourth.php',
-      type :'POST',
-      data: step3_form,
-      success : function(data){
-        // document.form_first_show.submit();
-        document.form_seller_register_step_third.submit();
-        alert("등록4단계로 전송완료");
-      }
-    })
-    .done(function(){
-      console.log("판매자 등록 3단계");
-    })
-    .fail(function(e){
-      console.log("error");
-    })
-    .always(function(){
-      console.log("complete");
-    });
-
-}
+} //end of stepCheck3();
 
 function chkPhone(obj) {
     if(obj.value.length >4) {
     obj.value=obj.value.slice(0, 4);
   }
+}
+
+function stepCheck4() {
+  var input_people =  document.getElementById("input_people");
+  var max_month = document.getElementsByName("max_month");
+  var reserve_intensity = document.getElementsByName("reserve_intensity");
+
+  var check_max_month=0;
+  var check_max_intensity=0;
+  for( var i=0; i<max_month.length; i++) {
+    if(max_month[i].checked===true) {
+      check_max_month++;
+    }
+  }
+
+  for( var i=0; i<reserve_intensity.length; i++) {
+    if(reserve_intensity[i].checked===true) {
+      check_max_intensity++;
+    }
+  }
+
+  if(input_people.value==="") {
+    alert("시간 당 최대 예약 가능 인원을 적어주세요.");
+  } else if(check_max_month<1) {
+    alert("최대 개월수에 체크해주세요.");
+  } else if(check_max_intensity<1) {
+    alert("예약 규정 강도에 체크해주세요.")
+  } else {
+    var step4_form = $("form[name=form_seller_register_step_fourth]").serialize();
+
+      $.ajax({
+        url : './seller_register_complete.php',
+        type :'POST',
+        data: step4_form,
+        success : function(data){
+          // document.form_first_show.submit();
+          document.form_seller_register_step_fourth.submit();
+          alert("완료단계로 전송완료");
+        }
+      })
+      .done(function(){
+        console.log("판매자 등록 4단계");
+      })
+      .fail(function(e){
+        console.log("error");
+      })
+      .always(function(){
+        console.log("complete");
+      });
+
+  }
+
 }

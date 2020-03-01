@@ -60,8 +60,8 @@ echo $lon;
           <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>">
           <span>상세주소 : </span>
           <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>">
-          <input class="input_info_dis" type="text" name="input_lat" value="<? echo $lat?>" hidden>
-          <input class="input_info_dis" type="text" name="input_lon" value="<? echo $lon?>" hidden>
+          <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>">
+          <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>">
       </div>
 
       <div class="div_register_shape">
@@ -95,9 +95,9 @@ echo $lon;
 
 
                  <li>브레이크타임 정보</li>
-                  <input id="break_time_chk" type="radio" name="break_time" value="true">
+                  <input id="break_time_true" type="radio" name="break_time" value="true">
                   <span class="span_content_font">있음</span>
-                  <input type="radio" name="break_time" value="false">
+                  <input id="break_time_false" type="radio" name="break_time" value="false">
                   <span class="span_content_font">없음</span>
                   <div id="div_radio" hidden>
                     <input id="input_break_time1" class="input_date_time" type="time" name="break_start" value="15:00">&nbsp-
@@ -108,24 +108,24 @@ echo $lon;
                   <li>노키즈존 여부</li>
                   <input type="radio" name="nokids" value="true">
                   <span class="span_content_font">있음</span>
-                  <input type="radio" name="break_time" value="false">
+                  <input type="radio" name="nokids" value="false">
                   <span class="span_content_font">없음</span>
                   </br></br></br>
 
                   <li>식당 편의시설</li>
-                    <input type="checkbox" name="chkbox[]" value="식당 내부 화장실">
+                    <input type="checkbox" name="chkbox[]" value="식당 내부 화장실,">
                     <span class="span_content_font">식당 내부 화장실</span></br>
-                    <input type="checkbox" name="chkbox[]" value="건물 내부 화장실">
+                    <input type="checkbox" name="chkbox[]" value="건물 내부 화장실,">
                     <span class="span_content_font">건물 내부 화장실</span></br>
-                    <input type="checkbox" name="chkbox[]" value="자전거 거치대">
+                    <input type="checkbox" name="chkbox[]" value="자전거 거치대,">
                     <span class="span_content_font">자전거 거치대</span></br>
-                    <input type="checkbox" name="chkbox[]" value="아기 의자">
+                    <input type="checkbox" name="chkbox[]" value="아기 의자,">
                     <span class="span_content_font">아기 의자</span></br>
-                    <input type="checkbox" name="chkbox[]" value="장애인 시설">
+                    <input type="checkbox" name="chkbox[]" value="장애인 시설,">
                     <span class="span_content_font">장애인 시설</span></br>
-                    <input type="checkbox" name="chkbox[]" value="놀이시설">
+                    <input type="checkbox" name="chkbox[]" value="놀이시설,">
                     <span class="span_content_font">놀이시설</span></br>
-                    <input type="checkbox" name="chkbox[]" value=수유방"">
+                    <input type="checkbox" name="chkbox[]" value="수유방,">
                     <span class="span_content_font">수유방</span></br>
                     <input id="input_checkbox_etc" type="checkbox" name="chkbox[]" value="" onclick="checkbox_disable()">
                     <span class="span_content_font">기타</span>

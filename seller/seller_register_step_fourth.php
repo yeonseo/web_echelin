@@ -18,10 +18,9 @@ $break_time = $_POST["break_time"];
 $break_start = $_POST["break_start"];
 $break_end = $_POST["break_end"];
 
-
-
 $nokids = $_POST["nokids"];
 $input_checkbox_etc_text = $_POST["input_checkbox_etc_text"];
+
 
 $phone1 = $_POST["phone1"];
 $phone2 = $_POST["phone2"];
@@ -32,6 +31,8 @@ $special_note = $_POST["special_note"];
 
 $lat = $_POST["lat"];
 $lon = $_POST["lon"];
+
+
 
  ?>
 
@@ -63,6 +64,7 @@ $lon = $_POST["lon"];
 
       <progress value="80" max="100"></progress>
 
+      <form class="" name="form_seller_register_step_fourth" action="./seller_register_complete.php" method="post">
       <div class="div_outside">
         <span>내 식당 : </span>
         <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
@@ -91,45 +93,51 @@ $lon = $_POST["lon"];
         <span>노키즈존 여부 : </span>
         <input class="input_info_dis" type="text" name="nokids" value="<?php echo $nokids?>">
         <span>식당 편의시설 : </span>
-        <input class="input_info_dis" type="text" name="input_checkbox" value="<? for($i=0; $i<count($_POST["chkbox"]); $i++) {
+        <input class="input_info_dis" type="text" name="input_checkbox"
+        value="
+          <?
+          for($i=0; $i<count($_POST["chkbox"]); $i++) {
           $set = $_POST["chkbox"];
-          echo $set[$i].",";
+          echo $set[$i];
+          if($set[$i]=="") {
+            echo $input_checkbox_etc_text.",";
+          }
+          // substr($set, 0, -1);
         }?>">
         <span>식당 전화번호 : </span>
         <input class="input_info_dis" type="text" name="input_phone" value="<? echo $phone1."-".$phone2."-".$phone3?>">
         <span>개업일 : </span>
         <input class="input_info_dis" type="text" name="input_opening_day" value="<? echo $input_opening_day?>">
         <span>특이사항 : </span>
-        <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><? echo $special_note?></textarea>
-        <input class="input_info_dis" type="text" name="input_lat" value="<? echo $lat?>" hidden>
-        <input class="input_info_dis" type="text" name="input_lon" value="<? echo $lon?>" hidden>
+        <textarea class="textarea_step2" name="special_note" rows="8" cols="74" style="resize: none;"><? echo $special_note?></textarea>
+        <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>">
+        <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>">
       </div>
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
           <div class="div_form">
-            <form class="" name="" action="" method="post">
               <div class="div_except_button">
                 <ul>
-                  <li>최대 예약 가능 인원을 적어주세요.</li>
-                  <input class="input_people" type="number" name="" value="">&nbsp명
+                  <li>시간당 최대 예약 가능한 인원을 적어주세요.</li>
+                  <input id="input_people" class="input_people" type="number" name="input_max_num_of_people" value="">&nbsp명
                   </br></br></br>
 
                   <li>사용자가 예약할 수 있는 최대 개월 수를 설정해주세요.</li>
-                    <input type="radio" name="" value="">
+                    <input type="radio" name="max_month" value="1개월">
                     <span class="span_content_font">1개월</span>&nbsp&nbsp
-                    <input type="radio" name="" value="">
+                    <input type="radio" name="max_month" value="2개월">
                     <span class="span_content_font">2개월</span>&nbsp&nbsp
-                    <input type="radio" name="" value="">
+                    <input type="radio" name="max_month" value="3개월">
                     <span class="span_content_font">3개월</span>
                   </br></br></br>
 
                   <li>예약 규정 강도를 설정해주세요</li>
-                  <input type="radio" name="" value="">
+                  <input type="radio" name="reserve_intensity" value="상">
                   <span class="span_content_font">상</span>&nbsp&nbsp
-                  <input type="radio" name="" value="">
+                  <input type="radio" name="reserve_intensity" value="중">
                   <span class="span_content_font">중</span>&nbsp&nbsp
-                  <input type="radio" name="" value="">
+                  <input type="radio" name="reserve_intensity" value="하">
                   <span class="span_content_font">하</span></br>
                   <div class="div_strength">
                     <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 사용자가 방문하기 1주전에 취소시 전액 환불 가능합니다.</span></br>

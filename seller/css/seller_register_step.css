@@ -376,6 +376,11 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.input_people:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
 .div_strength {
   width: 420px;
   border: 2px solid #e9e9e9;
