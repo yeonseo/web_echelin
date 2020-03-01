@@ -101,8 +101,10 @@
             $regist_day  = $result_bookmark_content["regist_day"];
             $file_name  = $result_bookmark_content["file_name"];
             //메세지 그룹넘버를 겟방식으로 넘김
-            echo "<li><button type='button' class='selected_bookmark_group' value='$group_num'><i class='fas fa-heart' id='selected_bookmark_group$group_num'></i><input type='text' value='$subject' hidden> &nbsp; $subject </button></li>";
+            echo "<li class='selected_bookmark_group'><button type='button' value='$group_num'><i class='fas fa-heart' id='selected_bookmark_group$group_num'></i><input id='selected_bookmark_subject$group_num' type='text' value='$subject' hidden> &nbsp; $subject </button></li>";
         }
+        $group_num = $group_num + 1;
+        echo "<li class='selected_bookmark_group'><button type='button' value='$group_num'><i class='fas fa-heart' id='selected_bookmark_group$group_num'></i><input id='selected_bookmark_subject_input' type='text' value=''></button></li>";
     }
 
 
