@@ -116,9 +116,9 @@
     echo "<button type='button' id='restaurant_share_btn' class='button_next' value='restaurant_share'><i class='fas fa-share-alt'></i> &nbsp; Share </button>";
     echo "</div> <!-- end of restaurants_upper_btn_box -->";
 
-    echo "<div class='restaurants_bottom_btn_box'>";
-    echo "<button type='button' class='button_next' value='restaurant_bookmark' onClick='layer_popup();'><i class='fas fa-heart'></i> &nbsp; List </button>";
-    echo "</div> <!-- end of restaurants_bottom_btn_box -->";
+    // echo "<div class='restaurants_bottom_btn_box'>";
+    // echo "<button type='button' class='button_next' value='restaurant_bookmark' onClick='layer_popup();'><i class='fas fa-heart'></i> &nbsp; List </button>";
+    // echo "</div> <!-- end of restaurants_bottom_btn_box -->";
     echo "</form>";
 
 

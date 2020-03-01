@@ -8,8 +8,7 @@ function setModifyButton() {
     if (modifyButton === 0) {
         modifyButton = 1;
         $('#restaurant_bookmark_modify').text('편집취소');
-        $('.bookmark_btn_box').prepend("<button type='button' class='button_next' id='restaurant_bookmark_delete' value='delete_bookmark' >선택삭제</button>");
-        // $('#restaurant_bookmark_modify_stop').prepend("<input type='checkbox' name='all' class='check_all'> <label>Check ALL</label>");
+        $('.bookmark_btn_box').prepend("<button type='button' class='button_next' id='restaurant_bookmark_delete' value='delete_bookmark' onclick='deleteBookmark()'>선택삭제</button>");
         btnDisabled();
     } else {
         modifyButton = 0;
@@ -43,10 +42,54 @@ function setShadowNone() {
     $('#submit-btn').css('box-shadow', 'none');
 }
 
+function deleteBookmark() {
+    //bookmark
+    if ($('.check_all').is(':checked')) {
+        // alert("all!!!");
+    }
+    $('.bookmark_checkbox:checked').each(function () {
+        if ($(this).is(':checked')) {
+
+            var clickBtnValue = $('#restaurant_bookmark_delete').val();
+            var bookmark_group_num = $('#restaurant_bookmark_group').val();
+            var seller_num = $(this).val();
+
+            alert(clickBtnValue + bookmark_group_num + seller_num);
+
+            $.ajax({
+                type: "POST",
+                url: '../user/user_mypage_manage_db.php',
+                data: {
+                    'action': clickBtnValue,
+                    'bookmark_group_num': bookmark_group_num,
+                    'seller_num': seller_num
+                },
+                success: function (data) {
+                    if (data === "delete_succeed") {
+                        alert("북마크가 삭제 되었습니다.");
+                        var $remove_btn = String("#seller_num") + String(seller_num);
+                        $("div").remove($remove_btn);
+                    } else {
+                        alert("북마크가 잘못되었습니다.");
+                    }
+                },
+                error: function (data) {
+                    alert("Data return: " + data);
+                }
+            }).done(function (msg) {
+                // alert("Data Saved: " + msg);
+            });
+
+        }
+    });
+}
+
 $(document).ready(function () {
     $('.check_all').click(function () {
         $('.bookmark_checkbox').prop('checked', this.checked);
     });
 });
+
+
 
 btnEnabled();

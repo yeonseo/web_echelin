@@ -93,7 +93,7 @@
 
 
                   <!-- // 비밀번호 설정하기 -->
-                  <input  class="_14fdu48d" id="user" name="user_pass" placeholder="비밀번호 설정하기" type="password" value="" onkeyup="signup_check('user_pass')">
+                  <input  class="_14fdu48d" id="user" name="user_password" placeholder="비밀번호 설정하기" type="password" value="" onkeyup="signup_check('user_pass')">
                   <span id="user_password"></span>
                   <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true" focusable="false" style="
                     margin-left: -16px;

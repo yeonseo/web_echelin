@@ -192,6 +192,21 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
+            case 'bookmark':
+                $sql = "CREATE TABLE `bookmark` (
+                    `bookmark_num` int unsigned NOT NULL AUTO_INCREMENT,
+                    `user_id` varchar(20) NOT NULL,
+                    `bookmark_subject` varchar(200) NOT NULL,
+                    `group_num` int unsigned NOT NULL,
+                    `seller_num` text NOT NULL,
+                    `regist_day` varchar(20) NOT NULL,
+                    `file_name` varchar(45) DEFAULT NULL,
+                    `file_copied` varchar(45) DEFAULT NULL,
+                    `file_type` varchar(45) DEFAULT NULL,
+                    PRIMARY KEY (`bookmark_num`)
+                    ) DEFAULT CHARSET=utf8;
+                  ";
+                break;
         } //end of switch
 
 
@@ -282,7 +297,7 @@ function insert_table($con, $table_name)
 
         case 'seller':
             $sql = "INSERT INTO `seller` (`seller_num`, `user_id`, `business_license`, `store_name`, `store_type`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `special_note`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
-              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15 : 00', '17 : 00', false, '2008-12-31', '09 : 00', '22 : 00', '010-2828-8705', null, 5, '3개월', '상');
+              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55,(일산동, 후곡마을2단지아파트)', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15 : 00', '17 : 00', false, '2008-12-31', '09 : 00', '22 : 00', '010-2828-8705', null, 5, '3개월', '상');
           ";
             break;
 
@@ -312,6 +327,16 @@ function insert_table($con, $table_name)
                     (null, 'infor15', 1, '지수네', '내사랑닭갈비', 12000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5727.jpg', '진짜 존맛탱'),
                     (null, 'infor15', 1, '지수네', '얼큰우동', 8000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_9603.jpg', '해장에 따악'),
                     (null, 'infor15', 1, '지수네', '곱창', 18000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_29_9893.jpg', '떡이랑 함께 드세염');
+                ";
+            break;
+        case 'bookmark':
+            $sql = "INSERT INTO `bookmark` (`bookmark_num`, `user_id`, `bookmark_subject`, `group_num`, `seller_num`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+            (1, 'aaaaaa', '즐겨찾기 테스트', 1, 1,'2020-02-10 (20:55)','','',''),
+            (2, 'aaaaaa', '즐겨찾기 테스트', 1, 2,'2020-02-10 (20:55)','','',''),
+            (3, 'aaaaaa', '즐겨찾기 테스트', 1, 3,'2020-02-10 (20:55)','','',''),
+            (4, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','',''),
+            (5, 'aaaaaa', '즐겨찾기 테스트3', 3, 1,'2020-02-10 (20:55)','','',''),
+            (6, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','','');
                 ";
             break;
     } //end of switch

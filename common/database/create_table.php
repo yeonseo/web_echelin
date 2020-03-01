@@ -11,3 +11,4 @@ create_table($con, $dbname, 'seller');
 create_table($con, $dbname, 'keyword_list');
 create_table($con, $dbname, 'store_img');
 create_table($con, $dbname, 'menu_img');
+create_table($con, $dbname, 'bookmark');
