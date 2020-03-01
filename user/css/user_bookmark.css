@@ -1,0 +1,25 @@
+.right_content {
+    position: relative;
+}
+
+
+.bookmark_btn_box{
+    position: absolute;
+    width: 120px;
+    top : 40px;
+    right: 50px;
+}
+
+.bookmark_btn_box button{
+    width: 100%;
+    height: 36px;
+    margin:0 0 10px 0;
+    font-size: 1rem;
+    border-radius: 5px;
+    float: right;
+}
+.check_all_box {
+    float: right;
+    width: 100%;
+    text-align: center;
+}

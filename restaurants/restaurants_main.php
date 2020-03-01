@@ -52,9 +52,64 @@
 
 
 
+
+
+
+
+
     <!-- 화면 위쪽의 버튼들 -->
     <?php
-    echo "<form id='restaurant_upper_buttons' name='restaurant_upper_buttons' method='POST' >";
+
+    //팝업창에서 나타낼 북마크를 부르기 위한 함수
+    if (isset($_SESSION['user_email'])) {
+        $user_email = $_SESSION['user_email'];
+    } else {
+        // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
+    }
+    function createBookmarkGroupList($con, $dbname, $user_email)
+    {
+        //메세지 그룹 계산하기 위한 것
+        $sql = "select bookmark_num, group_num, ANY_VALUE(group_num) from bookmark where `user_id`='" . $user_email . "' group by `group_num` order by bookmark_num asc";
+        $result = $con->query($sql);
+        if ($result === FALSE) {
+            die('DB bookmark where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
+        }
+
+        //쪽지 리스트 갯수
+        $total_rows_bookmark_group = mysqli_num_rows($result);
+
+        // 다차원 배열 반복처리 (필요시 사용)
+        ini_set('memory_limit', '-1');
+
+        for ($i = 0; $i < $total_rows_bookmark_group; $i++) {
+            mysqli_data_seek($result, $i);
+            $result_bookmark = mysqli_fetch_array($result);
+
+            //가장 최신의 메세지를 가져오기 위한 sql
+            $sql = "select * from bookmark where `group_num`='" . $result_bookmark['group_num'] . "' order by `bookmark_num` desc";
+            $result_bookmark_group = $con->query($sql);
+            if ($result_bookmark_group === FALSE) {
+                die('DB message where group_num Connect Error: ' . mysqli_error($con));
+            }
+            $result_bookmark_content = mysqli_fetch_array($result_bookmark_group);
+
+            $bookmark_num = $result_bookmark_content["bookmark_num"];
+            $user_id = $result_bookmark_content["user_id"];
+            $subject    = $result_bookmark_content["bookmark_subject"];
+            $group_num = $result_bookmark_content["group_num"];
+            $seller_num    = $result_bookmark_content["seller_num"];
+            $regist_day  = $result_bookmark_content["regist_day"];
+            $file_name  = $result_bookmark_content["file_name"];
+            //메세지 그룹넘버를 겟방식으로 넘김
+            echo "<li class='selected_bookmark_group'><button type='button' value='$group_num'><i class='fas fa-heart' id='selected_bookmark_group$group_num'></i><input id='selected_bookmark_subject$group_num' type='text' value='$subject' hidden> &nbsp; $subject </button></li>";
+        }
+        $group_num = $group_num + 1;
+        echo "<li class='selected_bookmark_group'><button type='button' value='$group_num'><i class='fas fa-heart' id='selected_bookmark_group$group_num'></i><input id='selected_bookmark_subject_input' type='text' value=''></button></li>";
+    }
+
+
+    //위쪽 버튼 나타내기
+    echo "<form id='restaurant_upper_buttons' name='restaurant_upper_buttons' method='POST'>";
     echo "<div class='restaurants_upper_btn_box'>";
     echo "<input id='restaurant_seller_id' type='text' value='$seller_num' hidden>";
     echo "<button type='button' id='restaurant_bookmark_btn' class='button_next' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; List </button>";
@@ -62,37 +117,37 @@
     echo "</div> <!-- end of restaurants_upper_btn_box -->";
 
     echo "<div class='restaurants_bottom_btn_box'>";
-    echo "<button type='button' id='restaurant_bookmark_btn' class='button_next' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; List </button>";
+    echo "<button type='button' class='button_next' value='restaurant_bookmark' onClick='layer_popup();'><i class='fas fa-heart'></i> &nbsp; List </button>";
     echo "</div> <!-- end of restaurants_bottom_btn_box -->";
     echo "</form>";
 
 
-    echo "<div class='dim-layer'>";
+    //팝업창 띄우기 부분
+    echo "<div class='dim_layer'>";
     echo "<div class='dimBg'></div>";
+    echo "<div id='layer2' class='pop_layer'>";
+    echo "<div class='pop_container'>";
+    echo "<div class='pop_conts'>";
 
-    echo "<div id='layer2' class='pop-layer'>";
-    echo "<div class='pop-container'>";
-    echo "<div class='pop-conts'>";
-    // content
-    echo "<p class='ctxt mb20'>Thank you.<br>
-    Your registration was submitted successfully.<br>
-    Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
-    Hope to see you soon!
-    </p>
+    echo "<form id='restaurant_popup_buttons' name='restaurant_popup_buttons' method='POST' >";
+    echo "<ul>";
+    //북마크 리스트 생성 함수 부름
+    //나중에 유저 세션 들고와서 할 거임
+    //메세지 그룹 계산하기 위한 것
+    $user_email = "aaaaaa";
+    createBookmarkGroupList($con, $dbname, $user_email);
+    echo "</ul>";
+    echo "<div class='btn_r'>
+        <button type='button' class='button_next' id='restaurant_bookmark_update' value='update_bookmark' ><i class='fas fa-heart'></i> &nbsp; Save </button>
+        <button type='button' class='button_next' id='button_popup_close' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; Close </button>
+        </div>";
+    echo "</form>";
 
-    <div class='btn-r'>
-        <a href='#' class='btn-layerClose'>Close</a>
-    </div>";
-    // content
-
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-    echo "</div> <!-- end of dim-layer -->";
+    echo "</div> <!-- end of pop_conts -->";
+    echo "</div> <!-- end of pop_container -->";
+    echo "</div> <!-- end of pop_layer -->";
+    echo "</div> <!-- end of dim_layer -->";
     ?>
-
-    <a href="#layer2" class="btn-example">딤처리 팝업레이어 1</a>
-
 
 
 
