@@ -5,7 +5,7 @@ $user_Level = $_POST["user_Level"];
 $user_Name =  $_POST["user_name"];
 
 $con = mysqli_connect("localhost","root","123456","echelin");
-$sql = "select * from echelin_user where user_email='$user_email'";
+$sql = "select * from echelin_user where user_Email='$user_email'";
 $result = mysqli_query($con,$sql);
 
 $num_match = mysqli_num_rows($result);
@@ -37,7 +37,7 @@ else{
     }
     else{
         session_start();
-        $_SESSION["user_email"]=$row["user_Email"];
+        $_SESSION["user_Email"]=$row["user_Email"];
         $_SESSION["user_password"]=$row["user_password"];
         $_SESSION["user_level"]=$row["user_Level"];
         $_SESSION["user_name"]=$row["user_name"];

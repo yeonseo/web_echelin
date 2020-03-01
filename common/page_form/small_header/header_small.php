@@ -6,7 +6,7 @@ if (!isset($_SESSION["userid"])) session_start();
 if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
 else $userid = "";
 
-if (isset($_SESSION["user_email"])) $useremail = $_SESSION["user_email"];
+if (isset($_SESSION["user_Email"])) $useremail = $_SESSION["user_Email"];
 else $useremail = "";
 
 if (isset($_SESSION["user_level"])) $userlevel = $_SESSION["user_level"];

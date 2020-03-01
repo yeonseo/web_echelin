@@ -3,7 +3,7 @@ session_start();
 $sns = $_POST["user_sns"];
 $Email = $_POST["user_Email"];
 $Checkemail = $_POST["user_checkEmail"];
-$Password = $_POST["user_pass"];
+$Password = $_POST["user_password"];
 $Name = $_POST["user_name"];
 $Level = $_POST["user_Level"]+1;
 $Sung = $_POST["user_sung"];
