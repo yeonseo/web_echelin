@@ -125,13 +125,12 @@ $(document).ready(function() {
       type :'POST',
       data: menu,
       success : function(data){
-        // document.form_first_show.submit();
         document.form_store_pic.submit();
         alert("가게 사진 업로드 페이지로 전송완료");
       }
     })
     .done(function(){
-      console.log("메뉴 등록");
+      console.log("가게 사진 등록");
     })
     .fail(function(e){
       console.log("error");
