@@ -25,6 +25,15 @@
 
       <progress value="83" max="100"></progress>
 
+      <div class="div_outside">
+        <? echo $input_detailAddress?> </br>
+        <? echo $input_detailAddress?> </br>
+        <? echo $input_detailAddress?> </br>
+        <? echo $input_detailAddress?> </br>
+        <? echo $input_detailAddress?> </br>
+        <? echo $input_detailAddress?> </br>
+      </div>
+
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
           <div class="div_form">

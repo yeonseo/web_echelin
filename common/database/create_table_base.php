@@ -115,7 +115,7 @@ function create_table($con, $dbname, $table_name)
                   `business_license` char(10) NOT NULL,
                   `store_name` varchar(45) NOT NULL,
                   `store_type` varchar(45) NOT NULL,
-                  `store_address` varchar(45) NOT NULL,
+                  `store_address` varchar(400) NOT NULL,
                   `store_postcode` char(10) NOT NULL,
                   `store_lat` double NOT NULL,
                   `store_lon` double NOT NULL,

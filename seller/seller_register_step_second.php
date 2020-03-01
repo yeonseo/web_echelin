@@ -90,7 +90,7 @@ echo $input_business_license;
         <span class="span_step_info">2단계 : 정확한 식당 위치를 등록해주세요.</span>
       </div>
 
-      <progress value="33.2" max="100"></progress>
+      <progress value="20" max="100"></progress>
 
       <form name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post">
       <div class="div_outside">
