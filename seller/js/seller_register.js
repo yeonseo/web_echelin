@@ -27,13 +27,13 @@ $(document).ready(function(){
 
     var addStaffText =     '<tr name="tr_menu">'+
         '    <td class="td_menu">'+
-        '        <input type="text" name="" placeholder="메뉴이름">'+
+        '        <input type="text" name="input_menu" placeholder="메뉴이름">'+
         '    </td>'+
         '    <td class="td_menu">'+
-        '        <input type="number" name="" placeholder="가격">'+
+        '        <input type="number" name="input_price" placeholder="가격">'+
         '    </td>'+
         '    <td class="td_menu">'+
-        '        <input type="file" name="" value="">'+
+        '        <input type="file" name="input_menu_img" value="">'+
         '    </td>'+
         '    <td class="td_menu">'+
         '        <input type="text" name="" placeholder="메뉴 설명">'+
@@ -246,5 +246,150 @@ function checkbox_disable() {
     input_checkbox_etc_text.disabled=false;
   } else {
     input_checkbox_etc_text.disabled=true;
+  }
+}
+
+function stepCheck3() {
+
+  var store_type = document.getElementsByName("store_type");
+  var input_store_type_etc = document.getElementById("input_store_type_etc");
+  var input_menu = document.getElementsByName("input_menu");
+  var input_price = document.getElementsByName("input_price");
+  var input_menu_img = document.getElementsByName("input_menu_img");
+  var input_date_time1 = document.getElementById("input_date_time1");
+  var input_date_time2 = document.getElementById("input_date_time2");
+  var break_time = document.getElementsByName("break_time");
+  var input_break_time1 = document.getElementById("input_break_time1");
+  var input_break_time2 = document.getElementById("input_break_time2");
+  var chkbox = document.getElementsByName("chkbox");
+  var store_image1 = document.getElementById("store_image1");
+  var store_image2 = document.getElementById("store_image2");
+  var store_image3 = document.getElementById("store_image3");
+  var store_image4 = document.getElementById("store_image4");
+  var store_image5 = document.getElementById("store_image5");
+  var input_opening_day = document.getElementById("input_opening_day");
+
+  var check_store_stype=0;
+  for( var i=0; i<store_type.length; i++) {
+    if(store_type[i].checked===true) {
+      check_store_stype++;
+    }
+  }
+  if(check_store_stype<1) {
+    alert("식당 종류를 체크해주세요.");
+  }
+
+  if(store_type[3].checked===true) {
+    if(input_store_type_etc.value=="") {
+      alert("식당 종류 기타란에 내용을 입력해주세요.");
+    }
+  }
+
+  var menu_count = document.getElementsByTagName( 'tbody' )[0].childElementCount-1;
+
+  for(var i=0; i<menu_count; i++) {
+  if(input_menu[i].value==="") {
+    alert("메뉴 이름을 입력해주세요.");
+  } else if (input_price[i].value === "") {
+    alert("메뉴 가격을 입력해주세요.");
+  } else if (input_menu_img[i].value === "") {
+    alert("메뉴 사진을 업로드해주세요.");
+  }
+}
+
+if(input_date_time1.value==="" || input_date_time2.value==="") {
+    alert("영업시간을 입력해주세요.");
+}
+
+var check_break_time=0;
+for( var i=0; i<break_time.length; i++) {
+  if(break_time[i].checked===true) {
+    check_break_time++;
+  }
+}
+if(check_break_time<1) {
+  alert("브레이크 타임 정보에 체크해주세요.");
+}
+
+if(break_time[0].checked===true) {
+  if(input_break_time1.value==="" || input_break_time2.value==="") {
+    alert("브레이크 타입 시간을 입력해주세요.");
+  }
+}
+
+var check_fac=0;
+for( var i=0; i<chkbox.length; i++) {
+  if(chkbox[i].checked===true) {
+    check_fac++;
+  }
+}
+if(check_fac<1) {
+  alert("식당 편의시설을 1개 이상 체크해주세요.");
+}
+
+if(chkbox[7].checked===true) {
+  if(input_checkbox_etc_text.value==="") {
+    alert("식당 편의시설 기타란에 내용을 입력해주세요.");
+  }
+}
+
+
+if(input_phone2.value==="") {
+  alert("번호를 입력해주세요");
+  input_phone2.focus();
+} else if (input_phone3.value==="") {
+  alert("번호를 입력해주세요");
+  input_phone3.focus();
+}
+
+if(store_image1.value==="") {
+  alert("식당 사진을 업로드해주세요.");
+  store_image1.focus();
+} else if (store_image2.value==="") {
+  alert("식당 사진을 업로드해주세요.");
+  store_image2.focus();
+} else if (store_image3.value==="") {
+  alert("식당 사진을 업로드해주세요.");
+  store_image3.focus();
+} else if (store_image4.value==="") {
+  alert("식당 사진을 업로드해주세요.");
+  store_image4.focus();
+} else if (store_image5.value==="") {
+  alert("식당 사진을 업로드해주세요.");
+  store_image5.focus();
+}
+
+if(input_opening_day.value==="") {
+  alert("개업일을 입력해주세요.");
+  input_opening_day.focus();
+}
+
+  var step3_form = $("form[name=form_seller_register_step_third]").serialize();
+
+    $.ajax({
+      url : './seller_register_step_fourth.php',
+      type :'POST',
+      data: step3_form,
+      success : function(data){
+        // document.form_first_show.submit();
+        document.form_seller_register_step_third.submit();
+        alert("등록4단계로 전송완료");
+      }
+    })
+    .done(function(){
+      console.log("판매자 등록 3단계");
+    })
+    .fail(function(e){
+      console.log("error");
+    })
+    .always(function(){
+      console.log("complete");
+    });
+
+}
+
+function chkPhone(obj) {
+    if(obj.value.length >4) {
+    obj.value=obj.value.slice(0, 4);
   }
 }

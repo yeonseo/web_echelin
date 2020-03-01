@@ -225,6 +225,11 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.input_date_time:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
 
 /* 브레이크 타임 정보  */
 .span_content_font {
@@ -239,6 +244,12 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.input_etc:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
+
 /* 식당 전화번호 */
 .input_phone {
   width: 50px;
@@ -248,83 +259,57 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.input_phone:focus {
+  outline: none;
+  border: 1.2px solid gold;
+}
+
 /* 식당 외/내부 사진 */
 
-img {
+.store_img {
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  border: 1px dashed lightgray;
   border-radius: 20px;
 }
 
 .image_preview {
-  /* border: 1px solid black; */
   border-radius: 20px;
+
 }
 
 .store_inner_pic1 {
   width: 48%;
   height: 220px;
-  border: 1px dashed gold;
-  border-radius: 20px;
   float: left;
 }
 
-.store_inner_pic2 {
-  width: 23%;
-  height: 110px;
-  border: 1px dashed gold;
-  border-radius: 20px;
-  float: left;
+.store_inner_pic1 label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: gray;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    font-size: 12px;
+    background-color: gold;
+    cursor: pointer;
+    border: 1.2px solid gold;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
 }
 
-.store_inner_pic3 {
-  width: 23%;
-  height: 110px;
-  border: 1px dashed gold;
-  border-radius: 20px;
-  float: left;
+.store_inner_pic1 label:hover {
+  background-color: #fff;
 }
 
-.store_inner_pic4 {
-  width: 23%;
-  height: 110px;
-  border: 1px dashed gold;
-  border-radius: 20px;
-  float: left;
+.store_inner_pic1 label:active {
+  background-color: gold;
 }
 
-.store_inner_pic5 {
-  width: 23%;
-  height: 110px;
-  border: 1px dashed gold;
-  border-radius: 20px;
-  float: left;
-}
-
-/* .filebox label {
-  display: inline-block;
-  padding: .5em .75em;
-  color: #fff;
-  font-size: inherit;
-  line-height: normal;
-  vertical-align: middle;
-  background-color: #5cb85c;
-  cursor: pointer;
-  border: 1px solid #4cae4c;
-  border-radius: .25em;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-
-.filebox label:hover {
-  background-color: #6ed36e;
-}
-
-.filebox label:active {
-  background-color: #367c36;
-}
-
-.filebox input[type="file"] {
+.store_inner_pic1 input[type="file"] {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -333,7 +318,49 @@ img {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-} */
+}
+
+.store_inner_pic {
+  width: 23%;
+  height: 110px;
+  float: left;
+}
+
+.store_inner_pic label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: gray;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    font-size: 12px;
+    background-color: gold;
+    cursor: pointer;
+    border: 1.2px solid gold;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.store_inner_pic label:hover {
+  background-color: #fff;
+}
+
+.store_inner_pic label:active {
+  background-color: gold;
+}
+
+.store_inner_pic input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 
 .div_clear_both{
   clear: both;
