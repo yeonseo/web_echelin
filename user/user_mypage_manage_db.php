@@ -23,6 +23,11 @@ if (isset($_POST['action'])) {
             $seller_num = $_POST['seller_num'];
             update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num);
             break;
+        case 'delete_bookmark':
+            $bookmark_group_num = $_POST['bookmark_group_num'];
+            $seller_num = $_POST['seller_num'];
+            delete_bookmark($con, $bookmark_group_num, $seller_num);
+            break;
         default:
             echo "alert(action wrong!);";
     }
@@ -115,16 +120,34 @@ function update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_n
         die('DB ajax insertMessageTalk Connect Error: ' . mysqli_error($con));
     }
 
+    mysqli_close($con);
+    exit;
+}
 
 
-    // $result_message = mysqli_fetch_array($result);
+function delete_bookmark($con, $bookmark_group_num, $seller_num)
+{
+    // //디비에 저장된 북마크 확인하기
+    // $sql = "select * from bookmark where user_id='aaaaaa' and group_num='" . $bookmark_group_num . "' and seller_num='" . $seller_num . "' order by bookmark_num desc";
+    // $result = $con->query($sql);
+    // if ($result === FALSE) {
+    //     die('DB bookmark check Connect Error: ' . mysqli_error($con));
+    // }
 
-    // $send_id = $result_message["send_id"];
-    // $rv_id = $result_message["rv_id"];
-    // $subject    = $result_message["subject"];
-    // $content    = $result_message["content"];
-    // $regist_day  = $result_message["regist_day"];
-    // $file_name  = $result_message["file_name"];
+    // if (mysqli_fetch_row($result) > 0) {
+    //     echo "bookmarked";
+    //     return;
+    // }
+
+    //디비에 북마크 저장하기
+    $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
+    $sql = "DELETE FROM `bookmark` where `user_id`='aaaaaa' and `group_num`='" . $bookmark_group_num . "' and `seller_num`='" . $seller_num . "';";
+    $result = $con->query($sql);
+    if ($result === FALSE) {
+        die('DB ajax insertMessageTalk Connect Error: ' . mysqli_error($con));
+    }
+
+    echo "delete_succeed";
 
     mysqli_close($con);
     exit;

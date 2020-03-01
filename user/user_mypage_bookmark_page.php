@@ -49,10 +49,8 @@
                     echo "<div class='bookmark_btn_box'>
                             <button type='button' class='button_next' id='restaurant_bookmark_modify' value='modify_bookmark' onclick='setModifyButton();'>편집하기</button>
                             <div class='check_all_box'><input type='checkbox' name='all' class='check_all'> <label>모두 선택</label></div>
+                            <input id='restaurant_bookmark_group' type='text' value='$bookmark_page' hidden> 
                         </div>";
-
-                    echo "</form>";
-
 
                     //메세지 리스트 부름
                     for ($i = 0; $i < $total_rows_bookmark; $i++) {
@@ -75,9 +73,9 @@
                         $result_seller_array = mysqli_fetch_array($result_seller);
 
                         //북마크 그룹넘버를 겟방식으로 넘김
-                        echo "<div class=" . COMMON::$css_card_menu_row . ">";
+                        echo "<div class=" . COMMON::$css_card_menu_row . " id='seller_num$seller_num'>";
                         echo "<button class=" . COMMON::$css_card_menu_btn . " type='button' value='$seller_num'>";
-                        echo "<input type='checkbox' name='seller_num$seller_num' class='bookmark_checkbox'> <label></label>";
+                        echo "<input type='checkbox' name='seller_num$seller_num' class='bookmark_checkbox' value='$seller_num'> <label></label>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_icon . "><i class='fas fa-utensils'></i></div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_name . ">" . $result_seller_array['store_name'] . "</div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">" . $result_seller_array['store_type'] . "</div>";
@@ -86,6 +84,8 @@
                         echo "</button> <!-- end of css_card_menu_btn -->";
                         echo "</div> <!-- end of css_card_menu_row -->";
                     }
+
+                    echo "</form>";
                 }
 
                 ?>
