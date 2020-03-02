@@ -42,15 +42,8 @@
         </tr>
       </tbody>
     </table>
-<<<<<<< HEAD
-    </br>
-    <button class="button_complete" type="button" name="button" onclick="register_menu()">완료</button>
-  </div> <!-- end of right_content -->
-</form>
-=======
   </br>
    <button class="button_complete" type="button" name="button" onclick="register_menu()">완료</button>
  </div> <!-- end of right_content -->
  </form>
  </div> <!-- end of my_info_content -->
->>>>>>> j222su
