@@ -1,4 +1,6 @@
-
+<?php
+echo $useremail;
+ ?>
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
         <span class="span_step_info">1단계 : 기본 사항을 입력해주세요.</span>
@@ -10,7 +12,7 @@
       </div>
         <div class="div_register_shape">
           <div class="div_register_inner_shape">
-            <span class="span_user_name">김지수</span>
+            <span class="span_user_name"><?=$username?></span>
             <span class="span_hello">님 안녕하세요!</span>
             <span class="span_register_info">가게 등록을 시작해볼까요?</span>
             <div class="div_form">
@@ -23,8 +25,9 @@
 
                     <li>사업자번호를 입력해주세요</li>
                       <input id="input_business_license" class="input_info" type="number" name="input_business_license" value="">
-                      <button id="button_register" class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
+                      <button id="button_register" class="button_find_add_comp" type="button" name="button" onclick="businessLicense(); state(); sliceBusinessNumber(this);">등록</button>
                       <!-- <input type="button" name="" value="등록" onclick="businessLicense()"> -->
+                      <div id="business_chk" class="div_state"></div>
                       <div id="div_state" class="div_state"></div>
                   </ul>
                 </div> <!-- div_except_button -->

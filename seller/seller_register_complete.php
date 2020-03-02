@@ -1,6 +1,9 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php";?>
 <?php
 $con = mysqli_connect("localhost","root","123456","echelin");
+$useremail=$_GET["id"];
+echo $useremail;
+
 
 $input_store_name = htmlspecialchars($_POST["input_store_name"], ENT_QUOTES);
 $input_business_license = htmlspecialchars($_POST["input_business_license"], ENT_QUOTES);
@@ -34,51 +37,50 @@ if($input_detailAddress) {
   $total_address=$input_address.",".$input_extraAddress.",";
 }
 
-echo $input_store_name;
-echo $input_business_license;
-echo $input_postcode;
-echo $input_address;
-echo $input_extraAddress;
-echo $input_detailAddress;
-echo $introduction;
-echo $input_store_type;
-echo $opening_hours_start;
-echo $opening_hours_end;
-echo $input_break_time1;
-echo $input_break_time2;
-echo $nokids;
-echo $input_checkbox;
-echo $input_phone;
-echo $input_opening_day;
-echo $special_note;
-echo $input_max_num_of_people;
-echo $max_month;
-echo $reserve_intensity;
+// echo $input_store_name;
+// echo $input_business_license;
+// echo $input_postcode;
+// echo $input_address;
+// echo $input_extraAddress;
+// echo $input_detailAddress;
+// echo $introduction;
+// echo $input_store_type;
+// echo $opening_hours_start;
+// echo $opening_hours_end;
+// echo $input_break_time1;
+// echo $input_break_time2;
+// echo $nokids;
+// echo $input_checkbox;
+// echo $input_phone;
+// echo $input_opening_day;
+// echo $special_note;
+// echo $input_max_num_of_people;
+// echo $max_month;
+// echo $reserve_intensity;
 
 
 // echo $total_address;
 $sub_total_address=substr($total_address, 0, -1);
-echo $sub_total_address;
+// echo $sub_total_address;
 
 $sub_input_checkbox=substr($input_checkbox, 0, -1);
-echo $sub_input_checkbox;
+// echo $sub_input_checkbox;
 
 $re_opening_hours_start = str_replace(":", " : ", $opening_hours_start);
 $re_opening_hours_end = str_replace(":", " : ", $opening_hours_end);
 
-echo $re_opening_hours_start;
-echo $re_opening_hours_end;
+// echo $re_opening_hours_start;
+// echo $re_opening_hours_end;
 
 $re_input_break_time1 = str_replace(":", " : ", $input_break_time1);
 $re_input_break_time2 = str_replace(":", " : ", $input_break_time2);
 
 
-echo $re_input_break_time1;
-echo $re_input_break_time2;
-
+// echo $re_input_break_time1;
+// echo $re_input_break_time2;
 
 $sql = "insert into seller (user_id, business_license, store_name, store_type, store_address, store_postcode, store_lat, store_lon, convenient_facilities, introduction, break_start, break_end, nokids, opening_day, opening_hours_start, opening_hours_end, store_tel, special_note, max_reserv_time_num_of_people, max_reserv_month, intensity_of_reserv) ";
-$sql .= "values('infor16', '$input_business_license', '$input_store_name', '$input_store_type', '$sub_total_address', '$input_postcode', '$lat', '$lon', '$sub_input_checkbox', '$introduction', '$re_input_break_time1', '$re_input_break_time2', $nokids, '$input_opening_day', '$re_opening_hours_start', '$re_opening_hours_end', '$input_phone', '$special_note', '$input_max_num_of_people', '$max_month', '$reserve_intensity')";
+$sql .= "values('$useremail', '$input_business_license', '$input_store_name', '$input_store_type', '$sub_total_address', '$input_postcode', '$lat', '$lon', '$sub_input_checkbox', '$introduction', '$re_input_break_time1', '$re_input_break_time2', $nokids, '$input_opening_day', '$re_opening_hours_start', '$re_opening_hours_end', '$input_phone', '$special_note', '$input_max_num_of_people', '$max_month', '$reserve_intensity')";
 mysqli_query($con, $sql);
 echo mysqli_error($con);
 mysqli_close($con);
@@ -114,7 +116,7 @@ mysqli_close($con);
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
-          <span class="span_user_name">김지수</span>
+          <span class="span_user_name"><?=$username?></span>
           <span>님</span> </br>
           <span class="span_register_info">가게 등록에 성공하셨습니다!</span>
 

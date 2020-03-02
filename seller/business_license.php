@@ -22,7 +22,7 @@ curl_close($ch);
 
 $business_lice=json_decode($result);
 
-echo $business_lice->bizNum;
-// echo $business_lice->state;
+// echo $business_lice->bizNum;
+echo $business_lice->state;
 
  ?>
