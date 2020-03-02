@@ -18,13 +18,15 @@
   </div> <!-- end of left_menu -->
 
 <?php
-$store_name="지수네";
 $seller_num=2;
+
 
 // $con = mysqli_connect("localhost", "root", "123456", "echelin");
 $sql = "select * from seller where seller_num='$seller_num'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($result);
+$seller_num = $row["seller_num"];
+$store_name = $row["store_name"];
 $business_license = $row["business_license"];
 $store_type = $row["store_type"];
 $store_address = $row["store_address"];
@@ -46,21 +48,15 @@ $max_reserv_month = $row["max_reserv_month"];
 $intensity_of_reserv = $row["intensity_of_reserv"];
 
 $re_address=explode(',', $store_address);
-echo $re_address[0];
-echo $re_address[1];
-
 $re_opening_hours_start=str_replace(' : ', ":", $opening_hours_start);
 $re_opening_hours_end=str_replace(' : ', ":", $opening_hours_end);
 
 $re_break_start=str_replace(' : ', ":", $break_start);
 $re_break_end=str_replace(' : ', ":", $break_end);
 
-echo $convenient_facilities;
 $re_convenient_facilities=explode(',', $convenient_facilities);
 
-
-
-
+$re_store_tel = explode('-', $store_tel);
 
 ?>
   <script src="./js/seller_register.js"></script>
@@ -123,12 +119,14 @@ var longitude;
 </script>
 
 
-<form name="form_menu" class="" action="./" method="post" enctype="multipart/form-data">
+<form name="form_menu" name="form_seller_update" action="./update_seller.php?" method="post" enctype="multipart/form-data">
 <div class="right_content">
   <ul>
-    <h1><?=$store_name?></h1></br></br>
+    <input type="text" name="seller_num" value="<?=$seller_num?>" hidden>
+    <li>가게이름<li>
+    <input id="input_store_name" class="input_info" type="text" name="input_store_name" value="<?=$store_name?>"></br></br>
     <li>사업자번호<li>
-    <input type="text" class="input_info" name="input_business_license" value="<?=$business_license?>" disabled>
+    <input type="text" class="input_info" name="input_business_license" value="<?=$business_license?>" readonly>
     </br></br>
     <li>가게 주소</li>
     <input class="input_info" id="update_postcode" name="input_postcode" type="text" value="<?=$store_postcode?>">
@@ -181,12 +179,10 @@ var longitude;
      <input id="break_time_false" type="radio" name="break_time" value="false" <?php if($break_start=="") {?> checked <?php } else {?> <?php echo ""?> <?php }?>>
      <span class="span_content_font">없음</span>
      <div id="div_radio" hidden>
-       <?php
-       if($break_start) {
-        ?>
+
         <input id="input_break_time1" class="input_date_time" type="time" name="break_start" value="<?=$re_break_start?>">&nbsp-
         <input id="input_break_time2" class="input_date_time" type="time" name="break_end" value="<?=$re_break_end?>">
-      <?php }?>
+
      </div>
      </br></br></br>
 
@@ -235,59 +231,72 @@ var longitude;
       <li>식당 전화번호</li>
       <span class="span_content_font">손님이 문의할 수 있는 식당 대표번호를 적어주세요.</span></br>
       <select class="input_date_time" name="phone1">
-        <option value="02">02</option>
-        <option value="010">010</option>
-        <option value="031">031</option>
-        <option value="032">032</option>
-        <option value="033">033</option>
-        <option value="041">041</option>
-        <option value="042">042</option>
-        <option value="043">043</option>
-        <option value="044">044</option>
-        <option value="051">051</option>
-        <option value="052">052</option>
-        <option value="053">053</option>
-        <option value="054">054</option>
-        <option value="055">055</option>
-        <option value="061">061</option>
-        <option value="062">062</option>
-        <option value="063">063</option>
-        <option value="064">064</option>
+        <option value="02" <?php if($re_store_tel[0]=="02") {?>selected <?php }?>>02</option>
+        <option value="010" <?php if($re_store_tel[0]=="010") {?>selected <?php }?>>010</option>
+        <option value="031" <?php if($re_store_tel[0]=="031") {?>selected <?php }?>>031</option>
+        <option value="032" <?php if($re_store_tel[0]=="032") {?>selected <?php }?>>032</option>
+        <option value="033" <?php if($re_store_tel[0]=="033") {?>selected <?php }?>>033</option>
+        <option value="041" <?php if($re_store_tel[0]=="041") {?>selected <?php }?>>041</option>
+        <option value="042" <?php if($re_store_tel[0]=="042") {?>selected <?php }?>>042</option>
+        <option value="043" <?php if($re_store_tel[0]=="043") {?>selected <?php }?>>043</option>
+        <option value="044" <?php if($re_store_tel[0]=="044") {?>selected <?php }?>>044</option>
+        <option value="051" <?php if($re_store_tel[0]=="051") {?>selected <?php }?>>051</option>
+        <option value="052" <?php if($re_store_tel[0]=="052") {?>selected <?php }?>>052</option>
+        <option value="053" <?php if($re_store_tel[0]=="053") {?>selected <?php }?>>053</option>
+        <option value="054" <?php if($re_store_tel[0]=="054") {?>selected <?php }?>>054</option>
+        <option value="055" <?php if($re_store_tel[0]=="055") {?>selected <?php }?>>055</option>
+        <option value="061" <?php if($re_store_tel[0]=="061") {?>selected <?php }?>>061</option>
+        <option value="062" <?php if($re_store_tel[0]=="062") {?>selected <?php }?>>062</option>
+        <option value="063" <?php if($re_store_tel[0]=="063") {?>selected <?php }?>>063</option>
+        <option value="064" <?php if($re_store_tel[0]=="064") {?>selected <?php }?>>064</option>
       </select>
       -
-      <input id="input_phone2" class="input_phone" type="number" name="phone2" value="" onchange="chkPhone(this)">
+      <input id="input_phone2" class="input_phone" type="number" name="phone2" value="<?=$re_store_tel[1]?>" onchange="chkPhone(this)">
       -
-      <input id="input_phone3" class="input_phone" type="number" name="phone3" value="" onchange="chkPhone(this)">
+      <input id="input_phone3" class="input_phone" type="number" name="phone3" value="<?=$re_store_tel[2]?>" onchange="chkPhone(this)">
       </br></br></br>
 
+      <li>개업일</li>
+        <input id="input_opening_day" class="input_date_time" type="date" name="input_opening_day" value="<?=$opening_day?>">
+        </br></br></br>
 
+      <li>특이사항</li>
+        <textarea class="textarea_step2" name="special_note" rows="8" cols="74" style="resize: none;" value="특이사항"><?echo $special_note?></textarea>
+        </br></br></br></br>
 
+      <li>시간당 최대 예약 가능한 인원을 적어주세요.</li></br>
+      <input id="input_people" class="input_people" type="number" name="input_max_num_of_people" value="<?=$max_reserv_time_num_of_people?>">&nbsp명
+      </br></br></br>
 
+      <li>사용자가 예약할 수 있는 최대 개월 수를 설정해주세요.</li></br>
+        <input type="radio" name="max_month" value="1개월" <?php if($max_reserv_month=="1개월") ?> checked>
+        <span class="span_content_font">1개월</span>&nbsp&nbsp
+        <input type="radio" name="max_month" value="2개월"  <?php if($max_reserv_month=="2개월") ?> checked>
+        <span class="span_content_font">2개월</span>&nbsp&nbsp
+        <input type="radio" name="max_month" value="3개월" <?php if($max_reserv_month=="3개월") ?> checked>
+        <span class="span_content_font">3개월</span>
+      </br></br></br>
 
+      <li>예약 규정 강도를 설정해주세요</li></br>
+      <input type="radio" name="reserve_intensity" value="상" <?php if($intensity_of_reserv=="상") ?> checked>
+      <span class="span_content_font">상</span>&nbsp&nbsp
+      <input type="radio" name="reserve_intensity" value="중" <?php if($intensity_of_reserv=="중") ?> checked>
+      <span class="span_content_font">중</span>&nbsp&nbsp
+      <input type="radio" name="reserve_intensity" value="하" <?php if($intensity_of_reserv=="하") ?> checked>
+      <span class="span_content_font">하</span></br></br>
+      <div class="div_strength">
+        <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 예약 당일 취소 시 환불 불가능.</span></br>
+        <span class="span_strength">&nbsp&nbsp&nbsp&nbsp중 : 예약 당일 취소 시 결제금액의 50% 환불가능.</span></br>
+        <span class="span_strength">&nbsp&nbsp&nbsp&nbsp하 : 예약 당일 취소 시 결제금액의 전액 환불가능.</span></br>
+      </div>
+      </br></br></br></br>
 
-
-
-
-
-
-
-
-
-
-
-          <input id="lat_update" type="text" name="lat" hidden>
-          </br></br>
-          <input id="lon_update" type="text" name="lon" hidden>
-
+      <input id="lat_update" type="text" name="lat_update" value="<?=$store_lat?>" hidden>
+      </br></br>
+      <input id="lon_update" type="text" name="lon_update" value="<?=$store_lon?>" hidden>
   </ul>
 
-
-
-
-
-
-
-   <button class="button_complete" type="button" name="button" onclick="register_menu()">완료</button>
+   <button class="button_complete" type="submit" name="button" onclick="update_seller()">완료</button>
  </div> <!-- end of right_content -->
  </form>
  </div> <!-- end of my_info_content -->

@@ -131,9 +131,9 @@ $lon = $_POST["lon"];
                   <input type="radio" name="reserve_intensity" value="하">
                   <span class="span_content_font">하</span></br>
                   <div class="div_strength">
-                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 사용자가 방문하기 1주전에 취소시 전액 환불 가능합니다.</span></br>
-                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp중 : 사용자가 방문하기 4일전에 취소 시 50% 환불 가능합니다.</span></br>
-                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp하 : 사용자가 방문하기 4일전에 취소 시 50% 환불 가능합니다.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 예약 당일 취소 시 환불 불가능.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp중 : 예약 당일 취소 시 결제금액의 50% 환불가능.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp하 : 예약 당일 취소 시 결제금액의 전액 환불가능.</span></br>
                   </div>
                   </br></br></br></br>
 

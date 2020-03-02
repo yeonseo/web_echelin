@@ -18,7 +18,7 @@
   <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="./js/seller_register.js"></script>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
-
+  <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
   <!-- 공통으로 사용하는 link & script -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 

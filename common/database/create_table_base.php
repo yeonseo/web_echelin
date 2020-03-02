@@ -165,13 +165,14 @@ function create_table($con, $dbname, $table_name)
                 // 식당 외/내부 사진 테이블
             case 'store_img':
                 $sql = "CREATE TABLE `store_img` (
-                      `num` int unsigned NOT NULL AUTO_INCREMENT,
-                         `seller_num` int unsigned NOT NULL,
-                         `store_name` varchar(45) NOT NULL,
-                         `store_file_name` varchar(45) NOT NULL,
-                         `store_file_type` varchar(45) NOT NULL,
-                         `store_file_copied` varchar(45) NOT NULL,
-                          PRIMARY KEY (`num`)
+                        `num` int unsigned NOT NULL AUTO_INCREMENT,
+                        `user_id` varchar(20) NOT NULL,
+                        `seller_num` int unsigned NOT NULL,
+                        `store_name` varchar(45) NOT NULL,
+                        `store_file_name` varchar(45) NOT NULL,
+                        `store_file_type` varchar(45) NOT NULL,
+                        `store_file_copied` varchar(45) NOT NULL,
+                        PRIMARY KEY (`num`)
                     ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
@@ -312,11 +313,11 @@ function insert_table($con, $table_name)
 
         case 'store_img':
             $sql = "INSERT INTO `store_img` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
-                    (null, 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
-                    (null, 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
-                    (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
-                    (null, 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
-                    (null, 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
+                    (null, 'infor15', 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
                 ";
             break;
 
