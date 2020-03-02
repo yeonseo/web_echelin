@@ -19,7 +19,7 @@ else $username = "";
 <div class="main_header">
   <div class="back_cover">
     <div class="main_head_top">
-      <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="./common/image/restaurant.png"></a>
+      <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="../echelin/common/image/echelin_logo_favicon_example.png"></a>
       <ul class="header_main_menu">
 
 

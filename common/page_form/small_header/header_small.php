@@ -29,7 +29,7 @@ else $userpoint = "";
   </div>
 
   <div class="search_top">
-    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/restaurant.png"></a>
+    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/../echelin/common/image/echelin_logo_main_example.png"></a>
 
     <ul class="header_main_menu">
 
