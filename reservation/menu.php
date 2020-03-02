@@ -14,8 +14,6 @@ function get($name){
   }
   return $get_result;
 }
-    function setMenuImg($con, $dbname, $seller_num)
-    {
 
         //menu_img 테이블에서 값들고옴
         $seller_num = 1;
@@ -52,8 +50,7 @@ function get($name){
       echo "<input id='date_result'type='text' value='$date_result' hidden>";
       echo "<input id='time_result'type='text' value='$time_result' hidden>";
       echo "<input id='person'type='text' value='$person' hidden>";
-      }
-    setMenuImg($con, $dbname, $seller_num);
+      
  ?>
   <div class="div_menu_content">
     <div class="best_score_content" id="divContentWrap">

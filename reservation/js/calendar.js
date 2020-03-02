@@ -267,8 +267,7 @@ function nextPage(address,get){
       console.log("adult_result = "+adult_result);
       console.log("child_result = "+child_result);
       console.log("baby_result = "+baby_result);
-      location.href=address+get+"&date_result="
-      +date_result+"&time_result="+time_result+"&person="+person;
+      location.href=address+get+"&date_result="+date_result+"&time_result="+time_result+"&person="+person;
     }
   }
 
