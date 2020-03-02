@@ -1,5 +1,5 @@
 .container{
-  margin-top: -100px;
+  margin-top: -50px;
 }
 
 .my_comment_title{
@@ -40,7 +40,8 @@
 .content_main .no_span{
   position: absolute;
   top: 70px;
-  left: 240px;
+  left: 260px;
+  font-size: 12px;
 }
 
 .content_main2{
@@ -58,7 +59,8 @@
 .content_main2 .no_span{
   position: absolute;
   top: 70px;
-  left: 240px;
+  left: 260px;
+  font-size: 12px;
 }
 
 .content_title{
@@ -114,7 +116,14 @@ ul.tabs li {
 
 .content_yes{
   width: 600px;
-  height: 155px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 30px 0 20px 0;
+}
+
+.content_yes2{
+  width: 600px;
+  height: 130px;
   border-radius: 10px;
   margin: 30px 0 20px 0;
 }
@@ -132,6 +141,8 @@ ul.tabs li {
   font-size: 16px;
   text-decoration: none;
   color: #02B5F0;
+
+
 }
 
 .yes_top a:hover{
@@ -192,6 +203,7 @@ ul.tabs li {
   cursor: pointer;
   margin-left: 20px;
   padding-top: 2px;
+  font-size: 12px;
 }
 
 .div_chu #dislike_count{
@@ -202,6 +214,7 @@ ul.tabs li {
   cursor: pointer;
   margin-left: 5px;
   padding-top: 2px;
+  font-size: 12px;
 }
 
 .yes_main {
@@ -209,4 +222,20 @@ ul.tabs li {
   height: 70px;
   margin-top: 20px;
   margin-left: 18px;
+  font-size: 12px;
+}
+
+.top_intro{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: inline-block;
+  max-height:20px;
+  overflow:hidden;
+  vertical-align:top;
+  text-overflow: ellipsis;
+  word-break:break-all;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  font-size: 12px;
+  transform: translateY(20%);
 }

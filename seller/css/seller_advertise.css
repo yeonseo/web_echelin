@@ -1,7 +1,7 @@
 .container{
   width: 1000px;
   height: 700px;
-  margin-top: -100px;
+  margin-top: -50px;
   margin-left: -60px;
 }
 
@@ -68,7 +68,7 @@
 .seller_profile_img{
   width: 45px;
   height: 45px;
-  margin-top: 25px;
+
   margin-left: 40px;
   border-radius: 70%;
   float: left;
@@ -82,15 +82,16 @@
 }
 
 .seller_name{
-  width: 200px;
+  width: 300px;
   height: 30px;
   margin-top: 40px;
   margin-left: 100px;
-  transform: translateY(-5%);
+  transform: translateY(40%);
 }
 
 .seller_name span{
   color: #585858;
+  display: inline-block;
 }
 
 .seller_tag{
