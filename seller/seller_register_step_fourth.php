@@ -64,7 +64,7 @@ $lon = $_POST["lon"];
 
       <progress value="80" max="100"></progress>
 
-      <form class="" name="form_seller_register_step_fourth" action="./seller_register_complete.php" method="post">
+      <form class="" name="form_seller_register_step_fourth" method="post">
       <div class="div_outside">
         <span>내 식당 : </span>
         <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp

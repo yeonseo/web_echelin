@@ -78,7 +78,7 @@
 
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_hashtag.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-clipboard-list"></i>
                 </div>

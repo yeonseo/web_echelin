@@ -1,3 +1,4 @@
+<div class="my_info_content">
 <div class="left_menu">
 
     <div class="my_info_profile">
@@ -17,6 +18,12 @@
     </ul>
 </div>
 
+<?php ?>
+
 <div class="right_content">
   내 가게 해쉬태그 설정하기
+
+
+
  </div> <!-- end of right_content -->
+    </div> <!-- end of my_info_content -->
