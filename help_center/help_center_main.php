@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
 
+  <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/help_center/css/help_center_page.css">
   <!-- 공통으로 사용하는 link & script -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 
@@ -29,8 +30,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/help_center_side_left_menu.php"; ?>
       </div>
       <div class="right_content">
-
-        <h2>안녕하세요. 무엇을 도와드릴까요?</h2>
+        <h1>안녕하세요. 무엇을 도와드릴까요?</h1>
         <div class="<?= COMMON::$css_card_menu_row; ?>">
           <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
             <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
@@ -51,14 +51,13 @@
         </div> <!-- end of css_card_menu_row -->
 
 
-        <h2>에슐랭에 처음 오셨나요?</h2>
-        <h3>도움이 될 만한 게시글을 확인해보세요.</h3>
+        <h1>에슐랭에 처음 오셨나요?</h1>
+        <h2>도움이 될 만한 게시글을 확인해보세요.</h2>
 
         <!-- 도움말 json 기사를 css_card_menu_row로 자동 작업 -->
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php";
         helpCenterMainButton();
         ?>
-
       </div><!-- end of right_content -->
   </section>
   <footer>

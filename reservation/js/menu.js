@@ -3,6 +3,9 @@ var menu_file_copied =document.getElementById('menu_file_copied').value;
 var menu_name =document.getElementById('menu_name').value;
 var menu_price =document.getElementById('menu_price').value;
 var menu_explain =document.getElementById('menu_explain').value;
+var date_result =document.getElementById('date_result').value;
+var time_result =document.getElementById('time_result').value;
+var person =document.getElementById('person').value;
 console.log("menu_file_copied = "+menu_file_copied);
 console.log("menu_name = "+menu_name);
 console.log("menu_price = "+menu_price);
@@ -36,6 +39,7 @@ var totalPrice =0;
 var menuProductCountPrice=[];
 var menuProductCount=[];
 //
+//
 menuProductCountSetting();
 showMene();
 //
@@ -58,10 +62,12 @@ function clickMenuContent(e){
     var divSelectContent = document.getElementById('divSelectContent'+index);
     var pAddPrice=document.getElementById('pAddPrice'+index);
     var btnX=document.getElementById('btnX'+index);
-
+    var pAddTitle=document.getElementById('pAddTitle'+index);
+    //
     divSelectContent.removeChild(pAddPrice);
     divSelectContent.removeChild(btnX);
-
+    divSelectContent.removeChild(pAddTitle);
+    //
 
     if(document.getElementById('pAddTitle'+index)){
       divSelectContent.removeChild(document.getElementById('pAddTitle'+index));
@@ -160,11 +166,22 @@ function clickMenuContent(e){
       var divSelectContent = document.createElement('div');
       divSelectContent.setAttribute('id', 'divSelectContent'+index);
       divSelectContent.setAttribute('class', 'div_hashtag_menu');
+
+
+      var pAddTitle = document.createElement('p');
+      pAddTitle.setAttribute('id', 'pAddTitle'+index);
+      pAddTitle.setAttribute('class', 'p_add_price');
+      pAddTitle.innerHTML=menuTitle[index];
+      divSelectContent.appendChild(pAddTitle);
+
+
       var pAddPrice = document.createElement('p');
       pAddPrice.setAttribute('id', 'pAddPrice'+index);
       pAddPrice.setAttribute('class', 'p_add_price');
-      pAddPrice.innerHTML=menuTitle[index]+"&nbsp₩"+menuprice[index]+"&nbsp";
+      pAddPrice.innerHTML="₩"+menuprice[index]+"&nbsp";
       divSelectContent.appendChild(pAddPrice);
+
+
 
       var btnX = document.createElement('button');
       btnX.setAttribute('id', 'btnX'+index);
@@ -244,4 +261,47 @@ function showMene(){
 
         console.log('clickMenuContent');
     }
+}
+
+function getSelectMenu(address,get){
+  var selectMenuTitle="";
+  var selectMenuCount="";
+  var selectCount=document.getElementById('myCartWrap').childElementCount-2;
+  totalPrice = document.getElementById('spanMyCart').textContent.split('장바구니 ₩');
+  totalPrice = Number(totalPrice[1]);
+  var cnt=0;
+  for(let i=0 ; i<menuTotalCount ; i++){
+    if(document.getElementById('divSelectContent'+i)){
+        if(cnt ==0){
+          selectMenuTitle+=document.getElementById('pAddTitle'+i).textContent;
+        }else{
+          selectMenuTitle+=","+document.getElementById('pAddTitle'+i).textContent;
+        }
+
+      if(document.getElementById('pMenuProductCount'+i)){
+        if(cnt ==0){
+          selectMenuCount+=document.getElementById('pMenuProductCount'+i).textContent;
+        }else{
+          selectMenuCount+=","+document.getElementById('pMenuProductCount'+i).textContent;
+        }
+      }else{
+        if(cnt ==0){
+          selectMenuCount+=1;
+        }else{
+          selectMenuCount+=","+1;
+        }
+      }
+      cnt++;
+    }
+  }
+  if(cnt==0){
+    alert("메뉴를 골라주세요");
+  }else{
+    console.log(totalPrice);
+    location.href=address+get+"&selectMenuTitle="+selectMenuTitle+"&selectMenuCount="+selectMenuCount+"&totalPrice="+totalPrice+"&date_result="+date_result+"&time_result="+time_result+"&person="+person;
+  }
+
+}
+function prevPage(address,get){
+  location.href=address+get;
 }

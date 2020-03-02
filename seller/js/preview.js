@@ -1,15 +1,10 @@
 $(document).ready(function() {
-
-
-
     /**
     onchange event handler for the file input field.
     It emplements very basic validation using the file extension.
     If the filename passes validation it will show the image using it's blob URL
     and will hide the input field and show a delete button to allow the user to remove the image
     */
-
-
     $('#store_image1').on('change', function() {
 
         ext = $(this).val().split('.').pop().toLowerCase(); //확장자
@@ -99,3 +94,50 @@ $(document).ready(function() {
 
 
   }); //end of ready
+
+
+  function register_store_pic() {
+    var store_image1 = document.getElementById("store_image1");
+    var store_image2 = document.getElementById("store_image2");
+    var store_image3 = document.getElementById("store_image3");
+    var store_image4 = document.getElementById("store_image4");
+    var store_image5 = document.getElementById("store_image5");
+
+    if(store_image1.value==="") {
+      alert("식당 사진을 업로드해주세요.");
+      store_image1.focus();
+    } else if (store_image2.value==="") {
+      alert("식당 사진을 업로드해주세요.");
+      store_image2.focus();
+    } else if (store_image3.value==="") {
+      alert("식당 사진을 업로드해주세요.");
+      store_image3.focus();
+    } else if (store_image4.value==="") {
+      alert("식당 사진을 업로드해주세요.");
+      store_image4.focus();
+    } else if (store_image5.value==="") {
+      alert("식당 사진을 업로드해주세요.");
+      store_image5.focus();
+    } else {
+      var menu = $("form[name=form_store_pic]").serialize();
+      $.ajax({
+      url : './store_pic_upload.php',
+      type :'POST',
+      data: menu,
+      success : function(data){
+        document.form_store_pic.submit();
+        alert("가게 사진 업로드 페이지로 전송완료");
+      }
+    })
+    .done(function(){
+      console.log("가게 사진 등록");
+    })
+    .fail(function(e){
+      console.log("error");
+    })
+    .always(function(){
+      console.log("complete");
+    });
+    } // end of else
+
+  } // end of register_store_pic();

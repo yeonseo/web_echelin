@@ -34,7 +34,7 @@
     <section>
 
       <!-- 키워드테이블에서가져와서뿌리기 -->
-
+      <!-- 값가져와서 explode(",","자를값") 자르고 배열로만드면됨 -->
 
 
       <div id="keyword_header" style=" display:none; position:relative;">
@@ -44,22 +44,48 @@
           <li id="gps_btn">현재위치에서검색</li>
         </ul>
       </div>
+      <!-- 식당종류 -->
       <div id="food_type_form">
         <ul>
-          <li class="food_type_select" id="korean_res">한식당</li>
-          <li class="food_type_select" id="japaness_res">일식당</li>
-          <li class="food_type_select" id="chiness_res">중식당</li>
-          <li class="food_type_select" id="italy_res">이태리식당</li>
-          <li class="food_type_select" id="meat_res">고깃집</li>
-          <li class="food_type_select" id="fish_res">횟집</li>
-          <li class="food_type_select" id="driver_res">기사식당</li>
-          <li class="food_type_select" id="cafe">카페</li>
-          <li class="food_type_select" id="buffet">뷔페</li>
-          <li class="food_type_select" id="snack_shop">분식집</li>
-          <li class="food_type_select" id="bakery">제과점</li>
-          <li class="food_type_select" id="bar">술집</li>
-          <li id="food_type_select_save">저장</li>
+          <li class="food_type_select" >한식</li>
+          <li class="food_type_select" >까페</li>
+          <li class="food_type_select" >호프</li>
+          <li class="food_type_select" >통닭(치킨)</li>
+          <li class="food_type_select" >일식</li>
+          <li class="food_type_select" >중국식</li>
+          <li class="food_type_select" >분식</li>
+          <li class="food_type_select" >패스트푸드</li>
+          <li class="food_type_select" >경양식</li>
+          <li class="food_type_select" >뷔페</li>
+          <li class="food_type_select" >소주방</li>
+          <li class="food_type_select" >식육(숯불구이)</li>
+          <li class="food_type_select" >회집</li>
+          <li class="food_type_select" >이동조리</li>
+          <li class="food_type_select" >외국음식전문점</li>
+          <li class="food_type_select" >기타</li>
           <li id="food_type_select_delete">지우기</li>
+        </ul>
+      </div>
+      <!-- 키워드 -->
+      <div id="keyword_search_form">
+        <ul>
+          <?php
+            $keywords_type = "tag_class";
+            $sql="select keywords from keyword_list where keywords_type like '%$keywords_type%'";
+            $result = mysqli_query($con,$sql);
+            $row = mysqli_fetch_row($result);
+            $keywods=$row[0];
+            $keywords = explode(",","$keywods");
+            for($i=0;$i<count($keywords);$i++){
+              $value=$keywords[$i];
+           ?>
+              <li class="keywords_select"><?=$value?></li>
+           <?php
+            }
+
+
+            ?>
+            <li id="keywords_select_delete">지우기</li>
         </ul>
       </div>
       <!-- 많이검색된키워드db에서가져와서정렬 -->
@@ -102,6 +128,7 @@
               <?php
                 $sql = "select upso_nm, snt_uptae_nm, tag_class from keyword_restaurant where upso_nm like '%$r_name%'";
                 $result = mysqli_query($con,$sql);
+
                 while($row = mysqli_fetch_array($result)){
                   $upso_nm = $row["upso_nm"];
                   $snt_uptae_nm = $row["snt_uptae_nm"];

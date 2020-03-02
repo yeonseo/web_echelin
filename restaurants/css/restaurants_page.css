@@ -46,11 +46,15 @@
 }
 
 .restaurants_upper_btn_box button{
-    width: 100px;
-    height: 36px;
+    width: 120px;
+    height: 40px;
     margin-right: 20px;
     font-size: 1rem;
-    border-radius: 5px;
+    background-color: GOLD;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .restaurants_bottom_btn_box {
@@ -95,6 +99,8 @@
     margin-right: 20px;
     font-size: 1rem;
     border-radius: 5px;
+    background-color: GOLD;
+    font-weight: bold;
 }
 
 ul.restaurant_keyword_list, ul.restaurant_facilities_list {
@@ -153,7 +159,7 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
     width: 410px;
     height: auto;
     background-color: #fff;
-    border: 5px solid #3571B5;
+    border: 1px solid GOLD;
     z-index: 10;
   }
   
@@ -192,7 +198,47 @@ ul.restaurant_keyword_list, ul.restaurant_facilities_list {
     line-height: 25px;
   }
   
-  .btn_layerClose:hover {
+.btn_layerClose:hover {
     background-color:GOLD;
     color: #000;
-  }
+}
+
+.dim_layer li button {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+    outline: none;
+}
+
+.dim_layer li button i {
+    color: lightgray;
+}
+
+.dim_layer li button input {
+    width: 80%;
+    margin-left: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+    outline: none;
+}
+
+.dim_layer .btn_r button, .article_content_sub_title a {
+    width: 30%;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    background-color: GOLD;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    border: 0px solid gray;
+}
+
+.article_content_sub_title a:link, .article_content_sub_title a:visited, .article_content_sub_title a:hover {
+    text-decoration: none;
+    color: black;
+}

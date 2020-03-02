@@ -70,18 +70,28 @@ echo $lon;
             <!-- <form class="" name="" action="" method="post"> -->
               <div class="div_except_button">
                 <ul>
-                  <li>식당소개글</li>
+                  <li>소개글</li>
                   <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"></textarea>
                   </br></br></br>
 
 
-                  <li>식당 종류은 어떻게 되나요?</li>
+                  <li>가게 종류는 어떻게 되나요?</li>
                   <input type="radio" name="store_type" value="한식" checked onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">한식</span>
                   <input type="radio" name="store_type" value="중식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">중식</span>
                   <input type="radio" name="store_type" value="양식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">양식</span>
+                  <input type="radio" name="store_type" value="일식" onclick="this.form.type_of_etc.disabled=true">
+                  <span class="span_content_font">일식</span>
+                  <input type="radio" name="store_type" value="아시아음식" onclick="this.form.type_of_etc.disabled=true">
+                  <span class="span_content_font">아시아음식</span>
+                  <input type="radio" name="store_type" value="분식" onclick="this.form.type_of_etc.disabled=true">
+                  <span class="span_content_font">분식</span></br>
+                  <input type="radio" name="store_type" value="카페" onclick="this.form.type_of_etc.disabled=true">
+                  <span class="span_content_font">카페</span>
+                  <input type="radio" name="store_type" value="뷔페" onclick="this.form.type_of_etc.disabled=true">
+                  <span class="span_content_font">뷔페</span>
                   <input type="radio" name="store_type" value="기타" onclick="this.form.type_of_etc.disabled=false">
                   <span class="span_content_font">기타</span>
                   <input id="input_store_type_etc" class="input_etc" type="text" name="type_of_etc" value="" disabled>

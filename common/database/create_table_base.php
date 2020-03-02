@@ -192,6 +192,37 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
+            case 'bookmark':
+                $sql = "CREATE TABLE `bookmark` (
+                    `bookmark_num` int unsigned NOT NULL AUTO_INCREMENT,
+                    `user_id` varchar(20) NOT NULL,
+                    `bookmark_subject` varchar(200) NOT NULL,
+                    `group_num` int unsigned NOT NULL,
+                    `seller_num` text NOT NULL,
+                    `regist_day` varchar(20) NOT NULL,
+                    `file_name` varchar(45) DEFAULT NULL,
+                    `file_copied` varchar(45) DEFAULT NULL,
+                    `file_type` varchar(45) DEFAULT NULL,
+                    PRIMARY KEY (`bookmark_num`)
+                    ) DEFAULT CHARSET=utf8;
+                  ";
+                break;
+            case 'reservation':
+                            $sql = "CREATE TABLE `reservation` (
+                              `reservation_num` int unsigned NOT NULL AUTO_INCREMENT,
+                              `store_name` varchar(45) NOT NULL,
+                              `user_id` varchar(20) NOT NULL,
+                              `seller_id` varchar(20) NOT NULL,
+                              `select_date` char(15) NOT NULL,
+                              `select_time` char(8) NOT NULL,
+                              `select_person` char(5) NOT NULL,
+                              `select_menu` text NOT NULL,
+                              `reservation_special` text DEFAULT NULL,
+                              `reservation_status` int unsigned NOT NULL,
+                              PRIMARY KEY (`reservation_num`)
+                            ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                          ";
+                            break;
         } //end of switch
 
 
@@ -282,13 +313,15 @@ function insert_table($con, $table_name)
 
         case 'seller':
             $sql = "INSERT INTO `seller` (`seller_num`, `user_id`, `business_license`, `store_name`, `store_type`, `store_address`, `store_postcode`, `store_lat`, `store_lon`, `convenient_facilities`, `introduction`, `break_start`, `break_end`, `nokids`, `opening_day`, `opening_hours_start`, `opening_hours_end`, `store_tel`, `special_note`, `max_reserv_time_num_of_people`, `max_reserv_month`, `intensity_of_reserv`) VALUES
-              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15 : 00', '17 : 00', false, '2008-12-31', '09 : 00', '22 : 00', '010-2828-8705', null, 5, '3개월', '상');
+              (null, 'infor15', '6618700621', '지수네', '한식', '경기 고양시 일산서구 후곡로 55,(일산동, 후곡마을2단지아파트)', '10372','37.68226978304604', '126.76502696497245', '식당 내부 화장실,아기 의자', '엄마가 해준 밥이 먹고 싶다면 여기로 오세염', '15 : 00', '17 : 00', false, '2008-12-31', '09 : 00', '22 : 00', '010-2828-8705', null, 5, '3개월', '상');
           ";
             break;
 
         case 'keyword_list':
             $sql = "INSERT INTO `keyword_list` (`keywords_type`, `keywords`) VALUES
-                  ('food_class', '한식,양식,아시아음식,일식,중식,분식,카페,뷔페,기타'),
+                  ('food_class', '한식,까페,호프,통닭(치킨),일식,중국식,분식
+                  ,패스트푸드,경양식,뷔페,정종/대포집/소주방,식육(숯불구이),
+                  회집,이동조리,외국음식전문점,기타'),
                   ('tag_class', '조용한,편안한,시끌벅적한,푸짐한,캐쥬얼한,아이와함께,모임하기좋은,특별한날,코스요리,프로포즈,데이트,백종원의3대천왕,생활의달인,수요미식회,혼밥');
               ";
             break;
@@ -310,6 +343,27 @@ function insert_table($con, $table_name)
                     (null, 'infor15', 1, '지수네', '내사랑닭갈비', 12000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_5727.jpg', '진짜 존맛탱'),
                     (null, 'infor15', 1, '지수네', '얼큰우동', 8000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_28_9603.jpg', '해장에 따악'),
                     (null, 'infor15', 1, '지수네', '곱창', 18000, '치즈떡볶이', 'image/jpeg', '2020_02_28_11_24_29_9893.jpg', '떡이랑 함께 드세염');
+                ";
+            break;
+        case 'bookmark':
+            $sql = "INSERT INTO `bookmark` (`bookmark_num`, `user_id`, `bookmark_subject`, `group_num`, `seller_num`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+            (1, 'aaaaaa', '즐겨찾기 테스트', 1, 1,'2020-02-10 (20:55)','','',''),
+            (2, 'aaaaaa', '즐겨찾기 테스트', 1, 2,'2020-02-10 (20:55)','','',''),
+            (3, 'aaaaaa', '즐겨찾기 테스트', 1, 3,'2020-02-10 (20:55)','','',''),
+            (4, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','',''),
+            (5, 'aaaaaa', '즐겨찾기 테스트3', 3, 1,'2020-02-10 (20:55)','','',''),
+            (6, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','','');
+                ";
+            break;
+
+        case 'reservation':
+            $sql = "INSERT INTO `reservation` (`reservation_num`, `store_name`, `user_id`, `seller_id`, `select_date`, `select_time`, `select_person`, `select_menu`, `reservation_special`, `reservation_status`) VALUES
+                    (null, '지수네', 'jisu', '1', '2020년  3월 16일', '14 : 00', '1,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '채식주의자 입니다', '0'),
+                    (null, '동운이네', 'dongwoon', '1', '2020년  3월 17일', '14 : 00', '3,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '032네', '032', '1', '2020년  3월 18일', '14 : 00', '4,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '무권이네', 'mooguan', '1', '2020년  3월 19일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '연서네', 'ys', '1', '2020년  3월 20일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '성민이네', 'sm', '1', '2020년  3월 21일', '14 : 00', '5,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0');
                 ";
             break;
     } //end of switch

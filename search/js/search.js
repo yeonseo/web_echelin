@@ -7,9 +7,16 @@ $(document).ready(function(){
   var $food_type_form=$("#food_type_form");
   var f_count=0;
   var $food_type_select=$(".food_type_select");
-  var selected_res=false;
   var select_restaurant="";
   var select_restaurant_name="";
+  var $food_type_select_delete=$("#food_type_select_delete");
+  //키워드버튼변수
+  var $keyword_search_btn=$("#keyword_search_btn");
+  var $keyword_search_form=$("#keyword_search_form");
+  var k_count=0;
+  var $keywords_select=$(".keywords_select");
+  var $keywords_select_delete=$("#keywords_select_delete");
+
   // 필터버튼클릭시
   $keyword_btn.click(function(){
     if(count==0){
@@ -32,17 +39,36 @@ $(document).ready(function(){
   });
   //식당선텍시
   $food_type_select.click(function(){
-    if(selected_res==false){
-      $(this).css("color","red");
-      selected_res=true;
-      //검색하는순간넘겨줄식당종류변수
-      select_restaurant=$(this).attr('id');
-      select_restaurant_name=$(this).text();
-      $food_type_btn.text(select_restaurant_name);
+    $food_type_select.css("color","black");
+    $(this).css("color","red");
+     $food_type_btn.text($(this).text());
+  });
+  //식당지우기
+  $food_type_select_delete.click(function(){
+    $food_type_select.css("color","black");
+    $food_type_btn.text("식당종류");
+  });
+  //******************************************************
+  //#키워드로검색 버튼클릭시
+  $keyword_search_btn.click(function(){
+    if(k_count==0){
+      $keyword_search_form.css("display","block");
+      k_count++;
     }else{
-
+      $keyword_search_form.css("display","none");
+      k_count=0;
     }
   });
-
+  //키워드들클릭시
+  $keywords_select.click(function(){
+    $keywords_select.css("color","black");
+    $(this).css("color","red");
+    $keyword_search_btn.text($(this).text());
+  });
+  //키워드지우기
+  $keywords_select_delete.click(function(){
+    $keywords_select.css("color","black");
+    $keyword_search_btn.text("#키워드로검색");
+  });
 
 });//ready
