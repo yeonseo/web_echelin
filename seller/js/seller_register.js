@@ -141,25 +141,26 @@ function stepCheck() {
     alert("사업자번호를 입력해주세요.");
     input_business_license.forcus();
     return false;
-  } else {
-    $.ajax({
-      url : './seller_register_step_second.php',
-      type :'POST',
-      data: step1_form,
-      success : function(data){
-        alert("등록2단계로 전송완료");
-        document.form_seller_register_step_first.submit();
-      }
-    })
-    .done(function(){
-      console.log("판매자 등록 1단계");
-    })
-    .fail(function(e){
-      console.log("error");
-    })
-    .always(function(){
-      console.log("complete");
-    });
+  }
+  else {
+    document.form_seller_register_step_first.submit();
+    // $.ajax({
+    //   url : './seller_register_step_second.php',
+    //   type :'POST',
+    //   data: step1_form,
+    //   success : function(data){
+    //     alert("등록2단계로 전송완료");
+    //   }
+    // })
+    // .done(function(){
+    //   console.log("판매자 등록 1단계");
+    // })
+    // .fail(function(e){
+    //   console.log("error");
+    // })
+    // .always(function(){
+    //   console.log("complete");
+    // });
   }
 }
 
@@ -176,25 +177,24 @@ function stepCheck2() {
     button_find_postcode.focus();
     return false;
   } else {
-    $.ajax({
-      url : './seller_register_step_third.php',
-      type :'POST',
-      data: step2_form,
-      success : function(data){
-        // document.form_first_show.submit();
-        document.form_seller_register_step_second.submit();
-        alert("등록3단계로 전송완료");
-      }
-    })
-    .done(function(){
-      console.log("판매자 등록 2단계");
-    })
-    .fail(function(e){
-      console.log("error");
-    })
-    .always(function(){
-      console.log("complete");
-    });
+    document.form_seller_register_step_second.submit();
+    // $.ajax({
+    //   url : './seller_register_step_third.php',
+    //   type :'POST',
+    //   data: step2_form,
+    //   success : function(data){
+    //     alert("등록3단계로 전송완료");
+    //   }
+    // })
+    // .done(function(){
+    //   console.log("판매자 등록 2단계");
+    // })
+    // .fail(function(e){
+    //   console.log("error");
+    // })
+    // .always(function(){
+    //   console.log("complete");
+    // });
   }
 }
 
@@ -287,27 +287,27 @@ function stepCheck3() {
     alert("개업일을 입력해주세요.");
     input_opening_day.focus();
   } else {
-    var step3_form = $("form[name=form_seller_register_step_third]").serialize();
-
-      $.ajax({
-        url : './seller_register_step_fourth.php',
-        type :'POST',
-        data: step3_form,
-        success : function(data){
-          // document.form_first_show.submit();
-          document.form_seller_register_step_third.submit();
-          alert("등록4단계로 전송완료");
-        }
-      })
-      .done(function(){
-        console.log("판매자 등록 3단계");
-      })
-      .fail(function(e){
-        console.log("error");
-      })
-      .always(function(){
-        console.log("complete");
-      });
+    document.form_seller_register_step_third.submit();
+    // var step3_form = $("form[name=form_seller_register_step_third]").serialize();
+    //
+    //   $.ajax({
+    //     url : './seller_register_step_fourth.php',
+    //     type :'POST',
+    //     data: step3_form,
+    //     success : function(data){
+    //       // document.form_first_show.submit();
+    //       alert("등록4단계로 전송완료");
+    //     }
+    //   })
+    //   .done(function(){
+    //     console.log("판매자 등록 3단계");
+    //   })
+    //   .fail(function(e){
+    //     console.log("error");
+    //   })
+    //   .always(function(){
+    //     console.log("complete");
+    //   });
 
   }
 
@@ -345,28 +345,27 @@ function stepCheck4() {
   } else if(check_max_intensity<1) {
     alert("예약 규정 강도에 체크해주세요.")
   } else {
-    var step4_form = $("form[name=form_seller_register_step_fourth]").serialize();
-
-      $.ajax({
-        url : './seller_register_complete.php',
-        type :'POST',
-        data: step4_form,
-        success : function(data){
-          // document.form_first_show.submit();
-          document.form_seller_register_step_fourth.submit();
-          alert("완료단계로 전송완료");
-        }
-      })
-      .done(function(){
-        console.log("판매자 등록 4단계");
-      })
-      .fail(function(e){
-        console.log("error");
-      })
-      .always(function(){
-        console.log("complete");
-      });
-
+    document.form_seller_register_step_fourth.submit();
+    // var step4_form = $("form[name=form_seller_register_step_fourth]").serialize();
+    //
+    //   $.ajax({
+    //     url : './seller_register_complete.php',
+    //     type :'POST',
+    //     data: step4_form,
+    //     success : function(data){
+    //       // document.form_first_show.submit();
+    //       alert("완료단계로 전송완료");
+    //     }
+    //   })
+    //   .done(function(){
+    //     console.log("판매자 등록 4단계");
+    //   })
+    //   .fail(function(e){
+    //     console.log("error");
+    //   })
+    //   .always(function(){
+    //     console.log("complete");
+    //   });
   }
 
 }

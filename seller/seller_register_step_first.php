@@ -1,4 +1,6 @@
-
+<?php
+echo $useremail;
+ ?>
       <div class="div_step">
         <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="" onclick="location.href='../'">
         <span class="span_step_info">1단계 : 기본 사항을 입력해주세요.</span>
