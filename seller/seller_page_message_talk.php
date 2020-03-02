@@ -28,11 +28,11 @@
         <div class="my_info_content">
             <div class="left_menu">
                 <!-- 사이드 메뉴 -->
-                <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_side_left_menu.php"; ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
             </div>
             <div class="right_content">
                 <?php
-                function createMessageTalk($con, $user_id,  $dbname, $message_group_num)
+                function createMessageTalk($con, $user_id, $dbname, $message_group_num)
                 {
                     $sql = "select * from message where group_num=" . $message_group_num . " order by message_num desc";
                     $result = $con->query($sql);
@@ -92,7 +92,7 @@
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
                         } else {
                             echo "<button class='card_message_receive' class=" . COMMON::$css_card_menu_btn . ">";
-                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Client <i class='fas fa-quote-right'></i></div>";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
                         }
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">$content</div></br>";
@@ -111,13 +111,14 @@
                 } else {
                     echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
                 }
-                $user_id = 'aaaaaa';
+
+                $user_id = 'aaaaaa1';
                 $message_group_num = $_GET['message'];
-                createMessageTalk($con, $user_id, $dbname, $message_group_num);
+                createMessageTalk($con, $user_id,  $dbname, $message_group_num);
 
                 ?>
 
-                <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_mypage_message_talk.js"></script>
+                <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/seller_page_message_talk.js"></script>
 
             </div><!-- end of right_content -->
     </section>

@@ -13,7 +13,7 @@ $('#message_send_btn').click(function () {
         // alert("값 가져옴!!!" + clickBtnValue + " " + message_group_num + " " + message_content + " ");
         $.ajax({
             type: "POST",
-            url: './user_mypage_manage_db.php',
+            url: '../user/user_mypage_manage_db.php',
             data: {
                 'action': clickBtnValue,
                 'message_group_num': message_group_num,

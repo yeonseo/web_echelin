@@ -11,8 +11,10 @@ if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'insert_message':
             $message_group_num = $_POST['message_group_num'];
+            $send_id = $_POST['send_id'];
+            $rv_id = $_POST['rv_id'];
             $content = $_POST['message_content'];
-            insert_message($con, $message_group_num, $content);
+            insert_message($con, $message_group_num, $send_id, $rv_id, $content);
             break;
         case 'select':
             select();
@@ -35,7 +37,7 @@ if (isset($_POST['action'])) {
     echo "alert(action action wrong!);";
 }
 
-function insert_message($con, $message_group_num, $content)
+function insert_message($con, $message_group_num, $send_id, $rv_id, $content)
 {
     //디비에 메세지 저장하기
     $message_group_num = $message_group_num;
@@ -43,7 +45,7 @@ function insert_message($con, $message_group_num, $content)
     $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
 
     $sql = "INSERT INTO `message` (`send_id`, `rv_id`, `group_num`, `group_order`, `subject`, `content`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
-            ('aaaaaa', 'aaaaaa1', $message_group_num, 0, '', '$content', '$regist_day', '', '', '')
+            ('$send_id', '$rv_id' , '$message_group_num', 0, '', '$content', '$regist_day', '', '', '')
         ";
     $result = $con->query($sql);
     if ($result === FALSE) {
@@ -69,16 +71,9 @@ function insert_message($con, $message_group_num, $content)
 
     echo "<div class=" . COMMON::$css_card_menu_row . ">";
 
-    //나중에 유저 세션 들고와서 할 거임
-    if ($send_id === "aaaaaa") {
-        echo "<button class='card_message_send' class=" . COMMON::$css_card_menu_btn . ">";
-        echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
-        echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
-    } else {
-        echo "<button class='card_message_receive' class=" . COMMON::$css_card_menu_btn . ">";
-        echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>";
-        echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
-    }
+    echo "<button class='card_message_send' class=" . COMMON::$css_card_menu_btn . ">";
+    echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
+    echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
     echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">$content</div></br>";
     echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">2020년 2월 2일</div>";
     echo "</button> <!-- end of message -->";
