@@ -5,8 +5,8 @@
 
 <!-- 순서대로쭉쭉 -->
 <ul>
-    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php">셀러 정보변경(업뎃예정)</a> </li>
-    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php">ex가게 등록/변경하기(참고용)</a> </li>
+    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_mypage_info_update.php">내 정보변경</a> </li>
+    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php">가게 등록하기</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/??.php">매출보기</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php">예약관리페이지</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/seller_page_message.php">메세지</a> </li>
