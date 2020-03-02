@@ -29,12 +29,12 @@
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">가게 등록</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게를 등록해보아요.</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->
@@ -42,20 +42,20 @@
 
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_seller_menu.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-utensils"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">메뉴</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게 메뉴를 등록해보아요</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_seller_store_pic.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">가게 사진</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게 사진을 등록해보아요.</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->
@@ -63,12 +63,12 @@
 
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_seller_hashtag.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-clipboard-list"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">해쉬태그 설정하기</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게를 표현해주세요.</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
