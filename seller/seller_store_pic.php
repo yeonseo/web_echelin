@@ -20,52 +20,53 @@
 
 </div> <!-- end of left_menu -->
 
-<form class="" name="form_store_pic" action="index.html" method="post">
+<form class="" name="form_store_pic" action="./store_pic_upload.php" method="post" enctype="multipart/form-data">
   <div class="right_content">
     <li>가게 외/내부 사진</li>
        <div class="store_pic">
          <div class="store_inner_pic1">
            <label for="store_image1">업로드</label>
-           <input type="file" name="file1" id="store_image1" />
+           <input type="file" name="file[]" id="store_image1" multiple>
 
            <div class="image_preview1">
-               <img class="store_img" src="./image/cheese.png" />
+               <img class="store_img" src="./image/cheese.png">
            </div>
          </div>
 
          <div class="store_inner_pic">
          <label for="store_image2">업로드</label>
-           <input type="file" name="file2" id="store_image2" />
+           <input type="file" name="file[]" id="store_image2" multiple>
+
 
            <div class="image_preview2">
-               <img class="store_img" src="./image/cheese.png" />
+               <img class="store_img" src="./image/cheese.png">
            </div>
          </div>
 
          <div class="store_inner_pic">
            <label for="store_image3">업로드</label>
-           <input type="file" name="file3" id="store_image3" />
+           <input type="file" name="file[]" id="store_image3" multiple>
 
            <div class="image_preview3">
-               <img class="store_img" src="./image/cheese.png" />
+               <img class="store_img" src="./image/cheese.png">
            </div>
          </div>
 
          <div class="store_inner_pic">
            <label for="store_image4">업로드</label>
-           <input type="file" name="file4" id="store_image4" />
+           <input type="file" name="file[]" id="store_image4" multiple>
 
            <div class="image_preview4">
-             <img class="store_img" src="./image/cheese.png" />
+             <img class="store_img" src="./image/cheese.png">
            </div>
          </div>
 
          <div class="store_inner_pic">
              <label for="store_image5">업로드</label>
-           <input type="file" name="file5" id="store_image5" />
+           <input type="file" name="file[]" id="store_image5" multiple>
 
            <div class="image_preview5">
-               <img class="store_img" src="./image/cheese.png" />
+               <img class="store_img" src="./image/cheese.png">
            </div>
          </div>
        </div>

@@ -5,13 +5,19 @@ $con = mysqli_connect("localhost","root","123456","echelin");
 
 $seller_num="6";
 
-for($i=1; $i<6; $i++) {
+// $file_n	 = $_FILES["file"]["name"];
+print_r($_FILES);
+// var_dump($file_n);
+
+
+for($i=0; $i<5; $i++) {
 $random=mt_rand(1,9999);
-$file_name	 = $_FILES["file".$i]["name"];
-$file_type	 = $_FILES["file".$i]["type"];
-$file_tmp_name	 = $_FILES["file".$i]["tmp_name"];
-$file_error    = $_FILES["file".$i]["error"];
-$file_size	 = $_FILES["file".$i]["size"];
+$file_name	 = $_FILES["file"]["name"][$i];
+$file_type	 = $_FILES["file"]["type"][$i];
+$file_tmp_name	 = $_FILES["file"]["tmp_name"][$i];
+$file_error    = $_FILES["file"]["error"][$i];
+$file_size	 = $_FILES["file"]["size"][$i];
+
 
 // print_r($_FILES);
 
@@ -57,11 +63,12 @@ else
 }
 
 
-$sql = "insert into store_img (seller_num, store_name, store_file_name, store_file_type, store_file_copied) ";
-$sql .= "values('$seller_num', select store_name from seller where seller_num = $seller_num, '$file_name', '$file_type', '$copied_file_name')";
+$sql = "insert into store_img (num, seller_num, store_name, store_file_name, store_file_type, store_file_copied) ";
+$sql .= "values(null, '$seller_num', (select store_name from seller where seller_num = '$seller_num'), '$file_name', '$file_type', '$copied_file_name')";
 
 mysqli_query($con, $sql);
-var_dump($con);
+var_dump($file_name);
 }
+
 mysqli_close($con);
 ?>
