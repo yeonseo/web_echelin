@@ -113,7 +113,7 @@
     echo "<div class='restaurants_upper_btn_box'>";
     echo "<input id='restaurant_seller_id' type='text' value='$seller_num' hidden>";
     echo "<button type='button' id='restaurant_bookmark_btn' class='button_next' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; List </button>";
-    echo "<button type='button' id='restaurant_share_btn' class='button_next' value='restaurant_share'><i class='fas fa-share-alt'></i> &nbsp; Share </button>";
+    echo "<button type='button' id='kakao-link-btn' class='button_next' value='restaurant_share' href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share </button>";
     echo "</div> <!-- end of restaurants_upper_btn_box -->";
 
     // echo "<div class='restaurants_bottom_btn_box'>";
@@ -262,6 +262,49 @@
 
             <script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/js/restaurants_bookmark.js"></script>
 
+            <!-- 공유하기를 위한 자바스크립트 추가 시작 -->
+            <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+            <script type="text/javascript">
+                //<![CDATA[
+                // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                Kakao.init('3e786f8df14fcfc89d159421a6a7c9b6');
+                // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+                Kakao.Link.createDefaultButton({
+                    container: '#kakao-link-btn',
+                    objectType: 'feed',
+                    content: {
+                        title: "지수네",
+                        description: "엄마가 해준 밥이 먹고 싶다면 여기로 오세염",
+                        imageUrl: 'https://lh3.googleusercontent.com/proxy/ZL6IbPsJ1bP5FHc3fk_ZN9V-XNUFoPOnajGpso_jHq-lKlHIXJk42CF5j8xfHzBnT7_ejQJAd_O1C3PSxP5Z12StImRx1y8Fmp6-_eHXYTTY-acX',
+                        link: {
+                            mobileWebUrl: 'https://developers.kakao.com',
+                            webUrl: 'https://developers.kakao.com'
+                        }
+                    },
+                    social: {
+                        likeCount: 286,
+                        commentCount: 45,
+                        sharedCount: 845
+                    },
+                    buttons: [{
+                            title: '웹으로 보기',
+                            link: {
+                                mobileWebUrl: 'https://developers.kakao.com',
+                                webUrl: 'https://developers.kakao.com'
+                            }
+                        },
+                        {
+                            title: '앱으로 보기',
+                            link: {
+                                mobileWebUrl: 'https://developers.kakao.com',
+                                webUrl: 'https://developers.kakao.com'
+                            }
+                        }
+                    ]
+                });
+                //]]>
+            </script>
+            <!-- 공유하기를 위한 자바스크립트 추가 끝 -->
         </div><!-- end of restaurants_center_content -->
 
     </div><!-- end of restaurants_main_content_box -->
