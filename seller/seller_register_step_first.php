@@ -10,7 +10,7 @@
       </div>
         <div class="div_register_shape">
           <div class="div_register_inner_shape">
-            <span class="span_user_name">김지수</span>
+            <span class="span_user_name"><?=$username?></span>
             <span class="span_hello">님 안녕하세요!</span>
             <span class="span_register_info">가게 등록을 시작해볼까요?</span>
             <div class="div_form">

@@ -114,7 +114,7 @@ mysqli_close($con);
 
       <div class="div_register_shape">
         <div class="div_register_inner_shape">
-          <span class="span_user_name">김지수</span>
+          <span class="span_user_name"><?=$username?></span>
           <span>님</span> </br>
           <span class="span_register_info">가게 등록에 성공하셨습니다!</span>
 

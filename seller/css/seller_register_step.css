@@ -351,8 +351,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 /* 식당 사진 */
-.right_content_store {
-  width: 50px;
+
+.store_pic{
+  /* width: 60%; */
 }
 
 .store_img {

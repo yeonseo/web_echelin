@@ -20,15 +20,22 @@
     </div>
     <div class="right_content">
 
+      <?php
+      $con = mysqli_connect("localhost", "root", "123456", "echelin");
+      $sql = "select count(seller_num) from seller where user_id = '$useremail';";
+      $result = mysqli_query($con, $sql);
+      $row = mysqli_fetch_array($result);
+      $count = $row[0];
+       ?>
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerInfoChk(<?=$count?>)">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">셀러 정보변경(업뎃예정)</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">내 가게 정보 수정</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">등록했던 내 가게 정보를 다시 수정할 수 있어요.</div>
             </button>
 
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php'">
@@ -36,7 +43,7 @@
                     <i class="fas fa-clipboard-list"></i>
                 </div>
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">가게 등록하기</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">돈을벌자 돈을벌자 뜐뜐! 이르케 경로를 넣어여~ 참고하세여~</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게를 등록해보아요.</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->

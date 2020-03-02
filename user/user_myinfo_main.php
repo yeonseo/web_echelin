@@ -20,8 +20,8 @@
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-clipboard-list"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">예약내역 확인</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">돈을벌자 돈을벌자 뜐뜐!</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">가게 등록</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게를 등록해보아요.</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->
