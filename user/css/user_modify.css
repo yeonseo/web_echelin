@@ -7,12 +7,29 @@
     border: 1px solid  lightgray;
     margin-left: 15%;
 }
+.my_about{
+    position: relative;
+    width: 114%;
+    height: 89px;
+    display: inline-block;
+    font-size: 14.5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    right: 45px;
+}
+.legend_about{
+    position: relative;
+    display: inline-block;
+    color: black;
+    right: 15px;
+}
+
 
 .user_photo{
     position: relative;
     display: inline-block;
     width: 50%;
-    margin-left: 80px;
+    margin-left: 20px;
     top: 45px;
 }
 
@@ -27,11 +44,13 @@
     margin-bottom: 5px;
 }
 .photo_update{
+    position: relative;
+    left: 10px;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
     font-size: 13.5px ;
     font-weight: 600 ;
     line-height: 2.5em;
-    color:orangered;
+    color:black;
     text-decoration: none;
 }
 .modify_user{
@@ -49,16 +68,16 @@
     font-size: 18px;
     font-weight: bold;
     top: 55px;
+    left: 25px;
     text-align: center;
     margin: 20px;
-    right: 67px;
-    padding-bottom: 5px;
 }
 .text_number{
     position: relative;
     right: 15px;
     color: gold;
     border-bottom: 1px solid lightgray;
+    text-align: center;
 }
 .modify_form_2{
     position: relative;
@@ -67,7 +86,7 @@
 .data_number{
     position: relative;
     padding: 2px;
-    right: 11px;
+    left: 22px;
 }
 .about_me{
     position: relative;
@@ -91,6 +110,28 @@
     text-align: center;
   
 }
+.about_button{
+    position: absolute;
+    width: 15%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    height: 30px;
+    background: white;
+    background-color: white;
+    color: orangered;
+    font-size: 18px;
+    font-weight: 800;
+    top: 104px;
+    left: 423px;
+}
+.about_font{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 15px;
+    color: black;
+    background: white;
+    background-color: white;
+}
 .legend_text{
     position: relative;
     display: inline-block;
@@ -112,7 +153,7 @@
     color: black;
     background: white;
     border: 1px solid white;
-    font-size: 16px;
+    font-size: 17px;
    
 
 }
@@ -172,7 +213,7 @@
     color: black;
     background: white;
     border: 1px solid white;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     float: right;
     bottom: 27px;
@@ -211,10 +252,51 @@
     color: black;
     background: white;
     border: 1px solid white;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     float: right;
     bottom: 27px;
 }
+
+
+.view_phone{
+    width: 40%;
+    height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    text-align: center;
+}
+.hide_save_button_phone{
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    height: 40px;
+    background: white;
+    background-color: white;
+    color: orangered;
+    font-size: 18px;
+    font-weight: 800;
+}
+.input_save_phone_form{
+    position: relative;
+    display: none;
+    width: 100%;
+    left: 15px;
+    bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+.update_button_3{
+    position: relative;
+    background-color: white;
+    color: black;
+    background: white;
+    border: 1px solid white;
+    font-size: 17px;
+    font-weight: bold;
+    float: right;
+    bottom: 27px;
+}
+
 
 

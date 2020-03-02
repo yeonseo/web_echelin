@@ -2,10 +2,9 @@
 if (!isset($_SESSION["userid"])) session_start();
 
 // 일반인, 회원가입자, 관리자 구분
-if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
-else $userid = "";
 
-if (isset($_SESSION["user_email"])) $useremail = $_SESSION["user_email"];
+
+if (isset($_SESSION["user_Email"])) $useremail = $_SESSION["user_Email"];
 else $useremail = "";
 
 if (isset($_SESSION["user_level"])) $userlevel = $_SESSION["user_level"];
@@ -14,8 +13,6 @@ else $userlevel = "";
 if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
 else $username = "";
 
-if (isset($_SESSION["userpoint"])) $userpoint = $_SESSION["userpoint"];
-else $userpoint = "";
 
 ?>
 
@@ -37,15 +34,10 @@ else $userpoint = "";
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_join_main.php">회원가입</a></li>
       <?
       }else{
-        $log = $useremail."(".$username."님] [Level:".$userlevel."Point:".$userpoint."]";
+        $log = $useremail."(".$username."님] [Level:".$userlevel."]";
       ?>
       <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php"><?=$log?></a></li>
-
       <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>
-
-
-
-
       <?
         }
       ?>

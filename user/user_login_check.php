@@ -49,7 +49,7 @@ else{
     }
     echo("
               <script>
-              location.href = 'user_myinfo_index.php';
+              location.href = '/echelin/index.php';
               </script>
             ");
 }

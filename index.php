@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    
 
 <head>
     <meta charset="utf-8">
@@ -22,6 +23,7 @@
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php"; ?>
     <header>
+        
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/header.php"; ?>
     </header>
     <section>

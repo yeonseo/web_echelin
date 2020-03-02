@@ -44,7 +44,7 @@ else $userpoint = "";
       <?
       }else{
 
-        $log = $useremail."(".$username."님] [Level:".$userlevel."Point:".$userpoint."]";
+        $log = $useremail."(".$username."님] [Level:".$userlevel."]";
       ?>
       <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php"><?=$log?></a></li>
 
