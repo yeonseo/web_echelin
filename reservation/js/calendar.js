@@ -249,7 +249,7 @@ function nextPage(address,get){
   var year_result=currentTitle.textContent.substr(-4,4);
   var mounth_result=currentTitle.textContent.substr(-10,2);
   var day_result=clickedDate1.id;
-
+  var date_result=year_result+"년 "+mounth_result+"월 "+day_result+"일"
   if(clickedTime===undefined){
     alert("시간을 선택해주세요");
   }else{
@@ -263,18 +263,41 @@ function nextPage(address,get){
       var adult_result = pAdultCount.textContent;
       var child_result = pChildrenCount.textContent;
       var baby_result = pBabyCount.textContent;
-
+      var person = adult_result+","+child_result+","+baby_result;
       console.log("adult_result = "+adult_result);
       console.log("child_result = "+child_result);
       console.log("baby_result = "+baby_result);
-      location.href=address+get+"&year_result="+year_result+"&mounth_result="+mounth_result+"&day_result="+day_result+"&time_result="+time_result+"&adult_result="+adult_result+"&child_result="+child_result+"&baby_result="+baby_result;
+      location.href=address+get+"&date_result="
+      +date_result+"&time_result="+time_result+"&person="+person;
     }
   }
 
 
 }
 function testbtn(){
+  var year_result=currentTitle.textContent.substr(-4,4);
+  var mounth_result=currentTitle.textContent.substr(-10,2);
+  var day_result=clickedDate1.id;
+  if(clickedTime===undefined){
+    alert("시간을 선택해주세요");
+  }else{
+    console.log("clickedTime = "+clickedTime.textContent);
+    var time_result=clickedTime.textContent;
+    var date_result=year_result+"년 "+mounth_result+"월 "+day_result+"일"
 
+    if(pAdultCount.textContent==0){
+      alert("인원을 선택해주세요");
+
+    }else{
+      var adult_result = pAdultCount.textContent;
+      var child_result = pChildrenCount.textContent;
+      var baby_result = pBabyCount.textContent;
+      var person = adult_result+","+child_result+","+baby_result;
+      console.log("date_result = "+date_result);
+      console.log("person = "+person);
+
+    }
+  }
 }
 
 

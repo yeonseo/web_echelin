@@ -1,39 +1,35 @@
+
+<?php
+  $seller_num=get('seller_num');
+
+  $selectMenuTitle=get('selectMenuTitle');
+  $select_menu_title =explode(',' , $selectMenuTitle);
+  $cnt = count($select_menu_title);
+  $selectMenuCount=get('selectMenuCount');
+  $select_menu_count =explode(',' , $selectMenuCount);
+
+  $total_price=get('totalPrice');
+
+
+  function get($name){
+    if (isset($_GET[$name])) {
+        $get_result= $_GET[$name];
+    } else {
+        $get_result= '엥';
+    }
+    echo "get_result = ($get_result);";
+    return $get_result;
+  }
+
+
+ ?>
 <div class="restaurants_content">
-
-
-
-
 
     <div class="restaurants_main_content_box">
 
 
         <div class="restaurants_center_content">
           <?php
-
-            $seller_num=get('seller_num');
-            echo "seller_num = ($seller_num);";
-            $seller_num = 1;
-
-
-           ?>
-            <div class="restaurants_main_content_right_btn_box">
-                <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?=$seller_num?>'"><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
-            </div>
-
-            <?php
-            function get($name){
-              if (isset($_GET[$name])) {
-                  $get_result= $_GET[$name];
-              } else {
-                  $get_result= '엥';
-              }
-              return $get_result;
-            }
-            function getJsonDataMakeArticle($con, $dbname, $seller_num)
-            {
-
-                //restaurants 테이블에서 값들고옴
-                $seller_num = 1;
 
                 $sql = "select * from " . $dbname . ".seller where seller_num=" . $seller_num;
                 $result = $con->query($sql);
@@ -67,8 +63,8 @@
                 echo "<h1>" . $upso_nm . "</h1>";
 
                 echo "<ul class=restaurant_keyword_list>";
-                for ($i = 0; $i < count($upso_facilities); $i++) {
-                    echo  "<li><i class=\"fas fa-hashtag\"></i>" . $upso_keyword . "</<i></li>";
+                for ($i = 0; $i < 4; $i++) {
+                    echo  "<li><i>" . $upso_keyword . "</<i></li>";
                 } //end of for
                 echo "</ul>";
                 echo "</div>";
@@ -77,7 +73,12 @@
                 echo "<p>" . $upso_description . "</p>";
                 echo "<a href=\"#\">식당에 문의하기</a>";
                 echo "</div>";
+                for($i = 0 ; $i < $cnt ; $i++){
 
+                  echo($select_menu_title[$i] . "<br/>");
+                  echo($select_menu_count[$i] . "<br/>");
+
+                }
                 echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">";
                 echo "<h3>편의시설</h3>";
                 echo "<ul class=restaurant_facilities_list>";
@@ -91,9 +92,6 @@
                 echo "</i> ";
                 echo "</div>";
                 echo "</div> <!-- end of css_article_content_box -->";
-            }
-
-            getJsonDataMakeArticle($con, $dbname, $seller_num);
             ?>
 
         </div><!-- end of restaurants_center_content -->

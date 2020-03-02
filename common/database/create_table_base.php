@@ -207,6 +207,22 @@ function create_table($con, $dbname, $table_name)
                     ) DEFAULT CHARSET=utf8;
                   ";
                 break;
+            case 'reservation':
+                            $sql = "CREATE TABLE `reservation` (
+                              `reservation_num` int unsigned NOT NULL AUTO_INCREMENT,
+                              `store_name` varchar(45) NOT NULL,
+                              `user_id` varchar(20) NOT NULL,
+                              `seller_id` varchar(20) NOT NULL,
+                              `select_date` char(15) NOT NULL,
+                              `select_time` char(8) NOT NULL,
+                              `select_person` char(5) NOT NULL,
+                              `select_menu` text NOT NULL,
+                              `reservation_special` text DEFAULT NULL,
+                              `reservation_status` int unsigned NOT NULL,
+                              PRIMARY KEY (`reservation_num`)
+                            ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                          ";
+                            break;
         } //end of switch
 
 
@@ -337,6 +353,17 @@ function insert_table($con, $table_name)
             (4, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','',''),
             (5, 'aaaaaa', '즐겨찾기 테스트3', 3, 1,'2020-02-10 (20:55)','','',''),
             (6, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','','');
+                ";
+            break;
+
+        case 'reservation':
+            $sql = "INSERT INTO `reservation` (`reservation_num`, `store_name`, `user_id`, `seller_id`, `select_date`, `select_time`, `select_person`, `select_menu`, `reservation_special`, `reservation_status`) VALUES
+                    (null, '지수네', 'jisu', '1', '2020년  3월 16일', '14 : 00', '1,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '채식주의자 입니다', '0'),
+                    (null, '동운이네', 'dongwoon', '1', '2020년  3월 17일', '14 : 00', '3,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '032네', '032', '1', '2020년  3월 18일', '14 : 00', '4,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '무권이네', 'mooguan', '1', '2020년  3월 19일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '연서네', 'ys', '1', '2020년  3월 20일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '성민이네', 'sm', '1', '2020년  3월 21일', '14 : 00', '5,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0');
                 ";
             break;
     } //end of switch
