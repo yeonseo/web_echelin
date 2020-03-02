@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
         <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_modify.css">
         <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_modify.js"></script>
+        <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_mypage_photo.js"></script>
+        
         <!-- 공통으로 사용하는 link & script -->
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 
@@ -72,7 +74,6 @@
                     $userphone=$user_all_info["user_phone"];
                     $userabout=$user_all_info["user_aboutme"];
                     $userage=$user_all_info["user_age"];
-
                     mysqli_close($con);
                     
                 ?>
@@ -87,7 +88,7 @@
                                 <div style="margin-top:5px;">
                                     <img class="user_photo" src="http://localhost/echelin/user/image/user.PNG" width="" alt="">
                                     <div class="modify_user">
-                                        <a class="photo_update" href="#">사진 업데이트 하기</a>
+                                        <a class="photo_update" href="#" onclick="openpop()">사진 업데이트 하기</a>
                                     </div>
                                 </div>
                                 <div class="user_in">
