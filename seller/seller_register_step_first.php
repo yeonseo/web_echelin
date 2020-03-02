@@ -25,8 +25,9 @@ echo $useremail;
 
                     <li>사업자번호를 입력해주세요</li>
                       <input id="input_business_license" class="input_info" type="number" name="input_business_license" value="">
-                      <button id="button_register" class="button_find_add_comp" type="button" name="button" onclick="businessLicense()">등록</button>
+                      <button id="button_register" class="button_find_add_comp" type="button" name="button" onclick="businessLicense(); state(); sliceBusinessNumber(this);">등록</button>
                       <!-- <input type="button" name="" value="등록" onclick="businessLicense()"> -->
+                      <div id="business_chk" class="div_state"></div>
                       <div id="div_state" class="div_state"></div>
                   </ul>
                 </div> <!-- div_except_button -->

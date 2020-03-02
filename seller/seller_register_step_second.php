@@ -15,7 +15,6 @@ echo $input_business_license;
     <title></title>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="./js/find_postcode.js"></script>
-    <script src="./js/map.js"></script>
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="./js/seller_register.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
@@ -111,7 +110,7 @@ echo $input_business_license;
               <!-- <form class="forms" id="form_seller_register_step_second" name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post"> -->
                 <div class="div_except_button">
                   <ul>
-                    <li>식당 주소를 입력해주세요</li>
+                    <li>가게 주소를 입력해주세요</li>
                   </ul>
                   <input class="input_info" id="input_postcode" name="input_postcode" type="text" placeholder=" 우편번호">
                   <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>

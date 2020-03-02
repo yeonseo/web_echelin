@@ -75,10 +75,36 @@ $input_business_license.keyup(function(){
 
 
 //사업자 등록번호 등록
-function businessLicense() {
+function state() {
   var input_business_license = document.getElementById("input_business_license").value;
   var business_number = $("input[name=input_business_license]").serialize();
   var div_state=document.getElementById("div_state");
+  if(input_business_license ==="") {
+    alert("사업자번호를 먼저 입력한 후 진행해주세요.");
+  } else {
+    $.ajax({
+      type: 'POST',
+      // url: 'seller_business_license.php',
+      url: 'business_license.php',
+      data : business_number,
+      success: function (response) {
+        // alert(response);
+        switch(response) {
+          case 'normal' : div_state.innerHTML="현재상태 : 사업중"; break;
+          case 'down' : div_state.innerHTML="현재상태 : 휴업"; break;
+          case 'close' : div_state.innerHTML="현재상태 : 폐업"; break;
+          case 'unregistered' : div_state.innerHTML="현재상태 : 미등록"; break;
+          default : div_state.innerHTML="현재상태 : 알 수 없음"+response; break;
+        }
+      },
+    });
+  }
+}
+
+function businessLicense() {
+  var input_business_license = document.getElementById("input_business_license").value;
+  var business_number = $("input[name=input_business_license]").serialize();
+  var business_chk=document.getElementById("business_chk");
   if(input_business_license ==="") {
     // input_business_license.innerHTML="번호를 입력해주세요.";
     alert("사업자번호를 먼저 입력한 후 진행해주세요.");
@@ -89,9 +115,9 @@ function businessLicense() {
       data: business_number, //key값과 value값
       success : function(data){
         if(data==="1") {
-          div_state.innerHTML="중복된 사업자번호입니다.";
+          business_chk.innerHTML="중복된 사업자번호입니다.";
         } else if (data==="0") {
-           div_state.innerHTML="등록가능한 사업자번호입니다.";
+          business_chk.innerHTML="등록가능한 사업자번호입니다.";
         } else {
            alert(data+"error입니다.");
         }
@@ -106,25 +132,12 @@ function businessLicense() {
     .always(function(){
       console.log("complete");
     });
+  }
+}
 
-
-    // 판매자페이지에서 자신의 사업장 상태를 확인 할 수 있는 필드를 만들 떄 사용!
-    // $.ajax({
-    //   type: 'POST',
-    //   // url: 'seller_business_license.php',
-    //   url: 'seller_business_license.php',
-    //   data : business_number,
-    //   success: function (response) {
-    //     // alert(response);
-    //     switch(response) {
-    //       case 'normal' : div_state.innerHTML="현재상태 : 사업중"; break;
-    //       case 'down' : div_state.innerHTML="현재상태 : 휴업"; break;
-    //       case 'close' : div_state.innerHTML="현재상태 : 폐업"; break;
-    //       case 'unregistered' : div_state.innerHTML="현재상태 : 미등록"; break;
-    //       default : div_state.innerHTML="현재상태 : 알 수 없음"+response; break;
-    //     }
-    //   },
-    // });
+function sliceBusinessNumber(obj) {
+    if(obj.value.length >10) {
+    obj.value=obj.value.slice(0, 10);
   }
 }
 
@@ -144,23 +157,6 @@ function stepCheck() {
   }
   else {
     document.form_seller_register_step_first.submit();
-    // $.ajax({
-    //   url : './seller_register_step_second.php',
-    //   type :'POST',
-    //   data: step1_form,
-    //   success : function(data){
-    //     alert("등록2단계로 전송완료");
-    //   }
-    // })
-    // .done(function(){
-    //   console.log("판매자 등록 1단계");
-    // })
-    // .fail(function(e){
-    //   console.log("error");
-    // })
-    // .always(function(){
-    //   console.log("complete");
-    // });
   }
 }
 
