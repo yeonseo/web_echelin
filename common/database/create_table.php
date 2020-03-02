@@ -13,3 +13,5 @@ create_table($con, $dbname, 'store_img');
 create_table($con, $dbname, 'menu_img');
 create_table($con, $dbname, 'bookmark');
 create_table($con, $dbname, 'reservation');
+create_table($con, $dbname, 'review');
+create_table($con, $dbname, 'advertise');
