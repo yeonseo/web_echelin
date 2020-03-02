@@ -138,8 +138,8 @@
     createBookmarkGroupList($con, $dbname, $user_email);
     echo "</ul>";
     echo "<div class='btn_r'>
-        <button type='button' class='button_next' id='restaurant_bookmark_update' value='update_bookmark' ><i class='fas fa-heart'></i> &nbsp; Save </button>
-        <button type='button' class='button_next' id='button_popup_close' value='restaurant_bookmark'><i class='fas fa-heart'></i> &nbsp; Close </button>
+        <button type='button' class='button_next' id='restaurant_bookmark_update' value='update_bookmark' > Save </button>
+        <button type='button' class='button_next' id='button_popup_close' value='restaurant_bookmark'> Close </button>
         </div>";
     echo "</form>";
 
@@ -155,7 +155,39 @@
         <div class="restaurants_center_content">
 
             <div class="restaurants_main_content_right_btn_box">
+
+                <?php
+                $user_email = 'aaaaaa';
+                $seller_num = 'aaaaaa1';
+                //대화한 이력이 있는지 조회
+                $sql = "select * from message where `send_id`='" . $user_email . "' and `rv_id`='" . $seller_num . "'";
+                $result = $con->query($sql);
+                if ($result === FALSE) {
+                    die('DB message check Connect Error: ' . mysqli_error($con));
+                }
+
+                //쪽지 리스트 갯수
+                $total_rows_message_group = mysqli_num_rows($result);
+                if ($total_rows_message_group > 0) {
+                    $result_message = mysqli_fetch_array($result);
+                    $message_group_num = $result_message['group_num'];
+                } else {
+                    //메세지 그룹 계산하기 위한 것
+                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num` order by group_num desc";
+                    $result = $con->query($sql);
+                    if ($result === FALSE) {
+                        die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
+                    }
+
+                    //쪽지 리스트 갯수
+                    $total_rows_message_group = mysqli_num_rows($result);
+                    $message_group_num = $total_rows_message_group + 1;
+                }
+
+                // echo "<a href='/echelin/user/user_mypage_message_talk.php?message=" . $message_group_num . "'\">식당에 문의하기</a>";
+                ?>
                 <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?= $seller_num ?>'"><i class="fas fa-utensils"></i> &nbsp; 예약하러 가기 </button>
+                <button onclick="location.href='../user/user_mypage_message_talk.php?message=<?= $message_group_num ?>'"><i class="fas fa-comments"></i> &nbsp; 문의하러 가기 </button>
             </div>
 
             <?php
@@ -166,7 +198,8 @@
                 //restaurants 테이블에서 값들고옴
                 $seller_num = 1;
 
-                $sql = "select * from " . $dbname . ".seller where seller_num=" . $seller_num;
+
+                $sql = "select * from " . $dbname . ".seller where `seller_num`=" . $seller_num;
                 $result = $con->query($sql);
                 if ($result === FALSE) {
                     die('DB seller Connect Error: ' . mysqli_error($con));
@@ -206,7 +239,7 @@
 
                 echo "<div class=" . COMMON::$css_article_content_sub_title . ">";
                 echo "<p>" . $upso_description . "</p>";
-                echo "<a href=\"#\">식당에 문의하기</a>";
+
                 echo "</div>";
 
                 echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">";
