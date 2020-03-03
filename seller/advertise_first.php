@@ -26,7 +26,7 @@
 
         <div class="left_menu">
 
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_side_left_menu.php"; ?>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
         </div>
 
         <div class="right_content">
@@ -79,7 +79,7 @@ if($row['success'] == 0){
     $store_address = $row['store_address'];
     $introduction = $row['introduction'];
 
-    $sql2 = "select * from store_img where seller_num='$seller_num'";
+    $sql2 = "select * from store_img where seller_num='$seller_num' limit 1";
 
     $result2 = mysqli_query($con, $sql2);
 

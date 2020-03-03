@@ -112,8 +112,8 @@ ul.tabs li {
 
 .yes_top span{
   position: absolute;
+  top: 10px;
   left: 60px;
-  top: 13px;
 }
 
 .yes_top a{

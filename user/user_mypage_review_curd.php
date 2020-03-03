@@ -8,12 +8,6 @@
 
   $con = mysqli_connect("localhost", "root", "123456", "echelin");
 
-  echo "
-    <script>
-        alert('$curd');
-    </script>
-  ";
-
   function review_insert($con, $content, $num, $curd, $store_name){
     $noshow = 1;
 
@@ -67,6 +61,7 @@
       review_insert($con, $content, $num, $curd, $store_name);
       echo "
          <script>
+          alert('후기를 등록하셨습니다.');
           location.href = './user_mypage_review.php';
          </script>
       ";
@@ -77,6 +72,7 @@
       review_update($con, $content , $num, $curd);
       echo "
         <script>
+        alert('후기를 수정하셨습니다.');
             location.href = './user_mypage_review.php';
         </script>
       ";

@@ -84,5 +84,4 @@
             </button>
 
         </div> <!-- end of css_card_menu_row -->
-
     </div><!-- end of right_content -->
