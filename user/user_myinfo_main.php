@@ -18,6 +18,7 @@
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-clipboard-list"></i>
                 </div>
+
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">예약내역 보기</div>
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">예약내역에 대한 변동사항을 확인 할 수 있어요</div>
             </button>
