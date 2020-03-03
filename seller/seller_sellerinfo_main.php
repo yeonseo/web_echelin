@@ -32,23 +32,8 @@
 
         </div> <!-- end of css_card_menu_row -->
 
-<<<<<<< HEAD
-        <?php
-        // $con = mysqli_connect("localhost", "root", "123456", "echelin");
-        $sql = "select count(user_id) from menu_img where user_id = '$useremail';";
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($result);
-        $count_menu = $row[0];
-        mysqli_close($con);
-        ?>
-
-        <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?= $count_menu ?>)">
-=======
-
         <div class="<?= COMMON::$css_card_menu_row; ?>">
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?=$count?>)">
->>>>>>> j222su
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-utensils"></i>
                 </div>
