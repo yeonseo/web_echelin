@@ -140,3 +140,8 @@ footer {
 .footer_container li {
     margin: 10px 0;
 }
+
+.footer_container li a:link, .footer_container li a:visited, .footer_container li a:hover {
+    text-decoration: none;
+    color: black;
+}
