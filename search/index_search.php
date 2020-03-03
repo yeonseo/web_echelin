@@ -1,12 +1,5 @@
 <?php
-  
-  $r_name=$_POST["r_name"];
-  $uptae=$_POST["uptae"];
-  $keywords=$_POST["keywords"];
-  $keyword_count=$_POST["keyword_count"];
-  echo "<script>alert('$uptae,$keywords')</script>";
   $con = mysqli_connect("localhost", "root", "123456", "echelin");
-
 ?>
  <!DOCTYPE html>
 <html>
@@ -22,16 +15,17 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services,clusterer,drawing"></script>
+
     <script src="./js/search.js"></script>
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
     </script>
-    <script src="">
 
-    </script>
 </head>
 
 <body>
+
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
@@ -123,10 +117,16 @@
           </a>
 
       </div>
-
+      <?php
+        if(empty($_POST["r_name"])) $r_name=""; else $r_name=$_POST["r_name"];
+        if(empty($_POST["uptae"])) $uptae=""; else $uptae=$_POST["uptae"];
+        if(empty($_POST["keywords"])) $keywords=""; else $keywords=$_POST["keywords"];
+        if(empty($_POST["gps_ad"])) $gps_ad=""; else $gps_ad=$_POST["gps_ad"];
+        
+      ?>
       <div class="search_all">
 
-          <span class="search_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$r_name?>" 에 대한 모든 검색결과 입니다. 무한 스크롤</span>
+          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$r_name?>" 에 대한 모든 검색결과 입니다.</span>
 
           <div class="search_member">
               <?php
