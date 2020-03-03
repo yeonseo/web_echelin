@@ -221,7 +221,8 @@ function create_table($con, $dbname, $table_name)
                               `select_person` char(5) NOT NULL,
                               `select_menu` text NOT NULL,
                               `reservation_special` text DEFAULT NULL,
-                              `reservation_status` int unsigned NOT NULL,
+                              `intensity_of_reserv` char(2) NOT NULL,
+                              `noshow` boolean DEFAULT NULL,
                               PRIMARY KEY (`reservation_num`)
                             ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                           ";
@@ -410,12 +411,12 @@ function insert_table($con, $table_name)
             break;
 
         case 'reservation':
-            $sql = "INSERT INTO `reservation` (`reservation_num`,`seller_num`, `store_name`, `introduction`,`user_id`, `seller_id`, `select_date`, `select_time`, `select_person`, `select_menu`, `reservation_special`, `reservation_status`) VALUES
-                    (null,1, '지수네', '정발산 최고의 맛집', 'k@naver.com', '1', '2020년  3월 16일', '14 : 00', '1,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '채식주의자 입니다', '0'),
-                    (null,2, '동운이네', '은평구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 17일', '14 : 00', '3,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
-                    (null,3, '032네', '송파구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 18일', '14 : 00', '4,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
-                    (null,4, '무권이네', '마포구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 19일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
-                    (null,5, '연서네', '구로구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 20일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0');
+            $sql = "INSERT INTO `reservation` (`reservation_num`,`seller_num`, `store_name`, `introduction`,`user_id`, `seller_id`, `select_date`, `select_time`, `select_person`, `select_menu`, `reservation_special`, `intensity_of_reserv`, `noshow`) VALUES
+                    (null,1, '지수네', '정발산 최고의 맛집', 'k@naver.com', '1', '2020년  3월 16일', '14 : 00', '1,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '채식주의자 입니다', '상', null),
+                    (null,2, '동운이네', '은평구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 17일', '14 : 00', '3,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', null, '중', null),
+                    (null,3, '032네', '송파구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 18일', '14 : 00', '4,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', null, '하', null),
+                    (null,4, '무권이네', '마포구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 19일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', null, '상', null),
+                    (null,5, '연서네', '구로구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 20일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', null, '상', null);
                 ";
             break;
 

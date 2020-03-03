@@ -248,15 +248,14 @@
 </div><!-- end of restaurants_content -->
 <?php
 
-// function reservationInsert($con, $dbname)
-// {
-//
-//     $sql = "insert into menu_img (user_id, seller_num, store_name, menu_name, menu_price, menu_file_name, menu_file_type, menu_file_copied, menu_explain) ";
-//     $sql .= "values('$user_id', '$seller_num', (select store_name from seller where seller_num='$seller_num'),'$menu_name', '$menu_price', '$menu_file_name', '$menu_file_type', '$copied_file_name', '$menu_explain')";
-//
-//     mysqli_query($con, $sql);
-//     var_dump($con);
-//
-// }
-// setMenuImg($con, $dbname, $seller_num);
+function reservationInsert($con, $dbname ,$seller_num ,$store_name ,$introduction ,$user_id ,$seller_id ,$select_date ,$select_time ,$select_person ,$select_menu ,$reservation_special ,$reservation_status)
+{
+
+    $sql = "insert into `reservation` (`reservation_num`,`seller_num`, `store_name`, `introduction`,`user_id`, `seller_id`, `select_date`, `select_time`, `select_person`, `select_menu`, `reservation_special`, `reservation_status`) ";
+    $sql .= "values(null,1, '지수네', '정발산 최고의 맛집', 'k@naver.com', '1', '2020년  3월 16일', '14 : 00', '1,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '채식주의자 입니다', '0')";
+
+    mysqli_query($con, $sql);
+    var_dump($con);
+
+}
 ?>
