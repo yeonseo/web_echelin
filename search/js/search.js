@@ -21,7 +21,11 @@ $(document).ready(function(){
   var $search_uptae=$("#search_uptae");
   var $search_keywords=$("#search_keywords");
   var $search=$("#search");
-
+  var $keyword_count=$("#keyword_count");
+  //현재위치변수
+  var $gps_btn=$("#gps_btn");
+  var latitude=0;
+  var longitude=0;
   // 필터버튼클릭시
   $keyword_btn.click(function(){
     if(count==0){
@@ -70,7 +74,6 @@ $(document).ready(function(){
       if(k_limit_count<1){
         $keyword_search_btn.text("");
       }
-      $keywords_select.css("color","black");
       $(this).css("color","red");
       $keyword_search_btn.append($(this).text());
       k_limit_count++;
@@ -86,19 +89,36 @@ $(document).ready(function(){
   });
   //검색할때 hidden 해놓은 인풋타입에값넣기
   $search.click(function(){
-
+    //식당종류넘기기
     if($food_type_btn.text() == "식당종류"){
       $search_uptae.val("");
     }else{
       $search_uptae.val($food_type_btn.text());
     }
-
+    //선택된키워드넘기기
     if($keyword_search_btn.text() =="#키워드로검색"){
       $search_keywords.val("");
     }else{
       $search_keywords.val($keyword_search_btn.text());
     }
+    //몇개선택햇는지넘기기
+    $keyword_count.val(k_limit_count);
+    //현재위도경도를 주소로바꾸고 넘기기
 
-  });
+  });//검색클릭이벤트
+
+  $gps_btn.click(function(){
+    // Geolocation API에 액세스할 수 있는지를 확인
+        if (navigator.geolocation) {
+            //위치 정보를 얻기
+            navigator.geolocation.getCurrentPosition (function(pos) {
+                latitude=pos.coords.latitude;     // 위도
+                longitude=pos.coords.longitude; // 경도
+                
+            });
+        } else {
+            alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+        }
+  });//현재위치버튼
 
 });//ready

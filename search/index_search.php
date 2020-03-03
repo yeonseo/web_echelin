@@ -1,7 +1,9 @@
 <?php
+  
   $r_name=$_POST["r_name"];
   $uptae=$_POST["uptae"];
   $keywords=$_POST["keywords"];
+  $keyword_count=$_POST["keyword_count"];
   echo "<script>alert('$uptae,$keywords')</script>";
   $con = mysqli_connect("localhost", "root", "123456", "echelin");
 
