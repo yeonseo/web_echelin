@@ -209,7 +209,7 @@ function create_table($con, $dbname, $table_name)
                   ";
                 break;
             case 'reservation':
-                            $sql = "CREATE TABLE `reservation` (
+                $sql = "CREATE TABLE `reservation` (
                               `reservation_num` int unsigned NOT NULL AUTO_INCREMENT,
                               `store_name` varchar(45) NOT NULL,
                               `introduction` text DEFAULT NULL,
@@ -224,10 +224,10 @@ function create_table($con, $dbname, $table_name)
                               PRIMARY KEY (`reservation_num`)
                             ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                           ";
-                            break;
+                break;
                 // 리뷰 테이블
-              case 'review':
-              $sql = "CREATE TABLE `review` (
+            case 'review':
+                $sql = "CREATE TABLE `review` (
                   `num` int unsigned NOT NULL AUTO_INCREMENT,
                   `seller_num` int NOT NULL,
                   `user_Email` varchar(100) DEFAULT NULL,
@@ -248,8 +248,8 @@ function create_table($con, $dbname, $table_name)
                 ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                 ";
                 break;
-                  // 광고 테이블
-                case 'advertise':
+                // 광고 테이블
+            case 'advertise':
                 $sql = "CREATE TABLE `advertise`(
                 	`num` int unsigned NOT NULL AUTO_INCREMENT,
                 	`seller_num` int unsigned NOT NULL,

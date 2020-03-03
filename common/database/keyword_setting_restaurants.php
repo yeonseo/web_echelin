@@ -9,7 +9,8 @@ function keyword_setting($con, $dbname)
         $sql = "CREATE TABLE `seller_keyword` (
             `num` int unsigned NOT NULL AUTO_INCREMENT,
             `seller_num` varchar(100) NOT NULL,
-            `upso_nm` varchar(100) NOT NULL,
+            `seller_name` varchar(100) NOT NULL,
+            `seller_address` varchar(300) NOT NULL,
             `snt_uptae_nm` varchar(100) NOT NULL,
             `tag_class` varchar(100) NOT NULL,
             PRIMARY KEY (`num`)
