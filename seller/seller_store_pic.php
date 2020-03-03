@@ -1,25 +1,31 @@
-<div class="my_info_content">
-  <div class="left_menu">
-      <div class="my_info_profile">
-          <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/my_info/index_my_info.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu1.jpg"></a>
-      </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
+    <title> <?= COMMON::$title; ?> </title>
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_mypage_reserv.css">
+    <!-- <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_mypage_reserv.css"> -->
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
+    <!-- 공통으로 사용하는 link & script -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
+  </head>
+  <body>
+    <header>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
 
-      <!-- 순서대로쭉쭉 -->
-      <ul>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex유저정보관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex업주정보관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex문의게시판관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김성민</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김지수</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">하동운</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">유영삼</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/test_page/index_my_info.php">테스트 페이지</a></li>
-      </ul>
-  </div> <!-- end of left_menu -->
+    <div class="my_info_content">
+      <div class="left_menu">
+          <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
+      </div> <!-- end of left_menu -->
 
   <form class="" name="form_store_pic" action="./store_pic_upload.php" method="post" enctype="multipart/form-data">
     <div class="right_content">
-      <li>가게 외/내부 사진</li>
+      가게 외/내부 사진
          <div class="store_pic">
            <div class="store_inner_pic1">
              <label for="store_image1">업로드</label>
@@ -74,3 +80,9 @@
     </div> <!-- end of right_content -->
   </form>
 </div> <!-- end of my_info_content -->
+<footer>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
+</footer>
+
+</body>
+</html>

@@ -26,7 +26,7 @@
      <div class="container">
 
        <div class="my_comment_title">
-         <span class="comment_title_sub">상점 관리 &nbsp&nbsp > &nbsp&nbsp 내 가게 수정하기</span><br><br>
+         <span class="comment_title_sub">상점 관리 &nbsp&nbsp > &nbsp&nbsp 내 가게 정보 수정하기</span><br><br>
          <span class="comment_title_main">내 가게</span>
        </div>
 
