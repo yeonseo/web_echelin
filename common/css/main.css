@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+/*
+ * Slideshow
+ */
+
+.slideshow{
+  height: 405px;
+  width: 1120px;
+  margin: 30px auto 0 auto;
+  overflow: hidden;
+  position: relative;
+  background-color: #EBEBEB;
+  border-radius: 20px;
+}
+
+.slideshow_slides{
+  width: 1120px;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+}
+
+
+.slideshow_slides .center_summary{
+  width: 1120px;
+  height: 100%;
+  position: absolute;
+  top: -50px;
+}
+
+
+.center_summary p{
+  width: 237px;
+  height: 257px;
+  float: left;
+  border-radius: 5px;
+  background-color: gray;
+  margin-top: 105px;
+}
+
+.center_summary a{
+  color: black;
+}
+
+.center_summary .summary_first{
+  margin-left: 14px;
+  position: relative;
+  left: 50px;
+}
+
+.center_summary img{
+  width: 237px;
+  height: 150px;
+}
+
+.summary_span_first{
+  display: block;
+  width: 230px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+
+.summary_span_second{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  margin-top:1px;
+  max-height:80px;
+  overflow:hidden;
+  vertical-align:top;
+  text-overflow: ellipsis;
+  word-break:break-all;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  position: absolute;
+  left: 5px;
+  top: 190px;
+}
+
+
+.slideshow_nav a{
+  position: absolute;
+  width: 71px;
+  height: 71px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  text-indent: -99999em;
+}
+.slideshow_nav a.prev{
+  background: url(../image/sprites.png) no-repeat 0 -20px;
+  margin-left: -470px;
+}
+
+.slideshow_nav a.next{
+  background: url(../image/sprites.png) no-repeat -81px -20px;
+  margin-left: 395px;
+}
+
+.slideshow_nav a.disabled{
+  display: none;
+}
+
+.slideshow_indicator{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  text-align: center;
+}
+
+/* 하얀색 이미지 */
+.slideshow_indicator a{
+  width: 9px;
+  height: 9px;
+  background: url(../image/sprites.png) no-repeat -114px -4px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+/* 검은색 이미지 */
+.slideshow_indicator a.active{
+  background: url(../image/sprites.png) no-repeat -134px -4px;
+}

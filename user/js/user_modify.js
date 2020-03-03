@@ -1,3 +1,4 @@
+// 
 // 프로필 화면 보여지기 처리
 $(function(){
     $(".button_background").click(function(){
@@ -14,7 +15,7 @@ $(function(){
     });
 })
 
-
+// 비밀번호 보여지기 처리
 $(function(){
     $(".update_button_2").click(function(){
         $('.view_pass').show();
@@ -23,6 +24,21 @@ $(function(){
 
     });
 })
+
+$(function(){
+    $(".update_button_3").click(function(){
+        $('.view_phone').show();
+        $('.hide_save_button_phone').show();
+        $('.input_save_phone_form').show();
+
+    });
+})
+
+
+
+
+
+
 
 // $(function(){
 //     $(".update_button").click(function(){

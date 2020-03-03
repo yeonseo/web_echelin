@@ -1,5 +1,6 @@
 
 <?php
+echo $useremail;
 
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
@@ -64,7 +65,7 @@ $lon = $_POST["lon"];
 
       <progress value="80" max="100"></progress>
 
-      <form class="" name="form_seller_register_step_fourth" action="./seller_register_complete.php" method="post">
+      <form class="" name="form_seller_register_step_fourth" action="./seller_register_complete.php?id=<?=$useremail?>" method="post">
       <div class="div_outside">
         <span>내 식당 : </span>
         <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
@@ -93,17 +94,7 @@ $lon = $_POST["lon"];
         <span>노키즈존 여부 : </span>
         <input class="input_info_dis" type="text" name="nokids" value="<?php echo $nokids?>">
         <span>식당 편의시설 : </span>
-        <input class="input_info_dis" type="text" name="input_checkbox"
-        value="
-          <?
-          for($i=0; $i<count($_POST["chkbox"]); $i++) {
-          $set = $_POST["chkbox"];
-          echo $set[$i];
-          if($set[$i]=="") {
-            echo $input_checkbox_etc_text.",";
-          }
-          // substr($set, 0, -1);
-        }?>">
+        <input class="input_info_dis" type="text" name="input_checkbox"value="<?for($i=0; $i<count($_POST["chkbox"]); $i++) {$set = $_POST["chkbox"];echo $set[$i];if($set[$i]=="") {echo $input_checkbox_etc_text.",";}}?>">
         <span>식당 전화번호 : </span>
         <input class="input_info_dis" type="text" name="input_phone" value="<? echo $phone1."-".$phone2."-".$phone3?>">
         <span>개업일 : </span>
@@ -140,9 +131,9 @@ $lon = $_POST["lon"];
                   <input type="radio" name="reserve_intensity" value="하">
                   <span class="span_content_font">하</span></br>
                   <div class="div_strength">
-                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 사용자가 방문하기 1주전에 취소시 전액 환불 가능합니다.</span></br>
-                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp중 : 사용자가 방문하기 4일전에 취소 시 50% 환불 가능합니다.</span></br>
-                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp하 : 사용자가 방문하기 4일전에 취소 시 50% 환불 가능합니다.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp상 : 예약 당일 취소 시 환불 불가능.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp중 : 예약 당일 취소 시 결제금액의 50% 환불가능.</span></br>
+                    <span class="span_strength">&nbsp&nbsp&nbsp&nbsp하 : 예약 당일 취소 시 결제금액의 전액 환불가능.</span></br>
                   </div>
                   </br></br></br></br>
 

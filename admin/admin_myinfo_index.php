@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/echelin_logo_example.png" type="image/png" />
+
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
   <title> <?= COMMON::$title; ?> </title>
 

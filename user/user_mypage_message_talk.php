@@ -32,7 +32,7 @@
             </div>
             <div class="right_content">
                 <?php
-                function createMessageTalk($con, $dbname, $message_group_num)
+                function createMessageTalk($con, $user_id,  $dbname, $message_group_num)
                 {
                     $sql = "select * from message where group_num=" . $message_group_num . " order by message_num desc";
                     $result = $con->query($sql);
@@ -62,6 +62,8 @@
 
                     echo "<form id='message_talk_send' name='message_talk_send' method='POST' >";
                     echo "<input id='message_group_num' type='text' value='$message_group_num' hidden>";
+                    echo "<input id='send_id' type='text' value='$rv_id' hidden>";
+                    echo "<input id='rv_id' type='text' value='$send_id' hidden>";
                     echo "<textarea id='message_content' name='message_content' type='text'></textarea>";
                     echo "<button type='button' id='message_send_btn' class='button_next' value='insert_message'><i class='fas fa-utensils'></i></button>";
                     echo "</form>";
@@ -84,7 +86,7 @@
                         echo "<div class=" . COMMON::$css_card_menu_row . ">";
 
                         //나중에 유저 세션 들고와서 할 거임
-                        if ($send_id === "aaaaaa") {
+                        if ($send_id === $user_id) {
                             echo "<button class='card_message_send' class=" . COMMON::$css_card_menu_btn . ">";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
@@ -109,9 +111,9 @@
                 } else {
                     echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
                 }
-
+                $user_id = 'aaaaaa';
                 $message_group_num = $_GET['message'];
-                createMessageTalk($con, $dbname, $message_group_num);
+                createMessageTalk($con, $user_id, $dbname, $message_group_num);
 
                 ?>
 

@@ -165,13 +165,14 @@ function create_table($con, $dbname, $table_name)
                 // 식당 외/내부 사진 테이블
             case 'store_img':
                 $sql = "CREATE TABLE `store_img` (
-                      `num` int unsigned NOT NULL AUTO_INCREMENT,
-                         `seller_num` int unsigned NOT NULL,
-                         `store_name` varchar(45) NOT NULL,
-                         `store_file_name` varchar(45) NOT NULL,
-                         `store_file_type` varchar(45) NOT NULL,
-                         `store_file_copied` varchar(45) NOT NULL,
-                          PRIMARY KEY (`num`)
+                        `num` int unsigned NOT NULL AUTO_INCREMENT,
+                        `user_id` varchar(20) NOT NULL,
+                        `seller_num` int unsigned NOT NULL,
+                        `store_name` varchar(45) NOT NULL,
+                        `store_file_name` varchar(45) NOT NULL,
+                        `store_file_type` varchar(45) NOT NULL,
+                        `store_file_copied` varchar(45) NOT NULL,
+                        PRIMARY KEY (`num`)
                     ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
                 break;
@@ -206,6 +207,62 @@ function create_table($con, $dbname, $table_name)
                     PRIMARY KEY (`bookmark_num`)
                     ) DEFAULT CHARSET=utf8;
                   ";
+                break;
+            case 'reservation':
+                            $sql = "CREATE TABLE `reservation` (
+                              `reservation_num` int unsigned NOT NULL AUTO_INCREMENT,
+                              `store_name` varchar(45) NOT NULL,
+                              `introduction` text DEFAULT NULL,
+                              `user_id` varchar(20) NOT NULL,
+                              `seller_id` varchar(20) NOT NULL,
+                              `select_date` char(15) NOT NULL,
+                              `select_time` char(8) NOT NULL,
+                              `select_person` char(5) NOT NULL,
+                              `select_menu` text NOT NULL,
+                              `reservation_special` text DEFAULT NULL,
+                              `reservation_status` int unsigned NOT NULL,
+                              PRIMARY KEY (`reservation_num`)
+                            ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                          ";
+                            break;
+                // 리뷰 테이블
+              case 'review':
+              $sql = "CREATE TABLE `review` (
+                  `num` int unsigned NOT NULL AUTO_INCREMENT,
+                  `seller_num` int NOT NULL,
+                  `user_Email` varchar(100) DEFAULT NULL,
+                  `user_name` varchar(20) DEFAULT NULL,
+                  `store_name` varchar(45) NOT NULL,
+                  `content` text DEFAULT NULL,
+                  `file_name` varchar(45) DEFAULT NULL,
+                  `file_copied` varchar(45) DEFAULT NULL,
+                  `file_type` varchar(45) DEFAULT NULL,
+                  `star_access` int default '0',
+                  `star_service` int default '0',
+                  `star_flavor` int default '0',
+                  `star_avg` float(2,1) default '0',
+                  `chu_up` int(11) default '0',
+                  `chu_down` int(11) default '0',
+                  `regist_day` varchar(20) NOT NULL,
+                  PRIMARY KEY (`num`)
+                ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                ";
+                break;
+                  // 광고 테이블
+                case 'advertise':
+                $sql = "CREATE TABLE `advertise`(
+                	`num` int unsigned NOT NULL AUTO_INCREMENT,
+                	`seller_num` int unsigned NOT NULL,
+                  `file_name` varchar(45) NOT NULL,
+                	`file_type` varchar(45) NOT NULL,
+                	`file_copied` varchar(45) NOT NULL,
+                  `store_name` varchar(45) NOT NULL,
+                  `introduction` text DEFAULT NULL,
+                  `regist_day` varchar(20) NOT NULL,
+                  `noshow` boolean not null,
+                  PRIMARY KEY (`num`)
+                )DEFAULT CHARSET=utf8 ENGINE = InnoDB;
+                ";
                 break;
         } //end of switch
 
@@ -312,11 +369,11 @@ function insert_table($con, $table_name)
 
         case 'store_img':
             $sql = "INSERT INTO `store_img` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
-                    (null, 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
-                    (null, 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
-                    (null, 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
-                    (null, 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
-                    (null, 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
+                    (null, 'infor15', 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180914_165855', 'image/jpeg', '2020_02_25_15_29_07_3682.jpg'),
+                    (null, 'infor15', 1, '지수네', '20180915_164325', 'image/jpeg', '2020_02_25_15_29_07_3375.jpg');
                 ";
             break;
 
@@ -337,6 +394,39 @@ function insert_table($con, $table_name)
             (4, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','',''),
             (5, 'aaaaaa', '즐겨찾기 테스트3', 3, 1,'2020-02-10 (20:55)','','',''),
             (6, 'aaaaaa', '즐겨찾기 테스트2', 2, 2,'2020-02-10 (20:55)','','','');
+                ";
+            break;
+
+        case 'reservation':
+            $sql = "INSERT INTO `reservation` (`reservation_num`, `store_name`, `introduction`,`user_id`, `seller_id`, `select_date`, `select_time`, `select_person`, `select_menu`, `reservation_special`, `reservation_status`) VALUES
+                    (null, '지수네', '정발산 최고의 맛집', 'k@naver.com', '1', '2020년  3월 16일', '14 : 00', '1,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '채식주의자 입니다', '0'),
+                    (null, '동운이네', '은평구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 17일', '14 : 00', '3,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '032네', '송파구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 18일', '14 : 00', '4,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '무권이네', '마포구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 19일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '연서네', '구로구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 20일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
+                    (null, '성민이네', '강남구 최고의 맛집', 'k@naver.com','sm', '1', '2020년  3월 21일', '14 : 00', '5,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0');
+                ";
+            break;
+
+        case 'review':
+            $sql = "INSERT INTO `review` (`num`, `seller_num`, `user_email`, `user_name`, `store_name`, `content`, `file_name`, `file_copied`, `file_type`, `star_access`, `star_service`, `star_flavor`, `regist_day`) VALUES
+                  (null, '1', 'k@naver.com', '이무권', '지수네', '안녕', 'pengsu1.jpg', '2020_02_27_07_28_13.jpg', 'image/jpeg',0, 0, 0, '2020-03-03 (01:11)'),
+                  (null, '2', 'k@naver.com', '이무권', '동운이네', '반가워', 'pengsu2.jpg', '2020_02_27_07_28_29.jpg', 'image/jpeg',0, 0, 0, '2020-03-03 (01:11)'),
+                  (null, '3', 'k@naver.com', '이무권', '032네', '여긴 어디', 'pengsu3.jpg', '2020_02_27_07_32_34.jpg', 'image/jpeg',0, 0, 0, '2020-03-03 (01:11)'),
+                  (null, '4', 'k@naver.com', '이무권', '무권이네', 'JMT', 'pengsu1.jpg', '2020_02_27_07_28_13.jpg', 'image/jpeg',0, 0, 0, '2020-03-03 (01:11)'),
+                  (null, '5', 'k@naver.com', '이무권', '연서네', '졸려..', 'pengsu2.jpg', '2020_02_27_07_28_29.jpg', 'image/jpeg',0, 0, 0, '2020-03-03 (01:11)'),
+                  (null, '6', 'k@naver.com', '이무권', '성민이네', '휴가점여', 'pengsu3.jpg', '2020_02_27_07_32_34.jpg', 'image/jpeg',0, 0, 0, '2020-03-03 (01:11)');
+                ";
+            break;
+
+        case 'advertise':
+            $sql = "INSERT INTO `advertise` (`num`, `seller_num`, `file_name`, `file_type`, `file_copied`, `store_name`, `introduction`, `regist_day`, `noshow`) VALUES
+                  (null, '1', 'pengsu1.jpg', 'image/jpeg', '2020_02_27_07_28_13.jpg', '지수네', '정발산 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '2', 'pengsu2.jpg', 'image/jpeg', '2020_02_27_07_28_29.jpg', '동운이네', '은평구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '3', 'pengsu3.jpg', 'image/jpeg', '2020_02_27_07_32_34.jpg', '032네', '송파구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '4', 'pengsu1.jpg', 'image/jpeg', '2020_02_27_07_28_13.jpg', '무권이네', '마포구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '5', 'pengsu2.jpg', 'image/jpeg', '2020_02_27_07_28_29.jpg', '연서네', '구로구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '6', 'pengsu3.jpg', 'image/jpeg', '2020_02_27_07_32_34.jpg', '성민이네', '강남구 최고의 맛집','2020-03-03 (01:11)', false);
                 ";
             break;
     } //end of switch

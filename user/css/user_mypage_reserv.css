@@ -1,5 +1,5 @@
 .container{
-  margin-top: -100px;
+  margin-top: -50px;
   margin-left: -30px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .show_main{
-  width: 865px;
+  width: 920px;
   height: auto;
   border: 1.5px solid #D2CBC5;
   border-radius: 10px;
@@ -50,9 +50,9 @@
 }
 
 .show_element{
-  width: 735px;
+  width: 800px;
   height: 160px;
-  margin: 30px 0 30px 30px;
+  margin: 30px 0 30px 25px;
   background-color: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
@@ -122,6 +122,10 @@
 
 .btn_reserv{
   margin-top: 85px;
+}
+
+.btn_adver_click{
+  margin-top: 84px;
 }
 
 .show_btn_div span{

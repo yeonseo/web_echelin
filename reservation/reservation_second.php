@@ -33,10 +33,7 @@
           </div>
           <progress value="40" max="100">0%</progress>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/menu.php"; ?>
-        <div class="div_prv_next_button">
-          <button class="button_next" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_third.php'">다음</button>
-          <button class="button_prev" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_first.php'">이전</button>
-        </div>
+        
         </section>
         <footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>

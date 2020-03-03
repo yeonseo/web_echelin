@@ -23,8 +23,8 @@ $Payment = $_POST["user_payment"];
 
 $con = mysqli_connect("localhost" , "root" , "123456" , "echelin");
  $Name = $Sung. $Name;
-   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`,`user_Level`,`user_regist_day`)VALUES
-   (\"$sns\",\"$Email\",\"$Name\",\"$Password\",\"$Level\",\"$Regist\")";
+   $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_password`,`user_Level`,`user_regist_day`,`user_phone`,`user_age`)VALUES
+   (\"$sns\",\"$Email\",\"$Name\",\"$Password\",\"$Level\",\"$Regist\",\"$Phone\",\"$Age\")";
 
 // $sql = "INSERT INTO `echelin_user`(`user_sns`,`user_Email`,`user_name`,`user_sung`,`user_password`)VALUES
 // (\"$sns\",\"$Email\",\"$Name\",\"$Sung\",\"$Password\")";

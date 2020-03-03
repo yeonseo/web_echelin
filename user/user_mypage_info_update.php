@@ -13,10 +13,16 @@
         <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
         <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_modify.css">
         <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_modify.js"></script>
+        <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/js/user_mypage_photo.js"></script>
+        
         <!-- 공통으로 사용하는 link & script -->
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 
         <?php
+
+        if (isset($_SESSION["user_aboutme"])) $userabout = $_SESSION["user_aboutme"];
+        else $userabout = ""; 
+
         if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
         else $username = "";
         
@@ -25,6 +31,16 @@
 
         if (isset($_SESSION["user_Email"])) $useremail = $_SESSION["user_Email"];
         else $useremail = ""; 
+
+        if (isset($_SESSION["user_phone"])) $useremail = $_SESSION["user_phone"];
+        else $userphone = ""; 
+
+        if (isset($_SESSION["user_age"])) $useremail = $_SESSION["user_age"];
+        else $userage = ""; 
+        
+
+
+
 
 
 
@@ -55,7 +71,9 @@
                     $username= $user_all_info["user_name"];
                     $userpass= $user_all_info["user_password"];
                     $useremail=$user_all_info["user_Email"];
-
+                    $userphone=$user_all_info["user_phone"];
+                    $userabout=$user_all_info["user_aboutme"];
+                    $userage=$user_all_info["user_age"];
                     mysqli_close($con);
                     
                 ?>
@@ -70,17 +88,15 @@
                                 <div style="margin-top:5px;">
                                     <img class="user_photo" src="http://localhost/echelin/user/image/user.PNG" width="" alt="">
                                     <div class="modify_user">
-                                        <a class="photo_update" href="#">사진 업데이트 하기</a>
+                                        <a class="photo_update" href="#" onclick="openpop()">사진 업데이트 하기</a>
                                     </div>
                                 </div>
                                 <div class="user_in">
-                                    <span class="text_number"><?=$username?>님의 인증 내역</span><br>
-                                    <div class="modify_form_2" style="margin-top: 15px;">
-                                        <div>
-                                            이메일
-                                        </div>
-                                        <span class="data_email"><?=$useremail?></span><br>
-                                        <span class="data_number">전화번호(DB)</span>
+                                <legend class="legend_about">소개</legend>
+                                        <fieldset style="border: none">
+                                        <textarea class="my_about" readonly name="user_aboutme" id="myText" rows="5" COLS="32"  ><?=$userabout?> </textarea>
+                                        </fieldset>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -95,10 +111,12 @@
                                 </div>
                                 <div class="about_me3">
                                     <div>
-                                        <legend class="legend_text">소개</legend>
+                                        <legend class="legend_text">자기소개</legend>
                                         <fieldset style="border: none">
-                                            <textarea name="" id="" cols="60" rows="6"></textarea>
+                                        <textarea class="about_font" name="user_aboutme" id="myText" rows="6" COLS="60"  ><?=$userabout?> </textarea>
+                                        <button class="about_button"  type="submit" id="myButton">작성</button>
                                         </fieldset>
+
                                     </div>
                                     <legend class="legend_text">실명</legend>
                                     <span class="text_move">
@@ -121,23 +139,38 @@
                                         <button type="submit" style="display:none" class="hide_save_button_pass">저장</button>
                                     </div>
 
-                                    
+                                        <!-- // 이메일 hidden 값 으로 받아오기 -->
                                         <input style="display:none" type="hidden" class="view_pass" name="user_Email" value="<?=$useremail?>">
+                                              <fieldset style="border: none"></fieldset>
+                                        <!-- // hidden -->
+
+                                    <legend class="legend_text">연락처</legend>
+                                    <span class="text_move">
+                                        <?=$userphone?></span>
+                                    <button type="button" class="update_button_3">수정하기</button>
+                                    <br>
+                                    <div class="input_save_phone_form">
+                                        <input style="display:none" type="text" class="view_phone" name="user_phone" value="<?=$userphone?>">
+                                        <button type="submit" style="display:none" class="hide_save_button_phone">저장</button>
+                                    </div>
+
+
 
                                     <fieldset style="border: none"></fieldset>
                                     <legend class="legend_text">생년월일</legend>
                                     <span class="text_move">
                                         <?=$username?></span>
+
+
+
+
                                     <button type="button" class="update_button">수정하기</button>
-                                    <fieldset style="border: none"></fieldset>
-                                    <legend class="legend_text">연락처</legend>
-                                    <span class="text_move">
-                                        <?=$username?></span>
-                                    <button type="button" class="update_button">수정하기</button>
+                                  
                                     <fieldset style="border: none"></fieldset>
                                     <legend class="legend_text">거주지</legend>
                                     <span class="text_move">
                                         <?=$username?></span>
+                                        
                                     <button type="button" class="update_button">수정하기</button>
                                     <fieldset style="border: none"></fieldset>
                                 </div>

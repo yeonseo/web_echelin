@@ -62,7 +62,7 @@ function layer_popup(el) {
         $selected_bookmark_subject = $($selected_bookmark_id_subject).val();
         $(document).ready(function () {
             $($selected_bookmark_id_group).css("color", "orangered");
-            $("i").not($selected_bookmark_id_group).css("color", "black");
+            $(".dim_layer li button i").not($selected_bookmark_id_group).css("color", "lightgray");
         });
         // alert($selected_bookmark_group, $selected_bookmark_subject);
     });
