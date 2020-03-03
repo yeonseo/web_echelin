@@ -22,7 +22,7 @@
 
       <div class="right_content">
         <form name="form_menu" class="" action="./menu_upload.php" method="post" enctype="multipart/form-data">
-        메뉴를 추가할 가게를 ㅅ ㅓㄴ택
+        가게 사진
       </form>
        </div> <!-- end of right_content -->
        </div> <!-- end of my_info_content -->

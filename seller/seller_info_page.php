@@ -1,27 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
+    <title> <?= COMMON::$title; ?> </title>
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_find_postcode.js"></script>
+    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
+    <!-- <script src="./js/seller_register.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983"></script> -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
+    <!-- 공통으로 사용하는 link & script -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
+  </head>
+  <body>
+    <header>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
 <div class="my_info_content">
   <div class="left_menu">
-      <div class="my_info_profile">
-          <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/my_info/index_my_info.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu1.jpg"></a>
-      </div>
-
-      <!-- 순서대로쭉쭉 -->
-      <ul>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex유저정보관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex업주정보관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex문의게시판관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김성민</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김지수</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">하동운</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">유영삼</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/test_page/index_my_info.php">테스트 페이지</a></li>
-      </ul>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
   </div> <!-- end of left_menu -->
 
 <?php
-$seller_num=2;
+$seller_num=$_GET["seller_num"];
 
 
-// $con = mysqli_connect("localhost", "root", "123456", "echelin");
+$con = mysqli_connect("localhost", "root", "123456", "echelin");
 $sql = "select * from seller where seller_num='$seller_num'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($result);
@@ -48,6 +58,13 @@ $max_reserv_month = $row["max_reserv_month"];
 $intensity_of_reserv = $row["intensity_of_reserv"];
 
 $re_address=explode(',', $store_address);
+
+echo $store_address;
+
+echo $re_address[0];
+echo $re_address[1];
+echo $re_address[2];
+
 $re_opening_hours_start=str_replace(' : ', ":", $opening_hours_start);
 $re_opening_hours_end=str_replace(' : ', ":", $opening_hours_end);
 
@@ -59,67 +76,11 @@ $re_convenient_facilities=explode(',', $convenient_facilities);
 $re_store_tel = explode('-', $store_tel);
 
 ?>
-  <script src="./js/seller_register.js"></script>
-<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script> -->
-<script type="text/javascript">
-var center;
-var latitude;
-var longitude;
-  function showMap(address) {
-
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-        mapOption = {
-            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-        };
-
-    // 지도를 생성합니다
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-
-    // 주소-좌표 변환 객체를 생성합니다
-    var geocoder = new kakao.maps.services.Geocoder();
-
-    // 주소로 좌표를 검색합니다
-    geocoder.addressSearch(address, function(result, status) {
-
-        // 정상적으로 검색이 완료됐으면
-         if (status === kakao.maps.services.Status.OK) {
-
-            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-            // 결과값으로 받은 위치를 마커로 표시합니다
-            var marker = new kakao.maps.Marker({
-                map: map,
-                position: coords
-            });
 
 
-            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-            map.setCenter(coords);
-
-            center=map.getCenter();
-            latitude=center.getLat();
-            longitude=center.getLng();
-            console.log(latitude, longitude);
-            document.getElementById("lat_update").value=latitude;
-            document.getElementById("lon_update").value=longitude;
-
-            // 인포윈도우로 장소에 대한 설명을 표시합니다
-            var infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="width:150px;text-align:center;padding:6px 0;">22</div>'
-            });
-            infowindow.open(map, marker);
 
 
-            // mapContainer.css('display', ($(this).val() === 'true') ? 'block' : 'none');
-
-        }
-    });
-  }
-</script>
-
-
-<form name="form_menu" name="form_seller_update" action="./update_seller.php?" method="post" enctype="multipart/form-data">
+<form name="form_seller_update" action="./update_seller.php" method="post" enctype="multipart/form-data">
 <div class="right_content">
   <ul>
     <input type="text" name="seller_num" value="<?=$seller_num?>" hidden>
@@ -138,7 +99,8 @@ var longitude;
     </br></br>
     <input class="input_info" id="update_detailAddress" name="input_detailAddress" type="text" value="<?php if(isset($re_address[2])) {?> <?=$re_address[2]?> <?php } else {?> <?php echo ""?> <?php }?>">
     </br></br>
-    <div id="map"></div> <!-- 지도 담는 div -->
+    <div id="div_map"></div> <!-- 지도 담는 div -->
+
     <li>소개글</li>
     <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><?echo $introduction?></textarea></br></br>
     <li>가게 종류</li></br>
@@ -216,8 +178,9 @@ var longitude;
       <input type="checkbox" name="chkbox[]" value="수유방," <?php for($i=0; $i<count($re_convenient_facilities); $i++) {
         if($re_convenient_facilities[$i]=="수유방") {?> checked <?php }?> <?php }?>>
       <span class="span_content_font">수유방</span></br></br>
-      <input id="input_checkbox_etc" type="checkbox" name="chkbox[]" value="" onclick="checkbox_disable()"
-      <?php for($i=0; $i<count($re_convenient_facilities); $i++) {if($re_convenient_facilities[$i]!="건물 내부 화장실" && $re_convenient_facilities[$i]!="식당 내부 화장실" && $re_convenient_facilities[$i]!="자전거 거치대" && $re_convenient_facilities[$i]!="아기 의자" && $re_convenient_facilities[$i]!="장애인 시설" && $re_convenient_facilities[$i]!="놀이시설" && $re_convenient_facilities[$i]!="수유방") {?> checked <?php }?> <?php }?>>
+      <input id="input_checkbox_etc" type="checkbox" name="chkbox[]" value="기타" onclick="checkbox_disable()"
+      <?php for($i=0; $i<count($re_convenient_facilities); $i++) {if($re_convenient_facilities[$i]!="건물 내부 화장실" && $re_convenient_facilities[$i]!="식당 내부 화장실" && $re_convenient_facilities[$i]!="자전거 거치대" && $re_convenient_facilities[$i]!="아기 의자" && $re_convenient_facilities[$i]!="장애인 시설" &&
+        $re_convenient_facilities[$i]!="놀이시설" && $re_convenient_facilities[$i]!="수유방") {?> checked <?php }?> <?php }?>>
       <span class="span_content_font">기타</span>
       <?php
       for($i=0; $i<count($re_convenient_facilities); $i++) {
@@ -291,12 +254,112 @@ var longitude;
       </div>
       </br></br></br></br>
 
-      <input id="lat_update" type="text" name="lat_update" value="<?=$store_lat?>" hidden>
+      <input id="lat" type="text" name="lat_update" value="<?=$store_lat?>" hidden>
       </br></br>
-      <input id="lon_update" type="text" name="lon_update" value="<?=$store_lon?>" hidden>
+      <input id="lon" type="text" name="lon_update" value="<?=$store_lon?>" hidden>
   </ul>
 
-   <button class="button_complete" type="submit" name="button" onclick="update_seller()">완료</button>
+   <button class="button_complete" type="button" name="button" onclick="update_seller()">완료</button>
  </div> <!-- end of right_content -->
+
  </form>
+ <script type="text/javascript">
+ var mapContainer = document.getElementById('div_map'), // 지도를 표시할 div
+     mapOption = {
+         center: new kakao.maps.LatLng(<?=$store_lat?>, <?=$store_lon?>), // 지도의 중심좌표
+         level: 3 // 지도의 확대 레벨
+     };
+
+ var map = new kakao.maps.Map(mapContainer, mapOption);
+
+ // 마커가 표시될 위치입니다
+ var markerPosition  = new kakao.maps.LatLng(<?=$store_lat?>, <?=$store_lon?>);
+
+ // 마커를 생성합니다
+ var marker = new kakao.maps.Marker({
+     position: markerPosition
+ });
+
+ // 마커가 지도 위에 표시되도록 설정합니다
+ marker.setMap(map);
+
+ var iwContent = '<div style="width:150px;text-align:center;padding:6px 0;"><?=$store_name?></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+     iwPosition = new kakao.maps.LatLng(<?=$store_lat?>, <?=$store_lon?>); //인포윈도우 표시 위치입니다
+
+ // 인포윈도우를 생성합니다
+ var infowindow = new kakao.maps.InfoWindow({
+     position : iwPosition,
+     content : iwContent
+ });
+
+ // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+ infowindow.open(map, marker);
+ </script>
+
+
+ <script type="text/javascript">
+ var center;
+ var latitude;
+ var longitude;
+   function showMap(address) {
+
+     var mapContainer = document.getElementById('div_map'), // 지도를 표시할 div
+         mapOption = {
+             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+             level: 3 // 지도의 확대 레벨
+         };
+
+     // 지도를 생성합니다
+     var map = new kakao.maps.Map(mapContainer, mapOption);
+
+     // 주소-좌표 변환 객체를 생성합니다
+     var geocoder = new kakao.maps.services.Geocoder();
+
+     // 주소로 좌표를 검색합니다
+     geocoder.addressSearch(address, function(result, status) {
+
+         // 정상적으로 검색이 완료됐으면
+          if (status === kakao.maps.services.Status.OK) {
+
+             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+             // 결과값으로 받은 위치를 마커로 표시합니다
+             var marker = new kakao.maps.Marker({
+                 map: map,
+                 position: coords
+             });
+
+
+             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+             map.setCenter(coords);
+
+             center=map.getCenter();
+             latitude=center.getLat();
+             longitude=center.getLng();
+             console.log(latitude, longitude);
+             document.getElementById("lat").value=latitude;
+             document.getElementById("lon").value=longitude;
+
+             // 인포윈도우로 장소에 대한 설명을 표시합니다
+             var infowindow = new kakao.maps.InfoWindow({
+                 content: '<div style="width:150px;text-align:center;padding:6px 0;"><?=$store_name?></div>'
+             });
+             infowindow.open(map, marker);
+
+
+             // mapContainer.css('display', ($(this).val() === 'true') ? 'block' : 'none');
+
+         }
+     });
+   }
+ </script>
+
  </div> <!-- end of my_info_content -->
+ <footer>
+   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
+ </footer>
+
+
+
+</body>
+</html>
