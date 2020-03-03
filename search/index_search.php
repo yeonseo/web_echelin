@@ -1,6 +1,8 @@
 <?php
   $r_name=$_POST["r_name"];
+  $uptae=$_POST["uptae"];
   $keywords=$_POST["keywords"];
+  echo "<script>alert('$uptae,$keywords')</script>";
   $con = mysqli_connect("localhost", "root", "123456", "echelin");
 
 ?>
@@ -79,7 +81,7 @@
             for($i=0;$i<count($keywords);$i++){
               $value=$keywords[$i];
            ?>
-              <li class="keywords_select"><?=$value?></li>
+              <li class="keywords_select">#<?=$value?></li>
            <?php
             }
 
