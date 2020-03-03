@@ -36,6 +36,8 @@
       google.charts.setOnLoadCallback(drawChart1);
       google.charts.setOnLoadCallback(drawChart2);
       google.charts.setOnLoadCallback(drawCurveChart);
+      google.charts.setOnLoadCallback(drawSeriesChart);
+
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
       // draws it.
@@ -101,6 +103,54 @@
         chart.draw(data, options);
       }
 
+      function drawSeriesChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['ID', '식당 등록 수', 'Restaurant Num', 'Region', 'Population'],
+          ['종로', 80.66, 1.67, 'North America', 33739900],
+          ['중구', 79.84, 1.36, 'Europe', 81902307],
+          ['용산', 78.6, 1.84, 'Europe', 5523095],
+          ['성동', 72.73, 2.78, 'Middle East', 79716203],
+          ['광진', 80.05, 2, 'Europe', 61801570],
+          ['동대문', 72.49, 1.7, 'Middle East', 73137148],
+          ['중랑', 68.09, 4.77, 'Middle East', 31090763],
+          ['성북', 81.55, 2.96, 'Middle East', 7485600],
+          ['강북', 68.6, 1.54, 'Europe', 141850000],
+          ['도봉', 72.6, 2.54, 'Europe', 141850000],
+          ['노원', 68.6, 1.54, 'Europe', 141850000],
+          ['은평', 68.6, 1.54, 'Europe', 141850000],
+          ['서대문', 68.6, 1.54, 'Europe', 141850000],
+          ['마포', 72.6, 2.54, 'Europe', 141850000],
+          ['양천', 68.6, 1.54, 'Europe', 141850000],
+          ['강서', 85.6, 2.54, 'Europe', 141850000],
+          ['구로', 68.6, 1.54, 'Europe', 141850000],
+          ['금천', 72.6, 2.54, 'Europe', 141850000],
+          ['영등포', 68.6, 1.54, 'Europe', 141850000],
+          ['동작', 68.6, 3.54, 'Europe', 141850000],
+          ['관악', 68.6, 1.54, 'Europe', 141850000],
+          ['서초', 80.6, 4.54, 'Europe', 141850000],
+          ['강남', 78.09, 2.05, 'North America', 307007000]
+        ]);
+
+        var options = {
+          hAxis: {
+            title: 'Life Expectancy'
+          },
+          vAxis: {
+            title: 'Fertility Rate'
+          },
+          bubble: {
+            textStyle: {
+              fontSize: 11
+            }
+          },
+          backgroundColor: 'none'
+        };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('chart_map'));
+        chart.draw(data, options);
+      }
+
       function drawCurveChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', '유저', '셀러'],
@@ -151,6 +201,24 @@
           </button>
         </div> <!-- end of css_card_menu_row -->
 
+        <div class="<?= COMMON::$css_card_menu_row; ?>">
+          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
+              <i class="fas fa-clipboard-list"></i><span> 나이대 별 가입자 현황</span>
+            </div>
+            <!--Div that will hold the pie chart-->
+            <div id="chart_div"></div>
+          </button>
+
+          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
+              <i class="fas fa-clipboard-list"></i><span> 나이대 별 후기 현황</span>
+            </div>
+            <!--Div that will hold the pie chart-->
+            <div id="chart_div2"></div>
+          </button>
+        </div> <!-- end of css_card_menu_row -->
+
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
           <button class="card_menu_wider2_btn" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
@@ -160,8 +228,19 @@
             <div id="curve_chart" style="width: 900px; height: 500px"></div>
           </button>
         </div> <!-- end of css_card_menu_row -->
-      </div><!-- end of right_content -->
 
+
+
+        <div class="<?= COMMON::$css_card_menu_row; ?>">
+          <button class="card_menu_wider2_btn" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
+              <i class="far fa-question-circle"></i><span> 지역별 사용자 및 상점 수 </span>
+            </div>
+            <div id="chart_map" style="width: 800px; height: 300px;"></div>
+          </button>
+        </div> <!-- end of css_card_menu_row -->
+
+      </div><!-- end of right_content -->
   </section>
   <footer>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
