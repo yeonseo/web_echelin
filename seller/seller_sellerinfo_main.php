@@ -32,17 +32,9 @@
 
         </div> <!-- end of css_card_menu_row -->
 
-        <?php
-        // $con = mysqli_connect("localhost", "root", "123456", "echelin");
-        $sql = "select count(user_id) from menu_img where user_id = '$useremail';";
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($result);
-        $count_menu = $row[0];
-        mysqli_close($con);
-         ?>
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?=$count_menu?>)">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?=$count?>)">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-utensils"></i>
                 </div>
@@ -50,7 +42,7 @@
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게에 메뉴를 등록할 수 있어요.</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_seller_store_pic.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerPicChk(<?=$count?>)">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
