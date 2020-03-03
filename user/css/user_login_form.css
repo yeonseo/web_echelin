@@ -262,7 +262,6 @@
 }
 .login_data_button{
     position: relative;
-    left: 45.8px;
     top: 10px;
     margin: 10px;
     border-radius: 4px;
@@ -314,9 +313,6 @@
     width: 80%;
 }
 
-
-
-.g-signin2 { visibility:hidden}
 #google_login_btn {
     width: 80%;
     margin: 5px 10% ;
@@ -324,7 +320,7 @@
     margin-right: 20px;
     font-size: 1rem;
     border-radius: 5px;
-    background-image:url('https://res.cloudinary.com/practicaldev/image/fetch/s--FGeepbF---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/dpiytaii5nezptwibem4.png');
+    background-image:url('../../common/image/google_login.png');
     background-position:center center; background-repeat: no-repeat;
     background-size:cover;
 }

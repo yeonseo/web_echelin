@@ -44,9 +44,6 @@
 
     <div class="g-signin2" data-onsuccess="onSignIn">
     </div>
-    <div id="google_login_btn">
-    </div>
-
 
     <a href="#" onclick="signOut();">로그아웃</a>
 
