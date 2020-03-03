@@ -93,7 +93,7 @@
 
                 //나중에 유저 세션 들고와서 할 거임
                 //메세지 그룹 계산하기 위한 것
-                $user_email = "aaaaaa1";
+                $user_email = $_SESSION['user_Email'];
                 createMessageList($con, $dbname, $user_email);
 
                 ?>
@@ -104,10 +104,10 @@
                             <i class="fas fa-utensils"></i>
                         </div>
                         <div class="<?= COMMON::$css_card_menu_btn_name; ?>">
-                            <div>여기는 식당 이름</div>
-                            <div>여기는 최종메세지 보낸 사람 / 시간</div>
+                            <div>황태 마을</div>
+                            <div> dakd0123@daum.net / 2020-02-28 </div>
                         </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... </div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>"> 네~ 감사합니다 ㅎㅎㅎ </div>
                     </button>
                 </div> <!-- end of css_card_menu_row -->
 
@@ -116,8 +116,11 @@
                         <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                             <i class="fas fa-utensils"></i>
                         </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">여기는 식당 이름</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... </div>
+                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">
+                            <div>정성 밥상</div>
+                            <div> minmin23@naver.com / 2020-01-20 </div>
+                        </div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">맛은 어떠셨나요?? ㅎㅎㅎ 이번에는 특별히 부탁하셨던 맵기 조절로 요리해 드렸었는데, 다음번에도 만족하실 식사가 되셨으면 좋겠습니다~</div>
                     </button>
                 </div> <!-- end of css_card_menu_row -->
 

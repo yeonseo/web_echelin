@@ -4,16 +4,16 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
     </div>
     <div class="right_content">
-      <?php
-      $sql = "select count(seller_num) from seller where user_id = '$useremail';";
-      $result = mysqli_query($con, $sql);
-      $row = mysqli_fetch_array($result);
-      $count = $row[0];
-       ?>
+        <?php
+        $sql = "select count(seller_num) from seller where user_id = '$useremail';";
+        $result = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($result);
+        $count = $row[0];
+        ?>
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerInfoChk(<?=$count?>)">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerInfoChk(<?= $count ?>)">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
@@ -39,10 +39,10 @@
         $row = mysqli_fetch_array($result);
         $count_menu = $row[0];
         mysqli_close($con);
-         ?>
+        ?>
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?=$count_menu?>)">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?= $count_menu ?>)">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-utensils"></i>
                 </div>
