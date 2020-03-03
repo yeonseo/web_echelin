@@ -65,11 +65,11 @@
   if($row['success'] == 0){
 
 ?>
-
+                        <div class="content_main2">
                           <div class="content_no2">
                             <span class="no_span">작성할 후기가 없어요.</span>
                           </div>
-
+                        </div>
 
 <?php
   }else{
@@ -127,7 +127,6 @@
   $row = mysqli_fetch_array($result);
 
   if($row['success'] == 0){
-
 ?>
 <div class="content_main">
   <div class="content_no">

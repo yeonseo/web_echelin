@@ -155,8 +155,8 @@ function create_table($con, $dbname, $table_name)
             case 'keyword_list':
                 $sql = "CREATE TABLE `keyword_list` (
                         `keyword_num` int unsigned NOT NULL AUTO_INCREMENT,
-                        `keywords_type` varchar(80) NOT NULL,
-                        `keywords` varchar(80) DEFAULT NULL,
+                        `keywords_type` varchar(200) NOT NULL,
+                        `keywords` varchar(400) DEFAULT NULL,
                         PRIMARY KEY (`keyword_num`)
                         ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                   ";
@@ -244,6 +244,7 @@ function create_table($con, $dbname, $table_name)
                   `chu_up` int(11) default '0',
                   `chu_down` int(11) default '0',
                   `regist_day` varchar(20) NOT NULL,
+                  `noshow` boolean not null,
                   PRIMARY KEY (`num`)
                 ) DEFAULT CHARSET=utf8 ENGINE = InnoDB;
                 ";
@@ -368,7 +369,7 @@ function insert_table($con, $table_name)
             break;
 
         case 'store_img':
-            $sql = "INSERT INTO `store_img` (`num`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
+            $sql = "INSERT INTO `store_img` (`num`, `user_id`, `seller_num`, `store_name`, `store_file_name`, `store_file_type`, `store_file_copied`) VALUES
                     (null, 'infor15', 1, '지수네', '20180914_163451', 'image/jpeg', '2020_02_25_15_29_07_8252.jpg'),
                     (null, 'infor15', 1, '지수네', '20180914_165049', 'image/jpeg', '2020_02_25_15_29_07_1890.jpg'),
                     (null, 'infor15', 1, '지수네', '20180914_165226', 'image/jpeg', '2020_02_25_15_29_07_9476.jpg'),
@@ -404,7 +405,7 @@ function insert_table($con, $table_name)
                     (null, '032네', '송파구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 18일', '14 : 00', '4,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
                     (null, '무권이네', '마포구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 19일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
                     (null, '연서네', '구로구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 20일', '14 : 00', '1,2,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0'),
-                    (null, '성민이네', '강남구 최고의 맛집', 'k@naver.com','sm', '1', '2020년  3월 21일', '14 : 00', '5,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0');
+                    (null, '성민이네', '강남구 최고의 맛집', 'k@naver.com', '1', '2020년  3월 21일', '14 : 00', '5,0,0', '치즈떡볶이,1,무뼈닭발,2,내사랑닭갈비,2,얼큰우동,2,곱창,1', '', '0');
                 ";
             break;
 

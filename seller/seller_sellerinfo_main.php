@@ -42,22 +42,6 @@
          ?>
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-<<<<<<< HEAD
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/??.php'">
-                <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">매출보기</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
-            </button>
-
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_page.php'">
-                <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                    <i class="far fa-id-card"></i>
-                </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">예약관리페이지</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
-=======
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="sellerMenuChk(<?=$count_menu?>)">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-utensils"></i>
@@ -72,7 +56,6 @@
                 </div>
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">가게 사진 등록하기</div>
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">내 가게 사진을 등록할 수 있어요.</div>
->>>>>>> j222su
             </button>
 
         </div> <!-- end of css_card_menu_row -->
@@ -80,32 +63,23 @@
 
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-<<<<<<< HEAD
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/seller_page_message.php'">
-=======
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/common_hashtag.php'">
->>>>>>> j222su
+
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-comments"></i>
                 </div>
-<<<<<<< HEAD
+
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">메세지</div>
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
-=======
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">해시태그</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">해시태그로 내 가게를 표현할 수 있어요.</div>
->>>>>>> j222su
             </button>
 
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/seller_page_review.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-star"></i>
                 </div>
-<<<<<<< HEAD
+
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">고객이 남긴 후기</div>
-=======
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">도움말</div>
->>>>>>> j222su
+
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
             </button>
 
