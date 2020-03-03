@@ -16,6 +16,11 @@ $(document).ready(function(){
   var k_count=0;
   var $keywords_select=$(".keywords_select");
   var $keywords_select_delete=$("#keywords_select_delete");
+  var k_limit_count=0;
+  //검색할떄 form 에있는변수들
+  var $search_uptae=$("#search_uptae");
+  var $search_keywords=$("#search_keywords");
+  var $search=$("#search");
 
   // 필터버튼클릭시
   $keyword_btn.click(function(){
@@ -61,14 +66,39 @@ $(document).ready(function(){
   });
   //키워드들클릭시
   $keywords_select.click(function(){
-    $keywords_select.css("color","black");
-    $(this).css("color","red");
-    $keyword_search_btn.text($(this).text());
+    if(k_limit_count < 5){
+      if(k_limit_count<1){
+        $keyword_search_btn.text("");
+      }
+      $keywords_select.css("color","black");
+      $(this).css("color","red");
+      $keyword_search_btn.append($(this).text());
+      k_limit_count++;
+    }else{
+      alert("키워드는5개까지만설정가능");
+    }
   });
   //키워드지우기
   $keywords_select_delete.click(function(){
     $keywords_select.css("color","black");
     $keyword_search_btn.text("#키워드로검색");
+    k_limit_count=0;
+  });
+  //검색할때 hidden 해놓은 인풋타입에값넣기
+  $search.click(function(){
+
+    if($food_type_btn.text() == "식당종류"){
+      $search_uptae.val("");
+    }else{
+      $search_uptae.val($food_type_btn.text());
+    }
+
+    if($keyword_search_btn.text() =="#키워드로검색"){
+      $search_keywords.val("");
+    }else{
+      $search_keywords.val($keyword_search_btn.text());
+    }
+
   });
 
 });//ready
