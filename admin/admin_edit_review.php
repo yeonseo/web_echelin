@@ -35,9 +35,11 @@
 
             <select name="find">
               <option value="user_Email">이메일</option>
-              <option value="user_name">이름</option>
+              <option value="user_name">작성자이름</option>
               <option value="seller_num">식당번호</option>
               <option value="store_name">식당이름</option>
+              <option value="chu_up">추천</option>
+              <option value="chu_down">비추천</option>
             </select>
 
 
@@ -50,19 +52,16 @@
         </h3>
         <ul id="member_list">
           <li>
-
-            `seller_num`, `user_Email`, `user_name`, `store_name`, `content`, `file_name`, `file_copied`, `file_type`, `star_access`, `star_service`, `star_flavor`, `star_avg`, `chu_up`, `chu_down`
             <span class="col1">번호</span>
-            <span class="col2">이메일</span>
-            <span class="col3">비밀번호</span>
-            <span class="col4">이름</span>
-            <span class="col5">나이</span>
-            <span class="col6">연락처</span>
-            <span class="col7">가입일</span>
-            <span class="col8">레벨</span>
-            <span class="col9">프로필</span>
-            <span class="col10">수정</span>
-            <span class="col11">삭제</span>
+            <span class="col2">가게명</span>
+            <span class="col3">작성자이름</span>
+            <span class="col4">접근성</span>
+            <span class="col5">서비스</span>
+            <span class="col6">분위기</span>
+            <span class="col7">추천</span>
+            <span class="col8">비추천</span>
+            <span class="col9">수정</span>
+            <span class="col10">삭제</span>
           </li>
           <?php
           $find = $search = $member_search = "";
@@ -72,36 +71,39 @@
             $find = test_input($_POST["find"]);
             $search = test_input($_POST["search"]);
             $member_search = mysqli_real_escape_string($con, $search);
-            $sql = "select * from echelin_user where $find like '%$member_search%' order by user_num desc";
+            if ($find === 'chu_up' | $find === 'chu_down') {
+              $sql = "select * from review order by $find desc";
+            } else {
+              $sql = "select * from review where $find like '%$member_search%' order by user_num desc";
+            }
           } else {
-            $sql = "select * from echelin_user where `user_Level`='1' order by user_num desc";
+            $sql = "select * from review order by num desc";
           }
 
           $result = mysqli_query($con, $sql);
           $total_record = mysqli_num_rows($result);
           $number = $total_record;
           while ($row = mysqli_fetch_array($result)) {
-            $user_num = $row["user_num"];
-            $user_Email = $row["user_Email"];
-            $user_password = $row["user_password"];
+            $num = $row["num"];
+            $store_name = $row["store_name"];
             $user_name = $row["user_name"];
-            $user_age = $row["user_age"];
-            $user_phone = $row["user_phone"];
-            $user_regist_day = $row["user_regist_day"];
-            $user_Level = $row["user_Level"];
-            $user_profile = $row["user_profile"];
+            $star_access = $row["star_access"];
+            $star_service = $row["star_service"];
+            $star_flavor = $row["star_flavor"];
+            $chu_up = $row["chu_up"];
+            $chu_down = $row["chu_down"];
           ?>
             <li>
               <form class="" action="update_user.php" method="post">
-                <span class="col1"><input type="text" name="user_num" value="<?= $user_num ?>"></span>
-                <span class="col2"><input type="text" name="user_Email" value="<?= $user_Email ?>"></span>
-                <span class="col3"><input type="text" name="user_password" value="<?= $user_password ?>"></span>
-                <span class="col4"><input type="text" name="user_name" value="<?= $user_name ?>"></span>
-                <span class="col5"><input type="text" name="user_age" value="<?= $user_age ?>"></span>
-                <span class="col6"><input type="text" name="user_phone" value="<?= $user_phone ?>"></span>
-                <span class="col7"><?= $user_regist_day ?></span>
-                <span class="col8"><input type="text" name="user_Level" value="<?= $user_Level ?>"></span>
-                <span class="col8"><input type="text" name="user_profile" value="<?= $user_profile ?>"></span>
+                <span class="col1"><input type="text" name="num" value="<?= $num ?>"></span>
+                <span class="col2"><input type="text" name="store_name" value="<?= $store_name ?>"></span>
+                <span class="col3"><input type="text" name="user_name" value="<?= $user_name ?>"></span>
+                <span class="col4"><input type="text" name="star_access" value="<?= $star_access ?>"></span>
+                <span class="col5"><input type="text" name="star_service" value="<?= $star_service ?>"></span>
+                <span class="col6"><input type="text" name="star_flavor" value="<?= $star_flavor ?>"></span>
+                <span class="col6"><input type="text" name="star_flavor" value="<?= $star_flavor ?>"></span>
+                <span class="col8"><input type="text" name="chu_up" value="<?= $chu_up ?>"></span>
+                <span class="col8"><input type="text" name="chu_down" value="<?= $chu_down ?>"></span>
                 <span class="col9"><button type="submit">수정</button></span>
                 <span class="col10"><button type="button" onclick="location.href='delete_user.php'">삭제</button></span>
               </form>
