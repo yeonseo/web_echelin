@@ -31,9 +31,9 @@
             <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
             <span class="span_step_info">2단계 : 예약할 메뉴를 선택해주세요.</span>
           </div>
-          <progress value="40" max="100">0%</progress>
+          <progress value="50" max="100">0%</progress>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/menu.php"; ?>
-        
+
         </section>
         <footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>

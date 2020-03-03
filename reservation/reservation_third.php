@@ -35,7 +35,7 @@
           <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
           <span class="span_step_info">3단계 : 예약 내역을 확인해주세요.</span>
         </div>
-        <progress value="60" max="100">0%</progress>
+        <progress value="75" max="100">0%</progress>
 
 
 
@@ -47,7 +47,6 @@
 
 
         <div class="div_prv_next_button">
-          <button class="button_next" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_pay.php'">결제</button>
           <button class="button_prev" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_second.php'">이전</button>
         </div>
         </section>

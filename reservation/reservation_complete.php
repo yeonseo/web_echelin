@@ -1,4 +1,19 @@
+<?php
 
+$seller_num=get('seller_num');
+$store_name=get('store_name');
+$select_date=get('select_date');
+
+
+function get($name){
+  if (isset($_GET[$name])) {
+      $get_result= $_GET[$name];
+  } else {
+      $get_result= '엥';
+  }
+  return $get_result;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,6 +29,8 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/css/reservation.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/css/restaurants_page.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/help_center/css/help_center_page.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <!-- <link rel="stylesheet" href="./css/main.css"> -->
@@ -23,7 +40,6 @@
   </head>
   <body>
 
-
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
@@ -32,17 +48,22 @@
       <span class="span_step_info">예약이 완료되었습니다.</span>
     </div>
     <progress value="100" max="100">0%</progress>
+    <div class="restaurants_main_content_box">
+     <div class="restaurants_center_content">
 
+      <?php
 
+      echo  "<h1 class= \"hcomplete\">".$select_date."에 ". $store_name."(으)로의 예약 완료</h1>";
 
-      <div class="main_section_div">
-        <div class="date_check_div">
+       ?>
+            <div class="reservation_complete_content_right_btn_box">
+            <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?= $seller_num ?>'"><i class="fas fa-utensils"></i> &nbsp; 홈으로 </button>
+            <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?= $seller_num ?>'"><i class="fas fa-utensils"></i> &nbsp; 예약 내역 목록 </button>
+             <button onclick="location.href='../user/user_mypage_message_talk.php?message=<?= $message_group_num ?>'"><i class="fas fa-comments"></i> &nbsp; 현재 예약의 내역 </button>
 
-        </div>
-        <div class="notice_check_div">
-          예약내용@@@ <br>
-          예약이 다 되었음
-        <a class="btnnext">확인</a>
+               </div>
+          </div>
+
         </div>
 
     </section>

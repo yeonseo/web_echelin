@@ -28,7 +28,6 @@
     } else {
         $get_result= '엥';
     }
-    echo "get_result = ($get_result)<br>";
     return $get_result;
   }
 
@@ -88,10 +87,6 @@
                 $user_phone = $result_echelin_user['user_phone'];
 
 
-                echo "user_phone = ($user_phone)<br>";
-                echo "user_name = ($user_name)<br>";
-
-
 
                 // 다차원 배열 반복처리 (필요시 사용)
                 ini_set('memory_limit', '-1');
@@ -121,26 +116,16 @@
                 echo("<h4>예약자 연락처</h4>".$user_phone. "<br/><br/>");
 
                 echo("<input type='text' name='seller_num' value=".$seller_num ." hidden>");
-                echo("<input type='text' name='upso_nm' value=".$upso_nm ." hidden>");
-                echo("<input type='text' name='upso_description' value=".$upso_description ." hidden>");
-                echo("<input type='text' name='user_email' value=".$user_email ." hidden>");
-                echo("<input type='text' name='upso_seller_user_id' value=".$upso_seller_user_id ." hidden>");
-                echo("<input type='text' name='date_result' value=".$date_result ." hidden>");
-                echo("<input type='text' name='time_result' value=".$time_result ." hidden>");
-                echo("<input type='text' name='person' value=".$person ." hidden>");
-                echo("<input type='text' name='insert_menu' value=".$insert_menu ." hidden>");
+                echo("<input type='text' name='upso_nm' value='".$upso_nm ."' hidden>");
+                echo("<input type='text' name='upso_description' value='".$upso_description ."' hidden>");
+                echo("<input type='text' name='user_email' value='".$user_email ."' hidden>");
+                echo("<input type='text' name='upso_seller_user_id' value='".$upso_seller_user_id ."' hidden>");
+                echo("<input type='text' name='date_result' value='".$date_result ."' hidden>");
+                echo("<input type='text' name='time_result' value='".$time_result ."' hidden>");
+                echo("<input type='text' name='person' value='".$person ."' hidden>");
+                echo("<input type='text' name='insert_menu' value='".$insert_menu ."' hidden>");
                 echo("<textarea name='text_spcial' class='validate[required,length[6,300]] feedback-input' id='comment' placeholder='점주에게 전달하고 싶은 말씀이 있으신가요?'></textarea>");
-                echo("<input type='text' name='upso_intensity_of_reserv' value=".$upso_intensity_of_reserv." hidden>");
-                echo " wwwwwwwwwwww = ".$seller_num ."</br>";
-                echo " wwwwwwwwwwww = ".$upso_nm ."</br>";
-                echo " wwwwwwwwwwww = ".$upso_description ."</br>";
-                echo " wwwwwwwwwwww = ".$user_email."</br>" ;
-                echo " wwwwwwwwwwww = ".$upso_seller_user_id."</br>" ;
-                echo " wwwwwwwwwwww = ".$date_result ."</br>";
-                echo " wwwwwwwwwwww = ".$time_result."</br>" ;
-                echo " wwwwwwwwwwww = ".$person ."</br>";
-                echo " wwwwwwwwwwww = ".$insert_menu ."</br>";
-                echo " wwwwwwwwwwww = ".$upso_intensity_of_reserv ."</br>";
+                echo("<input type='text' name='upso_intensity_of_reserv' value='".$upso_intensity_of_reserv."' hidden>");
 
                 echo "<ul class=restaurant_keyword_list>";
                 echo  "<li><i class=\"fas fa-hashtag\"></i><h2>예약 정보 확인</h2></<i></li>";
@@ -196,13 +181,7 @@
                             if ( rsp.success ) {
                                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
                                 jQuery.ajax({
-                                    // url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
-                                    // type: 'POST',
-                                    // dataType: 'json',
-                                    // data: {
-                                    //     imp_uid : rsp.imp_uid
-                                    //     //기타 필요한 데이터가 있으면 추가 전달
-                                    // }
+
                                 }).done(function(data) {
                                     //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
                                     if ( everythings_fine ) {
@@ -259,14 +238,11 @@
                               msg += '에러내용 : ' + rsp.error_msg;
                           }
                           alert(msg);
+                          //성공시 이동할 페이지
+                          reservation_submit();
                       });
                     }
                     </script>
-                <button type="button" name="button" onclick="kakaopay()">KakaoPay 결제하기</button>
-                <button type="button" name="button" onclick="kginicis()">KG이니시스 결제하기</button>
-                <p class="text">
-
-        </p>
 
                 <?php
                 echo "<button type='button' name='button' onclick='reservation_submit()'>KakaoPay 결제하기</button>";

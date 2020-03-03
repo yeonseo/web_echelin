@@ -288,3 +288,25 @@ input:hover, textarea:hover,
 input:focus, textarea:focus {
     background-color:white;
 }
+
+.hcomplete{
+  color: #282C34;
+  margin: 100px 0 50px 0;
+  padding-bottom: 200px;
+  border-bottom: 2px solid gold;
+}
+.reservation_complete_content_right_btn_box{
+    position: absolute;
+    top : 100px;
+    left: 5%;
+}
+
+.reservation_complete_content_right_btn_box button{
+    width: 200px;
+    height: 50px;
+    margin-right: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: GOLD;
+    font-weight: bold;
+}

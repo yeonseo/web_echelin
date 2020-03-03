@@ -33,7 +33,11 @@ function reservationInsert($con, $dbname ,$seller_num ,$store_name ,$introductio
     mysqli_query($con, $sql);
     echo mysqli_error($con);
     mysqli_close($con);
-
+    echo "
+	      <script>
+	          location.href = location.href='./reservation_complete.php?seller_num=$seller_num&store_name=$store_name&select_date=$select_date';
+	      </script>
+	  ";
 }
 reservationInsert($con, $dbname ,$seller_num ,$store_name ,$introduction ,$user_id ,$seller_id ,$select_date ,$select_time ,$select_person ,$select_menu ,$reservation_special ,$reservation_status);
 ?>
