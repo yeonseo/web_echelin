@@ -99,12 +99,13 @@
 
 
                 echo "<ul class=restaurant_keyword_list>";
-                echo  "<li><i class=\"fas fa-hashtag\"></i><h2>예약자</h2></<i></li>";
+                echo  "<li><i class=\"fas fa-hashtag\"></i><h2>예약자 정보 확인</h2></<i></li>";
                 echo "</ul>";
 
                 echo("<h4>예약자 이름</h4>".$user_name. "<br/><br/>");
                 echo("<h4>예약자 E-Mail</h4>".$user_email. "<br/><br/>");
                 echo("<h4>예약자 연락처</h4>".$user_phone. "<br/><br/>");
+                echo("<textarea name='text' class='validate[required,length[6,300]] feedback-input' id='comment' placeholder='점주에게 전달하고 싶은 말씀이 있으신가요?'></textarea>");
 
 
 
@@ -126,24 +127,116 @@
                 for($i = 0 ; $i < $cnt ; $i++){
 
                   echo($select_menu_title[$i]);
-                  echo(" ".$select_menu_count[$i] . "개<br/>");
+                  echo(" ".$select_menu_count[$i] . "개<br/><br/>");
 
                 }
-
-
-
-
-                echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">";
-                echo "<h3>편의시설</h3>";
-                echo "<ul class=restaurant_facilities_list>";
-                for ($i = 0; $i < count($upso_facilities); $i++) {
-                    echo  "<li><i class=\"fas fa-hashtag\"></i>" . $upso_facilities[$i] . "</<i></li>";
-                } //end of for
-                echo "<a href=\"#\">편의시설 모두보기</a>";
+                echo("총 금액 : ".$total_price. "원<br>");
+                echo "<ul class=restaurant_keyword_list>";
+                echo  "<li><i class=\"fas fa-hashtag\"></i><h2>결제</h2></<i></li>";
                 echo "</ul>";
 
-                echo "</br>무권아 코맨드 집어넣어죠오오오오ㅓㅏㅁㅊ핀엎 ㅗ민어푸니</br>";
-                echo "</i> ";
+                //결제
+                ?>
+                <script>
+                    var cntstr;
+                    if(<?=$cnt?>==1){
+                      cntstr = "";
+                    }else{
+                      cntstr = " 외 <?=$cnt?>개 품목 ";
+                    }
+                    function kakaopay(){
+                        var IMP = window.IMP; // 생략가능
+                        IMP.init('imp82173364'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+                        var msg;
+
+                        IMP.request_pay({
+                            pg : 'kakaopay',
+                            pay_method : 'card',
+                            merchant_uid : 'merchant_' + new Date().getTime(),
+                            name : '<?=$select_menu_title[0]?>'+cntstr,
+                            amount : '<?=$total_price?>',
+                            buyer_email : '<?=$user_email?>',
+                            buyer_name : '<?=$user_name?>',
+                            buyer_tel : '<?=$user_phone?>',
+                            //m_redirect_url : 'http://www.naver.com'
+                        }, function(rsp) {
+                            if ( rsp.success ) {
+                                //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
+                                jQuery.ajax({
+                                    // url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
+                                    // type: 'POST',
+                                    // dataType: 'json',
+                                    // data: {
+                                    //     imp_uid : rsp.imp_uid
+                                    //     //기타 필요한 데이터가 있으면 추가 전달
+                                    // }
+                                }).done(function(data) {
+                                    //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
+                                    if ( everythings_fine ) {
+                                        msg = '결제가 완료되었습니다.';
+                                        msg += '\n고유ID : ' + rsp.imp_uid;
+                                        msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+                                        msg += '\결제 금액 : ' + rsp.paid_amount;
+                                        msg += '카드 승인번호 : ' + rsp.apply_num;
+
+                                        alert(msg);
+                                    } else {
+                                        //[3] 아직 제대로 결제가 되지 않았습니다.
+                                        //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
+                                    }
+                                });
+                                //성공시 이동할 페이지
+                                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+                            } else {
+                                msg = '결제에 실패하였습니다.';
+                                msg += '에러내용 : ' + rsp.error_msg;
+                                //실패시 이동할 페이지
+                                alert(msg);
+                            }
+                        });
+
+                    }
+                    function kginicis(){
+                        var IMP = window.IMP; // 생략가능
+                        IMP.init('imp01674742'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+                        IMP.request_pay({
+                          pg : 'html5_inicis', // version 1.1.0부터 지원.
+                          pay_method : 'card',
+                          merchant_uid : 'merchant_' + new Date().getTime(),
+                          name : '<?=$select_menu_title[0]?>'+cntstr,
+                          amount : '<?=$total_price?>',
+                          buyer_email : '<?=$user_email?>',
+                          buyer_name : '<?=$user_name?>',
+                          buyer_tel : '<?=$user_phone?>',
+                          m_redirect_url : 'https://www.my-service.com/payments/complete/mobile'
+                      }, function(rsp) {
+                          if ( rsp.success ) {
+                              var msg = '결제가 완료되었습니다.';
+                              msg += '고유ID : ' + rsp.imp_uid;
+                              msg += '상점 거래ID : ' + rsp.merchant_uid;
+                              msg += '결제 금액 : ' + rsp.paid_amount;
+                              msg += '카드 승인번호 : ' + rsp.apply_num;
+                              location.href="./kakaopay.php";
+
+                          } else {
+                              var msg = '결제에 실패하였습니다.';
+                              msg += '에러내용 : ' + rsp.error_msg;
+                          }
+                          alert(msg);
+                      });
+                    }
+                    </script>
+                <button type="button" name="button" onclick="kakaopay()">KakaoPay 결제하기</button>
+                <button type="button" name="button" onclick="kginicis()">KG이니시스 결제하기</button>
+                <p class="text">
+
+        </p>
+
+                <?php
+                echo "<button type='button' name='button' onclick='kakaopay()'>KakaoPay 결제하기</button>";
+                echo "<button type='button' name='button' onclick='kginicis()'>KG이니시스 결제하기</button>";
+                //결제 끝
+
                 echo "</div>";
                 echo "</div> <!-- end of css_article_content_box -->";
             ?>
@@ -153,3 +246,17 @@
     </div><!-- end of restaurants_main_content_box -->
 
 </div><!-- end of restaurants_content -->
+<?php
+
+// function reservationInsert($con, $dbname)
+// {
+//
+//     $sql = "insert into menu_img (user_id, seller_num, store_name, menu_name, menu_price, menu_file_name, menu_file_type, menu_file_copied, menu_explain) ";
+//     $sql .= "values('$user_id', '$seller_num', (select store_name from seller where seller_num='$seller_num'),'$menu_name', '$menu_price', '$menu_file_name', '$menu_file_type', '$copied_file_name', '$menu_explain')";
+//
+//     mysqli_query($con, $sql);
+//     var_dump($con);
+//
+// }
+// setMenuImg($con, $dbname, $seller_num);
+?>
