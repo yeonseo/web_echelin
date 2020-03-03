@@ -32,12 +32,12 @@
       <div class="right_content">
 
         <h3>업주정보수정
-          <form class="" action="edit_user.php?mode=search" method="post">
+          <form class="" action="admin_edit_user.php?mode=search" method="post">
 
             <select name="find">
-              <option value="id">아이디</option>
-              <option value="id">이름</option>
-              <option value="id">이메일</option>
+              <option value="user_email">이메일</option>
+              <option value="user_name">이름</option>
+              <option value="user_num">번호</option>
             </select>
 
 
@@ -70,7 +70,7 @@
             $find = test_input($_POST["find"]);
             $search = test_input($_POST["search"]);
             $member_search = mysqli_real_escape_string($con, $search);
-            $sql = "select * from echelin_user where $find like '%$member_search%' order by num desc";
+            $sql = "select * from echelin_user where `user_Level`='10' and $find like '%$member_search%' order by user_num desc";
           } else {
             $sql = "select * from echelin_user where `user_Level`='10' order by user_num desc";
           }

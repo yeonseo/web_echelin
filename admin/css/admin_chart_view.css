@@ -1,0 +1,14 @@
+.card_menu_btn {
+    width: 400px !important;
+    height: 440px !important;
+}
+
+.card_menu_btn .card_menu_btn_icon{
+    margin-top: 20px !important;
+}
+
+.card_menu_wider2_btn{
+    padding: 30px;
+    width: 818px !important;
+    height: 430px !important;
+}
