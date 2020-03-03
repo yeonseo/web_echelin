@@ -100,7 +100,7 @@
                 <span class="col8"><input type="text" name="user_Level" value="<?= $user_Level ?>"></span>
                 <span class="col8"><input type="text" name="user_profile" value="<?= $user_profile ?>"></span>
                 <span class="col9"><button type="submit">수정</button></span>
-                <span class="col10"><button type="button" onclick="location.href='delete_user.php'">삭제</button></span>
+                <span class="col10"><button type="button" onclick="location.href='delete_user.php?user_num=<?= $user_num ?>'">삭제</button></span>
               </form>
             </li>
           <?php

@@ -1,19 +1,33 @@
 <?php
+session_start();
+$user_email = $_SESSION['user_Email'];
+
 include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php";
 
 if (!isset($con)) {
     include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php";
 }
 
+if (isset($_POST['send_id'])) {
+    $send_id = $_POST['send_id'];
+}
 // echo "alert(ajax : $message_group_num, $content);";
 
 if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'insert_message':
-            $message_group_num = $_POST['message_group_num'];
-            $send_id = $_POST['send_id'];
-            $rv_id = $_POST['rv_id'];
-            $content = $_POST['message_content'];
+            if ($send_id === $user_email) {
+                $message_group_num = $_POST['message_group_num'];
+                $send_id = $_POST['send_id'];
+                $rv_id = $_POST['rv_id'];
+                $content = $_POST['message_content'];
+            } else {
+                $message_group_num = $_POST['message_group_num'];
+                $rv_id = $_POST['send_id'];
+                $send_id = $_POST['rv_id'];
+                $content = $_POST['message_content'];
+            }
+
             insert_message($con, $message_group_num, $send_id, $rv_id, $content);
             break;
         case 'select':

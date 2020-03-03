@@ -62,8 +62,8 @@
 
                     echo "<form id='message_talk_send' name='message_talk_send' method='POST' >";
                     echo "<input id='message_group_num' type='text' value='$message_group_num' hidden>";
-                    echo "<input id='send_id' type='text' value='$rv_id' hidden>";
-                    echo "<input id='rv_id' type='text' value='$send_id' hidden>";
+                    echo "<input id='send_id' type='text' value='$send_id' hidden>";
+                    echo "<input id='rv_id' type='text' value='$rv_id' hidden>";
                     echo "<textarea id='message_content' name='message_content' type='text'></textarea>";
                     echo "<button type='button' id='message_send_btn' class='button_next' value='insert_message'><i class='fas fa-utensils'></i></button>";
                     echo "</form>";
@@ -86,7 +86,8 @@
                         echo "<div class=" . COMMON::$css_card_menu_row . ">";
 
                         //나중에 유저 세션 들고와서 할 거임
-                        if ($send_id === $user_id) {
+                        $user_email = $_SESSION['user_Email'];
+                        if ($send_id === $user_email) {
                             echo "<button class='card_message_send' class=" . COMMON::$css_card_menu_btn . ">";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Me <i class='fas fa-quote-right'></i></div>";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";

@@ -15,3 +15,14 @@
 
 <!-- 무한 스크롤 -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+<!-- rMateMapChartH5 에서 사용하는 스타일 -->
+<link rel="stylesheet" type="text/css" href="../rMateMapChartH5/Assets/rMateMapChartH5.css" />
+
+<!-- rMateMapChartH5 라이센스 -->
+<script language="javascript" type="text/javascript" src="../LicenseKey/rMateMapChartH5License.js"></script>
+
+<!-- 실제적인 rMateMapChartH5 라이브러리 -->
+<script language="javascript" type="text/javascript" src="../rMateMapChartH5/JS/rMateMapChartH5.js"></script>

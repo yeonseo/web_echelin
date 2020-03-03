@@ -30,8 +30,8 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/admin/admin_side_left_menu.php"; ?>
       </div>
       <div class="right_content">
-        <h3>유저정보수정
-          <form class="" action="admin_edit_user.php?mode=search" method="post">
+        <h3>후기내역수정
+          <form class="" action="admin_edit_review.php?mode=search" method="post">
 
             <select name="find">
               <option value="user_Email">이메일</option>
@@ -101,11 +101,10 @@
                 <span class="col4"><input type="text" name="star_access" value="<?= $star_access ?>"></span>
                 <span class="col5"><input type="text" name="star_service" value="<?= $star_service ?>"></span>
                 <span class="col6"><input type="text" name="star_flavor" value="<?= $star_flavor ?>"></span>
-                <span class="col6"><input type="text" name="star_flavor" value="<?= $star_flavor ?>"></span>
-                <span class="col8"><input type="text" name="chu_up" value="<?= $chu_up ?>"></span>
+                <span class="col7"><input type="text" name="chu_up" value="<?= $chu_up ?>"></span>
                 <span class="col8"><input type="text" name="chu_down" value="<?= $chu_down ?>"></span>
                 <span class="col9"><button type="submit">수정</button></span>
-                <span class="col10"><button type="button" onclick="location.href='delete_user.php'">삭제</button></span>
+                <span class="col10"><button type="button" onclick="location.href='delete_user.php?num=<?= $num ?>'">삭제</button></span>
               </form>
             </li>
           <?php

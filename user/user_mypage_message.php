@@ -82,8 +82,8 @@
                         echo "<button class='card_menu_btn_wider' class=" . COMMON::$css_card_menu_btn . "type='button' onclick=\"location.href='http\://" . $_SERVER['HTTP_HOST'] . "/echelin/user/user_mypage_message_talk.php?message=" . $result_message['group_num'] . "'\">";
                         echo "<div class=" . COMMON::$css_card_menu_btn_icon . "><i class='fas fa-utensils'></i></div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_name . ">";
-                        echo "<div>" . "여기는 식당 이름" . "</div>";
-                        echo "<div>" . $send_id . "</div>";
+                        echo "<div>" . "지수네" . "</div>";
+                        echo "<div>" . $send_id . " / " . $regist_day . "</div>";
                         echo "</div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">" . $content . "</div>";
                         echo "</button> <!-- end of card_menu_btn_wider -->";
@@ -93,44 +93,21 @@
 
                 //나중에 유저 세션 들고와서 할 거임
                 //메세지 그룹 계산하기 위한 것
-                $user_email = "aaaaaa";
+                $user_email = $_SESSION['user_Email'];
                 createMessageList($con, $dbname, $user_email);
 
                 ?>
 
                 <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_mypage_message_talk.php?message=<?= $massage_num ?>'">
-                        <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">쪽지목록이 될 거시다</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
-
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_mypage_message_talk.php?message=<?= $massage_num ?>'">
+                    <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
                         <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <div class="<?= COMMON::$css_card_menu_btn_name; ?>">
-                            <div>여기는 식당 이름</div>
-                            <div>여기는 최종메세지 보낸 사람 / 시간</div>
+                            <div>황태 마을</div>
+                            <div> dakd0123@daum.net / 2020-02-28 </div>
                         </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... </div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
-
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_mypage_message_talk.php?message=<?= $massage_num ?>'">
-                        <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">
-                            <div>여기는 식당 이름</div>
-                            <div>연서 / 2020년 1월 14일</div>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">그날 아마 요리는 어쩌구.. 문의주신 사항은 어쩌구.. 저쩌구 ㅈ쩌구..</div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>"> 네~ 감사합니다 ㅎㅎㅎ </div>
                     </button>
                 </div> <!-- end of css_card_menu_row -->
 
@@ -140,20 +117,10 @@
                             <i class="fas fa-utensils"></i>
                         </div>
                         <div class="<?= COMMON::$css_card_menu_btn_name; ?>">
-                            <div>여기는 식당 이름</div>
-                            <div>여기는 최종메세지 보낸 사람 / 시간</div>
+                            <div>정성 밥상</div>
+                            <div> minmin23@naver.com / 2020-01-20 </div>
                         </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... </div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
-
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">여기는 식당 이름</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... 요기는 최신 메시지 내용... 말줄임 말줄임... </div>
+                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">맛은 어떠셨나요?? ㅎㅎㅎ 이번에는 특별히 부탁하셨던 맵기 조절로 요리해 드렸었는데, 다음번에도 만족하실 식사가 되셨으면 좋겠습니다~</div>
                     </button>
                 </div> <!-- end of css_card_menu_row -->
 
