@@ -118,11 +118,42 @@
 
       </div>
       <?php
-        if(empty($_POST["r_name"])) $r_name=""; else $r_name=$_POST["r_name"];
-        if(empty($_POST["uptae"])) $uptae=""; else $uptae=$_POST["uptae"];
-        if(empty($_POST["keywords"])) $keywords=""; else $keywords=$_POST["keywords"];
-        if(empty($_POST["gps_ad"])) $gps_ad=""; else $gps_ad=$_POST["gps_ad"];
-        
+        $keywodrs_array="";
+
+
+        if(empty($_POST["r_name"])){
+          $r_name="";
+          $sql = "select * from seller_keyword";
+        }else{
+          $r_name=$_POST["r_name"];
+          $sql = "select * from seller_keyword where seller_name like '%$r_name%'";
+        }
+
+        if(!empty($_POST["uptae"])){
+          $uptae=$_POST["uptae"];
+          $sql .= "and seller_uptae_nm like '%$uptae%' ";
+        }else{
+          $sql .="";
+        }
+
+        if(!empty($_POST["keywords"])){
+          $keywords=$_POST["keywords"];
+          $keywodrs_array = explode("#",$keywords);
+          for($i=0;$i < count($keywords_array);$i++){
+              $sql .= "and tag_class like '%$keywords_array[$i]%' ";
+              }
+        }else{
+          $sql .="";
+        }
+
+        if(!empty($_POST["gps_ad"])){
+          $gps_ad=$_POST["gps_ad"];
+          $sql .= "and seller_address like '%$gps_ad%' ";
+        }else{
+          $sql .="";
+        }
+
+
       ?>
       <div class="search_all">
 
@@ -130,19 +161,25 @@
 
           <div class="search_member">
               <?php
-                $sql = "select upso_nm, snt_uptae_nm, tag_class from keyword_restaurant where upso_nm like '%$r_name%'";
+
                 $result = mysqli_query($con,$sql);
 
                 while($row = mysqli_fetch_array($result)){
-                  $upso_nm = $row["upso_nm"];
-                  $snt_uptae_nm = $row["snt_uptae_nm"];
+                  $num=$row["num"];
+                  $seller_num=$row["seller_num"];
+                  $seller_name = $row["seller_name"];
+                  $seller_address=$row["seller_address"];
+                  $seller_uptae_nm = $row["seller_uptae_nm"];
                   $tag_class = $row["tag_class"];
 
               ?>
               <div class="">
                 <ul>
-                  <li><?=$upso_nm?></li>
-                  <li><?=$snt_uptae_nm?></li>
+                  <li><?=$num?></li>
+                  <li><?=$seller_num?></li>
+                  <li><?=$seller_name?></li>
+                  <li><?=$seller_address?></li>
+                  <li><?=$seller_uptae_nm?></li>
                   <li><?=$tag_class?></li>
                 </ul>
               </div>
