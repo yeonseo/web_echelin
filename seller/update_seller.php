@@ -123,4 +123,11 @@ $sql .= ", store_tel='$re_phone', special_note='$special_note', max_reserv_time_
 mysqli_query($con, $sql);
 echo mysqli_error($con);
 mysqli_close($con);
+echo("
+  <script>
+    location.href='./seller_sellerinfo_index.php';
+  </script>
+");
+
+
  ?>

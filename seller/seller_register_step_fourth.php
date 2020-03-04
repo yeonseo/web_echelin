@@ -74,11 +74,11 @@ $lon = $_POST["lon"];
         <span>우편번호 : </span>
         <input class="input_info_dis" type="text" name="input_postcode" value="<? echo $input_postcode?>">&nbsp&nbsp</br>
         <span>주소 : </span>
-        <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>" style="width:280px;"></br>
+        <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>" style="width:235px;"></br>
         <span>참고항목 : </span>
-        <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>"></br>
+        <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>" style="width:235px;"></br>
         <span>상세주소 : </span>
-        <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>"></br>
+        <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>" style="width:235px;"></br>
         <span>식당 소개글 : </span></br>
         <textarea class="textarea_step2" name="introduction" rows="2" cols="35" style="resize: none;"><? echo $introduction?></textarea></br>
         <span>식당 종류 : </span>
