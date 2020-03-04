@@ -10,7 +10,7 @@ function get($name){
   if (isset($_GET[$name])) {
       $get_result= $_GET[$name];
   } else {
-      $get_result= '엥';
+      $get_result= '어?';
   }
   return $get_result;
 }
@@ -50,7 +50,7 @@ function get($name){
       echo "<input id='date_result'type='text' value='$date_result' hidden>";
       echo "<input id='time_result'type='text' value='$time_result' hidden>";
       echo "<input id='person'type='text' value='$person' hidden>";
-      
+
  ?>
   <div class="div_menu_content">
     <div class="best_score_content" id="divContentWrap">

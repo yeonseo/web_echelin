@@ -190,7 +190,7 @@ right: 0;
 bottom: 0;
 left: 0;
 width: 50%;
-height: 70%;
+height: 80%;
 margin: auto;
 overflow: auto;
 background: #fff;
@@ -237,7 +237,7 @@ transform: rotate(-45deg);
 
 .modal_inner {
 
-  top: -5%;
+  top: -2%;
   width: 90%;
   height: 90%;
   box-sizing: border-box;
@@ -274,14 +274,14 @@ background: ORANGERED;
   margin: 30px 0 0 30px;
 }
 .pophead2{
-  border-bottom: 2px solid maroon;
   padding:30px 0 0 30px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width: 200px;
 }
 .reservation_info{
+  border-bottom: 2px solid maroon;
   width: 70%;
-  margin: 10px 10px 10px 10px;
+  margin: 0 10px 10px 30px;
 }
 .pophead3{
   margin: 30px 10px 10px;

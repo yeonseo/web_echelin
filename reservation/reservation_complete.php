@@ -9,7 +9,7 @@ function get($name){
   if (isset($_GET[$name])) {
       $get_result= $_GET[$name];
   } else {
-      $get_result= '엥';
+      $get_result= '어?';
   }
   return $get_result;
 }
