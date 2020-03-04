@@ -325,6 +325,7 @@ function insert_table($con, $table_name)
             $sql .= "INSERT INTO `echelin_user` (`user_sns`,`user_Email`,`user_checkEmail`,`user_password`,`user_name`,`user_age`,`user_phone`,`user_regist_day`,`user_aboutme`,`user_Level`)
              VALUES ('','k@naver.com','1','1','유저1',NULL,NULL,NULL,NULL,'1'),
              ('','s@naver.com','1','1','판매자1',NULL,NULL,NULL,NULL,'10'),
+             ('','infor15','1','1','김지수',NULL,NULL,NULL,NULL,'10'), 
              ('','m@naver.com','1','1','관리자1',NULL,NULL,NULL,NULL,'100');
               ";
             break;
