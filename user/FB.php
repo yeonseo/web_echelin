@@ -107,8 +107,8 @@
       
       
          '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
-          location.href = 'user_join_insert.php';
-        alert("회원가입 INSERT !");
+          // location.href = 'user_join_insert.php';
+        alert("회원가입 성공 !");
       // document.FB.submit();
         
         
@@ -139,7 +139,7 @@ function facebookLogOut(){
  
 </script>
 
-
+    
   <div class="container" id="fasebook_btn" onclick="javascript:fbLogin();">
     <div class="col-sm-12" hidden>
       <div id="status">

@@ -4,6 +4,7 @@ $Email = $_POST["user_Email"];
 $Password = $_POST["user_password"];
 $About = $_POST["user_aboutme"];
 $Phone = $_POST["user_phone"];
+$Age = $_POST["user_age"];
 
 
 
@@ -50,6 +51,12 @@ if ($result === FALSE) {
     die('DB bookmark_num Connect Error: ' . mysqli_error($con));
 }
 
+$sql = "update echelin_user set `user_age`='$Age' where `user_Email`='$Email';";
+$result = $con->query($sql);
+if ($result === FALSE) {
+    die('DB bookmark_num Connect Error: ' . mysqli_error($con));
+}
+
 
 
 
@@ -63,8 +70,8 @@ mysqli_close($con);
 
 echo "
 <script>
-alert('업데이트 되었니 제발..?? $Name $Password $Email $Phone $About ');
-    location.href = 'http://localhost/echelin/user/user_mypage_info_update.php';
+alert('업데이트 되었니 제발..?? $Name $Password $Email $Phone $About $Age ');
+    location.href = 'user_mypage_info_update.php';
 </script>
 ";
 

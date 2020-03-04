@@ -56,7 +56,7 @@
         <img id="View"    src="<?=$uploaded_file?>" alt="">
         
         </div>
-         <!-- // 이메일 hidden 값 으로 받아오기 -->
+        
        
         
         </div>
@@ -72,7 +72,7 @@
             <label for="text_change">파일 업로드 하기</label>
             <input id="text_change" class="flie_upload_input" type="submit" value="확인">
         </div>
-
+        <!-- // 이메일 hidden 값 으로 받아오기 -->
         <input type="hidden" class="view_pass" name="user_Email" value="<?=$useremail?>">
                                               <fieldset style="border: none"></fieldset>
     </form>

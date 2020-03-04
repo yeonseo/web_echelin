@@ -77,6 +77,7 @@
                         <div class="about_me">
                             안녕하세요 저는
                             <?=$username?>
+                            
                             입니다.
 
                             
@@ -152,22 +153,37 @@
 
 
 
-                                    <fieldset style="border: none"></fieldset>
-                                    <legend class="legend_text">생년월일</legend>
+                                    <legend class="legend_text">나이</legend>
                                     <span class="text_move">
-                                        <?=$username?></span>
+                                        <?=$userage?></span>
+                                    <button type="button" class="update_button_4">수정하기</button>
+                                    <br>
+                                    <div class="input_save_age_form">
+                                        <input style="display:none" type="text" class="view_age" name="user_age" value="<?=$userage?>">
+                                        <button type="submit" style="display:none" class="hide_save_button_age">저장</button>
+                                    </div>
 
 
 
 
-                                    <button type="button" class="update_button">수정하기</button>
-                                  
-                                    <fieldset style="border: none"></fieldset>
-                                    <legend class="legend_text">거주지</legend>
+                                    <legend class="legend_text">가입 날짜</legend>
                                     <span class="text_move">
-                                        <?=$username?></span>
-                                        
-                                    <button type="button" class="update_button">수정하기</button>
+
+                                        <?=$Regist = date("Y-m-d");?></span>
+                                    <button type="button" class="update_button_5">수정하기</button>
+                                    <br>
+                                    <div class="input_save_regist_form">
+                                        <input style="display:none" type="text" class="view_regist" name="" readonly value="<?=$Regist = date("Y-m-d");?>">
+                                        <button type="submit" style="display:none" class="hide_save_button_regist">저장</button>
+                                    </div>
+
+
+
+
+
+
+
+                                
                                     <fieldset style="border: none"></fieldset>
                                 </div>
                                 <div style="width: 82%;
