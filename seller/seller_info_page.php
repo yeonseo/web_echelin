@@ -78,7 +78,7 @@ $re_store_tel = explode('-', $store_tel);
 <div class="right_content">
   <ul>
     <input type="text" name="seller_num" value="<?=$seller_num?>" hidden>
-    <li>가게이름<li>
+    <h3>가게이름</h3> </br>
     <input id="input_store_name" class="input_info" type="text" name="input_store_name" value="<?=$store_name?>"></br></br>
     <li>사업자번호<li>
     <input type="text" class="input_info" name="input_business_license" value="<?=$business_license?>" readonly>
@@ -87,7 +87,7 @@ $re_store_tel = explode('-', $store_tel);
     <input class="input_info" id="update_postcode" name="input_postcode" type="text" value="<?=$store_postcode?>">
     <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>
     </br></br>
-    <input class="input_info" id="update_address" name="input_address" type="text" value="<?=$re_address[0]?>">
+    <input class="input_info" id="update_address" name="input_address" type="text" value="<?=$re_address[0]?>" style="width:200px";>
     </br></br>
     <input class="input_info" id="update_extraAddress" name="input_extraAddress" type="text" value="<?=$re_address[1]?>">
     </br></br>

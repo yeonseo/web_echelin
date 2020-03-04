@@ -2,7 +2,7 @@
 <?php
 $con = mysqli_connect("localhost","root","123456","echelin");
 $useremail=$_GET["id"];
-echo $useremail;
+// echo $useremail;
 
 
 $input_store_name = htmlspecialchars($_POST["input_store_name"], ENT_QUOTES);
@@ -124,7 +124,7 @@ mysqli_close($con);
           <div class="div_except_button">
             <ul>
               <li><a href="/echelin/seller/seller_menu.php"><div class="">메뉴 등록하러 가기</div></a></li>
-              <li><a href="./seller_info_page.php"><div class="">식당 사진 업로드 하러 가기</div></a></li>
+              <li><a href="./seller_info_page.php"><div class="">가게 사진 등록하기</div></a></li>
               <li><a href="../"><div class="">메인 페이지로 이동하기</div></a></li>
               <li><a href="./seller_info_page.php"><div class="">내 식당 정보로 이동하기</div></a></li>
             </ul>
