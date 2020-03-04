@@ -70,11 +70,25 @@ while($row=mysqli_fetch_array($result)) {
 }
 }
 
+$sql2 = "select count(*) from store_img where seller_num = '$seller_num'";
+$result2=mysqli_query($con, $sql2);
+$row2=mysqli_fetch_array($result2);
+$count=$row2[0];
  mysqli_close($con);
 ?>
         <div class="show_btn_div">
-            <button class='btn_store_update' onclick="location.href='./seller_store_pic.php?seller_num=<?=$seller_num?>'">수정하기</button>
-        </div>
+          <?php
+          if($count < 1) {
+          ?>
+            <button class='btn_store_update' onclick="location.href='./seller_store_pic_register.php?seller_num=<?=$seller_num?>'">등록하기</button>
+          <?php
+          } else {
+            ?>
+            <button class='btn_store_update' onclick="location.href='./seller_store_pic_update.php?seller_num=<?=$seller_num?>'">수정하기</button>
+            <?php
+          }
+           ?>
+
 
      </div>
    </div>

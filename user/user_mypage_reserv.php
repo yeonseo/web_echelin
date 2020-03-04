@@ -5,7 +5,7 @@
      $user_email = $_SESSION["user_Email"];
   }
   else {
-    // $user_email = "libero@natoquepenatibuset.co.uk";
+    // 없으면 테스트용!!!
     $user_email = "k@naver.com";
   }
 ?>
@@ -29,28 +29,9 @@
 
     <script type="text/javascript">
 
-      function test(){
+      function delete_reservation(reservation_num){
 
-          var html = "<div class='show_element'>";
-
-                html += "<img src='../seller/storeImg/best_1.jpg'>";
-                  html += "<div class='element_main'>";
-                    html += "<span class='span_first'>가게 이름 ::: 맛나곱창</span>";
-                    html += "<span class='span_second'>가게 소개 ::: 왕십리 곱창 최고의 맛집</span>";
-                    html += "<span class='span_third'>가게 주소 ::: 서울특별시 성동구 홍익동 130-1</span>";
-                  html += "</div>";
-
-                  html += "<div class='show_btn_div'>";
-                    html += "<span>예약 현황 상태 ···</span>";
-                    html += "<label class='btn' for='open-pop'>상세 확인</label>";
-                    html += "<label class='btn' for='open-cancel'>예약 취소</label>";
-
-                  html += "</div>";
-
-            html += "</div>";
-
-          $(".show_basic .show_no").remove();
-          $(".show_basic").append(html);
+          location.href="../reservation/reserved_db_delete.php?reservation_num="+reservation_num;
 
         }
 
@@ -83,7 +64,6 @@
 
           <div class="div_section">
 
-            <button type="button" class="test_btn" onclick="test()">테스트</button>
 
             <div class="show_main">
 
@@ -111,9 +91,17 @@
                               echo "</div>";
 
                               echo "<div class='show_btn_div'>";
-                                echo "<span>예약 현황 상태 ···</span>";
-                                echo "<label class='btn' for='open-pop'>상세 확인</label>";
-                                echo "<label class='btn' for='open-cancel'>예약 취소</label>";
+                                if($cancel[$i]==null){
+                                  echo "<span> 예약 완료 ···</span>";
+                                }else if($cancel[$i]==1){
+                                  echo "<span class='orangered'> 예약 취소 ···</span>";
+                                }else if($cancel[$i]==0){
+                                  echo "<span class='darkorange'> 방문 완료 ···</span>";
+                                }
+                                echo "<label class='btn' for='open-pop".$i."'>상세 확인</label>";
+                                if($cancel[$i]==null){
+                                echo "<label class='btn' for='open-cancel".$i."'>예약 취소</label>";
+                                }
 
                               echo "</div>";
 
@@ -150,50 +138,75 @@
           </div><!-- container -->
         </div><!-- right_content -->
       </div><!-- my_info_content -->
-
-      <!-- 예약 상세 팝업 -->
-
-      <input class="modal-state" id="open-pop" type="checkbox" />
-      <div class="modal">
-        <label class="modal_bg" for="open-pop"></label>
-        <div class="modal_inner">
-          <label class="modal_close" for="open-pop"></label>
-          <h2>popup 제목</h2>
-          <p>내용</p>
-        </div>
-      </div>
-      <!-- 예약 상세 팝업 -->
-
-      <!-- 예약 취소 팝업 -->
-
-      <input class="modal-state" id="open-cancel" type="checkbox" />
-      <div class="modal">
-        <label class="modal_bg" for="open-cancel"></label>
-        <div class="modal_inner">
-          <label class="modal_close" for="open-cancel"></label>
-          <h2>취소 하시겠습니까?</h2>
-          <p>내용</p>
-        </div>
-      </div>
-      <!-- 예약 상세 팝업 -->
-
       <?php
-      for ($i=0;$i<$cnt;$i++)
-      {
+        $menu=[];
 
-         echo "reservation_num = ".$reservation_num[$i]."<br>";
-         echo "seller_num = ".$seller_num[$i]."<br>";
-         echo "store_name = ".$store_name[$i]."<br>";
-         echo "introduction = ".$introduction[$i]."<br>";
-         echo "seller_id = ".$seller_id[$i]."<br>";
-         echo "select_date = ".$select_date[$i]."<br>";
-         echo "select_time = ".$select_time[$i]."<br>";
-         echo "select_person = ".$select_person[$i]."<br>";
-         echo "select_menu = ".$select_menu[$i]."<br>";
-         echo "reservation_special = ".$reservation_special[$i]."<br>";
-         echo "intensity_of_reserv = ".$intensity_of_reserv[$i]."<br>";
-         echo "noshow = ".$noshow[$i]."<br>"."<br>"."<br>"."<br>"."<br>"."<br>";
-      }
+        for($i = 0 ; $i < $cnt ; $i++){
+
+          $person_array=explode(',' ,$select_person[$i]);
+          $person="성인 : ".$person_array[0]."명";
+          $person.=" , 어린이 : ".$person_array[1]."명";
+          $person.=" , 유아 : ".$person_array[2]."명";
+
+
+          $menu_for_cnt=0;
+          $menu_array=explode(',' ,$select_menu[$i]);
+
+          for($j = 0 ; $j < count($menu_array) ; $j++){
+            if($j%2==0){
+              $menu[$menu_for_cnt]=$menu_array[$j];
+            }else{
+              $menu[$menu_for_cnt].=" &nbsp".$menu_array[$j]."개";
+              $menu_for_cnt++;
+            }
+          }
+
+
+
+           // 예약 상세 팝업
+
+          echo "<input class='modal-state' id='open-pop".$i."' type='checkbox' />";
+          echo "<div class='modal'>";
+          echo "  <label class='modal_bg' for='open-pop".$i."'></label>";
+          echo "  <div class='modal_inner'>";
+          echo "    <label class='modal_close' for='open-pop".$i."'></label>";
+
+          echo "<div class='reservation_info'>";
+          echo "    <h2 class='pophead2'>".$store_name[$i]."</h2>";
+          echo "</div>";
+          echo "<h3 class='pophead3'>예약 날짜</h3>";
+          echo "<p class='pinpo'>".$select_date[$i]."</p>";
+          echo "<h3 class='pophead3'>예약 시간</h3>";
+          echo "<p class='pinpo'>".$select_time[$i]."</p>";
+          echo "<h3 class='pophead3'>예약 인원</h3>";
+          echo "<p class='pinpo'>".$person."</p>";
+          echo "<h3 class='pophead3'>예약 메뉴</h3>";
+          for($l=0;$l<count($menu);$l++){
+            echo "<p class='pinpo'>".$menu[$l]."</p>";
+          }
+          echo "</div>";
+          echo "</div>";
+          // 예약 상세 팝업
+           // 예약 취소 팝업
+
+          echo "<input class='modal-state' id='open-cancel".$i."' type='checkbox' />";
+          echo "<div class='modal'>";
+          echo "  <label class='modal_bg' for='open-cancel".$i."'></label>";
+          echo "  <div class='modal_inner modal_cancel_inner'>";
+          echo "    <label class='modal_close' for='open-cancel".$i."'></label>";
+          echo "    <h2 class='pophead'>취소 하시겠습니까?</h2>";
+          echo "    <label class='btn btn_cancel' onclick='delete_reservation(".$reservation_num[$i].")'>취소하겠습니다</label>";
+          echo "  </div>";
+          echo "</div>";
+           // 예약 취소 팝업
+
+        }
+
+
+
+
+
+
 
        ?>
     </section>

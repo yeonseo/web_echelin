@@ -1,5 +1,9 @@
 <?php
   $con = mysqli_connect("localhost", "root", "123456", "echelin");
+  function Console_log($data){
+    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
+  }
+
 ?>
  <!DOCTYPE html>
 <html>
@@ -89,7 +93,7 @@
       <!-- 많이검색된키워드db에서가져와서정렬 -->
       <div class="search_banner">
 
-          <span class="search_title">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 이 키워드는 어떠세요?</span>
+          <span class="search_title"> &nbsp;&nbsp;:::&nbsp;&nbsp; 주변식당을 추천 키워드로 찾아보세요!</span>
 
           <a href="#">
               <div class="banner_content_first"></div>
@@ -118,46 +122,100 @@
 
       </div>
       <?php
+        //넘어오는키워드들저장할변수
         $keywodrs_array="";
+        //레스토랑이름,식당종류,키워드,현재위치(지역구) 값이있는지없는지여부판단해서 sql 작성
+        $ok=array(false,false,false,false);
 
-
+        //레스토랑이름값
         if(empty($_POST["r_name"])){
           $r_name="";
-          $sql = "select * from seller_keyword where not seller_name like '%$r_name%'";
+          $ok[0]=false;
         }else{
           $r_name=$_POST["r_name"];
-          $sql = "select * from seller_keyword where seller_name like '%$r_name%'";
+          Console_log($r_name);
+          $ok[0]=true;
         }
-
+        //식당종류값
         if(!empty($_POST["uptae"])){
           $uptae=$_POST["uptae"];
-          $sql .= "and seller_uptae_nm like '%$uptae%' ";
+          Console_log($uptae);
+          $ok[1]=true;
         }else{
-          $sql .="";
+          $ok[1]=false;
+          $uptae="";
         }
-
+        //넘어온키워드들 # 으로 짤라서 배열에 저장
         if(!empty($_POST["keywords"])){
-          $keywords=$_POST["keywords"];
-          $keywodrs_array = explode("#",$keywords);
-          for($i=0;$i < count($keywords_array);$i++){
-              $sql .= "and tag_class like '%$keywords_array[$i]%' ";
-              }
+          $keywords_selected=$_POST["keywords"];
+          //ex)#키워드#키워드#키워드 이기 떄문에 맨앞#은 제거한다
+          $result_keyword = substr($keywords_selected,1);
+          $keywords_array = explode("#","$result_keyword");
+          Console_log($keywords_array[0]);
+          $ok[2]=true;
         }else{
-          $sql .="";
+          $ok[2]=false;
+          $keywords_selected="";
         }
-
+        //현제위치(지역구)
         if(!empty($_POST["gps_ad"])){
           $gps_ad=$_POST["gps_ad"];
-          $sql .= "and seller_address like '%$gps_ad%' ";
+          Console_log($gps_ad);
+          $ok[3]=true;
         }else{
-          $sql .="";
+          $gps_ad="";
+          $ok[3]=false;
         }
 
+
+        //조건문걸어서 sql 확정 짓기 경우의수 12 개
+        // 식당이름 = $r_name && 업태= $uptae && 키워드배열= $keywords_array && $gps_ad
+        if($ok[0]==true&&$ok[1]==true&&$ok[2]==true&&$ok[3]==true){
+          $sql = "select * from seller_keyword where seller_name like '%$r_name%'";
+          $sql .= "and seller_uptae_nm like '%$uptae%'";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            $sql_keywords .= "and tag_class like '%$keywords_array[$i]%' ";
+          }
+          $sql . $sql_keywords;
+          $sql .= "and seller_address like '%$gps_ad%'";
+          Console_log($sql);
+        }else if($ok[0]==true&&$ok[1]==true&&$ok[2]==true&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==true&&$ok[1]==true&&$ok[2]==false&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==true&&$ok[1]==false&&$ok[2]==false&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==true&&$ok[1]==false&0&$ok[2]==true&&$ok[3]==true){
+          $sql = "";
+        }else if($ok[0]==true&&$ok[1]==false&&$ok[2]==false&&$ok[3]==true){
+          $sql = "";
+        }else if($ok[0]==true&&$ok[1]==false&&$ok[2]==true&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==true&&$ok[1]==true&&$ok[2]==false&&$ok[3]==true){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==true&&$ok[2]==true&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==true&&$ok[2]==false&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==false&&$ok[2]==false&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==false&0&$ok[2]==true&&$ok[3]==true){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==false&&$ok[2]==false&&$ok[3]==true){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==false&&$ok[2]==true&&$ok[3]==false){
+          $sql = "";
+        }else if($ok[0]==false&&$ok[1]==true&&$ok[2]==false&&$ok[3]==true){
+          $sql = "";
+        }else{
+          $sql = "select * from seller_keyword";
+        }
 
       ?>
       <div class="search_all">
 
-          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$r_name?>" 에 대한 모든 검색결과 입니다.</span>
+          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$r_name?>","<?=$uptae?>","<?=$keywords_selected?>","<?=$gps_ad?>" 에 대한 모든 검색결과 입니다.</span>
 
           <div class="search_member">
               <?php
@@ -178,7 +236,7 @@
 
                     <li><?=$num?></li>
                     <li><?=$seller_num?></li>
-                    <li><a href="../restaurants/restaurants_index.php&seller_num=$seller_num"
+                    <li><a href="../restaurants/restaurants_index.php?seller_num=<?=$seller_num?>"
                       ><?=$seller_name?></a></li>
                     <li><?=$seller_address?></li>
                     <li><?=$seller_uptae_nm?></li>

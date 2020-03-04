@@ -39,9 +39,7 @@
     <progress value="25" max="100">0%</progress>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/calendar.php"; ?>
     </section>
-    <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
-    </footer>
+
 
   </body>
 </html>

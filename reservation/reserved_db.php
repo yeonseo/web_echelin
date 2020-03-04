@@ -1,7 +1,6 @@
 <?php
 
 include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php";
-echo "user_email = ". $user_email;
 // $seller_num=get('seller_num');
 // $date_result=get('date_result');
 // $time_result=get('time_result');
@@ -26,7 +25,6 @@ echo "user_email = ". $user_email;
         }
 
         $rowcnt = mysqli_num_rows($result);
-        echo "rowcnt = ".$rowcnt."<br>";
 
         $reservation_num=[];
         $seller_num=[];
@@ -40,6 +38,7 @@ echo "user_email = ". $user_email;
         $reservation_special=[];
         $intensity_of_reserv=[];
         $noshow=[];
+        $cancel=[];
         $cnt=0;
         while ($row = mysqli_fetch_array($result))
         {
@@ -56,18 +55,7 @@ echo "user_email = ". $user_email;
              $reservation_special[$cnt] =$row['reservation_special'];
              $intensity_of_reserv[$cnt] =$row['intensity_of_reserv'];
              $noshow[$cnt] =$row['noshow'];
-           echo "reservation_num = ".$reservation_num[$cnt]."<br>";
-           echo "seller_num = ".$seller_num[$cnt]."<br>";
-           echo "store_name = ".$store_name[$cnt]."<br>";
-           echo "introduction = ".$introduction[$cnt]."<br>";
-           echo "seller_id = ".$seller_id[$cnt]."<br>";
-           echo "select_date = ".$select_date[$cnt]."<br>";
-           echo "select_time = ".$select_time[$cnt]."<br>";
-           echo "select_person = ".$select_person[$cnt]."<br>";
-           echo "select_menu = ".$select_menu[$cnt]."<br>";
-           echo "reservation_special = ".$reservation_special[$cnt]."<br>";
-           echo "intensity_of_reserv = ".$intensity_of_reserv[$cnt]."<br>";
-           echo "noshow = ".$noshow[$cnt]."<br>"."<br>"."<br>"."<br>"."<br>"."<br>";
+             $cancel[$cnt] =$row['cancel'];
            $cnt++;
         }
 
@@ -84,12 +72,10 @@ echo "user_email = ". $user_email;
               die('DB seller Connect Error: ' . mysqli_error($con));
           }
           $numrow = mysqli_num_rows($result_file[$i]);
-          echo "numrow = ".$numrow."<br>";
 
           if($numrow!=0){
           $row = mysqli_fetch_array($result_file[$i]);
           $store_file_copied[$i] =$row['store_file_copied'];
-          echo "store_file_copied[i] = ".$store_file_copied[$i]."<br>"."<br>";
           }
 
         }
