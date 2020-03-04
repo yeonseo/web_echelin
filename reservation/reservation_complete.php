@@ -3,7 +3,15 @@
 $seller_num=get('seller_num');
 $store_name=get('store_name');
 $select_date=get('select_date');
-
+if (isset($_SESSION["user_Email"])){
+   $user_email = $_SESSION["user_Email"];
+}
+else {
+  echo("<script>
+  alert('로그인 후에 이용할 수 있습니다.');
+  location.href='../restaurants/restaurants_index.php?seller_num=$seller_num';
+  </script>");
+}
 
 function get($name){
   if (isset($_GET[$name])) {
