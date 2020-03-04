@@ -3,10 +3,12 @@ date_default_timezone_set('Asia/Seoul');
 $upload_dir = './storeImg/';
 $con = mysqli_connect("localhost","root","123456","echelin");
 
-$seller_num="6";
+$seller_num=$_GET["seller_num"];
+$useremail=$_GET["user_id"];
+
 
 // $file_n	 = $_FILES["file"]["name"];
-print_r($_FILES);
+//print_r($_FILES);
 // var_dump($file_n);
 
 
@@ -63,12 +65,18 @@ else
 }
 
 
-$sql = "insert into store_img (num, seller_num, store_name, store_file_name, store_file_type, store_file_copied) ";
-$sql .= "values(null, '$seller_num', (select store_name from seller where seller_num = '$seller_num'), '$file_name', '$file_type', '$copied_file_name')";
+$sql = "insert into store_img (num, user_id, seller_num, store_name, store_file_name, store_file_type, store_file_copied) ";
+$sql .= "values(null, '$useremail', '$seller_num', (select store_name from seller where seller_num = '$seller_num'), '$file_name', '$file_type', '$copied_file_name')";
 
 mysqli_query($con, $sql);
-var_dump($file_name);
+// var_dump($con);
 }
 
 mysqli_close($con);
+
+echo("
+  <script>
+    location.href='./seller_sellerinfo_index.php';
+  </script>
+");
 ?>
