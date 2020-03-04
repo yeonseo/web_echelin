@@ -112,8 +112,8 @@
       
       
          '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
-        //  location.href = 'user_myinfo_index.php';
-        alert("로그인 성공");
+          location.href = 'user_join_insert.php';
+        alert("회원가입 INSERT !");
       // document.FB.submit();
         
         

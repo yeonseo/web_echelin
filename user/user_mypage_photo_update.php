@@ -79,7 +79,7 @@
                 die('DB bookmark_num Connect Error: ' . mysqli_error($con));
             }
 
-            $sql = "update echelin_user set `user_profile_type`='$upfile_type' where `user_Email`='$Email';";
+            $sql = "update echelin_user set `user_profile_type`='$uploaded_file' where `user_Email`='$Email';";
             $result = $con->query($sql);
             if ($result === FALSE) {
                 die('DB bookmark_num Connect Error: ' . mysqli_error($con));
