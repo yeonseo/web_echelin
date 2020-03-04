@@ -245,6 +245,53 @@
             getJsonDataMakeArticle($con, $dbname, $seller_num);
             ?>
 
+            <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
+            <?php
+            $sqlmap = "select * from seller where seller_num='$seller_num'";
+            $result_map = mysqli_query($con, $sqlmap);
+            $row_map = mysqli_fetch_array($result_map);
+            $store_name = $row_map["store_name"];
+            $store_lat = $row_map["store_lat"];
+            $store_lon = $row_map["store_lon"];
+            ?>
+            <div id="map" style="width:66.7%;height:350px;"></div> <!-- 지도 담는 div -->
+            <script type="text/javascript">
+
+
+              var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    mapOption = {
+        center: new kakao.maps.LatLng(<?= $store_lat?>, <?= $store_lon?>), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption);
+
+// 마커가 표시될 위치입니다
+var markerPosition  = new kakao.maps.LatLng(<?=$store_lat?>, <?=$store_lon?>);
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+var iwContent =  '<div style="width:150px;text-align:center;padding:6px 0;"><?=$store_name?></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new kakao.maps.LatLng(<?= $store_lat?>, <?= $store_lon?>); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+    position : iwPosition,
+    content : iwContent
+});
+
+// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker);
+              </script>
+
+
             <!-- 리뷰 -->
 
             <div class="user_comment_title">
