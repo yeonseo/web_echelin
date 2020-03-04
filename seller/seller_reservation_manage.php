@@ -6,9 +6,8 @@
     <title> <?= COMMON::$title; ?> </title>
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
-    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_mypage_reserv.css">
-    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
 
@@ -47,6 +46,12 @@ $re_select_menu=explode(',', $select_menu);
   <form class="" name="form_reservation_result" action="./seller_reservation_update.php?seller_num=<?=$seller_num?>" method="post" enctype="multipart/form-data">
     <div class="right_content">
 
+    <h3>예약자 정보</h3>
+  </br>
+  <ul>
+
+
+
     <li>아이디</li>
     <input class="input_info" type="text" name="" value="<?=$user_id?>">
     </br></br></br>
@@ -61,33 +66,35 @@ $re_select_menu=explode(',', $select_menu);
 
     <li>인원</li>
     <span class="span_content_font">성인</span>
-    <input class="input_info" type="number" name="" value="<?=$re_select_person[0]?>">명
+    <input class="input_info" type="number" name="" value="<?=$re_select_person[0]?>">명</br>
     <span class="span_content_font">어린이</span>
-    <input class="input_info" type="number" name="" value="<?=$re_select_person[1]?>">명
+    <input class="input_info" type="number" name="" value="<?=$re_select_person[1]?>">명</br>
     <span class="span_content_font">유아</span>
-    <input class="input_info" type="number" name="" value="<?=$re_select_person[2]?>">명
+    <input class="input_info" type="number" name="" value="<?=$re_select_person[2]?>">명</br>
     </br></br></br>
 
     <li>예약메뉴</li>
-    <input class="input_info" type="text" name="" value="<?=$re_select_menu[0]?>">
-    <input class="input_info" type="number" name="" value="<?=$re_select_menu[1]?>">개
+    <input class="input_info" class="input_num" type="text" name="" value="<?=$re_select_menu[0]?>">
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[1]?>">개</br>
     <input class="input_info" type="text" name="" value="<?=$re_select_menu[2]?>">
-    <input class="input_info" type="number" name="" value="<?=$re_select_menu[3]?>">개
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[3]?>">개</br>
     <input class="input_info" type="text" name="" value="<?=$re_select_menu[4]?>">
-    <input class="input_info" type="number" name="" value="<?=$re_select_menu[5]?>">개
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[5]?>">개</br>
     <input class="input_info" type="text" name="" value="<?=$re_select_menu[6]?>">
-    <input class="input_info" type="number" name="" value="<?=$re_select_menu[7]?>">개
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[7]?>">개</br>
     <input class="input_info" type="text" name="" value="<?=$re_select_menu[8]?>">
-    <input class="input_info" type="number" name="" value="<?=$re_select_menu[9]?>">개
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[9]?>">개</br>
     </br></br></br>
 
     <li>예약자 특이사항</li>
-    <input class="input_info" type="text" name="" value="<?=$reservation_special?>">
+    <textarea class="textarea_step2" name="special_note" rows="8" cols="74" style="resize: none;" value="특이사항"><?=$reservation_special?></textarea>
     </br></br></br>
 
     <li>예약 규정 강도</li>
     <input class="input_info" type="text" name="" value="<?=$intensity_of_reserv?>">
     </br></br></br>
+
+      </ul>
    <button class="button_complete" type="button" name="button" onclick="reservation_noshow_result()">완료</button>
     </div> <!-- end of right_content -->
   </form>

@@ -70,7 +70,7 @@ progress {
 
 
 .input_info {
-  width: 50%;
+  width: 150px;
   height: 30px;
   border-radius: 8px;
   border: 1px solid lightgray;
@@ -82,6 +82,9 @@ progress {
   border: 1.2px solid gold;
 }
 
+.input_num {
+  width: 50px;
+}
 
 /* 이전 다음 버튼 고정 div */
 .div_prv_next_button{
