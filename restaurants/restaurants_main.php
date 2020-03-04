@@ -158,6 +158,7 @@
             <div class="restaurants_main_content_right_btn_box">
 
                 <?php
+
                 $user_email = 'aaaaaa';
                 $rv_id = 'aaaaaa1';
                 //대화한 이력이 있는지 조회
@@ -272,31 +273,8 @@
             <div class="user_comment">
 
 
-      <?php
-        // 임시
-
-
-        define('SCALE', 10);
-
-      	if (isset($_GET["page"])) // 넘어온 get방식에 키값 page가 세팅되어있느냐. 없으면 post. 굳이 이렇게 쓰는것은 어디선가 get방식으로 보내겠다는 뜻.
-      		$page = $_GET["page"];
-      	else
-      		$page = 1;
-
-          if (isset($_GET["nowpagelist"])){
-            $now_page_list = $_GET["nowpagelist"];
-            $first_num=$now_page_list-9;
-          }else{
-            $now_page_list=10;
-            $first_num=1;
-          }
-
-      	$con = mysqli_connect("localhost", "root", "123456", "echelin");
-      	$sql = "select * from review where seller_num='$seller_num'";
-      	$result = mysqli_query($con, $sql);
-      	$total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
-
-      	$scale = 5;
+                <?php
+                define('SCALE', 10);
 
 
                 if (isset($_GET["page"])) // 넘어온 get방식에 키값 page가 세팅되어있느냐. 없으면 post. 굳이 이렇게 쓰는것은 어디선가 get방식으로 보내겠다는 뜻.

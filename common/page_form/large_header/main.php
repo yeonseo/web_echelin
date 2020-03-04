@@ -139,15 +139,16 @@
               ?>
                   </p>
                 </a>
-            <?php
-                }
-            ?>
-            </div>
+              <?php
+                  }
+              ?>
+              </div>
 
-      <?php
-          }
-          mysqli_close($con);
-      ?>
+
+        <?php
+            }
+            mysqli_close($con);
+        ?>
 
           </div>
 
