@@ -21,6 +21,7 @@
   width: 660px;
   height: auto;
   margin-top: 30px;
+  margin-left: 20px;
   border: 1.25px solid #EAEAEA;
   border-radius: 20px 20px 0 0;
 }
@@ -71,6 +72,7 @@
   height: 40px;
   background-color: #EAEAEA;
   border-radius: 19px 19px 0 0;
+  font-size: 12px;
 }
 
 ul.tabs {
@@ -102,9 +104,7 @@ ul.tabs li {
   background: #FFFFFF;
 }
 .tab_content {
-  padding: 0 5px;
   font-size: 12px;
-
 }
 .tab_container .tab_content ul {
   width:100%;

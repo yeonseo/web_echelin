@@ -28,6 +28,7 @@ header { margin-bottom: 60px; }
 .main_head_top ul {
   list-style: none;
   float: right;
+  margin-top: 10px;
   margin-right: 30px;
 }
 
@@ -255,11 +256,12 @@ header { margin-bottom: 60px; }
 /*  테스트 ::: 최고의 평가를 받은 맛집 */
 
 .main_best_score{
-  width: 1010px;
+  width: auto;
   height: auto;
   float: left;
   padding-bottom: 20px;
   margin-bottom: 50px;
+  margin-left: -50px;
 }
 
 .main_best_score .main_title{
@@ -392,8 +394,7 @@ header { margin-bottom: 60px; }
 .main_all {
   width: 1010px;
   height: 600px;
-  margin: 0 auto;
-  margin-bottom: 120px;
+  margin: 0 auto 500px auto;
 }
 
 .main_all .main_title{
@@ -431,8 +432,8 @@ header { margin-bottom: 60px; }
 
 /* =================================  footer */
 
-footer {
-  width: 1050px;;
+#footer_content {
+  width: 1050px;
   margin: 0 auto;
   height: 100px;
   border-top: 1px solid black;

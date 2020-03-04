@@ -90,75 +90,74 @@
 
     <!-- 테스트 ::: 최고의 평가를 받은 맛집 -->
     <div class="main_best_score">
-        <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 최고의 평가를 받은 맛집 : 슬라이드 추가</span>
-        <span class="main_title_sub">최고 별점을 받은 맛집들을 둘러보세요.</span>
+        <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 광고 배너</span>
+        <span class="main_title_sub">최신으로 홍보된 식당들을 만나보세요.</span>
 
-        <div class="best_score_content">
+        <div class="slideshow">
 
-            <div class="score_content_first">
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_1.jpg">
-                </a>
+          <div class="slideshow_slides">
 
-                <div class="content_review">
-                    <a href="#">
-                        <span>
-                            맛나곱창 :: 왕십리 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 별점
-                        </span>
-                    </a>
-                    <a href="#">간략 소개글</a>
+            <?php
+           	$con = mysqli_connect("localhost", "root", "123456", "echelin");
+            $sql    = "select * from advertise order by num asc";
+            $result = mysqli_query($con, $sql);
 
-                </div>
-            </div>
+            for($i = 0 ; $i < 5 ; $i++){
 
-            <div class="score_content_second">
+        ?>
 
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_2.jpg">
-                </a>
+            <div class="center_summary">
 
-                <div class="content_review">
-                    <a href="#">
-                        <span>홍능족발1977 :: 왕십리 &nbsp&nbsp&nbsp&nbsp 별점</span>
-                    </a>
-                    <a href="#">간략 소개글</a>
+            <?php
 
-                </div>
+                for($j = 0 ; $j < 4 ; $j++){
 
-            </div>
+                  $row = mysqli_fetch_array($result);
 
-            <div class="score_content_third">
+                  $file_name = $row['file_name'];
+                  $file_type = $row['file_type'];
+                  $file_copied = $row['file_copied'];
 
+                  $store_name = $row['store_name'];
+                  $introduction = $row['introduction'];
+            ?>
                 <a href="#">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_3.jpg">
+                  <p class="summary_first">
+                    <img src="../data/<?php echo $file_copied; ?>">
+                      <span class="summary_span_first"><?php echo $store_name; ?></span>
+
+                        <span class="summary_span_second"><?= $introduction?></span>
+
+                  </p>
                 </a>
-
-                <div class="content_review">
-                    <a href="#">
-                        <span>권가네 :: 왕십리 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 별점</span>
-                    </a>
-                    <a href="#">간략 소개글</a>
-
-                </div>
-
+            <?php
+                }
+            ?>
             </div>
 
+      <?php
+          }
+          mysqli_close($con);
+      ?>
 
-            <div class="score_content_fourth">
+          </div>
 
-                <a href="#">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/best_4.jpg">
-                </a>
+          <div class="slideshow_nav">
 
-                <div class="content_review">
-                    <a href="#">
-                        <span>Zzupirang :: 왕십리 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 별점</span>
-                    </a>
-                    <a href="#">간략 소개글</a>
+            <a href="#" class="prev">prev</a>
+            <a href="#" class="next">next</a>
 
-                </div>
+          </div>
 
-            </div>
+          <div class="slideshow_indicator">
+
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+
+          </div>
 
         </div>
     </div>

@@ -34,10 +34,10 @@
                 $copied_file_name = $new_file_name.".".$file_ext; 
                 $uploaded_file = $upload_dir.$copied_file_name;
 
-                if( $upfile_size  > 1000000 ) {
+                if( $upfile_size  > 5000000 ) {
                         echo("
                         <script>
-                        alert('파일 크기는 1MB 이상 업로드 할수 없습니다.);
+                        alert('파일 크기는 5MB 이상 업로드 할수 없습니다.);
                         history.go(-1)
                         </script>
                         ");
@@ -67,14 +67,13 @@
             // $profile_type=    $_POST["user_profile_type"];
 
             $con = mysqli_connect("localhost","root","123456","echelin");
-
             $sql = "update echelin_user set `user_profile`='$upfile_name' where `user_Email`='$Email';";
             $result = $con->query($sql);
             if ($result === FALSE) {
                 die('DB bookmark_num Connect Error: ' . mysqli_error($con));
             }
 
-            $sql = "update echelin_user set `user_profile_copied`='$$copied_file_name' where `user_Email`='$Email';";
+            $sql = "update echelin_user set `user_profile_copied`='$copied_file_name' where `user_Email`='$Email';";
             $result = $con->query($sql);
             if ($result === FALSE) {
                 die('DB bookmark_num Connect Error: ' . mysqli_error($con));
@@ -85,13 +84,20 @@
             if ($result === FALSE) {
                 die('DB bookmark_num Connect Error: ' . mysqli_error($con));
             }
+
+            session_start();
+            $_SESSION["user_profile"]=$upload_dir;
+
+
             mysqli_close($con);
+
+
 
             echo "
                 <script>
-                alert('업데이트 되었니 제발..?? $upfile_name $upfile_type $copied_file_name  $Email');
-                      history.go(-1)
-                  
+                alert('업데이트 되었니 제발..?? $upfile_name $uploaded_file $copied_file_name  $Email');
+                window.close();
+                opener.document.location.reload('user_mypage_info_update.php');
                 </script>
 
                 

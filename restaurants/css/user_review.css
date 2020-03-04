@@ -1,0 +1,178 @@
+/*  별점. 수정 요망*/
+
+.star_rating {
+  font-size:0;
+  letter-spacing:-4px;
+}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+
+.star_rating_content {
+  font-size:0;
+  letter-spacing:-4px;
+}
+
+.star_rating_content a {
+    font-size:16px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating_content a:first-child {margin-left:0;}
+.star_rating_content a.on {color:#777;}
+
+.user_comment_title{
+  width: 150px;
+  margin: 40px 0 0 0;
+  float: left;
+}
+
+.user_comment_title span{
+  font-size: 26px;
+  font-weight: bold;
+  color: #585858;
+}
+
+.user_comment {
+  float: left;
+  width: 650px;
+  height: 600px;
+  margin-left: 40px;
+}
+
+.comment_profile_img{
+  float: left;
+  margin-top: -3px;
+  margin-left: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.comment_profile_img>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.user_comment_content{
+  width: 650px;
+  height: 150px;
+  border-bottom: 1px solid lightgray;
+  margin-top: 45px;
+  margin-bottom: -20px;
+  position: relative;
+}
+
+.comment_profile_name{
+  width: 300px;
+  margin-top: 25px;
+  margin-left: 80px;
+}
+
+.comment_profile_name a{
+  text-decoration: none;
+  color: #585858;
+}
+
+.comment_line {
+  display: inline-block;
+  width: 450px;
+  height: 70px;
+  margin-top: 20px;
+  margin-left: 18px;
+}
+
+.board_number{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.board_number a{
+  text-decoration: none;
+  color: #585858;
+}
+
+.page_line{
+  width: 600px;
+  height: 30px;
+  margin-top: 60px;
+}
+
+.page_num {
+  list-style: none;
+  text-align: center;
+}
+
+.page_num li {
+  display: inline-block;
+}
+
+.div_chu{
+  width: 180px;
+  height: 30px;
+  text-align: center;
+}
+
+.div_chu img{
+  width: 15px;
+  height: 15px;
+}
+
+.div_chu_box{
+  width: 160px;
+  height: 25px;
+  float: right;
+  margin-right: 15px;
+  margin-top: -127px;
+}
+
+.div_chu #like_count{
+  display: inline-block;
+  width: 70px;
+  height: 25px;
+  border: 1.25px solid skyblue;
+  cursor: pointer;
+}
+
+.div_chu #dislike_count{
+  display: inline-block;
+  width: 70px;
+  height: 25px;
+  border: 1.25px solid orange;
+  cursor: pointer;
+}
+
+.div_chu #like_count img{
+  transform: translateY(20%);
+}
+
+.div_chu #dislike_count img{
+  transform: translateY(30%);
+}
+
+.div_chu #like_count:hover{
+  border: 1.25px solid #11AAFD;
+}
+
+.div_chu #dislike_count:hover{
+  border: 1.25px solid darkorange;
+}
+
+.page_num a{
+  text-decoration: none;
+  color: black;
+}

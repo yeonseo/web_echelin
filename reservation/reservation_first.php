@@ -36,7 +36,7 @@
       <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
       <span class="span_step_info">1단계 : 예약할 날짜와 시간을 선택해주세요.</span>
     </div>
-    <progress value="20" max="100">0%</progress>
+    <progress value="25" max="100">0%</progress>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/calendar.php"; ?>
     </section>
     <footer>

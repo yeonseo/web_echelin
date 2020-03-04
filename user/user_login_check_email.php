@@ -7,10 +7,10 @@ $record = mysqli_num_rows($result);
 
 if($record){    
 
-    echo "중복 되는 이메일 입니다";
+    echo "alert('중복되는 아이디 입니다.')";
 
 }else{
-    echo " 로그인 하세용";
+    echo "alert('로그인 하세용') ";
 }
 mysqli_close($con);
 ?>

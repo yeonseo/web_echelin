@@ -15,6 +15,10 @@
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/css/restaurants_page.css">
   <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/help_center/css/help_center_page.css">
 
+  <link rel='stylesheet' href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/css/user_review.css">
+  <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/js/jquery.js"></script>
+  <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/js/like_dislike.js"></script>
+
   <!-- 공통으로 사용하는 link & script -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
 

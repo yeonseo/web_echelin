@@ -6,12 +6,12 @@
 }
 .login_border{
     position: relative;
-    padding-left: 2px;
+    width: 400px;
     /* padding-right: 24px; */
-    margin: 0px;
+    margin: 20px;
     border: 1px solid lightgray;
     background-color: white;
-    top:1px;
+    text-align: center;
 }
 .login_bottom_border{
     border-bottom: 1px solid lightgray;
@@ -19,7 +19,6 @@
 }
 .sns_login_select{
     position: relative;
-    left: 55px;
 }
 .form_center{
     text-align: center;
@@ -263,7 +262,6 @@
 }
 .login_data_button{
     position: relative;
-    left: 45.8px;
     top: 10px;
     margin: 10px;
     border-radius: 4px;
@@ -295,4 +293,34 @@
     font-weight: bold;
 }
 
+#fasebook_btn {
+    width: 80%;
+    margin: 5px 10% ;
+    height: 60px;
+    margin-right: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-image:url('https://junohair.com/myjuno/assests/images/facebook_login.png');
+    background-position:center center; background-repeat: no-repeat;
+    background-size:cover;
+}
 
+#kakao-login-btn img {
+    width: 80%;
+}
+
+#naverIdLogin img {
+    width: 80%;
+}
+
+#google_login_btn {
+    width: 80%;
+    margin: 5px 10% ;
+    height: 60px;
+    margin-right: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-image:url('../../common/image/google_login.png');
+    background-position:center center; background-repeat: no-repeat;
+    background-size:cover;
+}

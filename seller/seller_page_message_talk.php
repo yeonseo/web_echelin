@@ -62,8 +62,8 @@
 
                     echo "<form id='message_talk_send' name='message_talk_send' method='POST' >";
                     echo "<input id='message_group_num' type='text' value='$message_group_num' hidden>";
-                    echo "<input id='send_id' type='text' value='$rv_id' hidden>";
-                    echo "<input id='rv_id' type='text' value='$send_id' hidden>";
+                    echo "<input id='send_id' type='text' value='$send_id' hidden>";
+                    echo "<input id='rv_id' type='text' value='$rv_id' hidden>";
                     echo "<textarea id='message_content' name='message_content' type='text'></textarea>";
                     echo "<button type='button' id='message_send_btn' class='button_next' value='insert_message'><i class='fas fa-utensils'></i></button>";
                     echo "</form>";
@@ -112,7 +112,7 @@
                     echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
                 }
 
-                $user_id = 'aaaaaa1';
+                $user_id = $_SESSION['user_Email'];
                 $message_group_num = $_GET['message'];
                 createMessageTalk($con, $user_id,  $dbname, $message_group_num);
 

@@ -99,3 +99,49 @@ ul{ list-style: none; }
 .common_table_main thead { font-weight: bold; }
 .common_table_main tbody * { font-family: 'CommentSansLight', sans-serif; }
 .common_table_main tbody tr:nth-child(odd) {background-color: #f2f2f2;}
+
+
+/* footer */
+footer {
+    width: 1010px;
+    margin: 40px auto 0 auto;
+    border-top: 1px solid black;
+}
+
+
+
+#footer_top{
+    display: block;
+}
+
+.footer_container_row {
+    float: left;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    clear: both;
+    margin: 10px 0;
+}
+.footer_container {
+    float: left;
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    margin: 30px 0;
+}
+
+.footer_container strong {
+    font-size: 1.2rem;
+    color: orangered;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.footer_container li {
+    margin: 10px 0;
+}
+
+.footer_container li a:link, .footer_container li a:visited, .footer_container li a:hover {
+    text-decoration: none;
+    color: black;
+}

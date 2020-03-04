@@ -1,4 +1,7 @@
 <?php
+
+echo $useremail;
+
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
 $input_postcode = $_POST["input_postcode"];

@@ -25,18 +25,8 @@
         session_start();
         if (isset($_SESSION["user_Email"])) $useremail = $_SESSION["user_Email"];
         else $useremail = ""; 
+       
 
-        if (isset($_SESSION["user_profile"])) $profile = $_SESSION["user_profile"];
-        else $$profile = ""; 
-
-        // if (isset($_SESSION["user_profile_copied"])) $useremail = $_SESSION["user_profile_copied"];
-        // else $userprofile_copied = ""; 
-
-        // if (isset($_SESSION["user_profile_type"])) $useremail = $_SESSION["user_profile_type"];
-        // else $user_profile_type = ""; 
-        ?>
-
-        <?
           $con = mysqli_connect("localhost","root","123456","echelin");
           $sql = "select * from echelin_user where `user_Email`='$useremail'";
           
@@ -47,18 +37,23 @@
           $user_all_info =  mysqli_fetch_array($result);
           
           $useremail=$user_all_info["user_Email"];
+          
           $profile=$user_all_info["user_profile"];
+
+          $uploaded_file=$user_all_info["user_profile_type"];
+
+          $profile_copied= $user_all_info["user_profile_copied"];
           mysqli_close($con);
         
         ?>
     <form id="file" action="user_mypage_photo_update.php" method="post" enctype="multipart/form-data">
     <div class="photo_border">
     <div class="photo_form">
-        <span class="photo_profile">프로필 사진</span>
+        <span class="photo_profile">프로필 사진 </span>
     </div>
     <div class="photo_form2">
         <div class="photo_form3">
-        <img id="View"   src="<?=$profile?>" alt="">
+        <img id="View"    src="<?=$uploaded_file?>" alt="">
         
         </div>
          <!-- // 이메일 hidden 값 으로 받아오기 -->
@@ -75,12 +70,9 @@
     <div class="filebox">
             <input type="file" id="text_change" class="imgView" name="upload">
             <label for="text_change">파일 업로드 하기</label>
-            <input type="submit">
+            <input id="text_change" class="flie_upload_input" type="submit" value="확인">
         </div>
 
-        <input type="text" class="view_pass" name="user_Email" value="<?=$useremail?>">
+        <input type="hidden" class="view_pass" name="user_Email" value="<?=$useremail?>">
                                               <fieldset style="border: none"></fieldset>
-                                        <!-- // hidden -->
-        
-    
     </form>
