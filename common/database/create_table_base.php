@@ -138,7 +138,7 @@ function create_table($con, $dbname, $table_name)
                 break;
 
                 //유저 가게 찜목록 테이블
-            case 'seller':
+            case 'user_mylist':
                 $sql = "CREATE TABLE `user_mylist` (
                     `mylist_num` int unsigned NOT NULL AUTO_INCREMENT,
                     `user_num` int NOT NULL,
