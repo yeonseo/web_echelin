@@ -32,12 +32,6 @@
             <div class="right_content">
                 <?php
 
-                if (isset($_SESSION['user_email'])) {
-                    $user_email = $_SESSION['user_email'];
-                } else {
-                    // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
-                }
-
 
                 function createBookmarkList($con, $dbname, $user_email)
                 {
@@ -59,7 +53,7 @@
                         $result_bookmark = mysqli_fetch_array($result);
 
                         //가장 최신의 메세지를 가져오기 위한 sql
-                        $sql = "select * from bookmark where `group_num`='" . $result_bookmark['group_num'] . "' order by `bookmark_num` desc";
+                        $sql = "select * from bookmark where `user_id`='" . $user_email . "' and `group_num`='" . $result_bookmark['group_num'] . "' order by `bookmark_num` desc";
                         $result_bookmark_group = $con->query($sql);
                         if ($result_bookmark_group === FALSE) {
                             die('DB bookmark where group_num Connect Error: ' . mysqli_error($con));
@@ -87,8 +81,12 @@
                     }
                 }
 
+                if (isset($_SESSION['user_Email'])) {
+                    $user_email = $_SESSION['user_Email'];
+                } else {
+                    // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
+                }
                 //나중에 유저 세션 들고와서 할 거임
-                $user_email = "aaaaaa";
                 createBookmarkList($con, $dbname, $user_email);
 
                 ?>

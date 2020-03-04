@@ -106,30 +106,30 @@
       function drawSeriesChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['ID', '식당 등록 수', 'Restaurant Num', 'Region', 'Population'],
-          ['종로', 80.66, 1.67, 'North America', 33739900],
-          ['중구', 79.84, 1.36, 'Europe', 81902307],
-          ['용산', 78.6, 1.84, 'Europe', 5523095],
-          ['성동', 72.73, 2.78, 'Middle East', 79716203],
-          ['광진', 80.05, 2, 'Europe', 61801570],
-          ['동대문', 72.49, 1.7, 'Middle East', 73137148],
-          ['중랑', 68.09, 4.77, 'Middle East', 31090763],
-          ['성북', 81.55, 2.96, 'Middle East', 7485600],
-          ['강북', 68.6, 1.54, 'Europe', 141850000],
-          ['도봉', 72.6, 2.54, 'Europe', 141850000],
-          ['노원', 68.6, 1.54, 'Europe', 141850000],
-          ['은평', 68.6, 1.54, 'Europe', 141850000],
-          ['서대문', 68.6, 1.54, 'Europe', 141850000],
-          ['마포', 72.6, 2.54, 'Europe', 141850000],
-          ['양천', 68.6, 1.54, 'Europe', 141850000],
-          ['강서', 85.6, 2.54, 'Europe', 141850000],
-          ['구로', 68.6, 1.54, 'Europe', 141850000],
-          ['금천', 72.6, 2.54, 'Europe', 141850000],
-          ['영등포', 68.6, 1.54, 'Europe', 141850000],
-          ['동작', 68.6, 3.54, 'Europe', 141850000],
-          ['관악', 68.6, 1.54, 'Europe', 141850000],
-          ['서초', 80.6, 4.54, 'Europe', 141850000],
-          ['강남', 78.09, 2.05, 'North America', 307007000]
+          ['ID', '식당 등록 수', 'Restaurant Num', '', 'Population'],
+          ['종로', 80.66, 1.67, '', 33739900],
+          ['중구', 79.84, 1.36, '', 81902307],
+          ['용산', 78.6, 1.84, '', 5523095],
+          ['성동', 72.73, 2.78, ' ', 79716203],
+          ['광진', 80.05, 2, '', 61801570],
+          ['동대문', 72.49, 1.7, ' ', 73137148],
+          ['중랑', 68.09, 4.77, ' ', 31090763],
+          ['성북', 81.55, 2.96, ' ', 7485600],
+          ['강북', 68.6, 1.54, '', 141850000],
+          ['도봉', 72.6, 2.54, '', 141850000],
+          ['노원', 68.6, 1.54, '', 141850000],
+          ['은평', 68.6, 1.54, '', 141850000],
+          ['서대문', 68.6, 1.54, '', 141850000],
+          ['마포', 72.6, 2.54, '', 141850000],
+          ['양천', 68.6, 1.54, '', 141850000],
+          ['강서', 85.6, 2.54, '', 141850000],
+          ['구로', 68.6, 1.54, '', 141850000],
+          ['금천', 72.6, 2.54, '', 141850000],
+          ['영등포', 68.6, 1.54, '', 141850000],
+          ['동작', 68.6, 3.54, '', 141850000],
+          ['관악', 68.6, 1.54, '', 141850000],
+          ['서초', 80.6, 4.54, '', 141850000],
+          ['강남', 78.09, 2.05, '', 307007000]
         ]);
 
         var options = {
@@ -201,24 +201,6 @@
           </button>
         </div> <!-- end of css_card_menu_row -->
 
-        <div class="<?= COMMON::$css_card_menu_row; ?>">
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="fas fa-clipboard-list"></i><span> 나이대 별 가입자 현황</span>
-            </div>
-            <!--Div that will hold the pie chart-->
-            <div id="chart_div"></div>
-          </button>
-
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-              <i class="fas fa-clipboard-list"></i><span> 나이대 별 후기 현황</span>
-            </div>
-            <!--Div that will hold the pie chart-->
-            <div id="chart_div2"></div>
-          </button>
-        </div> <!-- end of css_card_menu_row -->
-
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
           <button class="card_menu_wider2_btn" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
@@ -229,14 +211,86 @@
           </button>
         </div> <!-- end of css_card_menu_row -->
 
-
-
         <div class="<?= COMMON::$css_card_menu_row; ?>">
           <button class="card_menu_wider2_btn" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
             <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
               <i class="far fa-question-circle"></i><span> 지역별 사용자 및 상점 수 </span>
             </div>
             <div id="chart_map" style="width: 800px; height: 300px;"></div>
+          </button>
+        </div> <!-- end of css_card_menu_row -->
+
+        <script>
+          google.charts.load('current', {
+            'packages': ['bar']
+          });
+          google.charts.setOnLoadCallback(drawChart3);
+          google.charts.setOnLoadCallback(drawChart4);
+
+          function drawChart3() {
+            var data = google.visualization.arrayToDataTable([
+              ['Year', 'RESERVATION', 'NO SHOW', 'ETC'],
+              ['2016', 400, 120, 12],
+              ['2017', 1170, 102, 23],
+              ['2018', 3004, 820, 450],
+              ['2019', 22310, 1240, 350]
+            ]);
+
+            var options = {
+              chart: {
+
+              },
+              colors: ['#e2431e', '#d3362d', '#e7711b',
+                '#e49307', '#e49307', '#b9c246'
+              ],
+              bars: 'horizontal' // Required for Material Bar Charts.
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('chart_div3'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+
+          function drawChart4() {
+            var data = google.visualization.arrayToDataTable([
+              ['Year', 'REVIEW', 'GOOD', 'BAD'],
+              ['2016', 324, 120, 12],
+              ['2017', 504, 5403, 542],
+              ['2018', 10378, 8642, 3210],
+              ['2019', 48452, 32043, 23201]
+            ]);
+
+            var options = {
+              chart: {
+
+              },
+              colors: ['#e2431e', '#d3362d', '#e7711b',
+                '#e49307', '#e49307', '#b9c246'
+              ],
+              bars: 'horizontal' // Required for Material Bar Charts.
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('chart_div4'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+        </script>
+
+        <div class="<?= COMMON::$css_card_menu_row; ?>">
+          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
+              <i class="fas fa-clipboard-list"></i><span> 예약건 현황 </span>
+            </div>
+            <!--Div that will hold the pie chart-->
+            <div id="chart_div3"></div>
+          </button>
+
+          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
+              <i class="fas fa-clipboard-list"></i><span> 좋아요/싫어요 누적수 </span>
+            </div>
+            <!--Div that will hold the pie chart-->
+            <div id="chart_div4"></div>
           </button>
         </div> <!-- end of css_card_menu_row -->
 
