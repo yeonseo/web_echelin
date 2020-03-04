@@ -74,7 +74,7 @@
             if ($find === 'chu_up' | $find === 'chu_down') {
               $sql = "select * from review order by $find desc";
             } else {
-              $sql = "select * from review where $find like '%$member_search%' order by user_num desc";
+              $sql = "select * from review where $find like '%$member_search%' order by num desc";
             }
           } else {
             $sql = "select * from review order by num desc";

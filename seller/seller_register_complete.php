@@ -79,8 +79,8 @@ $re_input_break_time2 = str_replace(":", " : ", $input_break_time2);
 // echo $re_input_break_time1;
 // echo $re_input_break_time2;
 
-$sql = "insert into seller (user_id, business_license, store_name, store_type, store_address, store_postcode, store_lat, store_lon, convenient_facilities, introduction, break_start, break_end, nokids, opening_day, opening_hours_start, opening_hours_end, store_tel, special_note, max_reserv_time_num_of_people, max_reserv_month, intensity_of_reserv) ";
-$sql .= "values('$useremail', '$input_business_license', '$input_store_name', '$input_store_type', '$sub_total_address', '$input_postcode', '$lat', '$lon', '$sub_input_checkbox', '$introduction', '$re_input_break_time1', '$re_input_break_time2', $nokids, '$input_opening_day', '$re_opening_hours_start', '$re_opening_hours_end', '$input_phone', '$special_note', '$input_max_num_of_people', '$max_month', '$reserve_intensity')";
+$sql = "insert into seller (user_id, business_license, store_name, store_type, store_address, store_postcode, store_lat, store_lon, convenient_facilities, introduction, break_start, break_end, nokids, opening_day, opening_hours_start, opening_hours_end, store_tel, special_note, max_reserv_time_num_of_people, max_reserv_month, intensity_of_reserv, keywords) ";
+$sql .= "values('$useremail', '$input_business_license', '$input_store_name', '$input_store_type', '$sub_total_address', '$input_postcode', '$lat', '$lon', '$sub_input_checkbox', '$introduction', '$re_input_break_time1', '$re_input_break_time2', $nokids, '$input_opening_day', '$re_opening_hours_start', '$re_opening_hours_end', '$input_phone', '$special_note', '$input_max_num_of_people', '$max_month', '$reserve_intensity', null)";
 mysqli_query($con, $sql);
 echo mysqli_error($con);
 mysqli_close($con);

@@ -95,24 +95,24 @@
 
         <div class="slideshow">
 
-          <div class="slideshow_slides">
+            <div class="slideshow_slides">
 
-            <?php
-           	$con = mysqli_connect("localhost", "root", "123456", "echelin");
-            $sql    = "select * from advertise order by num asc";
-            $result = mysqli_query($con, $sql);
+                <?php
+                $con = mysqli_connect("localhost", "root", "123456", "echelin");
+                $sql    = "select * from advertise order by num asc";
+                $result = mysqli_query($con, $sql);
 
-            for($i = 0 ; $i < 5 ; $i++){
+                for ($i = 0; $i < 5; $i++) {
 
-        ?>
+                ?>
 
-            <div class="center_summary">
+                    <div class="center_summary">
 
-            <?php
+                        <?php
 
-                for($j = 0 ; $j < 4 ; $j++){
+                        for ($j = 0; $j < 4; $j++) {
 
-                  $row = mysqli_fetch_array($result);
+                            $row = mysqli_fetch_array($result);
 
                   $seller_num = $row['seller_num'];
                   $file_copied = $row['file_copied'];
@@ -144,29 +144,29 @@
             ?>
             </div>
 
-      <?php
-          }
-          mysqli_close($con);
-      ?>
+                <?php
+                }
+                mysqli_close($con);
+                ?>
 
-          </div>
+            </div>
 
-          <div class="slideshow_nav">
+            <div class="slideshow_nav">
 
-            <a href="#" class="prev">prev</a>
-            <a href="#" class="next">next</a>
+                <a href="#" class="prev">prev</a>
+                <a href="#" class="next">next</a>
 
-          </div>
+            </div>
 
-          <div class="slideshow_indicator">
+            <div class="slideshow_indicator">
 
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
 
-          </div>
+            </div>
 
         </div>
     </div>
@@ -178,29 +178,29 @@
 
 <div class="main_all">
 
-    <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;:::&nbsp; echelin의 모든 식당 내역입니다.</span>
+    <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">식당 리스트 &nbsp;:::&nbsp; echelin에 등록된 식당 내역입니다.</span>
 
-<?php
-  $con = mysqli_connect("localhost", "root", "123456", "echelin");
-  $sql    = "select * from seller order by seller_num asc limit 8";
-  $result = mysqli_query($con, $sql);
+    <?php
+    $con = mysqli_connect("localhost", "root", "123456", "echelin");
+    $sql    = "select * from seller order by seller_num asc limit 8";
+    $result = mysqli_query($con, $sql);
 
-?>
-  <div class="search_member">
-<?php
+    ?>
+    <div class="search_member">
+        <?php
 
-  while($row = mysqli_fetch_array($result)){
+        while ($row = mysqli_fetch_array($result)) {
 
-    $seller_num = $row['seller_num'];
-    $store_name = $row['store_name'];
-    $introduction = $row['introduction'];
+            $seller_num = $row['seller_num'];
+            $store_name = $row['store_name'];
+            $introduction = $row['introduction'];
 
-    $sql2    = "select * from store_img where seller_num='$seller_num' order by num asc limit 1";
-    $result2 = mysqli_query($con, $sql2);
+            $sql2    = "select * from store_img where seller_num='$seller_num' order by num asc limit 1";
+            $result2 = mysqli_query($con, $sql2);
 
-    while($row2 = mysqli_fetch_array($result2)){
+            while ($row2 = mysqli_fetch_array($result2)) {
 
-      $store_file_copied = $row2['store_file_copied'];
+                $store_file_copied = $row2['store_file_copied'];
 
   ?>
         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php?seller_num=<?=$seller_num?>">
@@ -216,5 +216,6 @@
       mysqli_close($con);
   ?>
 
+
     </div>
-  </div>
+</div>

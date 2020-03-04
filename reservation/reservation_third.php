@@ -50,8 +50,6 @@
           <button class="button_prev" type="button" name="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_second.php'">이전</button>
         </div>
         </section>
-        <footer>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
-        </footer>
+        
     </body>
 </html>

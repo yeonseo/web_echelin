@@ -35,8 +35,6 @@
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/reservation/menu.php"; ?>
 
         </section>
-        <footer>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
-        </footer>
+
     </body>
 </html>

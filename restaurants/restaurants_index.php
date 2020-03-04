@@ -32,6 +32,7 @@
   <section>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/restaurants/restaurants_main.php"; ?>
   </section>
+  <div style="margin-bottom: 300px"></div>
   <footer>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
   </footer>

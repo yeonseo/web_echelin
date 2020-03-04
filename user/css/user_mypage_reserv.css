@@ -139,3 +139,156 @@
 .test_btn{
   margin-left: 812px;
 }
+
+
+
+
+
+
+
+
+
+
+
+.modal {
+opacity: 0;
+visibility: hidden;
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+text-align: left;
+background: rgba(0,0,0, .6);
+transition: opacity .25s ease;
+}
+.modal_bg {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+cursor: pointer;
+}
+.modal-state {
+display: none;
+}
+.modal-state:checked + .modal {
+opacity: 1;
+visibility: visible;
+}
+
+.modal-state:checked + .modal .modal__inner {
+top: 0;
+}
+
+.modal_inner {
+transition: top .25s ease;
+position: absolute;
+top: -5%;
+right: 0;
+bottom: 0;
+left: 0;
+width: 50%;
+height: 80%;
+margin: auto;
+overflow: auto;
+background: #fff;
+border-radius: 5px;
+padding: 1em 2em;
+}
+.modal_cancel_inner {
+width: 250px !important;
+height: 150px !important;
+}
+.modal_close {
+position: absolute;
+right: 1em;
+top: 1em;
+width: 1.1em;
+height: 1.1em;
+cursor: pointer;
+}
+
+.modal_close:after,
+.modal_close:before {
+content: '';
+position: absolute;
+width: 2px;
+height: 1.5em;
+background: #ccc;
+display: block;
+transform: rotate(45deg);
+left: 50%;
+margin: -3px 0 0 -1px;
+top: 0;
+}
+
+.modal_close:hover:after,
+.modal_close:hover:before {
+background: #aaa;
+}
+
+.modal_close:before {
+transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+
+.modal_inner {
+
+  top: -2%;
+  width: 90%;
+  height: 90%;
+  box-sizing: border-box;
+}
+}
+
+.btn {
+margin: 25px 0 0 0;
+cursor: pointer;
+background: DARKORANGE;
+display: inline-block;
+padding: .5em 1em;
+color: #fff;
+border-radius: 3px;
+font-size: 12px;
+}
+.btn_cancel {
+font-size: 15px !important;
+margin: 25px 0 0 60px !important;
+}
+
+.btn:hover,
+.btn:focus {
+background: ORANGERED;
+}
+
+.orangered{
+  color: orangered !important;
+}
+.darkorange{
+  color: darkorange !important;
+}
+.pophead{
+  margin: 30px 0 0 30px;
+}
+.pophead2{
+  padding:30px 0 0 30px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+.reservation_info{
+  border-bottom: 2px solid maroon;
+  width: 70%;
+  margin: 0 10px 10px 30px;
+}
+.pophead3{
+  margin: 30px 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid orangered;
+  width: 70%;
+}
+.pinpo{
+  margin: 20px 30px 10px 10px;
+}
