@@ -20,7 +20,7 @@ function update_dislike(gbn, num) {
     url: "review_chu.php?gbn="+gbn+"&num="+num,
     success: function(html){
       alert("싫어요가 반영되었습니다.");
-       $('.dislike_count'+num).html('<img src="..user/image/dislike.png"> &nbsp;'+html);
+       $('.dislike_count'+num).html('<img src="../user/image/dislike.png"> &nbsp;'+html);
    }
   });
 

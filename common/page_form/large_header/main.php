@@ -114,16 +114,29 @@
 
                   $row = mysqli_fetch_array($result);
 
+                  $seller_num = $row['seller_num'];
                   $file_copied = $row['file_copied'];
-
                   $store_name = $row['store_name'];
                   $introduction = $row['introduction'];
             ?>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php?seller_num=<?=$seller_num?>">
                   <p class="summary_first">
+            <?php
+              if($row === null){
+            ?>
+                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/image/4.jpg">
+                      <span class="slide_span_fourth">광고를 등록해주세요.</span>
+                      <span class="slide_span_second"><?= $introduction?></span>
+            <?php
+              }else{
+            ?>
                     <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$file_copied?>">
                       <span class="slide_span_first">#<?= $store_name?></span>
                       <span class="slide_span_second"><?= $introduction?></span>
+
+              <?php
+              }
+              ?>
                   </p>
                 </a>
             <?php
@@ -190,7 +203,7 @@
       $store_file_copied = $row2['store_file_copied'];
 
   ?>
-        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
+        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php?seller_num=<?=$seller_num?>">
           <p class="summary_first">
             <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$store_file_copied?>">
               <span class="summary_span_first">#<?= $store_name ?></span>

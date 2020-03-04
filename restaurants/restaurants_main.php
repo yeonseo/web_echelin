@@ -1,15 +1,17 @@
 <div class="restaurants_content">
 
+  <?php
+
+  if (isset($_GET['seller_num'])) {
+      $seller_num = $_GET['seller_num'];
+  } else {
+      // echo "console.log('레스토랑 주소가 이상한데에~')";
+  }
+  ?>
+
     <div class="restaurants_main_pic_box">
-        <?php
 
-        if (isset($_GET['seller_num'])) {
-            $seller_num = $_GET['seller_num'];
-        } else {
-            // echo "console.log('레스토랑 주소가 이상한데에~')";
-        }
-
-        $seller_num = 1;
+    <?php
 
 
 
@@ -17,7 +19,6 @@
         {
 
             //restaurants 테이블에서 값들고옴
-            $seller_num = 1;
 
             $sql = "select * from " . $dbname . ".store_img where seller_num=" . $seller_num;
             $result = $con->query($sql);
@@ -134,7 +135,7 @@
     //북마크 리스트 생성 함수 부름
     //나중에 유저 세션 들고와서 할 거임
     //메세지 그룹 계산하기 위한 것
-    $user_email = "aaaaaa";
+
     createBookmarkGroupList($con, $dbname, $user_email);
     echo "</ul>";
     echo "<div class='btn_r'>
@@ -157,10 +158,10 @@
             <div class="restaurants_main_content_right_btn_box">
 
                 <?php
-                $user_email = 'aaaaaa';
-                $seller_num = 'aaaaaa1';
+                //$user_email = 'aaaaaa';
+                //$seller_num = 'aaaaaa1';
                 //대화한 이력이 있는지 조회
-                $sql = "select * from message where `send_id`='" . $user_email . "' and `rv_id`='" . $seller_num . "'";
+                $sql = "select * from message where `send_id`='" . $useremail . "' and `rv_id`='" . $seller_num . "'";
                 $result = $con->query($sql);
                 if ($result === FALSE) {
                     die('DB message check Connect Error: ' . mysqli_error($con));
@@ -173,7 +174,7 @@
                     $message_group_num = $result_message['group_num'];
                 } else {
                     //메세지 그룹 계산하기 위한 것
-                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num` order by group_num desc";
+                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $useremail . "' group by `group_num` order by group_num desc";
                     $result = $con->query($sql);
                     if ($result === FALSE) {
                         die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
@@ -278,7 +279,7 @@
 
       <?php
         // 임시
-        $seller_num = 1;
+
 
         define('SCALE', 10);
 
