@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
-    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
+    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/menu_table_preview.js"></script>
+    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/menu.js"></script>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
   </head>
   <body>
@@ -21,7 +23,9 @@
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
   </div> <!-- end of left_menu -->
 
-<form name="form_menu" class="" action="./menu_upload.php" method="post" enctype="multipart/form-data">
+<?php $seller_num = $_GET["seller_num"]; ?>
+
+<form name="form_menu_update" class="" action="./menu_update.php?seller_num=<?=$seller_num?>" method="post" enctype="multipart/form-data">
   <div class="right_content">
     <li id="li_menu">메뉴 추가하기</li>
     <button id="button_add" class="button_circle_add" type="button">+</button>
@@ -32,22 +36,42 @@
         <tr>
           <th class="th_menu">메뉴</th>
           <th class="th_menu">가격</th>
-          <th class="th_menu">사진</th>
+          <th class="th_menu">사진파일</th>
           <th class="th_menu">설명</th>
           <th class="th_menu_del"></th>
         </tr>
 
-        <tr class="tr_menu" name="tr_menu">
-          <td class="td_menu"><input type="text" name="input_menu[]" placeholder="메뉴이름" value="치즈떡볶이"></td>
-          <td class="td_menu"><input type="number" name="input_price[]" placeholder="가격" value="4000"></td>
-          <td class="td_menu"><input type="file" name="input_menu_img[]" value="" multiple></td>
-          <td class="td_menu"><input type="text" name="input_menu_explain[]" placeholder="메뉴 설명"></td>
-          <td class="td_button_del"><input type="text" name=""></td>
-        </tr>
+          <?php
+          $con = mysqli_connect("localhost", "root", "123456", "echelin");
+          $sql = "select * from menu_img where seller_num='$seller_num'";
+
+          $result=mysqli_query($con, $sql);
+
+
+          while($row = mysqli_fetch_array($result))
+          ?>
+            <tr class="tr_menu" name="tr_menu">
+            <td class="td_menu"><input type="text" name="input_menu[]" value="<?=$row['menu_name']?>"></td>
+            <td class="td_menu"><input type="number" name="input_price[]" value="<?=$row['menu_price']?>"></td>
+            <td class="td_menu">
+
+            <div class="filebox bs3-primary preview-image">
+							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
+							<label for="input_file">업로드</label>
+              <input id="input_file" class="upload-hidden" type="file" name="input_menu_img[]" value="<?=$row['menu_file_copied']?>" multiple>
+						</div>
+
+            </td>
+            <td class="td_menu"><input type="text" name="input_menu_explain[]" value="<?=$row['menu_explain']?>"></td>
+            <td class="td_button_del"><button class="button_circle_del" name="button_del">-</button></td>
+            </tr>
+      <?php
+
+          ?>
       </tbody>
     </table>
   </br>
-   <button class="button_complete" type="button" name="button" onclick="register_menu()">완료</button>
+   <button class="button_complete" type="button" name="button" onclick="update_menu()">완료</button>
  </div> <!-- end of right_content -->
  </form>
 

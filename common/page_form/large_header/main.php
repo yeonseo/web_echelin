@@ -114,20 +114,16 @@
 
                   $row = mysqli_fetch_array($result);
 
-                  $file_name = $row['file_name'];
-                  $file_type = $row['file_type'];
                   $file_copied = $row['file_copied'];
 
                   $store_name = $row['store_name'];
                   $introduction = $row['introduction'];
             ?>
-                <a href="#">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
                   <p class="summary_first">
-                    <img src="../data/<?php echo $file_copied; ?>">
-                      <span class="summary_span_first"><?php echo $store_name; ?></span>
-
-                        <span class="summary_span_second"><?= $introduction?></span>
-
+                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$file_copied?>">
+                      <span class="slide_span_first">#<?= $store_name?></span>
+                      <span class="slide_span_second"><?= $introduction?></span>
                   </p>
                 </a>
             <?php
@@ -164,53 +160,48 @@
 
 </div>
 
-<!-- 테스트 ::: 오늘의 추천 키워드-->
-<!-- <div class="main_banner">
-
-    <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 오늘의 추천 키워드</span>
-
-    <a href="#">
-        <div class="banner_content_first">이미지 & 키워드1</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드2</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드3</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드4</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드5</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드6</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드7</div>
-    </a>
-    <a href="#">
-        <div class="banner_content">이미지 & 키워드8</div>
-    </a>
-
-</div> -->
 
 <!-- 테스트 ::: 모든 맛집-->
+
 <div class="main_all">
 
-    <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;&nbsp;:::&nbsp;&nbsp; 모든 식당 : 무한스크롤 추가</span>
+    <span class="main_title" class="<?= COMMON::$css_sub_title; ?>">테스트 &nbsp;:::&nbsp; echelin의 모든 식당 내역입니다.</span>
 
-    <div class="all_member">
-        <div class="all_content_first"></div>
-        <div class="all_content"></div>
-        <div class="all_content"></div>
-        <div class="all_content"></div>
-        <div class="all_content_second"></div>
-        <div class="all_content"></div>
-        <div class="all_content"></div>
-        <div class="all_content"></div>
+<?php
+  $con = mysqli_connect("localhost", "root", "123456", "echelin");
+  $sql    = "select * from seller order by seller_num asc limit 8";
+  $result = mysqli_query($con, $sql);
+
+?>
+  <div class="search_member">
+<?php
+
+  while($row = mysqli_fetch_array($result)){
+
+    $seller_num = $row['seller_num'];
+    $store_name = $row['store_name'];
+    $introduction = $row['introduction'];
+
+    $sql2    = "select * from store_img where seller_num='$seller_num' order by num asc limit 1";
+    $result2 = mysqli_query($con, $sql2);
+
+    while($row2 = mysqli_fetch_array($result2)){
+
+      $store_file_copied = $row2['store_file_copied'];
+
+  ?>
+        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
+          <p class="summary_first">
+            <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$store_file_copied?>">
+              <span class="summary_span_first">#<?= $store_name ?></span>
+              <span class="summary_span_second"><?= $introduction ?></span>
+          </p>
+        </a>
+  <?php
+      }
+    }
+      mysqli_close($con);
+  ?>
 
     </div>
-
-</div>
+  </div>

@@ -24,26 +24,16 @@
       </div> <!-- end of left_menu -->
 
 <?php $seller_num = $_GET["seller_num"]; ?>
-
-  <form class="" name="form_store_pic" action="./store_pic_update?seller_num=<?=$seller_num?>.php" method="post" enctype="multipart/form-data">
+  <form class="" name="form_store_pic" action="./store_pic_upload.php" method="post" enctype="multipart/form-data">
     <div class="right_content">
       가게 외/내부 사진
-      <?php
-      $con = mysqli_connect("localhost", "root", "123456", "echelin");
-      $sql = "select * from store_img where seller_num='$seller_num'";
-      $result=mysqli_query($con, $sql);
-      while($row = mysqli_fetch_array($result)){
-      $store_file_copied = $row['store_file_copied'];
-      // var_dump($store_file_copied);
-        }
-            ?>
          <div class="store_pic">
            <div class="store_inner_pic1">
              <label for="store_image1">업로드</label>
              <input type="file" name="file[]" id="store_image1" multiple>
 
              <div class="image_preview1">
-                <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
+                 <img class="store_img" src="./image/cheese.png">
              </div>
            </div>
 
@@ -53,7 +43,7 @@
 
 
              <div class="image_preview2">
-                 <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
+                 <img class="store_img" src="./image/cheese.png">
              </div>
            </div>
 
@@ -62,7 +52,7 @@
              <input type="file" name="file[]" id="store_image3" multiple>
 
              <div class="image_preview3">
-                 <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
+                 <img class="store_img" src="./image/cheese.png">
              </div>
            </div>
 
@@ -71,7 +61,7 @@
              <input type="file" name="file[]" id="store_image4" multiple>
 
              <div class="image_preview4">
-               <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
+               <img class="store_img" src="./image/cheese.png">
              </div>
            </div>
 
@@ -80,12 +70,10 @@
              <input type="file" name="file[]" id="store_image5" multiple>
 
              <div class="image_preview5">
-                 <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
+                 <img class="store_img" src="./image/cheese.png">
              </div>
            </div>
          </div>
-
-
          <div class="div_clear_both">
          </div> <!-- end of store_pic -->
          </br></br>
