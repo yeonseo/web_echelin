@@ -40,6 +40,7 @@ echo "user_email = ". $user_email;
         $reservation_special=[];
         $intensity_of_reserv=[];
         $noshow=[];
+        $cancel=[];
         $cnt=0;
         while ($row = mysqli_fetch_array($result))
         {
@@ -56,6 +57,7 @@ echo "user_email = ". $user_email;
              $reservation_special[$cnt] =$row['reservation_special'];
              $intensity_of_reserv[$cnt] =$row['intensity_of_reserv'];
              $noshow[$cnt] =$row['noshow'];
+             $cancel[$cnt] =$row['cancel'];
            echo "reservation_num = ".$reservation_num[$cnt]."<br>";
            echo "seller_num = ".$seller_num[$cnt]."<br>";
            echo "store_name = ".$store_name[$cnt]."<br>";
@@ -67,6 +69,7 @@ echo "user_email = ". $user_email;
            echo "select_menu = ".$select_menu[$cnt]."<br>";
            echo "reservation_special = ".$reservation_special[$cnt]."<br>";
            echo "intensity_of_reserv = ".$intensity_of_reserv[$cnt]."<br>";
+           echo "cancel = ".$cancel[$cnt]."<br>";
            echo "noshow = ".$noshow[$cnt]."<br>"."<br>"."<br>"."<br>"."<br>"."<br>";
            $cnt++;
         }
