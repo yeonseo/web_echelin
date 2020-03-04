@@ -91,35 +91,36 @@
       <!-- 많이검색된키워드db에서가져와서정렬 -->
       <div class="search_banner">
 
-          <span class="search_title"> &nbsp;&nbsp;:::&nbsp;&nbsp; 주변식당을 추천 키워드로 찾아보세요!</span>
+          <span class="search_title"> &nbsp;&nbsp;:::&nbsp;&nbsp;  추천 키워드로 찾아보세요!</span>
 
-          <a href="#">
-              <div class="banner_content_first"></div>
+          <a href="index_search.php?keyword_banner=조용한">
+              <div class="banner_content_first"><h3>#조용한</h2></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=혼밥">
+              <div class="banner_content"><h3>#혼밥</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=편안한">
+              <div class="banner_content"><h3>#편안한</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=데이트">
+              <div class="banner_content"><h3>#데이트</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=아이와함께">
+              <div class="banner_content"><h3>#아이와함께</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=푸짐한">
+              <div class="banner_content"><h3>#푸짐한</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=코스요리">
+              <div class="banner_content"><h3>#코스요리</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=특별한날">
+              <div class="banner_content"><h3>#특별한날</h3></div>
           </a>
 
       </div>
       <?php
+        $result_search_title="";
         //넘어오는키워드들저장할변수
         $keywodrs_array="";
         //레스토랑이름,식당종류,키워드,현재위치(지역구) 값이있는지없는지여부판단해서 sql 작성
@@ -133,12 +134,14 @@
           $r_name=$_POST["r_name"];
           Console_log($r_name);
           $ok[0]=true;
+          $result_search_title = "#".$r_name;
         }
         //식당종류값
         if(!empty($_POST["uptae"])){
           $uptae=$_POST["uptae"];
           Console_log($uptae);
           $ok[1]=true;
+          $result_search_title .= "#".$uptae;
         }else{
           $ok[1]=false;
           $uptae="";
@@ -151,6 +154,7 @@
           $keywords_array = explode("#","$result_keyword");
           Console_log($keywords_array[0]);
           $ok[2]=true;
+          $result_search_title .= $keywords_selected;
         }else{
           $ok[2]=false;
           $keywords_selected="";
@@ -160,6 +164,7 @@
           $gps_ad=$_POST["gps_ad"];
           Console_log($gps_ad);
           $ok[3]=true;
+          $result_search_title .= "#".$gps_ad;
         }else{
           $gps_ad="";
           $ok[3]=false;
@@ -257,11 +262,18 @@
         }else{
           $sql = "select * from seller";
         }
+        if(!empty($_GET["keyword_banner"])){
+          $keyword_banner = $_GET["keyword_banner"];
+          $sql = "select * from seller where keywords like '%$keyword_banner%'";
+        }
 
+        if(!$result_search_title){
+          $result_search_title="모든식당";
+        }
       ?>
       <div class="search_all">
 
-          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$r_name?>","<?=$uptae?>","<?=$keywords_selected?>","<?=$gps_ad?>" 에 대한 모든 검색결과 입니다.</span>
+          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$result_search_title?>" 에 대한 모든 검색결과 입니다.</span>
 
           <div class="search_member">
               <?php
@@ -278,10 +290,10 @@
 
               ?>
               <a class="search_member" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php?seller_num=<?=$seller_num?>">
-                <div class="search_result_right">
+                <div >
                   <h1 class="search_h1">
                   <p class="search_result_left">
-                    <img src="./image/image_ready.png" alt="">
+                    <img src="./image/img.png" alt="">
                   </p>
                   <p class="search_result_right"><?=$store_name?></p>
                   </h1>
