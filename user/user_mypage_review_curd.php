@@ -36,7 +36,7 @@
     $sql .= "0, 0, 0, '$regist_day')";
     mysqli_query($con, $sql);
 
-    $sql = "update reservation set reservation_status='$noshow'";
+    $sql = "update reservation set noshow='$noshow'";
     $sql .= " where reservation_num=$num";
     mysqli_query($con, $sql);
 

@@ -50,8 +50,6 @@
 
 <?php
 
-$useremail = "infor15";
-
 $con = mysqli_connect("localhost","root","123456", "echelin");
 
 $sql = "select EXISTS (select * from review where user_Email='$useremail') as success";

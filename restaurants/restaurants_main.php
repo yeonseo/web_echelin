@@ -1,16 +1,25 @@
 <div class="restaurants_content">
 
-    <div class="restaurants_main_pic_box">
-        <?php
+  <?php
 
-        if (isset($_GET['seller_num'])) {
-            $seller_num = $_GET['seller_num'];
-        } else {
-            // echo "console.log('레스토랑 주소가 이상한데에~')";
-        }
+  if (isset($_GET['seller_num'])) {
+      $seller_num = $_GET['seller_num'];
+  } else {
+      // echo "console.log('레스토랑 주소가 이상한데에~')";
+  }
+  ?>
+
+    <div class="restaurants_main_pic_box">
+
+    <?php
+
+
 
         function setMenuImg($con, $dbname, $seller_num)
         {
+
+            //restaurants 테이블에서 값들고옴
+
             $sql = "select * from " . $dbname . ".store_img where seller_num=" . $seller_num;
             $result = $con->query($sql);
             if ($result === FALSE) {
@@ -126,7 +135,7 @@
     //북마크 리스트 생성 함수 부름
     //나중에 유저 세션 들고와서 할 거임
     //메세지 그룹 계산하기 위한 것
-    $user_email = "aaaaaa";
+
     createBookmarkGroupList($con, $dbname, $user_email);
     echo "</ul>";
     echo "<div class='btn_r'>
@@ -153,6 +162,7 @@
                 $rv_id = 'aaaaaa1';
                 //대화한 이력이 있는지 조회
                 $sql = "select * from message where `send_id`='" . $user_email . "' and `rv_id`='" . $rv_id . "'";
+
                 $result = $con->query($sql);
                 if ($result === FALSE) {
                     die('DB message check Connect Error: ' . mysqli_error($con));
@@ -165,7 +175,7 @@
                     $message_group_num = $result_message['group_num'];
                 } else {
                     //메세지 그룹 계산하기 위한 것
-                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num` order by group_num desc";
+                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $useremail . "' group by `group_num` order by group_num desc";
                     $result = $con->query($sql);
                     if ($result === FALSE) {
                         die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
@@ -261,8 +271,33 @@
 
             <div class="user_comment">
 
-                <?php
-                define('SCALE', 10);
+
+      <?php
+        // 임시
+
+
+        define('SCALE', 10);
+
+      	if (isset($_GET["page"])) // 넘어온 get방식에 키값 page가 세팅되어있느냐. 없으면 post. 굳이 이렇게 쓰는것은 어디선가 get방식으로 보내겠다는 뜻.
+      		$page = $_GET["page"];
+      	else
+      		$page = 1;
+
+          if (isset($_GET["nowpagelist"])){
+            $now_page_list = $_GET["nowpagelist"];
+            $first_num=$now_page_list-9;
+          }else{
+            $now_page_list=10;
+            $first_num=1;
+          }
+
+      	$con = mysqli_connect("localhost", "root", "123456", "echelin");
+      	$sql = "select * from review where seller_num='$seller_num'";
+      	$result = mysqli_query($con, $sql);
+      	$total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
+
+      	$scale = 5;
+
 
                 if (isset($_GET["page"])) // 넘어온 get방식에 키값 page가 세팅되어있느냐. 없으면 post. 굳이 이렇게 쓰는것은 어디선가 get방식으로 보내겠다는 뜻.
                     $page = $_GET["page"];

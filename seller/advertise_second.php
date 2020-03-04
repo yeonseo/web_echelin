@@ -66,12 +66,11 @@
             </div>
 
 <?php
-  $user_email = "infor15";
 
   $seller_num = $_GET['seller_num'];
 
   $con = mysqli_connect("localhost", "root", "123456", "echelin");
-  $sql = "select * from echelin_user where user_Email='$user_email'";
+  $sql = "select * from echelin_user where user_Email='$useremail'";
   $result = mysqli_query($con, $sql);
 
   $row = mysqli_fetch_array($result);
@@ -95,9 +94,9 @@
 
   for( $i = 0 ; $i < $count ; $i++ ){
 
-    mysqli_data_seek($result, $i);
+    mysqli_data_seek($result3, $i);
 
-    $row = mysqli_fetch_array($result);
+    $row = mysqli_fetch_array($result3);
 
     $num = $row['num'];
   }
@@ -132,7 +131,7 @@
             </div>
 
             <div class="seller_name">
-              <span><?php echo $username;?> · <?php echo $user_email;?> </span>
+              <span><?php echo $username;?> · <?php echo $useremail;?> </span>
             </div>
 
             <div class="seller_adv_line2"></div>
@@ -155,15 +154,15 @@
 
 <?php
 
-  if($count == 0 || $num <= 20){
+  if($count == 0 || $num <= 19){
 
 ?>
             <input class="seller_tag" type="text" placeholder=" 현재 대기 순위 : 대기 없음" readonly>
 <?php
 }else{
-  $wait_num = $num - 20;
+  $wait_num = $num - 19;
 ?>
-            <input class="seller_tag" type="text" placeholder=" 현재 대기 순위 : <?= $wait_num?>" readonly>
+            <input class="seller_tag" type="text" placeholder=" 현재 대기 순위 : <?=$wait_num?>" readonly>
 <?php
 }
 ?>
