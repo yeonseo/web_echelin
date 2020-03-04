@@ -1,9 +1,9 @@
 
 <?php
+  session_start();
+  if (isset($_SESSION["user_Email"])) $user_email = $_SESSION["user_Email"];
+  else $user_email = "libero@natoquepenatibuset.co.uk";
 
-
-  //세션에 있는 클라이언트 아이디
-  $user_email="libero@natoquepenatibuset.co.uk";
 
   //
   $seller_num=get('seller_num');

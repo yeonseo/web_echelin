@@ -7,6 +7,9 @@ $Phone = $_POST["user_phone"];
 
 
 
+
+
+
 $con = mysqli_connect("localhost","root","123456","echelin");
 
 $sql = "update echelin_user set `user_name`='$About' where `user_Email`='$Email';";
@@ -50,7 +53,6 @@ if ($result === FALSE) {
 
 
 
-
 // 일반인, 회원가입자, 관리자 구분
 session_start();
 $_SESSION["user_name"] =$Name;
@@ -61,8 +63,8 @@ mysqli_close($con);
 
 echo "
 <script>
-alert('업데이트 되었니 제발..?? $Name $Password $Email $Phone $About');
-    location.href = 'user_myinfo_index.php';
+alert('업데이트 되었니 제발..?? $Name $Password $Email $Phone $About ');
+    location.href = 'http://localhost/echelin/user/user_mypage_info_update.php';
 </script>
 ";
 

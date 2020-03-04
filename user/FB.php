@@ -109,14 +109,12 @@
           });
 
 
-
-
         document.getElementById('status').innerHTML =
           // 'Thanks for logging in 유저 이름: , ' + response.name + '!'+
 
 
           '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
-        location.href = 'user_myinfo_index.php';
+        //  location.href = 'user_myinfo_index.php';
         alert("로그인 성공");
         // document.FB.submit();
 
