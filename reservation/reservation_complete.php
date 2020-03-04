@@ -1,20 +1,3 @@
-<?php
-
-$seller_num=get('seller_num');
-$store_name=get('store_name');
-$select_date=get('select_date');
-
-
-function get($name){
-  if (isset($_GET[$name])) {
-      $get_result= $_GET[$name];
-  } else {
-      $get_result= '어?';
-  }
-  return $get_result;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -43,6 +26,32 @@ function get($name){
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
     </header>
+<?php
+
+$seller_num=get('seller_num');
+$store_name=get('store_name');
+$select_date=get('select_date');
+if (isset($_SESSION["user_Email"])){
+   $user_email = $_SESSION["user_Email"];
+}
+else {
+  echo("<script>
+  alert('로그인 후에 이용할 수 있습니다.');
+  location.href='../restaurants/restaurants_index.php?seller_num=$seller_num';
+  </script>");
+}
+
+function get($name){
+  if (isset($_GET[$name])) {
+      $get_result= $_GET[$name];
+  } else {
+      $get_result= '어?';
+  }
+  return $get_result;
+}
+?>
+
+
     <section><div class="div_step">
       <img class="img_echelin_logo" src="../seller/image/cheese.png" alt="">
       <span class="span_step_info">예약이 완료되었습니다.</span>
@@ -57,9 +66,8 @@ function get($name){
 
        ?>
             <div class="reservation_complete_content_right_btn_box">
-            <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?= $seller_num ?>'"><i class="fas fa-utensils"></i> &nbsp; 홈으로 </button>
-            <button onclick="location.href='../reservation/reservation_first.php?seller_num=<?= $seller_num ?>'"><i class="fas fa-utensils"></i> &nbsp; 예약 내역 목록 </button>
-             <button onclick="location.href='../user/user_mypage_message_talk.php?message=<?= $message_group_num ?>'"><i class="fas fa-comments"></i> &nbsp; 현재 예약의 내역 </button>
+            <button onclick="location.href='../index.php'"><i class="fas fa-utensils"></i> &nbsp; 홈으로 </button>
+            <button onclick="location.href='../user/user_mypage_reserv.php'"><i class="fas fa-utensils"></i> &nbsp; 예약 내역 목록 </button>
 
                </div>
           </div>

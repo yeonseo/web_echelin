@@ -40,7 +40,8 @@
                         <?php include "FB.login.php"; ?>
                         <?php include "naver_login_form.php"; ?>
                         <?php include "kakao_login.php"; ?>
-                        <?php include "google_login_form.php"; ?>
+                        <?php // include "google_login_form.php"; 
+                        ?>
                     </div>
 
                 </div>

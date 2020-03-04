@@ -74,6 +74,3 @@ alert('업데이트 되었니 제발..?? $Name $Password $Email $Phone $About $A
     location.href = 'user_mypage_info_update.php';
 </script>
 ";
-
-
-?>

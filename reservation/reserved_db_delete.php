@@ -6,7 +6,7 @@
 
     echo "reservation_num = ". $reservation_num;
 
-$sql = "update reservation set cancel=1 where seller_num='$reservation_num'";
+$sql = "update reservation set cancel=1 where reservation_num='$reservation_num'";
     mysqli_query($con, $sql);
     echo mysqli_error($con);
     mysqli_close($con);

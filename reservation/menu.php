@@ -4,7 +4,15 @@ $seller_num=get('seller_num');
 $date_result=get('date_result');
 $time_result=get('time_result');
 $person=get('person');
-
+if (isset($_SESSION["user_Email"])){
+   $user_email = $_SESSION["user_Email"];
+}
+else {
+  echo("<script>
+  alert('로그인 후에 이용할 수 있습니다.');
+  location.href='../restaurants/restaurants_index.php?seller_num=$seller_num';
+  </script>");
+}
 
 function get($name){
   if (isset($_GET[$name])) {
@@ -15,8 +23,7 @@ function get($name){
   return $get_result;
 }
 
-        //menu_img 테이블에서 값들고옴
-        $seller_num = 1;
+
 
         $sql = "select * from " . $dbname . ".menu_img where seller_num=" . $seller_num;
         $result = $con->query($sql);
@@ -62,6 +69,8 @@ function get($name){
     <span class="span_hashtag">#</span>
     <span id="spanMyCart"class="span_hashtag_intro">장바구니</span>
 </div>
+
+<br><br><br><br><br><br>
 <div class="div_prv_next_button">
   <button class="button_next" type="button" name="button" onclick="getSelectMenu('http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_third.php','?seller_num=<?= $seller_num ?>')">다음</button>
   <button class="button_prev" type="button" name="button" onclick="prevPage('http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_first.php','?seller_num=<?= $seller_num ?>')">이전</button>

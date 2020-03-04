@@ -1,5 +1,17 @@
-<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
+        <script src="./js/vendor/modernizr.custom.min.js"></script>
+        <script src="./js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="./js/menu.js" defer></script>
+    </head>
+</html>
 <?php
+include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php";
 $seller_num=post('seller_num');
 $store_name=post('upso_nm');
