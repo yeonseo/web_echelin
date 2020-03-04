@@ -42,7 +42,7 @@
 <body>
 
 
-    <div class="g-signin2" data-onsuccess="onSignIn">
+    <div class="g-signin2" data-onsuccess="onSignIn" hidden>
     </div>
 
     <a href="#" onclick="signOut();">로그아웃</a>
@@ -51,7 +51,7 @@
         <input id="google_user_sns" type="hidden" name="user_sns">
         <input id="google_user_email" type="hidden" name="user_Email">
         <input id="google_user_name" type="hidden" name="user_name">
-        <input type="submit">
+        <input type="submit" hidden>
     </form>
 
 </body>

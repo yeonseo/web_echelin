@@ -93,16 +93,6 @@
 
                 ?>
 
-                <div class="<?= COMMON::$css_card_menu_row; ?>">
-                    <button class="card_menu_btn_wider" class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
-                        <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="<?= COMMON::$css_card_menu_btn_name; ?>">북마크가 될거시다</div>
-                        <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
-                    </button>
-                </div> <!-- end of css_card_menu_row -->
-
             </div><!-- end of right_content -->
     </section>
     <footer>

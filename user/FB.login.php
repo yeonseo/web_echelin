@@ -116,8 +116,8 @@
 
 
           '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
-        location.href = 'user_myinfo_index.php';
-        alert("로그인 성공");
+        location.href = 'user_login_check.php';
+        // alert("로그인 성공");
         // document.FB.submit();
 
 
@@ -155,7 +155,7 @@
       </div>
     </div>
   </div>
-  <form name="fb_form" action="user_join_insert.php" method="post">
+  <form name="fb_form" action="user_login_check.php" method="post">
     <input id="test0" type="hidden" name="user_sns">
     <input id="test" type="hidden" name="user_Email">
     <input id="test2" type="hidden" name="user_name">

@@ -37,13 +37,6 @@
 
         if (isset($_SESSION["user_age"])) $useremail = $_SESSION["user_age"];
         else $userage = ""; 
-        
-
-
-
-
-
-
         ?>
     </head>
     <body>
@@ -74,21 +67,24 @@
                     $userphone=$user_all_info["user_phone"];
                     $userabout=$user_all_info["user_aboutme"];
                     $userage=$user_all_info["user_age"];
+                    $uploaded_file=$user_all_info["user_profile_type"];
                     mysqli_close($con);
                     
                 ?>
                 <!-- // form 전송 방식 시작 -->
-                <form name="user_modify" action="user_modify.php" method="post">
+                <form name="user_modify" action="user_modify.php" method="post"enctype="multipart/form-data"  >
                     <div class="right_content">
                         <div class="about_me">
                             안녕하세요 저는
                             <?=$username?>
                             입니다.
+
+                            
                             <div class="modify_form">
                                 <div style="margin-top:5px;">
-                                    <img class="user_photo" src="http://localhost/echelin/user/image/user.PNG" width="" alt="">
+                                    <img class="user_photo" src="<?=$uploaded_file?>" width="" alt="">
                                     <div class="modify_user">
-                                        <a class="photo_update" href="#" onclick="openpop()">사진 업데이트 하기</a>
+                                        <a class="photo_update" href="#" onclick="openpop();">사진 업데이트 하기</a>
                                     </div>
                                 </div>
                                 <div class="user_in">

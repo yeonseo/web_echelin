@@ -319,4 +319,10 @@
     font-weight: bold;
 }
 
+.login_border {
+    margin: 0 50px;
+}
 
+.login_border a{
+    text-decoration: none;
+}
