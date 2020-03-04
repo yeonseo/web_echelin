@@ -256,8 +256,6 @@ function create_table($con, $dbname, $table_name)
                 $sql = "CREATE TABLE `advertise`(
                 	`num` int unsigned NOT NULL AUTO_INCREMENT,
                 	`seller_num` int unsigned NOT NULL,
-                  `file_name` varchar(45) NOT NULL,
-                	`file_type` varchar(45) NOT NULL,
                 	`file_copied` varchar(45) NOT NULL,
                   `store_name` varchar(45) NOT NULL,
                   `introduction` text DEFAULT NULL,
@@ -660,13 +658,13 @@ function insert_table($con, $table_name)
             break;
 
         case 'advertise':
-            $sql = "INSERT INTO `advertise` (`num`, `seller_num`, `file_name`, `file_type`, `file_copied`, `store_name`, `introduction`, `regist_day`, `noshow`) VALUES
-                  (null, '1', 'pengsu1.jpg', 'image/jpeg', '2020_02_27_07_28_13.jpg', '지수네', '정발산 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '2', 'pengsu2.jpg', 'image/jpeg', '2020_02_27_07_28_29.jpg', '동운이네', '은평구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '3', 'pengsu3.jpg', 'image/jpeg', '2020_02_27_07_32_34.jpg', '032네', '송파구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '4', 'pengsu1.jpg', 'image/jpeg', '2020_02_27_07_28_13.jpg', '무권이네', '마포구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '5', 'pengsu2.jpg', 'image/jpeg', '2020_02_27_07_28_29.jpg', '연서네', '구로구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '6', 'pengsu3.jpg', 'image/jpeg', '2020_02_27_07_32_34.jpg', '성민이네', '강남구 최고의 맛집','2020-03-03 (01:11)', false);
+            $sql = "INSERT INTO `advertise` (`num`, `seller_num`, `file_copied`, `store_name`, `introduction`, `regist_day`, `noshow`) VALUES
+                  (null, '1', '2020_02_27_07_28_13.jpg', '지수네', '정발산 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '2', '2020_02_27_07_28_29.jpg', '동운이네', '은평구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '3', '2020_02_27_07_32_34.jpg', '032네', '송파구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '4', '2020_02_27_07_28_13.jpg', '무권이네', '마포구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '5', '2020_02_27_07_28_29.jpg', '연서네', '구로구 최고의 맛집','2020-03-03 (01:11)', false),
+                  (null, '6', '2020_02_27_07_32_34.jpg', '성민이네', '강남구 최고의 맛집','2020-03-03 (01:11)', false);
                 ";
             break;
         case 'seller_keyword':
