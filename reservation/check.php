@@ -183,7 +183,13 @@
                             if ( rsp.success ) {
                                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
                                 jQuery.ajax({
-
+                                  url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
+                                  type: 'POST',
+                                  dataType: 'json',
+                                  data: {
+                                      imp_uid : rsp.imp_uid
+                                      //기타 필요한 데이터가 있으면 추가 전달
+                                  }
                                 }).done(function(data) {
                                     //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
                                     if ( everythings_fine ) {
@@ -200,7 +206,7 @@
                                     }
                                 });
                                 //성공시 이동할 페이지
-                                reservation_submit();
+                                // reservation_submit();
                             } else {
                                 msg = '결제에 실패하였습니다.';
                                 msg += '에러내용 : ' + rsp.error_msg;
@@ -241,17 +247,22 @@
                           }
                           alert(msg);
                           //성공시 이동할 페이지
-                          reservation_submit();
+                          // reservation_submit();
                       });
                     }
                     </script>
 
                 <?php
-                echo "<button type='button' name='button' onclick='reservation_submit()'>KakaoPay 결제하기</button>";
-                echo "<button type='button' name='button' onclick='kginicis()'>KG이니시스 결제하기</button>";
+                echo "<div class='reservation_check_btn_box'>";
+                echo "<button type='button' name='button' onclick='kakaopay()'>&nbsp; KakaoPay 결제 </button>";
+                echo "<button type='button' name='button' onclick='kginicis()'> 카드 결제 </button>";
+                echo "</div>";
+
                 //결제 끝
 
-                echo "</div>";
+
+                echo "
+                 <br><br><br><br><br><br></div>";
                 echo "</div> <!-- end of css_article_content_box -->";
             ?>
 

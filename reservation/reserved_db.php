@@ -18,7 +18,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/database/create_table.php";
 
 
 
-        $sql = "select * from " . $dbname . ".reservation where user_id=" . "'".$user_email."'";
+        $sql = "select * from " . $dbname . ".reservation where user_id=" . "'".$user_email."'ORDER BY reservation_num DESC";
         $result = $con->query($sql);
         if ($result === FALSE) {
             die('DB seller Connect Error: ' . mysqli_error($con));

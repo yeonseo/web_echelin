@@ -69,6 +69,8 @@ function get($name){
     <span class="span_hashtag">#</span>
     <span id="spanMyCart"class="span_hashtag_intro">장바구니</span>
 </div>
+
+<br><br><br><br><br><br>
 <div class="div_prv_next_button">
   <button class="button_next" type="button" name="button" onclick="getSelectMenu('http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_third.php','?seller_num=<?= $seller_num ?>')">다음</button>
   <button class="button_prev" type="button" name="button" onclick="prevPage('http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/reservation/reservation_first.php','?seller_num=<?= $seller_num ?>')">이전</button>
