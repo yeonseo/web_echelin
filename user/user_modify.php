@@ -64,9 +64,6 @@ mysqli_close($con);
 echo "
 <script>
 alert('업데이트 되었니 제발..?? $Name $Password $Email $Phone $About ');
-    location.href = 'http://localhost/echelin/user/user_mypage_info_update.php';
+    location.href = './user_mypage_info_update.php';
 </script>
 ";
-
-
-?>
