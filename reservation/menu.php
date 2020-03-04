@@ -4,19 +4,26 @@ $seller_num=get('seller_num');
 $date_result=get('date_result');
 $time_result=get('time_result');
 $person=get('person');
-
+if (isset($_SESSION["user_Email"])){
+   $user_email = $_SESSION["user_Email"];
+}
+else {
+  echo("<script>
+  alert('로그인 후에 이용할 수 있습니다.');
+  location.href='../restaurants/restaurants_index.php?seller_num=$seller_num';
+  </script>");
+}
 
 function get($name){
   if (isset($_GET[$name])) {
       $get_result= $_GET[$name];
   } else {
-      $get_result= '엥';
+      $get_result= '어?';
   }
   return $get_result;
 }
 
-        //menu_img 테이블에서 값들고옴
-        $seller_num = 1;
+
 
         $sql = "select * from " . $dbname . ".menu_img where seller_num=" . $seller_num;
         $result = $con->query($sql);
@@ -50,7 +57,7 @@ function get($name){
       echo "<input id='date_result'type='text' value='$date_result' hidden>";
       echo "<input id='time_result'type='text' value='$time_result' hidden>";
       echo "<input id='person'type='text' value='$person' hidden>";
-      
+
  ?>
   <div class="div_menu_content">
     <div class="best_score_content" id="divContentWrap">

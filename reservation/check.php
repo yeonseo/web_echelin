@@ -1,13 +1,15 @@
 
 <?php
-  session_start();
-  if (isset($_SESSION["user_Email"])) $user_email = $_SESSION["user_Email"];
-  else $user_email = "libero@natoquepenatibuset.co.uk";
-
-
-  //
   $seller_num=get('seller_num');
-
+  if (isset($_SESSION["user_Email"])){
+     $user_email = $_SESSION["user_Email"];
+  }
+  else {
+    echo("<script>
+    alert('로그인 후에 이용할 수 있습니다.');
+    location.href='../restaurants/restaurants_index.php?seller_num=$seller_num';
+    </script>");
+  }
   $selectMenuTitle=get('selectMenuTitle');
   $select_menu_title =explode(',' , $selectMenuTitle);
   $cnt = count($select_menu_title);

@@ -46,6 +46,6 @@ $result = $con->query($sql);
 
  echo "
    <script>
-         location.href = 'user_myinfo_index.php';
+         location.href = 'http://localhost/echelin/index.php';
    </script>      
  ";

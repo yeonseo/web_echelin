@@ -51,6 +51,50 @@ if ($upfile_name && !$upfile_error) {
                             history.go(-1)
                             </script>
                         ");
+<<<<<<< HEAD
+                        exit;
+                }
+            }
+            else 
+            {
+                $upfile_name      = "";
+                $upfile_type      = "";
+                $copied_file_name = "";
+            }
+            // $Email = $_POST["user_Email"];
+            // $profile =        $_POST["user_profile"];
+            // $profile_copied = $_POST["user_profile_copied"];
+            // $profile_type=    $_POST["user_profile_type"];
+
+            $con = mysqli_connect("localhost","root","123456","echelin");
+            $sql = "update echelin_user set `user_profile`='$upfile_name' where `user_Email`='$Email';";
+            $result = $con->query($sql);
+            if ($result === FALSE) {
+                die('DB bookmark_num Connect Error: ' . mysqli_error($con));
+            }
+
+            $sql = "update echelin_user set `user_profile_copied`='$copied_file_name' where `user_Email`='$Email';";
+            $result = $con->query($sql);
+            if ($result === FALSE) {
+                die('DB bookmark_num Connect Error: ' . mysqli_error($con));
+            }
+
+            $sql = "update echelin_user set `user_profile_type`='$uploaded_file' where `user_Email`='$Email';";
+            $result = $con->query($sql);
+            if ($result === FALSE) {
+                die('DB bookmark_num Connect Error: ' . mysqli_error($con));
+            }
+
+            session_start();
+            $_SESSION["user_profile"]=$upload_dir;
+
+
+            mysqli_close($con);
+
+
+
+            echo "
+=======
         exit;
     }
 } else {
@@ -91,6 +135,7 @@ mysqli_close($con);
 
 
 echo "
+>>>>>>> 2ce0651af5dd868b62847803d2a72f6454df159f
                 <script>
                 alert('업데이트 되었니 제발..?? $upfile_name $uploaded_file $copied_file_name  $Email');
                 window.close();
