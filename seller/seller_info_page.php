@@ -59,12 +59,6 @@ $intensity_of_reserv = $row["intensity_of_reserv"];
 
 $re_address=explode(',', $store_address);
 
-echo $store_address;
-
-echo $re_address[0];
-echo $re_address[1];
-echo $re_address[2];
-
 $re_opening_hours_start=str_replace(' : ', ":", $opening_hours_start);
 $re_opening_hours_end=str_replace(' : ', ":", $opening_hours_end);
 
@@ -100,6 +94,7 @@ $re_store_tel = explode('-', $store_tel);
     <input class="input_info" id="update_detailAddress" name="input_detailAddress" type="text" value="<?php if(isset($re_address[2])) {?> <?=$re_address[2]?> <?php } else {?> <?php echo ""?> <?php }?>">
     </br></br>
     <div id="div_map"></div> <!-- 지도 담는 div -->
+    <br>
 
     <li>소개글</li>
     <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><?echo $introduction?></textarea></br></br>
