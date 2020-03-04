@@ -4,7 +4,7 @@ $upload_dir = './menuImg/';
 $con = mysqli_connect("localhost","root","123456","echelin");
 
 $seller_num = $_GET["seller_num"];
-$menu_file_num = $_GET["menu_file_num"];
+$menu_file_num = $_GET["menu_num"];
 
 $menu_count = count($_POST["input_menu"]);
 
@@ -60,11 +60,12 @@ else
   $copied_file_name = "";
 }
 
-for($i=0; $i<$menu_count; $i++) {
-  $sql = "update menu_img set menu_name='$menu_name', menu_price='$menu_price', menu_file_name='$menu_file_name', menu_file_type='$menu_file_type', menu_file_copied='$copied_file_name', menu_explain='$menu_explain' where where num='$menu_file_num'";
+$num_chk=$menu_file_num+$i;
+
+  $sql = "update menu_img set menu_name='$menu_name', menu_price='$menu_price', menu_file_name='$menu_file_name', menu_file_type='$menu_file_type', menu_file_copied='$copied_file_name', menu_explain='$menu_explain' where num='$num_chk'";
   mysqli_query($con, $sql);
-}
-var_dump($con);
+
+mysqli_error($con);
 
 } //end of for
 mysqli_close($con);
