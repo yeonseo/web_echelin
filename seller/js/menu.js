@@ -77,3 +77,9 @@ function register_menu() {
       }
   }// end of for
 } //endn of register_menu();
+
+
+function update_menu() {
+  document.form_menu_update.submit();
+  alert("메뉴 수정이 완료되었습니다.");
+}

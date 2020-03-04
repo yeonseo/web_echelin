@@ -1,32 +1,49 @@
-<div class="my_info_content">
-  <div class="left_menu">
-      <div class="my_info_profile">
-          <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/my_info/index_my_info.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/image/pengsu1.jpg"></a>
-      </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
+    <title> <?= COMMON::$title; ?> </title>
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/search.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_mypage_reserv.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
 
-      <!-- 순서대로쭉쭉 -->
-      <ul>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex유저정보관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex업주정보관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">ex문의게시판관리</a> </li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김성민</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">김지수</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">하동운</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="#">유영삼</a></li>
-          <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/page_form/test_page/index_my_info.php">테스트 페이지</a></li>
-      </ul>
-  </div> <!-- end of left_menu -->
+    <!-- 공통으로 사용하는 link & script -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
+  </head>
+  <body>
+    <header>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/header_small.php"; ?>
+    </header>
 
-  <form class="" name="form_store_pic" action="./store_pic_upload.php" method="post" enctype="multipart/form-data">
+    <div class="my_info_content">
+      <div class="left_menu">
+          <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
+      </div> <!-- end of left_menu -->
+
+<?php $seller_num = $_GET["seller_num"]; ?>
+
+  <form class="" name="form_store_pic" action="./store_pic_update?seller_num=<?=$seller_num?>.php" method="post" enctype="multipart/form-data">
     <div class="right_content">
-      <li>가게 외/내부 사진</li>
+      가게 외/내부 사진
+      <?php
+      $con = mysqli_connect("localhost", "root", "123456", "echelin");
+      $sql = "select * from store_img where seller_num='$seller_num'";
+      $result=mysqli_query($con, $sql);
+      while($row = mysqli_fetch_array($result)){
+      $store_file_copied = $row['store_file_copied'];
+      // var_dump($store_file_copied);
+        }
+            ?>
          <div class="store_pic">
            <div class="store_inner_pic1">
              <label for="store_image1">업로드</label>
              <input type="file" name="file[]" id="store_image1" multiple>
 
              <div class="image_preview1">
-                 <img class="store_img" src="./image/cheese.png">
+                <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
              </div>
            </div>
 
@@ -36,7 +53,7 @@
 
 
              <div class="image_preview2">
-                 <img class="store_img" src="./image/cheese.png">
+                 <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
              </div>
            </div>
 
@@ -45,7 +62,7 @@
              <input type="file" name="file[]" id="store_image3" multiple>
 
              <div class="image_preview3">
-                 <img class="store_img" src="./image/cheese.png">
+                 <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
              </div>
            </div>
 
@@ -54,7 +71,7 @@
              <input type="file" name="file[]" id="store_image4" multiple>
 
              <div class="image_preview4">
-               <img class="store_img" src="./image/cheese.png">
+               <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
              </div>
            </div>
 
@@ -63,10 +80,12 @@
              <input type="file" name="file[]" id="store_image5" multiple>
 
              <div class="image_preview5">
-                 <img class="store_img" src="./image/cheese.png">
+                 <img class="store_img" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?= $store_file_copied?>">
              </div>
            </div>
          </div>
+
+
          <div class="div_clear_both">
          </div> <!-- end of store_pic -->
          </br></br>
@@ -74,3 +93,9 @@
     </div> <!-- end of right_content -->
   </form>
 </div> <!-- end of my_info_content -->
+<footer>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/large_header/footer.php"; ?>
+</footer>
+
+</body>
+</html>

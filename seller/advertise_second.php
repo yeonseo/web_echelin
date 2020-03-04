@@ -53,7 +53,7 @@
 
         <div class="left_menu">
 
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/user/user_side_left_menu.php"; ?>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/seller/seller_side_left_menu.php"; ?>
         </div>
 
         <div class="right_content">

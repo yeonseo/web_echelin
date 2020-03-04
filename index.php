@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main_test.css">
 
+    <!-- 무한 스크롤 -->
+    <!-- <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/infi.css"> -->
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/infi.js"></script>
+
     <!-- 메인 슬라이드 -->
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/normalize.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/main.css">
@@ -22,6 +27,7 @@
     <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/slide/jquery-1.10.2.min.js"></script>
     <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/slide/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/slide/main.js"></script>
+
 
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>

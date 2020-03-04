@@ -15,9 +15,6 @@
   $row = mysqli_fetch_array($result);
 
   $store_file_copied = $row['store_file_copied'];
-  $store_file_name = $row['store_file_name'];
-  $store_file_type = $row['store_file_type'];
-
 
 
   $sql2 = "select * from seller where seller_num='$seller_num'";
@@ -29,8 +26,8 @@
   $introduction = $row2['introduction'];
 
 
-  $sql = "insert into advertise (seller_num, file_name, file_type, file_copied, store_name, introduction, regist_day, noshow) ";
-  $sql .= "values('$seller_num', '$store_file_name', '$store_file_type', '$store_file_copied', '$store_name', '$introduction','$regist_day', true)";
+  $sql = "insert into advertise (seller_num, file_copied, store_name, introduction, regist_day, noshow) ";
+  $sql .= "values('$seller_num', '$store_file_copied', '$store_name', '$introduction','$regist_day', true)";
   mysqli_query($con, $sql);
 
 

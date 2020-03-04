@@ -123,7 +123,7 @@
 
         if(empty($_POST["r_name"])){
           $r_name="";
-          $sql = "select * from seller_keyword";
+          $sql = "select * from seller_keyword where not seller_name like '%$r_name%'";
         }else{
           $r_name=$_POST["r_name"];
           $sql = "select * from seller_keyword where seller_name like '%$r_name%'";
@@ -175,12 +175,15 @@
               ?>
               <div class="">
                 <ul>
-                  <li><?=$num?></li>
-                  <li><?=$seller_num?></li>
-                  <li><?=$seller_name?></li>
-                  <li><?=$seller_address?></li>
-                  <li><?=$seller_uptae_nm?></li>
-                  <li><?=$tag_class?></li>
+
+                    <li><?=$num?></li>
+                    <li><?=$seller_num?></li>
+                    <li><a href="../restaurants/restaurants_index.php&seller_num=$seller_num"
+                      ><?=$seller_name?></a></li>
+                    <li><?=$seller_address?></li>
+                    <li><?=$seller_uptae_nm?></li>
+                    <li><?=$tag_class?></li>
+
                 </ul>
               </div>
 

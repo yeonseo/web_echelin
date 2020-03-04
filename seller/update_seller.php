@@ -1,5 +1,4 @@
 <?php
-
 $con = mysqli_connect("localhost","root","123456","echelin");
 
 $seller_num = htmlspecialchars($_POST["seller_num"], ENT_QUOTES);
@@ -11,15 +10,27 @@ $input_extraAddress = htmlspecialchars($_POST["input_extraAddress"], ENT_QUOTES)
 $input_detailAddress = htmlspecialchars($_POST["input_detailAddress"], ENT_QUOTES);
 $introduction = htmlspecialchars($_POST["introduction"], ENT_QUOTES);
 $store_type = htmlspecialchars($_POST["store_type"], ENT_QUOTES);
-$type_of_etc = htmlspecialchars($_POST["type_of_etc"], ENT_QUOTES);
 
-if($store_type=="기타") {
-  $store_tye_etc=$type_of_etc ;
+if(isset($_POST["type_of_etc"])) {
+  $type_of_etc = htmlspecialchars($_POST["type_of_etc"], ENT_QUOTES);
+
 } else {
-  $store_type;
+  $type_of_etc="";
 }
 
-$re_store_type=$store_type.$store_tye_etc;
+if(isset($_POST["store_type"])) {
+  $store_type = htmlspecialchars($_POST["store_type"], ENT_QUOTES);
+
+  if($store_type=="기타") {
+    $store_tye_etc = $type_of_etc ;
+  } else {
+    $store_type;
+  }
+} else {
+  $store_type="";
+}
+
+$re_store_type = $store_type;
 
 $opening_hours_start = htmlspecialchars($_POST["opening_hours_start"], ENT_QUOTES);
 $opening_hours_end = htmlspecialchars($_POST["opening_hours_end"], ENT_QUOTES);
@@ -29,12 +40,18 @@ $nokids = htmlspecialchars($_POST["nokids"], ENT_QUOTES);
 $input_checkbox_etc_text = htmlspecialchars($_POST["input_checkbox_etc_text"], ENT_QUOTES);
 
 
+  $set= $_POST["chkbox"];
+  $set_chkbox='';
 for($i=0; $i<count($_POST["chkbox"]); $i++) {
-  $set = $_POST["chkbox"];
+
   $set[$i];
   $set_chkbox.=$set[$i];
 }
+
 $re_chkbox=$set_chkbox.$input_checkbox_etc_text;
+
+echo $re_chkbox;
+
 
 $phone1 = htmlspecialchars($_POST["phone1"], ENT_QUOTES);
 $phone2 = htmlspecialchars($_POST["phone2"], ENT_QUOTES);
@@ -53,7 +70,7 @@ $lon = htmlspecialchars($_POST["lon_update"], ENT_QUOTES);
 if($input_detailAddress) {
   $total_address=$input_address.",".$input_extraAddress.",".$input_detailAddress.",";
 } else {
-  $total_address=$input_address.",".$input_extraAddress.",";
+  $total_address=$input_address.",".$input_extraAddress;
 }
 
 // echo $total_address;
@@ -89,7 +106,7 @@ echo $re_break_start;
 echo $re_break_end;
 echo $nokids;
 
-echo $re_chkbox;
+// echo $re_chkbox;
 echo $re_phone;
 
 
@@ -101,7 +118,8 @@ echo $reserve_intensity;
 echo $lat;
 echo $lon;
 
-$sql = "update seller set store_name='$input_store_name', store_type='$re_store_type', store_address='$sub_total_address', store_postcode='$input_postcode', store_lat='$lat', store_lon='$lon', convenient_facilities='$re_chkbox', introduction='$introduction', break_start='$re_break_start', break_end='$re_break_end', nokids='$nokids', opening_day='$input_opening_day', opening_hours_start='$re_opening_hours_start', opening_hours_end='$re_opening_hours_end', store_tel='$re_phone', special_note='$special_note', max_reserv_time_num_of_people='$input_max_num_of_people', max_reserv_month='$max_month', intensity_of_reserv='$reserve_intensity' where seller_num='$seller_num';"
+$sql = "update seller set store_name='$input_store_name', store_type='$re_store_type', store_address='$sub_total_address', store_postcode='$input_postcode', store_lat='$lat', store_lon='$lon', convenient_facilities='$re_chkbox', introduction='$introduction', break_start='$re_break_start', break_end='$re_break_end', nokids=false, opening_day='$input_opening_day', opening_hours_start='$re_opening_hours_start', opening_hours_end='$re_opening_hours_end'";
+$sql .= ", store_tel='$re_phone', special_note='$special_note', max_reserv_time_num_of_people='$input_max_num_of_people', max_reserv_month='$max_month', intensity_of_reserv='$reserve_intensity' where seller_num='$seller_num'";
 mysqli_query($con, $sql);
 echo mysqli_error($con);
 mysqli_close($con);
