@@ -22,7 +22,10 @@
   $person=get('person');
   $person_array=explode(',' , $person);
 
-  $insert_menu = $selectMenuTitle.",".$selectMenuCount;
+  $insert_menu = $select_menu_title[0].",".$select_menu_title[0];
+  for($i =1 ; $i < count($select_menu_title) ; $i++){
+    $insert_menu.=",".$select_menu_title[$i].",".$select_menu_title[$i];
+  }
 
   function get($name){
     if (isset($_GET[$name])) {
@@ -206,7 +209,7 @@
                                     }
                                 });
                                 //성공시 이동할 페이지
-                                // reservation_submit();
+                                reservation_submit();
                             } else {
                                 msg = '결제에 실패하였습니다.';
                                 msg += '에러내용 : ' + rsp.error_msg;
@@ -247,7 +250,7 @@
                           }
                           alert(msg);
                           //성공시 이동할 페이지
-                          // reservation_submit();
+                          reservation_submit();
                       });
                     }
                     </script>
