@@ -417,7 +417,7 @@ header { margin-bottom: 60px; }
   width: 237px;
   height: 237px;
   float: left;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 4px 4px 20px #D1CFCF;
 }
@@ -438,7 +438,7 @@ header { margin-bottom: 60px; }
 .search_member img{
   width: 237px;
   height: 150px;
-  border-radius: 5px;
+  border-radius: 10px 10px 0 0;
 }
 
 .summary_span_first{

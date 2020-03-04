@@ -19,7 +19,7 @@
 
           $store_file_copied = $row2['store_file_copied'];
 
-        echo "<a href='#'>
+        echo "<a href='/echelin/restaurants/restaurants_index.php'>
                 <p class='summary_first'>
                   <img src='/echelin/seller/storeImg/$store_file_copied'>
                       <span class='summary_span_first'>#$store_name</span>

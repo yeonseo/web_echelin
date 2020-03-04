@@ -119,10 +119,10 @@
                   $store_name = $row['store_name'];
                   $introduction = $row['introduction'];
             ?>
-                <a href="#">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
                   <p class="summary_first">
-                    <img src="../data/<?php echo $file_copied; ?>">
-                      <span class="slide_span_first">#<?php echo $store_name; ?></span>
+                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$file_copied?>">
+                      <span class="slide_span_first">#<?= $store_name?></span>
                       <span class="slide_span_second"><?= $introduction?></span>
                   </p>
                 </a>
@@ -190,7 +190,7 @@
       $store_file_copied = $row2['store_file_copied'];
 
   ?>
-        <a href="#">
+        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php">
           <p class="summary_first">
             <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$store_file_copied?>">
               <span class="summary_span_first">#<?= $store_name ?></span>

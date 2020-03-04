@@ -658,13 +658,26 @@ function insert_table($con, $table_name)
             break;
 
         case 'advertise':
-            $sql = "INSERT INTO `advertise` (`num`, `seller_num`, `file_copied`, `store_name`, `introduction`, `regist_day`, `noshow`) VALUES
-                  (null, '1', '2020_02_27_07_28_13.jpg', '지수네', '정발산 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '2', '2020_02_27_07_28_29.jpg', '동운이네', '은평구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '3', '2020_02_27_07_32_34.jpg', '032네', '송파구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '4', '2020_02_27_07_28_13.jpg', '무권이네', '마포구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '5', '2020_02_27_07_28_29.jpg', '연서네', '구로구 최고의 맛집','2020-03-03 (01:11)', false),
-                  (null, '6', '2020_02_27_07_32_34.jpg', '성민이네', '강남구 최고의 맛집','2020-03-03 (01:11)', false);
+            $sql = "insert into advertise values(null, 1,'2020_03_03_13_33_40_5121.jpg', '지수네', '왕십리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 2,'2020_03_03_13_33_40_9816.jpg', '연서네', '도평리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 3,'2020_03_03_13_34_34_3374.png', '동운이네', '고막리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 4,'2020_03_03_13_34_35_8870.png', '영삼이네', '답십리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 5,'2020_03_03_13_35_02_7059.png', '성민이네', '마포구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 6,'2020_03_03_13_35_41_3787.png', '지수네', '노원구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 7,'2020_03_03_13_36_10_8322.png', '지수네', '왕십리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 8,'2020_03_03_13_36_10_5864.png', '연서네', '도평리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 9,'2020_03_03_13_36_12_7443.jpg', '동운이네', '고막리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 10,'2020_03_03_13_36_13_8582.jpg', '영삼이네', '답십리 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 11,'2020_02_25_15_29_07_3682.jpg', '성민이네', '마포구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 12,'2020_03_03_13_36_13_8582.jpg', '지수네', '노원구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 13,'2020_03_03_13_35_41_3787.png', '지수네 2호점', '노원구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 14,'2020_03_03_13_36_13_2462.jpg', '동운네', '송파구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 15,'2020_03_03_13_36_13_6107.png', '영상네', '일산동구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 16,'2020_03_03_13_34_34_4894.png', '지수네', '은평구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 17,'2020_03_03_13_33_41_1191.jpg', '무권이네', '서대문구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 18,'2020_03_03_13_34_34_3374.png', '판규네', '양천구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 19,'2020_03_03_13_35_02_7059.png', '재현이네', '용산구 최고의 맛집', 'regist_day', true);
+                    insert into advertise values(null, 20,'2020_03_03_13_35_03_8680.png', '종주네', '중구 최고의 맛집', 'regist_day', true);
                 ";
             break;
         case 'seller_keyword':
