@@ -1,11 +1,11 @@
 <?php
-echo $useremail;
+// echo $useremail;
  ?>
 <?php
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
-echo $input_store_name;
-echo $input_business_license;
+// echo $input_store_name;
+// echo $input_business_license;
  ?>
  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
 <!DOCTYPE html>
@@ -97,7 +97,7 @@ echo $input_business_license;
       <form name="form_seller_register_step_second" action="./seller_register_step_third.php" method="post">
       <div class="div_outside">
           <span>내 식당 : </span>
-          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>" readonly>&nbsp&nbsp
+          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>" readonly>&nbsp&nbsp</br>
           <span>사업자번호 : </span>
           <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>" readonly>
       </div>
@@ -115,11 +115,11 @@ echo $input_business_license;
                   <input class="input_info" id="input_postcode" name="input_postcode" type="text" placeholder=" 우편번호">
                   <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>
                   </br></br>
-                  <input class="input_info" id="input_address" name="input_address" type="text" placeholder=" 주소">
+                  <input class="input_info" id="input_address" name="input_address" type="text" placeholder=" 주소" style="width:220px;">
                   </br></br>
                   <input class="input_info" id="input_extraAddress" name="input_extraAddress" type="text" placeholder=" 참고항목">
                   </br></br>
-                  <input class="input_info" id="input_detailAddress" name="input_detailAddress" type="text" placeholder=" 예) 상가 2층에 위치해있습니다.">
+                  <input class="input_info" id="input_detailAddress" name="input_detailAddress" type="text" placeholder=" 예) 상가 2층에 위치해있습니다." style="width:220px;">
                   </br></br>
                   <div id="div_map"></div> <!-- 지도 담는 div -->
                   <input id="lat" type="text" name="lat" hidden>

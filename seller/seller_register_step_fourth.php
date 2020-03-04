@@ -1,6 +1,6 @@
 
 <?php
-echo $useremail;
+// echo $useremail;
 
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
@@ -12,7 +12,7 @@ $input_detailAddress = $_POST["input_detailAddress"];
 
 $introduction = $_POST["introduction"];
 $store_type = $_POST["store_type"];
-$type_of_etc = $_POST["type_of_etc"];
+// $type_of_etc = $_POST["type_of_etc"];
 $opening_hours_start = $_POST["opening_hours_start"];
 $opening_hours_end = $_POST["opening_hours_end"];
 $break_time = $_POST["break_time"];
@@ -68,41 +68,39 @@ $lon = $_POST["lon"];
       <form class="" name="form_seller_register_step_fourth" action="./seller_register_complete.php?id=<?=$useremail?>" method="post">
       <div class="div_outside">
         <span>내 식당 : </span>
-        <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
+        <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp</br>
         <span>사업자번호 : </span>
-        <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>">
+        <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>"></br>
         <span>우편번호 : </span>
-        <input class="input_info_dis" type="text" name="input_postcode" value="<? echo $input_postcode?>">&nbsp&nbsp
+        <input class="input_info_dis" type="text" name="input_postcode" value="<? echo $input_postcode?>">&nbsp&nbsp</br>
         <span>주소 : </span>
-        <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>">
+        <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>" style="width:280px;"></br>
         <span>참고항목 : </span>
-        <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>">
+        <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>"></br>
         <span>상세주소 : </span>
-        <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>">
-        <span>식당 소개글 : </span>
-        <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><? echo $introduction?></textarea>
+        <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>"></br>
+        <span>식당 소개글 : </span></br>
+        <textarea class="textarea_step2" name="introduction" rows="2" cols="35" style="resize: none;"><? echo $introduction?></textarea></br>
         <span>식당 종류 : </span>
-        <input class="input_info_dis" type="text" name="input_store_type" value="<?php if($store_type=="기타") {?> <? echo $type_of_etc?> <?php } else {?> <? echo $store_type?> <?php }?>">
+        <input class="input_info_dis" type="text" name="input_store_type" value="<?php if($store_type=="기타") {?> <? echo $type_of_etc?> <?php } else {?> <? echo $store_type?> <?php }?>"></br>
         <span>영업시간 : </span>
-        <input class="input_info_dis" type="text" name="opening_hours_start" value="<? echo $opening_hours_start?>">
-        <span>영업시간 : </span>
-        <input class="input_info_dis" type="text" name="opening_hours_end" value="<? echo $opening_hours_end?>">
+        <input class="input_info_dis" type="text" name="opening_hours_start" style="width:50px;" value="<? echo $opening_hours_start?>">&nbsp-
+        <input class="input_info_dis" type="text" name="opening_hours_end" style="width:50px;" value="<? echo $opening_hours_end?>"></br>
         <span>브레이크타임 : </span>
-        <input class="input_info_dis" type="text" name="input_break_time1" value="<?php if($break_time=="true") {?> <? echo $break_start?> <?php } else {?> <? echo ""?> <?php }?>">
-        <span>브레이크타임 : </span>
-        <input class="input_info_dis" type="text" name="input_break_time2" value="<?php if($break_time=="true") {?> <? echo $break_end?> <?php } else {?> <? echo ""?> <?php }?>">
+        <input class="input_info_dis" type="text" name="input_break_time1" style="width:50px;" value="<?php if($break_time=="true") {?> <? echo $break_start?> <?php } else {?> <? echo ""?> <?php }?>">&nbsp-
+        <input class="input_info_dis" type="text" name="input_break_time2" style="width:50px;" value="<?php if($break_time=="true") {?> <? echo $break_end?> <?php } else {?> <? echo ""?> <?php }?>"></br>
         <span>노키즈존 여부 : </span>
-        <input class="input_info_dis" type="text" name="nokids" value="<?php echo $nokids?>">
+        <input class="input_info_dis" type="text" name="nokids" style="width:50px;" value="<?php echo $nokids?>"></br>
         <span>식당 편의시설 : </span>
-        <input class="input_info_dis" type="text" name="input_checkbox"value="<?for($i=0; $i<count($_POST["chkbox"]); $i++) {$set = $_POST["chkbox"];echo $set[$i];if($set[$i]=="") {echo $input_checkbox_etc_text.",";}}?>">
+        <input class="input_info_dis" type="text" name="input_checkbox" style="width:200px;" value="<?for($i=0; $i<count($_POST["chkbox"]); $i++) {$set = $_POST["chkbox"];echo $set[$i];if($set[$i]=="") {echo $input_checkbox_etc_text.",";}}?>"></br>
         <span>식당 전화번호 : </span>
-        <input class="input_info_dis" type="text" name="input_phone" value="<? echo $phone1."-".$phone2."-".$phone3?>">
+        <input class="input_info_dis" type="text" name="input_phone" value="<? echo $phone1."-".$phone2."-".$phone3?>"></br>
         <span>개업일 : </span>
-        <input class="input_info_dis" type="text" name="input_opening_day" value="<? echo $input_opening_day?>">
+        <input class="input_info_dis" type="text" name="input_opening_day" value="<? echo $input_opening_day?>"></br>
         <span>특이사항 : </span>
-        <textarea class="textarea_step2" name="special_note" rows="8" cols="74" style="resize: none;"><? echo $special_note?></textarea>
-        <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>">
-        <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>">
+        <textarea class="textarea_step2" name="special_note" rows="2" cols="35" style="resize: none;"><? echo $special_note?></textarea></br>
+        <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>" hidden></br>
+        <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>" hidden></br>
       </div>
 
       <div class="div_register_shape">

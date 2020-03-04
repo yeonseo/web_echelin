@@ -98,7 +98,7 @@
                 } else {
                     echo "console.log('북마크 넘버 안들고오는데에~~~ 이상한데에~')";
                 }
-                $user_email = 'aaaaaa';
+                $user_email = $_SESSION['user_Email'];
                 $bookmark_page = $_GET['bookmark_page'];
                 createListInBookmark($con, $dbname, $user_email, $bookmark_page);
 

@@ -76,7 +76,6 @@ function register_menu() {
         alert("메뉴 사진을 업로드해주세요.");
       } else {
           document.form_menu_register.submit();
-          alert("메뉴 업로드 페이지로 전송완료");
         }
 
   }// end of for
@@ -99,7 +98,6 @@ function update_menu() {
       alert("메뉴 사진을 업로드해주세요.");
     } else {
         document.form_menu_update.submit();
-        alert("메뉴 업로드 페이지로 전송완료");
       }
     }
 }

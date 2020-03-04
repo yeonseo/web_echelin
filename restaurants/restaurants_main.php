@@ -1,17 +1,17 @@
 <div class="restaurants_content">
 
-  <?php
+    <?php
 
-  if (isset($_GET['seller_num'])) {
-      $seller_num = $_GET['seller_num'];
-  } else {
-      // echo "console.log('레스토랑 주소가 이상한데에~')";
-  }
-  ?>
+    if (isset($_GET['seller_num'])) {
+        $seller_num = $_GET['seller_num'];
+    } else {
+        // echo "console.log('레스토랑 주소가 이상한데에~')";
+    }
+    ?>
 
     <div class="restaurants_main_pic_box">
 
-    <?php
+        <?php
 
 
 
@@ -62,8 +62,8 @@
     <?php
 
     //팝업창에서 나타낼 북마크를 부르기 위한 함수
-    if (isset($_SESSION['user_email'])) {
-        $user_email = $_SESSION['user_email'];
+    if (isset($_SESSION['user_Email'])) {
+        $user_email = $_SESSION['user_Email'];
     } else {
         // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
     }
@@ -159,8 +159,8 @@
 
                 <?php
 
-                $user_email = 'aaaaaa';
-                $rv_id = 'aaaaaa1';
+                $user_email = $_SESSION['user_Email'];
+                $rv_id = 's@naver.com';
                 //대화한 이력이 있는지 조회
                 $sql = "select * from message where `send_id`='" . $user_email . "' and `rv_id`='" . $rv_id . "'";
 
@@ -176,7 +176,7 @@
                     $message_group_num = $result_message['group_num'];
                 } else {
                     //메세지 그룹 계산하기 위한 것
-                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $useremail . "' group by `group_num` order by group_num desc";
+                    $sql = "select group_num, ANY_VALUE(group_num) from message where `send_id`='" . $user_email . "' group by `group_num` order by group_num desc";
                     $result = $con->query($sql);
                     if ($result === FALSE) {
                         die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
@@ -268,39 +268,37 @@
             ?>
             <div id="map" style="width:66.7%;height:350px;"></div> <!-- 지도 담는 div -->
             <script type="text/javascript">
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                    mapOption = {
+                        center: new kakao.maps.LatLng(<?= $store_lat ?>, <?= $store_lon ?>), // 지도의 중심좌표
+                        level: 3 // 지도의 확대 레벨
+                    };
 
+                var map = new kakao.maps.Map(mapContainer, mapOption);
 
-              var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-    mapOption = {
-        center: new kakao.maps.LatLng(<?= $store_lat?>, <?= $store_lon?>), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+                // 마커가 표시될 위치입니다
+                var markerPosition = new kakao.maps.LatLng(<?= $store_lat ?>, <?= $store_lon ?>);
 
-var map = new kakao.maps.Map(mapContainer, mapOption);
+                // 마커를 생성합니다
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
 
-// 마커가 표시될 위치입니다
-var markerPosition  = new kakao.maps.LatLng(<?=$store_lat?>, <?=$store_lon?>);
+                // 마커가 지도 위에 표시되도록 설정합니다
+                marker.setMap(map);
 
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition
-});
+                var iwContent = '<div style="width:150px;text-align:center;padding:6px 0;"><?= $store_name ?></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                    iwPosition = new kakao.maps.LatLng(<?= $store_lat ?>, <?= $store_lon ?>); //인포윈도우 표시 위치입니다
 
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);
+                // 인포윈도우를 생성합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                    position: iwPosition,
+                    content: iwContent
+                });
 
-var iwContent =  '<div style="width:150px;text-align:center;padding:6px 0;"><?=$store_name?></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwPosition = new kakao.maps.LatLng(<?= $store_lat?>, <?= $store_lon?>); //인포윈도우 표시 위치입니다
-
-// 인포윈도우를 생성합니다
-var infowindow = new kakao.maps.InfoWindow({
-    position : iwPosition,
-    content : iwContent
-});
-
-// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-infowindow.open(map, marker);
-              </script>
+                // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+                infowindow.open(map, marker);
+            </script>
 
 
             <!-- 리뷰 -->
