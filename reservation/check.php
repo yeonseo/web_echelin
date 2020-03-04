@@ -1,10 +1,12 @@
 
 <?php
-  session_start();
-  if (isset($_SESSION["user_Email"])) $user_email = $_SESSION["user_Email"];
-  else $user_email = "libero@natoquepenatibuset.co.uk";
-
-
+  if (isset($_SESSION["user_Email"])){
+     $user_email = $_SESSION["user_Email"];
+  }
+  else {
+    // 없으면 테스트용!!!
+    $user_email = "k@naver.com";
+  }
   //
   $seller_num=get('seller_num');
 

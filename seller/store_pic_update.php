@@ -3,10 +3,10 @@ date_default_timezone_set('Asia/Seoul');
 $upload_dir = './storeImg/';
 $con = mysqli_connect("localhost","root","123456","echelin");
 
-$seller_num=$_GET["seller_num"];
+$num=$_GET["pic_num"];
 
 // $file_n	 = $_FILES["file"]["name"];
-print_r($_FILES);
+//print_r($_FILES);
 // var_dump($file_n);
 
 
@@ -17,6 +17,7 @@ $file_type	 = $_FILES["file"]["type"][$i];
 $file_tmp_name	 = $_FILES["file"]["tmp_name"][$i];
 $file_error    = $_FILES["file"]["error"][$i];
 $file_size	 = $_FILES["file"]["size"][$i];
+
 
 
 // print_r($_FILES);
@@ -61,14 +62,19 @@ else
   $file_type      = "";
   $copied_file_name = "";
 }
+$num_chk=$num+$i;
 
-
-$sql = "insert into store_img (num, seller_num, store_name, store_file_name, store_file_type, store_file_copied) ";
-$sql .= "values(null, '$seller_num', (select store_name from seller where seller_num = '$seller_num'), '$file_name', '$file_type', '$copied_file_name')";
+$sql = "update store_img set store_file_name='$file_name', store_file_type='$file_type', store_file_copied='$copied_file_name' where num='$num_chk'";
 
 mysqli_query($con, $sql);
 var_dump($file_name);
 }
 
 mysqli_close($con);
+
+echo("
+  <script>
+    location.href='./seller_sellerinfo_index.php';
+  </script>
+");
 ?>

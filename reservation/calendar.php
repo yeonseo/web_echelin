@@ -4,11 +4,11 @@
     if (isset($_GET['seller_num'])) {
         $seller_num = $_GET['seller_num'];
     } else {
-        // echo "console.log('레스토랑 주소가 이상한데에~')";
+      //test용 변수
+      $seller_num = 1;
     }
 
-    //test용 변수
-    $seller_num = 1;
+
 
 
  function getJsonDataMakeArticle($con, $dbname, $seller_num)
@@ -115,7 +115,6 @@
           </thead>
           <tbody id="calendar-body" class="calendar-body"></tbody>
         </table>
-             <button type="button" onclick="testbtn()" name="button">aaaaaaaaa</button>
       </div>
     </div>
 

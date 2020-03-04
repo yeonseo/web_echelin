@@ -46,7 +46,7 @@ else $userpoint = "";
 
         $log = $useremail . "/" . $username . "님";
       ?>
-        <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php"><?= $log ?></a></li>
+        <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php"><?= $log ?></a></li>
         <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>
 
 
@@ -89,9 +89,7 @@ else $userpoint = "";
     <input class="search_input" type="text" placeholder=" 식당이름을 검색해 주세요." name="r_name">
     <input class="search_input" type="hidden" name="uptae" id="search_uptae">
     <input class="search_input" type="hidden" name="keywords" id="search_keywords">
-    <input class="search_input" type="hidden" name="keyword_count" id="keyword_count">
-    <input class="search_input" type="hidden" name="upso_latitude" id="upso_latitude">
-    <input class="search_input" type="hidden" name="upso_longitude" id="upso_longitude">
+    <input class="search_input" type="hidden" name="gps_ad" id="gps_ad">
     <button class="search_result_btn" id="search">검색</button>
 
     <button type="button" name="button" class="search_result_btn" id="keyword_btn">&nbsp필터 ▼</button>
