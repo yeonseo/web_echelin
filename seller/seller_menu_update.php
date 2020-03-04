@@ -24,11 +24,15 @@
   </div> <!-- end of left_menu -->
 
 <?php $seller_num = $_GET["seller_num"]; ?>
+<?php
+$con = mysqli_connect("localhost", "root", "123456", "echelin");
+$sql = "select * from menu_img where seller_num='$seller_num'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result)
+// $menu_file_num = $row['num'];
+ ?>
 
-
-
-
-<form name="form_menu_update" class="" action="./menu_update.php?seller_num=<?=$seller_num?>" method="post" enctype="multipart/form-data">
+<form name="form_menu_update" class="" action="./menu_update.php?seller_num=<?=$seller_num?>$menu_num=<?=$menu_file_num?>" method="post" enctype="multipart/form-data">
   <div class="right_content">
     <li id="li_menu">메뉴 추가하기</li>
     <button id="button_add" class="button_circle_add" type="button">+</button>
@@ -45,9 +49,7 @@
         </tr>
 
         <?php
-        $con = mysqli_connect("localhost", "root", "123456", "echelin");
-        $sql = "select * from menu_img where seller_num='$seller_num'";
-        $result = mysqli_query($con, $sql);
+
         while($row = mysqli_fetch_array($result)) {
         $menu_name=$row['menu_name'];
         $menu_price=$row['menu_price'];
@@ -55,7 +57,7 @@
         $menu_file_type=$row['menu_file_type'];
         $menu_file_copied=$row['menu_file_copied'];
         $menu_explain=$row['menu_explain'];
-        $menu_file_num = $row['num'];
+
         ?>
 
             <tr class="tr_menu" name="tr_menu">
@@ -66,7 +68,7 @@
             <div class="filebox bs3-primary preview-image">
 							<input class="upload-name" value="<?=$menu_file_name?>" disabled="disabled" style="width: 200px;">
 							<label for="input_file">업로드</label>
-              <input id="input_file" class="upload-hidden" type="file" name="input_menu_img[]" value="<?=$menu_file_copied?>" multiple>
+              <input id="input_file" class="upload-hidden" type="file" name="input_menu_img[]" value="" multiple>
 						</div>
 
             </td>

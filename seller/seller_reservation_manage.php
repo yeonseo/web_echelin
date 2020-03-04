@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/css/user_mypage_reserv.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
 
     <!-- 공통으로 사용하는 link & script -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
@@ -24,59 +26,69 @@
       </div> <!-- end of left_menu -->
 
 <?php $seller_num = $_GET["seller_num"];
-
-
-
 $con = mysqli_connect("localhost", "root", "123456", "echelin");
 $sql = "select * from reservation where seller_num='$seller_num'";
 $result=mysqli_query($con, $sql);
+$row=mysqli_fetch_array($result);
+$user_id=$row["user_id"];
+$select_date=$row["select_date"];
+$select_time=$row["select_time"];
+$select_person=$row["select_person"];
+$select_menu=$row["select_menu"];
+$reservation_special=$row["reservation_special"];
+$intensity_of_reserv=$row["intensity_of_reserv"];
+
+$re_select_time=str_replace(' : ', ":", $select_time);
+$re_select_person=explode(',', $select_person);
+
+$re_select_menu=explode(',', $select_menu);
  ?>
 
-  <form class="" name="form_store_pic" action="./store_pic_update?seller_num=<?=$seller_num?>.php" method="post" enctype="multipart/form-data">
+  <form class="" name="form_reservation_result" action="./seller_reservation_update.php?seller_num=<?=$seller_num?>" method="post" enctype="multipart/form-data">
     <div class="right_content">
 
     <li>아이디</li>
-    <input class="input_info" type="text" name="" value="">
+    <input class="input_info" type="text" name="" value="<?=$user_id?>">
     </br></br></br>
 
     <li>예약일자</li>
-    <input class="input_info" type="date" name="" value="">
+    <input class="input_info" type="text" name="" value="<?=$select_time?>">
     </br></br></br>
 
     <li>예약시간</li>
-        <input class="input_info" type="time" name="" value="">
+    <input class="input_info" type="time" name="" value="<?=$re_select_time?>">
     </br></br></br>
 
     <li>인원</li>
     <span class="span_content_font">성인</span>
-    <input class="input_info" type="number" name="" value="">
+    <input class="input_info" type="number" name="" value="<?=$re_select_person[0]?>">명
     <span class="span_content_font">어린이</span>
-    <input class="input_info" type="number" name="" value="">
+    <input class="input_info" type="number" name="" value="<?=$re_select_person[1]?>">명
     <span class="span_content_font">유아</span>
-    <input class="input_info" type="number" name="" value="">
+    <input class="input_info" type="number" name="" value="<?=$re_select_person[2]?>">명
     </br></br></br>
 
     <li>예약메뉴</li>
-    <input class="input_info" type="text" name="" value="">
-    <input class="input_info" type="number" name="" value="">개
-    <input class="input_info" type="text" name="" value="">
-    <input class="input_info" type="number" name="" value="">개
-    <input class="input_info" type="text" name="" value="">
-    <input class="input_info" type="number" name="" value="">개
-    <input class="input_info" type="text" name="" value="">
-    <input class="input_info" type="number" name="" value="">개
-    <input class="input_info" type="text" name="" value="">
-    <input class="input_info" type="number" name="" value="">개
+    <input class="input_info" type="text" name="" value="<?=$re_select_menu[0]?>">
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[1]?>">개
+    <input class="input_info" type="text" name="" value="<?=$re_select_menu[2]?>">
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[3]?>">개
+    <input class="input_info" type="text" name="" value="<?=$re_select_menu[4]?>">
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[5]?>">개
+    <input class="input_info" type="text" name="" value="<?=$re_select_menu[6]?>">
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[7]?>">개
+    <input class="input_info" type="text" name="" value="<?=$re_select_menu[8]?>">
+    <input class="input_info" type="number" name="" value="<?=$re_select_menu[9]?>">개
     </br></br></br>
 
     <li>예약자 특이사항</li>
-    <input class="input_info" type="text" name="" value="">
+    <input class="input_info" type="text" name="" value="<?=$reservation_special?>">
     </br></br></br>
 
     <li>예약 규정 강도</li>
-    <input class="input_info" type="text" name="" value="">
+    <input class="input_info" type="text" name="" value="<?=$intensity_of_reserv?>">
     </br></br></br>
-   <button class="button_complete" type="button" name="button" onclick="register_store_pic()">완료</button>
+   <button class="button_complete" type="button" name="button" onclick="reservation_noshow_result()">완료</button>
     </div> <!-- end of right_content -->
   </form>
 </div> <!-- end of my_info_content -->
