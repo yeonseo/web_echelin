@@ -24,7 +24,7 @@
 
   $insert_menu = $select_menu_title[0].",".$select_menu_title[0];
   for($i =1 ; $i < count($select_menu_title) ; $i++){
-    $insert_menu.=",".$select_menu_title[$i].",".$select_menu_title[$i];
+    $insert_menu.=",".$select_menu_title[$i].",".$select_menu_count[$i];
   }
 
   function get($name){
