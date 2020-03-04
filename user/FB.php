@@ -101,51 +101,44 @@
         console.log('Successful login for: ' + response);
         console.log(' 출력 :  ' + JSON.stringify(response));
 
-        document.getElementsByTagName('status').innerHTML =
-          $(document).ready(function() {
-            $('#test').val(response.email);
-            $('#test2').val(response.name);
-            $('#test0').val(user_sns);
-          });
+      
+      document.getElementById('status').innerHTML =
+        // 'Thanks for logging in 유저 이름: , ' + response.name + '!'+
+      
+      
+         '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
+          location.href = 'user_join_insert.php';
+        alert("회원가입 INSERT !");
+      // document.FB.submit();
+        
+        
+    });
+    
+      
+     
+  }
+  
+function fbLogin(){
+	FB.login(function(response){
+  // Handle the response object, like in statusChangeCallback() in our demo
+  // code.
+	checkLoginState();
+	}, {scope: 'public_profile , email, user_likes'});
+	
+} 
 
 
-        document.getElementById('status').innerHTML =
-          // 'Thanks for logging in 유저 이름: , ' + response.name + '!'+
-
-
-          '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
-        //  location.href = 'user_myinfo_index.php';
-        alert("로그인 성공");
-        // document.FB.submit();
-
-
-      });
-
-
-
-    }
-
-    function fbLogin() {
-      FB.login(function(response) {
-        // Handle the response object, like in statusChangeCallback() in our demo
-        // code.
-        checkLoginState();
-      }, {
-        scope: 'public_profile , email, user_likes'
-      });
-
-    }
-
-
-    //페이스북 로그 아웃 처리
-    function facebookLogOut() {
-      FB.logout(function(response) {
+	//페이스북 로그 아웃 처리
+function facebookLogOut(){
+    FB.logout(function(response) {    
         //세션 로그 아웃처리           
-        location.href = 'auth/logout';
-      });
+    	location.href='auth/logout';   
+    });
+  
+} 
+ 
+</script>
 
-    }
-  </script>
 
   <div class="container" id="fasebook_btn" onclick="javascript:fbLogin();">
     <div class="col-sm-12" hidden>

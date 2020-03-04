@@ -198,8 +198,8 @@ border-radius: 5px;
 padding: 1em 2em;
 }
 .modal_cancel_inner {
-width: 20% !important;
-height: 15% !important;
+width: 250px !important;
+height: 150px !important;
 }
 .modal_close {
 position: absolute;
