@@ -243,14 +243,15 @@
                               msg += '결제 금액 : ' + rsp.paid_amount;
                               msg += '카드 승인번호 : ' + rsp.apply_num;
                               location.href="./kakaopay.php";
+                              //성공시 이동할 페이지
+                              reservation_submit();
 
                           } else {
                               var msg = '결제에 실패하였습니다.';
                               msg += '에러내용 : ' + rsp.error_msg;
+                              alert(msg);
                           }
-                          alert(msg);
-                          //성공시 이동할 페이지
-                          reservation_submit();
+
                       });
                     }
                     </script>
