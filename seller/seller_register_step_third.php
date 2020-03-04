@@ -58,11 +58,11 @@ $lon = $_POST["lon"];
           <span>우편번호 : </span>
           <input class="input_info_dis" type="text" name="input_postcode" value="<? echo $input_postcode?>">&nbsp&nbsp </br>
           <span>주소 : </span>
-          <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>" style="width:250px;"> </br>
+          <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>" style="width:230px;"> </br>
           <span>참고항목 : </span>
-          <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>"> </br>
+          <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>" style="width:230px;"> </br>
           <span>상세주소 : </span>
-          <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>"> </br>
+          <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>" style="width:230px;"> </br>
           <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>" hidden>
           <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>" hidden>
       </div>

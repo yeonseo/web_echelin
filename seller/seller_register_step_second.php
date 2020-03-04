@@ -117,7 +117,7 @@ $input_business_license = $_POST["input_business_license"];
                   </br></br>
                   <input class="input_info" id="input_address" name="input_address" type="text" placeholder=" 주소" style="width:220px;">
                   </br></br>
-                  <input class="input_info" id="input_extraAddress" name="input_extraAddress" type="text" placeholder=" 참고항목">
+                  <input class="input_info" id="input_extraAddress" name="input_extraAddress" type="text" placeholder=" 참고항목" style="width:220px;">
                   </br></br>
                   <input class="input_info" id="input_detailAddress" name="input_detailAddress" type="text" placeholder=" 예) 상가 2층에 위치해있습니다." style="width:220px;">
                   </br></br>

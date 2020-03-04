@@ -29,16 +29,16 @@ $button_add.click(function(){
   //     '</tr>';
   var addStaffText =     '<tr name="tr_menu">'+
       '    <td class="td_menu">'+
-      '        <input type="text" name="input_menu[]" placeholder="메뉴이름">'+
+      '        <input type="text" name="input_menu[]">'+
       '    </td>'+
       '    <td class="td_menu">'+
-      '        <input type="number" name="input_price[]" placeholder="가격">'+
+      '        <input type="number" name="input_price[]">'+
       '    </td>'+
       '    <td class="td_menu">'+
       '        <input type="file" name="input_menu_img[]" value="" multiple>'+
       '    </td>'+
       '    <td class="td_menu">'+
-      '        <input type="text" name="input_menu_explain[]" placeholder="메뉴 설명">'+
+      '        <input type="text" name="input_menu_explain[]">'+
       '    </td>'+
       '    <td class="td_button_del">'+
       '        <button class="button_circle_del" name="button_del">-</button>'+
@@ -53,7 +53,7 @@ $button_add.click(function(){
 
 //삭제 버튼
 $(document).on("click","button[name=button_del]",function(){
-    alert("버튼 삭제 버튼");
+    // alert("버튼 삭제 버튼");
 
     $(this).parent().parent().remove();
 
