@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/css/seller_register_step.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/css/user_seller.css">
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/update_seller.js"></script>
     <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/menu_table_preview.js"></script>
     <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/js/menu.js"></script>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_link_script.php"; ?>
@@ -25,7 +24,7 @@
 
 <?php $seller_num = $_GET["seller_num"]; ?>
 
-<form name="form_menu_update" class="" action="./menu_update.php?seller_num=<?=$seller_num?>" method="post" enctype="multipart/form-data">
+<form name="form_menu_register" class="" action="./menu_upload.php?seller_num=<?=$seller_num?>" method="post" enctype="multipart/form-data">
   <div class="right_content">
     <li id="li_menu">메뉴 추가하기</li>
     <button id="button_add" class="button_circle_add" type="button">+</button>
@@ -58,7 +57,7 @@
       </tbody>
     </table>
   </br>
-   <button class="button_complete" type="button" name="button" onclick="update_menu()">완료</button>
+   <button class="button_complete" type="button" name="button" onclick="register_menu()">완료</button>
  </div> <!-- end of right_content -->
  </form>
 

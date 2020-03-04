@@ -571,6 +571,6 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .filebox.bs3-primary label {
   color: #fff;
-  background-color: #337ab7;
-    border-color: #2e6da4;
+  background-color: gold;
+    border-color: gold;
 }

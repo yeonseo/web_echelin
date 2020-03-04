@@ -3,8 +3,8 @@ date_default_timezone_set('Asia/Seoul');
 $upload_dir = './menuImg/';
 $con = mysqli_connect("localhost","root","123456","echelin");
 
-$user_id = "infor16";
-$seller_num = "6";
+$seller_num=$_GET["seller_num"];
+// $useremail=$_GET["user_id"];
 
 $menu_count = count($_POST["input_menu"]);
 
@@ -13,11 +13,6 @@ $random=mt_rand(1,9999);
 $menu_name = $_POST["input_menu"][$i];
 $menu_price = $_POST["input_price"][$i];
 $menu_explain = $_POST["input_menu_explain"][$i];
-
-echo $menu_name;
-echo $menu_price;
-echo $menu_explain;
-
 
 $menu_file_name	 = $_FILES["input_menu_img"]["name"][$i];
 $menu_file_type	 = $_FILES["input_menu_img"]["type"][$i];
@@ -70,10 +65,18 @@ $sql = "insert into menu_img (user_id, seller_num, store_name, menu_name, menu_p
 $sql .= "values('$user_id', '$seller_num', (select store_name from seller where seller_num='$seller_num'),'$menu_name', '$menu_price', '$menu_file_name', '$menu_file_type', '$copied_file_name', '$menu_explain')";
 
 mysqli_query($con, $sql);
-var_dump($con);
-
 
 
 } //end of for
 mysqli_close($con);
+
+echo("
+  <script>
+    location.href='./seller_sellerinfo_index.php';
+  </script>
+");
+
+
+
+
 ?>
