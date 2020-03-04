@@ -37,12 +37,12 @@ if (isset($_POST['action'])) {
             $bookmark_subject = $_POST['bookmark_subject'];
             $bookmark_group_num = $_POST['bookmark_group_num'];
             $seller_num = $_POST['seller_num'];
-            update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num);
+            update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num, $user_email);
             break;
         case 'delete_bookmark':
             $bookmark_group_num = $_POST['bookmark_group_num'];
             $seller_num = $_POST['seller_num'];
-            delete_bookmark($con, $bookmark_group_num, $seller_num);
+            delete_bookmark($con, $bookmark_group_num, $seller_num, $user_email);
             break;
         default:
             echo "alert(action wrong!);";
@@ -105,10 +105,10 @@ function select()
 }
 
 
-function update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num)
+function update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_num, $user_email)
 {
     //디비에 저장된 북마크 확인하기
-    $sql = "select * from bookmark where user_id='aaaaaa' and group_num='" . $bookmark_group_num . "' and seller_num='" . $seller_num . "' order by bookmark_num desc";
+    $sql = "select * from bookmark where user_id='$user_email' and group_num='" . $bookmark_group_num . "' and seller_num='" . $seller_num . "' order by bookmark_num desc";
     $result = $con->query($sql);
     if ($result === FALSE) {
         die('DB bookmark check Connect Error: ' . mysqli_error($con));
@@ -122,7 +122,7 @@ function update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_n
     //디비에 북마크 저장하기
     $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
     $sql = "INSERT INTO `bookmark` (`user_id`, `bookmark_subject`, `group_num`, `seller_num`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
-            ('aaaaaa', '$bookmark_subject', '$bookmark_group_num', '$seller_num','$regist_day','','','');
+            ('$user_email', '$bookmark_subject', '$bookmark_group_num', '$seller_num','$regist_day','','','');
         ";
     $result = $con->query($sql);
     if ($result === FALSE) {
@@ -134,7 +134,7 @@ function update_bookmark($con, $bookmark_subject, $bookmark_group_num, $seller_n
 }
 
 
-function delete_bookmark($con, $bookmark_group_num, $seller_num)
+function delete_bookmark($con, $bookmark_group_num, $seller_num, $user_email)
 {
     // //디비에 저장된 북마크 확인하기
     // $sql = "select * from bookmark where user_id='aaaaaa' and group_num='" . $bookmark_group_num . "' and seller_num='" . $seller_num . "' order by bookmark_num desc";
@@ -150,7 +150,7 @@ function delete_bookmark($con, $bookmark_group_num, $seller_num)
 
     //디비에 북마크 저장하기
     $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
-    $sql = "DELETE FROM `bookmark` where `user_id`='aaaaaa' and `group_num`='" . $bookmark_group_num . "' and `seller_num`='" . $seller_num . "';";
+    $sql = "DELETE FROM `bookmark` where `user_id`='$user_email' and `group_num`='" . $bookmark_group_num . "' and `seller_num`='" . $seller_num . "';";
     $result = $con->query($sql);
     if ($result === FALSE) {
         die('DB ajax insertMessageTalk Connect Error: ' . mysqli_error($con));
