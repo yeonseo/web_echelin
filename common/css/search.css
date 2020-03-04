@@ -1,3 +1,20 @@
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+
+.search_h1{
+
+}
+.search_member img{
+  width: 100px;
+  height: 100px;
+  border: 1px solid lightgray;
+}
+.search_result_left{
+  float: left;
+}
+.search_result_right{
+  float: left;
+}
 #keyword_search_form ul li{
   float: left;
   width: calc(100%/2);
@@ -37,7 +54,7 @@
   margin-left: 105px;
   background-color: white;
   width: 300px;
-  
+
   border: 1px solid lightgray;
   display: none;
 }
