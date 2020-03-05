@@ -17,6 +17,8 @@
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
       console.log(response);
+     
+
       // The response object is returned with a status field that lets the
       // app know the current login status of the person.
       // Full docs on the response object can be found in the documentation
@@ -24,14 +26,14 @@
       if (response.status === 'connected') {
         // 페이스북에 로그인 중이라면  testAPI()  실행 
         testAPI();
-
-      } else {
+       
+      } 
+      else {
         //페이스북에 로그인 중이 아니라면 다음을 실행
         //여기에서 로그인 버튼을 만들어서 화면에 붙인다.
-
         var loginHtml = '<a href="javascript:fbLogin();"' +
           'class="btn btn-block btn-social btn-facebook"> <i class="fb-login-button scope="public_profile,email" onlogin="checkLoginState();" data-width="270px" data-height="250px" data-size="large" data-button-type="login_with"></i>' +
-          ' <p></p> ';
+          ' <p></p> '; 
 
         //  +   
         // '<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button> ' ;
@@ -45,6 +47,8 @@
     // Button.  See the onlogin handler attached to it in the sample
     // code below.
     function checkLoginState() {
+      
+      
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
@@ -63,6 +67,7 @@
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
         console.log(" 상태 정보 출력 :" + JSON.stringify(response));
+      
 
       });
 
@@ -82,10 +87,9 @@
     // Here we run a very simple test of the Graph API after login is
     // successful.  See statusChangeCallback() for when this call is made.
     function testAPI() {
+     
       // 로그인이 성공시 다음 아래 코드에서 실행 하면 된다.
       var user_sns = "FaceBook";
-
-
       console.log('Welcome!  Fetching your information.... ');
       FB.api('/me', {
         locale: 'ko_KR',
@@ -95,36 +99,44 @@
         //여기서 부터 DB 정보 연결 코딩을 환경에 맞게 개발을 하면 된다.
         // DB 에서 id 또는 email 에서 저장된 동일한 email 있을 경우 저장된 정보 불러 오고 없으면 
         // 새롭게 등록한다.  
-        // mysqli_close($con);
-
-
         console.log('Successful login for: ' + response);
         console.log(' 출력 :  ' + JSON.stringify(response));
+        
+        document.getElementsByName('status').innerHTML =
+        
+        $(document).ready(function() {
+            $('#test').val(response.email);
+            $('#test2').val(response.name);
+            $('#test0').val(user_sns);
+            document.fb_form.submit();
+          });
 
+       
+  
       
+
       document.getElementById('status').innerHTML =
         // 'Thanks for logging in 유저 이름: , ' + response.name + '!'+
-      
-      
          '<p></p> <a href="javascript:facebookLogOut();" >로그아웃</a>';
-          // location.href = 'user_join_insert.php';
-        alert("회원가입 성공 !");
-      // document.FB.submit();
-        
-        
+       
+
+         
+      // document.FB.submit(); 
     });
-    
-      
-     
+  }
+
+  function form_submit(){
+  
   }
   
 function fbLogin(){
 	FB.login(function(response){
+
   // Handle the response object, like in statusChangeCallback() in our demo
   // code.
 	checkLoginState();
+ 
 	}, {scope: 'public_profile , email, user_likes'});
-	
 } 
 
 
@@ -139,18 +151,18 @@ function facebookLogOut(){
  
 </script>
 
-    
+<form name="fb_form" action="user_join_insert.php" method="post" >
   <div class="container" id="fasebook_btn" onclick="javascript:fbLogin();">
     <div class="col-sm-12" hidden>
       <div id="status">
       </div>
     </div>
   </div>
-  <form name="fb_form" action="user_join_insert.php" method="post">
+ 
     <input id="test0" type="hidden" name="user_sns">
     <input id="test" type="hidden" name="user_Email">
     <input id="test2" type="hidden" name="user_name">
-    <input type="submit" hidden>
+    <input type="submit">
   </form>
 </body>
 

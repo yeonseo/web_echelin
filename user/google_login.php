@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/sing.css">
-    <link rel="stylesheet" href="./css/main_test.css?ver=3">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="256794684325-94jg640b735e9ddrbqooeg7k5ojfbok4.apps.googleusercontent.com">
     <script>

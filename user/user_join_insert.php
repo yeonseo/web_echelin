@@ -46,6 +46,6 @@ $result = $con->query($sql);
 
  echo "
    <script>
-         location.href = 'user_join_main.php';
+          location.href = '/echelin/index.php';
    </script>      
  ";

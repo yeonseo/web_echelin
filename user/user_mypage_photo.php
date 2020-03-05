@@ -20,7 +20,6 @@
                     }
                 }
     </script>
-
         <?php
         session_start();
         if (isset($_SESSION["user_Email"])) $useremail = $_SESSION["user_Email"];
@@ -40,6 +39,7 @@
           
           $profile=$user_all_info["user_profile"];
 
+          // 사진을 불러오는 변수 -> $uploaded_file 
           $uploaded_file=$user_all_info["user_profile_type"];
 
           $profile_copied= $user_all_info["user_profile_copied"];
@@ -53,6 +53,7 @@
     </div>
     <div class="photo_form2">
         <div class="photo_form3">
+                                  <!-- DB에 저장된 사진을 가져온다 (경로 + 사진이 저장된 변수를 가져옴) -->
         <img id="View"    src="<?=$uploaded_file?>" alt="">
         
         </div>
