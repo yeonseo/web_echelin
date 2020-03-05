@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">메세지</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>"></div>
             </button>
 
             <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/seller_page_review.php'">
@@ -71,7 +71,7 @@
 
                 <div class="<?= COMMON::$css_card_menu_btn_name; ?>">고객이 남긴 후기</div>
 
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>"></div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->

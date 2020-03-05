@@ -128,7 +128,6 @@ function getJsonDataMakeButton($json_string, $f)
 function getJsonDataMakeArticle($json_string)
 {
     // 다차원 배열 반복처리 (필요시 사용)
-    ini_set('memory_limit', '-1');
     $result_json = json_decode($json_string, true);
     $sub_json_object_array = json_decode(json_encode($result_json), true);
 

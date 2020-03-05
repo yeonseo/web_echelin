@@ -31,12 +31,12 @@
     $regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
 
     $sql = "insert into review (seller_num, user_Email, user_name, store_name, content, file_name, file_copied
-    , file_type, star_access, star_service, star_flavor, regist_day) ";
+    , file_type, star_access, star_service, star_flavor, regist_day, noshow) ";
     $sql .= "values('$num','$useremail', '$username', '$store_name', '$content', '$user_profile', '$user_profile_copied', '$user_profile_type', ";
-    $sql .= "0, 0, 0, '$regist_day')";
+    $sql .= "0, 0, 0, '$regist_day', '$noshow')";
     mysqli_query($con, $sql);
 
-    $sql = "update reservation set reservation_status='$noshow'";
+    $sql = "update reservation set noshow='$noshow'";
     $sql .= " where reservation_num=$num";
     mysqli_query($con, $sql);
 
@@ -83,5 +83,3 @@
   }
 
   mysqli_close($con);
-
-?>

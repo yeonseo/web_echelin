@@ -49,22 +49,20 @@
       <!-- 식당종류 -->
       <div id="food_type_form">
         <ul>
-          <li class="food_type_select" >한식</li>
-          <li class="food_type_select" >까페</li>
-          <li class="food_type_select" >호프</li>
-          <li class="food_type_select" >통닭(치킨)</li>
-          <li class="food_type_select" >일식</li>
-          <li class="food_type_select" >중국식</li>
-          <li class="food_type_select" >분식</li>
-          <li class="food_type_select" >패스트푸드</li>
-          <li class="food_type_select" >경양식</li>
-          <li class="food_type_select" >뷔페</li>
-          <li class="food_type_select" >소주방</li>
-          <li class="food_type_select" >식육(숯불구이)</li>
-          <li class="food_type_select" >회집</li>
-          <li class="food_type_select" >이동조리</li>
-          <li class="food_type_select" >외국음식전문점</li>
-          <li class="food_type_select" >기타</li>
+          <?php
+            $keywords_type ="food_class";
+            $sql="select keywords from keyword_list where keywords_type like '%$keywords_type%'";
+            $result = mysqli_query($con,$sql);
+            $row = mysqli_fetch_row($result);
+            $keywods=$row[0];
+            $keywords = explode(",","$keywods");
+            for($i=0;$i<count($keywords);$i++){
+              $value=$keywords[$i];
+           ?>
+            <li class="food_type_select" ><?=$value?></li>
+           <?php
+              }
+            ?>
           <li id="food_type_select_delete">지우기</li>
         </ul>
       </div>
@@ -93,35 +91,36 @@
       <!-- 많이검색된키워드db에서가져와서정렬 -->
       <div class="search_banner">
 
-          <span class="search_title"> &nbsp;&nbsp;:::&nbsp;&nbsp; 주변식당을 추천 키워드로 찾아보세요!</span>
+          <span class="search_title"> &nbsp;&nbsp;:::&nbsp;&nbsp;  추천 키워드로 찾아보세요!</span>
 
-          <a href="#">
-              <div class="banner_content_first"></div>
+          <a href="index_search.php?keyword_banner=조용한">
+              <div class="banner_content_first"><h3>#조용한</h2></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=혼밥">
+              <div class="banner_content"><h3>#혼밥</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=편안한">
+              <div class="banner_content"><h3>#편안한</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=데이트">
+              <div class="banner_content"><h3>#데이트</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=아이와함께">
+              <div class="banner_content"><h3>#아이와함께</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=푸짐한">
+              <div class="banner_content"><h3>#푸짐한</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=코스요리">
+              <div class="banner_content"><h3>#코스요리</h3></div>
           </a>
-          <a href="#">
-              <div class="banner_content"></div>
+          <a href="index_search.php?keyword_banner=특별한날">
+              <div class="banner_content"><h3>#특별한날</h3></div>
           </a>
 
       </div>
       <?php
+        $result_search_title="";
         //넘어오는키워드들저장할변수
         $keywodrs_array="";
         //레스토랑이름,식당종류,키워드,현재위치(지역구) 값이있는지없는지여부판단해서 sql 작성
@@ -135,12 +134,14 @@
           $r_name=$_POST["r_name"];
           Console_log($r_name);
           $ok[0]=true;
+          $result_search_title = "#".$r_name;
         }
         //식당종류값
         if(!empty($_POST["uptae"])){
           $uptae=$_POST["uptae"];
           Console_log($uptae);
           $ok[1]=true;
+          $result_search_title .= "#".$uptae;
         }else{
           $ok[1]=false;
           $uptae="";
@@ -153,6 +154,7 @@
           $keywords_array = explode("#","$result_keyword");
           Console_log($keywords_array[0]);
           $ok[2]=true;
+          $result_search_title .= $keywords_selected;
         }else{
           $ok[2]=false;
           $keywords_selected="";
@@ -162,6 +164,7 @@
           $gps_ad=$_POST["gps_ad"];
           Console_log($gps_ad);
           $ok[3]=true;
+          $result_search_title .= "#".$gps_ad;
         }else{
           $gps_ad="";
           $ok[3]=false;
@@ -171,51 +174,106 @@
         //조건문걸어서 sql 확정 짓기 경우의수 12 개
         // 식당이름 = $r_name && 업태= $uptae && 키워드배열= $keywords_array && $gps_ad
         if($ok[0]==true&&$ok[1]==true&&$ok[2]==true&&$ok[3]==true){
-          $sql = "select * from seller_keyword where seller_name like '%$r_name%'";
-          $sql .= "and seller_uptae_nm like '%$uptae%'";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql .= "and store_type like '%$uptae%'";
           $sql_keywords="";
           for($i=0;$i < $key_count=count($keywords_array);$i++){
-            $sql_keywords .= "and tag_class like '%$keywords_array[$i]%' ";
+            $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
           }
           $sql . $sql_keywords;
-          $sql .= "and seller_address like '%$gps_ad%'";
+          $sql .= "and store_address like '%$gps_ad%'";
           Console_log($sql);
         }else if($ok[0]==true&&$ok[1]==true&&$ok[2]==true&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql .= "and store_type like '%$uptae%'";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
+          }
+          $sql . $sql_keywords;
+          Console_log($sql);
         }else if($ok[0]==true&&$ok[1]==true&&$ok[2]==false&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql .= "and store_type like '%$uptae%'";
         }else if($ok[0]==true&&$ok[1]==false&&$ok[2]==false&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
         }else if($ok[0]==true&&$ok[1]==false&0&$ok[2]==true&&$ok[3]==true){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
+          }
+          $sql . $sql_keywords;
+          $sql .= "and store_address like '%$gps_ad%'";
         }else if($ok[0]==true&&$ok[1]==false&&$ok[2]==false&&$ok[3]==true){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql .= "and store_address like '%$gps_ad%'";
         }else if($ok[0]==true&&$ok[1]==false&&$ok[2]==true&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
+          }
+          $sql . $sql_keywords;
         }else if($ok[0]==true&&$ok[1]==true&&$ok[2]==false&&$ok[3]==true){
-          $sql = "";
+          $sql = "select * from seller where store_name like '%$r_name%'";
+          $sql .= "and store_type like '%$uptae%'";
+          $sql .= "and store_address like '%$gps_ad%'";
+
         }else if($ok[0]==false&&$ok[1]==true&&$ok[2]==true&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller where store_type like '%$uptae%'";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
+          }
+          $sql . $sql_keywords;
         }else if($ok[0]==false&&$ok[1]==true&&$ok[2]==false&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller where store_type like '%$uptae%'";
         }else if($ok[0]==false&&$ok[1]==false&&$ok[2]==false&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller";
         }else if($ok[0]==false&&$ok[1]==false&0&$ok[2]==true&&$ok[3]==true){
-          $sql = "";
+          $sql = "select * from seller";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            if($i == 0){
+              $sql_keywords = "where keywords like '%$keywords_array[$i]%'";
+            }else{
+              $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
+            }
+          }
+          $sql . $sql_keywords;
+          $sql .= "and store_address like '%$gps_ad%'";
         }else if($ok[0]==false&&$ok[1]==false&&$ok[2]==false&&$ok[3]==true){
-          $sql = "";
+          $sql = "select * from seller where store_address like '%$gps_ad%'";
         }else if($ok[0]==false&&$ok[1]==false&&$ok[2]==true&&$ok[3]==false){
-          $sql = "";
+          $sql = "select * from seller";
+          $sql_keywords="";
+          for($i=0;$i < $key_count=count($keywords_array);$i++){
+            if($i == 0){
+              $sql_keywords = "where keywords like '%$keywords_array[$i]%'";
+            }else{
+              $sql_keywords .= "and keywords like '%$keywords_array[$i]%' ";
+            }
+          }
+          $sql . $sql_keywords;
         }else if($ok[0]==false&&$ok[1]==true&&$ok[2]==false&&$ok[3]==true){
-          $sql = "";
+          $sql = "select * from seller where store_type like '%$uptae%'";
+          $sql .= "and store_address like '%$gps_ad%'";
         }else{
-          $sql = "select * from seller_keyword";
+          $sql = "select * from seller";
+        }
+        if(!empty($_GET["keyword_banner"])){
+          $keyword_banner = $_GET["keyword_banner"];
+          $sql = "select * from seller where keywords like '%$keyword_banner%'";
         }
 
+        if(!$result_search_title){
+          $result_search_title="모든식당";
+        }
       ?>
       <div class="search_all">
 
-          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$r_name?>","<?=$uptae?>","<?=$keywords_selected?>","<?=$gps_ad?>" 에 대한 모든 검색결과 입니다.</span>
+          <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$result_search_title?>" 에 대한 모든 검색결과 입니다.</span>
 
           <div class="search_member">
               <?php
@@ -223,28 +281,36 @@
                 $result = mysqli_query($con,$sql);
 
                 while($row = mysqli_fetch_array($result)){
-                  $num=$row["num"];
+
                   $seller_num=$row["seller_num"];
-                  $seller_name = $row["seller_name"];
-                  $seller_address=$row["seller_address"];
-                  $seller_uptae_nm = $row["seller_uptae_nm"];
-                  $tag_class = $row["tag_class"];
+                  $store_name = $row["store_name"];
+                  $store_address=$row["store_address"];
+                  $store_type = $row["store_type"];
+                  $tag_class = $row["keywords"];
 
               ?>
-              <div class="">
-                <ul>
+              <a class="search_member" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/restaurants/restaurants_index.php?seller_num=<?=$seller_num?>">
+                <div >
+                  <h1 class="search_h1">
+                  <p class="search_result_left">
+                    <?php
+                      $sql2 = "select store_file_copied from store_img where seller_num like '$seller_num' limit 1";
+                      $result2 = mysqli_query($con,$sql2);
+                       $row2= mysqli_fetch_row($result2);
+                       $store_file_copied = $row2[0];
 
-                    <li><?=$num?></li>
-                    <li><?=$seller_num?></li>
-                    <li><a href="../restaurants/restaurants_index.php?seller_num=<?=$seller_num?>"
-                      ><?=$seller_name?></a></li>
-                    <li><?=$seller_address?></li>
-                    <li><?=$seller_uptae_nm?></li>
-                    <li><?=$tag_class?></li>
-
-                </ul>
-              </div>
-
+                    ?>
+                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$store_file_copied?>" alt="">
+                  </p>
+                  <p class="search_result_right"><?=$store_name?></p>
+                  </h1>
+                  <ul>
+                      <li><?=$store_type?></li>
+                      <li><?=$tag_class?></li>
+                      <li><?=$store_address?></li>
+                  </ul>
+                </div>
+              </a>
               <?php
                 }
                 mysqli_close($con);

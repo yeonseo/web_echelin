@@ -62,7 +62,7 @@
   $result = mysqli_query($con, $sql);
   $row = mysqli_fetch_array($result);
 
-  if($row['success'] == 0){
+  if($row['success'] === 0){
 
 ?>
                         <div class="content_main2">
@@ -74,7 +74,7 @@
 <?php
   }else{
 
-    $sql = "select * from reservation where user_id='$useremail' AND reservation_status='$noshow'";
+    $sql = "select * from reservation where user_id='$useremail' AND noshow='$noshow'";
     $result = mysqli_query($con, $sql);
 
   while($row = mysqli_fetch_array($result)){

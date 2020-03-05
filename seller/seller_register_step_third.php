@@ -1,6 +1,6 @@
 <?php
 
-echo $useremail;
+// echo $useremail;
 
 $input_store_name = $_POST["input_store_name"];
 $input_business_license = $_POST["input_business_license"];
@@ -11,14 +11,14 @@ $input_detailAddress = $_POST["input_detailAddress"];
 $lat = $_POST["lat"];
 $lon = $_POST["lon"];
 
-echo $input_store_name;
-echo $input_business_license;
-echo $input_postcode;
-echo $input_address;
-echo $input_extraAddress;
-echo $input_detailAddress;
-echo $lat;
-echo $lon;
+// echo $input_store_name;
+// echo $input_business_license;
+// echo $input_postcode;
+// echo $input_address;
+// echo $input_extraAddress;
+// echo $input_detailAddress;
+// echo $lat;
+// echo $lon;
  ?>
 
  <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/common_class_value.php"; ?>
@@ -52,19 +52,19 @@ echo $lon;
       <form class="" name="form_seller_register_step_third" action="./seller_register_step_fourth.php" method="post">
       <div class="div_outside">
           <span>내 식당 : </span>
-          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp
+          <input class="input_info_dis" type="text" name="input_store_name" value="<? echo $input_store_name?>">&nbsp&nbsp </br>
           <span>사업자번호 : </span>
-          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>">
+          <input class="input_info_dis" type="text" name="input_business_license" value="<? echo $input_business_license?>"> </br>
           <span>우편번호 : </span>
-          <input class="input_info_dis" type="text" name="input_postcode" value="<? echo $input_postcode?>">&nbsp&nbsp
+          <input class="input_info_dis" type="text" name="input_postcode" value="<? echo $input_postcode?>">&nbsp&nbsp </br>
           <span>주소 : </span>
-          <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>">
+          <input class="input_info_dis" type="text" name="input_address" value="<? echo $input_address?>" style="width:230px;"> </br>
           <span>참고항목 : </span>
-          <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>">
+          <input class="input_info_dis" type="text" name="input_extraAddress" value="<? echo $input_extraAddress?>" style="width:230px;"> </br>
           <span>상세주소 : </span>
-          <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>">
-          <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>">
-          <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>">
+          <input class="input_info_dis" type="text" name="input_detailAddress" value="<? echo $input_detailAddress?>" style="width:230px;"> </br>
+          <input class="input_info_dis" type="text" name="lat" value="<? echo $lat?>" hidden>
+          <input class="input_info_dis" type="text" name="lon" value="<? echo $lon?>" hidden>
       </div>
 
       <div class="div_register_shape">
@@ -79,7 +79,7 @@ echo $lon;
 
 
                   <li>가게 종류는 어떻게 되나요?</li>
-                  <input type="radio" name="store_type" value="한식" checked onclick="this.form.type_of_etc.disabled=true">
+                  <input type="radio" name="store_type" value="한식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">한식</span>
                   <input type="radio" name="store_type" value="중식" onclick="this.form.type_of_etc.disabled=true">
                   <span class="span_content_font">중식</span>
@@ -102,8 +102,8 @@ echo $lon;
 
 
                  <li>영업시간</li>
-                 <input id="input_date_time1" class="input_date_time" type="time" name="opening_hours_start" value="09:00">&nbsp-
-                 <input id="input_date_time2" class="input_date_time" type="time" name="opening_hours_end" value="22:00">
+                 <input id="input_date_time1" class="input_date_time" type="time" name="opening_hours_start" value="">&nbsp-
+                 <input id="input_date_time2" class="input_date_time" type="time" name="opening_hours_end" value="">
                    </br></br></br>
 
 
@@ -113,8 +113,8 @@ echo $lon;
                   <input id="break_time_false" type="radio" name="break_time" value="false">
                   <span class="span_content_font">없음</span>
                   <div id="div_radio" hidden>
-                    <input id="input_break_time1" class="input_date_time" type="time" name="break_start" value="15:00">&nbsp-
-                    <input id="input_break_time2" class="input_date_time" type="time" name="break_end" value="17:00">
+                    <input id="input_break_time1" class="input_date_time" type="time" name="break_start" value="">&nbsp-
+                    <input id="input_break_time2" class="input_date_time" type="time" name="break_end" value="">
                   </div>
                   </br></br></br>
 
@@ -175,7 +175,7 @@ echo $lon;
 
 
                   <li>개업일</li>
-                    <input id="input_opening_day" class="input_date_time" type="date" name="input_opening_day" value="2020-01-01">
+                    <input id="input_opening_day" class="input_date_time" type="date" name="input_opening_day" value="">
                     </br></br></br>
 
                   <li>특이사항</li>

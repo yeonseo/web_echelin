@@ -59,12 +59,6 @@ $intensity_of_reserv = $row["intensity_of_reserv"];
 
 $re_address=explode(',', $store_address);
 
-echo $store_address;
-
-echo $re_address[0];
-echo $re_address[1];
-echo $re_address[2];
-
 $re_opening_hours_start=str_replace(' : ', ":", $opening_hours_start);
 $re_opening_hours_end=str_replace(' : ', ":", $opening_hours_end);
 
@@ -84,7 +78,7 @@ $re_store_tel = explode('-', $store_tel);
 <div class="right_content">
   <ul>
     <input type="text" name="seller_num" value="<?=$seller_num?>" hidden>
-    <li>가게이름<li>
+    <h3>가게이름</h3> </br>
     <input id="input_store_name" class="input_info" type="text" name="input_store_name" value="<?=$store_name?>"></br></br>
     <li>사업자번호<li>
     <input type="text" class="input_info" name="input_business_license" value="<?=$business_license?>" readonly>
@@ -93,13 +87,14 @@ $re_store_tel = explode('-', $store_tel);
     <input class="input_info" id="update_postcode" name="input_postcode" type="text" value="<?=$store_postcode?>">
     <button id="button_find_postcode" type="button" name="button" onclick="execDaumPostcode()">우편번호 찾기</button>
     </br></br>
-    <input class="input_info" id="update_address" name="input_address" type="text" value="<?=$re_address[0]?>">
+    <input class="input_info" id="update_address" name="input_address" type="text" value="<?=$re_address[0]?>" style="width:200px";>
     </br></br>
     <input class="input_info" id="update_extraAddress" name="input_extraAddress" type="text" value="<?=$re_address[1]?>">
     </br></br>
     <input class="input_info" id="update_detailAddress" name="input_detailAddress" type="text" value="<?php if(isset($re_address[2])) {?> <?=$re_address[2]?> <?php } else {?> <?php echo ""?> <?php }?>">
     </br></br>
     <div id="div_map"></div> <!-- 지도 담는 div -->
+    <br>
 
     <li>소개글</li>
     <textarea class="textarea_step2" name="introduction" rows="8" cols="74" style="resize: none;"><?echo $introduction?></textarea></br></br>

@@ -1,7 +1,9 @@
 <!-- <link rel="stylesheet" href="./css/main.css"> -->
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/vendor/modernizr.custom.min.js"></script>
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/vendor/jquery-1.10.2.min.js"></script>
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/common/js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/search/js/search.js"></script>
 
 <!-- 웹폰트  -->
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">

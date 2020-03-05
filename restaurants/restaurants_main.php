@@ -1,16 +1,25 @@
 <div class="restaurants_content">
 
+    <?php
+
+    if (isset($_GET['seller_num'])) {
+        $seller_num = $_GET['seller_num'];
+    } else {
+        // echo "console.log('레스토랑 주소가 이상한데에~')";
+    }
+    ?>
+
     <div class="restaurants_main_pic_box">
+
         <?php
 
-        if (isset($_GET['seller_num'])) {
-            $seller_num = $_GET['seller_num'];
-        } else {
-            // echo "console.log('레스토랑 주소가 이상한데에~')";
-        }
+
 
         function setMenuImg($con, $dbname, $seller_num)
         {
+
+            //restaurants 테이블에서 값들고옴
+
             $sql = "select * from " . $dbname . ".store_img where seller_num=" . $seller_num;
             $result = $con->query($sql);
             if ($result === FALSE) {
@@ -53,8 +62,8 @@
     <?php
 
     //팝업창에서 나타낼 북마크를 부르기 위한 함수
-    if (isset($_SESSION['user_email'])) {
-        $user_email = $_SESSION['user_email'];
+    if (isset($_SESSION['user_Email'])) {
+        $user_email = $_SESSION['user_Email'];
     } else {
         // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
     }
@@ -126,7 +135,7 @@
     //북마크 리스트 생성 함수 부름
     //나중에 유저 세션 들고와서 할 거임
     //메세지 그룹 계산하기 위한 것
-    $user_email = "aaaaaa";
+
     createBookmarkGroupList($con, $dbname, $user_email);
     echo "</ul>";
     echo "<div class='btn_r'>
@@ -149,10 +158,12 @@
             <div class="restaurants_main_content_right_btn_box">
 
                 <?php
-                $user_email = 'aaaaaa';
-                $rv_id = 'aaaaaa1';
+
+                $user_email = $_SESSION['user_Email'];
+                $rv_id = 's@naver.com';
                 //대화한 이력이 있는지 조회
                 $sql = "select * from message where `send_id`='" . $user_email . "' and `rv_id`='" . $rv_id . "'";
+
                 $result = $con->query($sql);
                 if ($result === FALSE) {
                     die('DB message check Connect Error: ' . mysqli_error($con));
@@ -245,6 +256,51 @@
             getJsonDataMakeArticle($con, $dbname, $seller_num);
             ?>
 
+            <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c11a81c292903d8730cb3759c77d4983&libraries=services"></script>
+            <?php
+            $sqlmap = "select * from seller where seller_num='$seller_num'";
+            $result_map = mysqli_query($con, $sqlmap);
+            $row_map = mysqli_fetch_array($result_map);
+            $store_name = $row_map["store_name"];
+            $store_lat = $row_map["store_lat"];
+            $store_lon = $row_map["store_lon"];
+            ?>
+            <div id="map" style="width:66.7%;height:350px;"></div> <!-- 지도 담는 div -->
+            <script type="text/javascript">
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                    mapOption = {
+                        center: new kakao.maps.LatLng(<?= $store_lat ?>, <?= $store_lon ?>), // 지도의 중심좌표
+                        level: 3 // 지도의 확대 레벨
+                    };
+
+                var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                // 마커가 표시될 위치입니다
+                var markerPosition = new kakao.maps.LatLng(<?= $store_lat ?>, <?= $store_lon ?>);
+
+                // 마커를 생성합니다
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+
+                // 마커가 지도 위에 표시되도록 설정합니다
+                marker.setMap(map);
+
+                var iwContent = '<div style="width:150px;text-align:center;padding:6px 0;"><?= $store_name ?></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                    iwPosition = new kakao.maps.LatLng(<?= $store_lat ?>, <?= $store_lon ?>); //인포윈도우 표시 위치입니다
+
+                // 인포윈도우를 생성합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                    position: iwPosition,
+                    content: iwContent
+                });
+
+                // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+                infowindow.open(map, marker);
+            </script>
+
+
             <!-- 리뷰 -->
 
             <div class="user_comment_title">
@@ -261,8 +317,10 @@
 
             <div class="user_comment">
 
+
                 <?php
                 define('SCALE', 10);
+
 
                 if (isset($_GET["page"])) // 넘어온 get방식에 키값 page가 세팅되어있느냐. 없으면 post. 굳이 이렇게 쓰는것은 어디선가 get방식으로 보내겠다는 뜻.
                     $page = $_GET["page"];

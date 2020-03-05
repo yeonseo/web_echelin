@@ -5,4 +5,5 @@ function update_seller() {
 
 function reservation_noshow_result() {
   document.form_reservation_result.submit();
+  alert("예약건이 완료되었습니다.")
 }

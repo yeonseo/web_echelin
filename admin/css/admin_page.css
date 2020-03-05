@@ -43,3 +43,6 @@ div .bottom_content{
   margin-left: 20px;
   margin-top: 20px;
 }
+.col2 input{
+  width: 60px;
+}

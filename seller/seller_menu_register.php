@@ -42,15 +42,7 @@
             <tr class="tr_menu" name="tr_menu">
             <td class="td_menu"><input type="text" name="input_menu[]" value=""></td>
             <td class="td_menu"><input type="number" name="input_price[]" value=""></td>
-            <td class="td_menu">
-
-            <div class="filebox bs3-primary preview-image">
-							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
-							<label for="input_file">업로드</label>
-              <input id="input_file" class="upload-hidden" type="file" name="input_menu_img[]" value="" multiple>
-						</div>
-
-            </td>
+            <td class="td_menu"><input class="upload-name" value="" style="width: 135px;"><input type="file" name="input_menu_img[]" value="" multiple></td>
             <td class="td_menu"><input type="text" name="input_menu_explain[]" value=""></td>
             <td class="td_button_del"><button class="button_circle_del" name="button_del">-</button></td>
             </tr>

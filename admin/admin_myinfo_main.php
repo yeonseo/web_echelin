@@ -36,12 +36,12 @@
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">셀러별 조회, 사용자별 조회</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_cancel.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
-                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">ICON NAME</div>
-                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">설명충 설명중.. 설명충충충추...웅...</div>
+                <div class="<?= COMMON::$css_card_menu_btn_name; ?>">예약취소 현황</div>
+                <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">사용자가 취소한 예약목록</div>
             </button>
 
         </div> <!-- end of css_card_menu_row -->
