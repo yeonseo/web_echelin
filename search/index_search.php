@@ -293,7 +293,14 @@
                 <div >
                   <h1 class="search_h1">
                   <p class="search_result_left">
-                    <img src="./image/img.png" alt="">
+                    <?php
+                      $sql2 = "select store_file_copied from store_img where seller_num like '$seller_num' limit 1";
+                      $result2 = mysqli_query($con,$sql2);
+                       $row2= mysqli_fetch_row($result2);
+                       $store_file_copied = $row2[0];
+
+                    ?>
+                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/seller/storeImg/<?=$store_file_copied?>" alt="">
                   </p>
                   <p class="search_result_right"><?=$store_name?></p>
                   </h1>
