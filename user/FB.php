@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-
-
   <title>Document</title>
 
 </head>
@@ -90,6 +88,7 @@
      
       // 로그인이 성공시 다음 아래 코드에서 실행 하면 된다.
       var user_sns = "FaceBook";
+     
       console.log('Welcome!  Fetching your information.... ');
       FB.api('/me', {
         locale: 'ko_KR',
@@ -108,7 +107,7 @@
             $('#test').val(response.email);
             $('#test2').val(response.name);
             $('#test0').val(user_sns);
-            document.fb_form.submit();
+          
           });
 
        
@@ -162,7 +161,7 @@ function facebookLogOut(){
     <input id="test0" type="hidden" name="user_sns">
     <input id="test" type="hidden" name="user_Email">
     <input id="test2" type="hidden" name="user_name">
-    <input type="submit">
+    <!-- <input type="submit"> -->
   </form>
 </body>
 

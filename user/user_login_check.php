@@ -3,6 +3,7 @@ $user_email = $_POST["user_Email"];
 $user_pass =  $_POST["user_pass"];
 $user_Level = $_POST["user_Level"];
 $user_Name =  $_POST["user_name"];
+$user_sns =$_POST["user_sns"];
 
 $con = mysqli_connect("localhost","root","123456","echelin");
 $sql = "select * from echelin_user where user_Email='$user_email'";
@@ -41,9 +42,10 @@ else{
         $_SESSION["user_password"]=$row["user_password"];
         $_SESSION["user_level"]=$row["user_Level"];
         $_SESSION["user_name"]=$row["user_name"];
+        $_SESSION["user_sns"]=$row["user_sns"];
         echo("
         <script>
-          window.alert('로그인 성공')
+          window.alert(' $user_sns.계정으로 로그인 하였습니다 ->.$user_email.')
         </script>
      ");
     }

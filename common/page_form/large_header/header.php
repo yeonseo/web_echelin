@@ -13,6 +13,9 @@ else $userlevel = "";
 if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
 else $username = "";
 
+if (isset($_SESSION["user_sns"])) $usersns = $_SESSION["user_sns"];
+else $usersns = "";
+
 
 ?>
 
@@ -33,7 +36,7 @@ else $username = "";
         <?
         } else {
           // 로그인한 유저의 이름 표시 및 로그아웃 표시
-          $log = $useremail . "/" . $username . "님";
+          $log = "[". $usersns ."]". $useremail . "/" . $username . "님";
         ?>
           <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_myinfo_index.php"><?= $log ?></a></li>
           <li class="<?= COMMON::$css_header_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>

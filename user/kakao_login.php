@@ -39,6 +39,8 @@
         $('#kakao_sns').val(sns);
         $('#kakao_email').val(res.kakao_account.email);
         $('#kakao_name').val(res.properties.nickname);
+        document.kakao_form.submit();
+
       });
 
         // var email = naverLogin.user.getEmail();
@@ -67,9 +69,10 @@
   
   //]]>
 </script>
-<form name="kakao_form" action="user_join_insert.php" method="post">
+<form name="kakao_form" action="user_login_check.php" method="post">
     <input id="kakao_sns" type="hidden" name="user_sns">
     <input id="kakao_email" type="hidden" name="user_Email">
+    <input id="kakao_passowrd" name="user_pass" type="hidden">
     <input id="kakao_name" type="hidden" name="user_name">
 </form>
 

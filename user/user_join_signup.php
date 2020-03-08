@@ -51,7 +51,7 @@
 
                   <!-- // 이메일 설정하기 -->
                   <input style="text-align: center" class="_14fdu48d" id="signup_email" name="user_Email" placeholder="이메일 주소" type="text" value="" onkeyup="signup_check('signup_email')" > 
-                  <input id="input_form25" type="hidden" name="user_sns"> 
+                  <input id="input_form25" type="hidden" name="user_sns" value="Echelin"> 
                   <span id="email_text"></span>
 
                   <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="

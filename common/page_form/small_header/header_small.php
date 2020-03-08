@@ -15,7 +15,7 @@ else $userlevel = "";
 if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
 else $username = "";
 
-if (isset($_SESSION["userpoint"])) $userpoint = $_SESSION["userpoint"];
+if (isset($_SESSION["user_sns"])) $user_sns = $_SESSION["user_sns"];
 else $userpoint = "";
 
 
@@ -44,7 +44,7 @@ else $userpoint = "";
       <?
       } else {
 
-        $log = $useremail . "/" . $username . "님";
+        $log =  $useremail . "/" . $username . "님";
       ?>
         <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php"><?= $log ?></a></li>
         <li class="<?= COMMON::$css_header_menu; ?>"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/user/user_logout.php">로그아웃</a></li>
