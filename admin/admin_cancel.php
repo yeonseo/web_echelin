@@ -58,7 +58,7 @@
             <span class="col4">날짜</span>
             <span class="col5">시간</span>
             <span class="col6">메뉴</span>
-            <span class="col7">수정</span>
+            
             <span class="col8">삭제</span>
           </li>
           <?php
@@ -87,6 +87,15 @@
             $select_date = $row["select_date"];
             $select_time = $row["select_time"];
             $select_menu = $row["select_menu"];
+            $menu=$select_menu;
+            $array=explode(',' , $menu);
+            $result2=$array[0];
+            $length=count($array);
+            $out_count=($length/2)-1;
+            if($length>2){
+              $result2.=" 외 ".$out_count."개 품목";
+            }
+
           ?>
             <li>
               <form class="" action="update_user.php" method="post">
@@ -95,8 +104,8 @@
                 <span class="col3"><input type="text" name="user_name" value="<?= $user_id ?>"></span>
                 <span class="col4"><input type="text" name="star_access" value="<?= $select_date ?>"></span>
                 <span class="col5"><input type="text" name="star_service" value="<?= $select_time ?>"></span>
-                <span class="col6"><input type="text" name="star_flavor" value="<?= $select_menu ?>"></span>
-                <span class="col7"><button type="submit">수정</button></span>
+                <span class="col6"><input type="text" name="star_flavor" value="<?= $result2 ?>"></span>
+
                 <span class="col8"><button type="button" onclick="location.href='delete_user.php?num=<?= $num ?>'">삭제</button></span>
               </form>
             </li>
