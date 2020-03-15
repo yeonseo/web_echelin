@@ -48,12 +48,15 @@
                     $result_message = mysqli_fetch_array($result);
 
                     $send_id = $result_message["send_id"];
-                    $rv_id = $result_message["rv_id"];
+                    $seller_num = $result_message["seller_num"];
                     $subject    = $result_message["subject"];
                     $content    = $result_message["content"];
                     $regist_day  = $result_message["regist_day"];
                     $file_name  = $result_message["file_name"];
 
+                    if ($send_id === '' | $send_id === null) {
+                        $send_id = $user_id;
+                    }
 
                     //입력창 생성
                     echo "<div class=" . COMMON::$css_card_menu_row . " id='message_input_row' >";
@@ -63,7 +66,7 @@
                     echo "<form id='message_talk_send' name='message_talk_send' method='POST' >";
                     echo "<input id='message_group_num' type='text' value='$message_group_num' hidden>";
                     echo "<input id='send_id' type='text' value='$send_id' hidden>";
-                    echo "<input id='rv_id' type='text' value='$rv_id' hidden>";
+                    echo "<input id='seller_num' type='text' value='$seller_num' hidden>";
                     echo "<textarea id='message_content' name='message_content' type='text'></textarea>";
                     echo "<button type='button' id='message_send_btn' class='button_next' value='insert_message'><i class='fas fa-utensils'></i></button>";
                     echo "</form>";
@@ -77,11 +80,20 @@
                         $result_message = mysqli_fetch_array($result);
 
                         $send_id = $result_message["send_id"];
-                        $rv_id = $result_message["rv_id"];
+                        $seller_num = $result_message["seller_num"];
                         $subject    = $result_message["subject"];
                         $content    = $result_message["content"];
                         $regist_day  = $result_message["regist_day"];
                         $file_name  = $result_message["file_name"];
+
+                        //셀러 이름을를 가져오기 위한 sql
+                        $sql = "select * from seller where `seller_num`='" . $seller_num . "' ;";
+                        $result_seller = $con->query($sql);
+                        if ($result_seller === FALSE) {
+                            die('DB message where group_num Connect Error: ' . mysqli_error($con));
+                        }
+                        $result_seller_array = mysqli_fetch_array($result_seller);
+                        $store_name = $result_seller_array['store_name'];
 
                         echo "<div class=" . COMMON::$css_card_menu_row . ">";
 
@@ -94,7 +106,7 @@
                         } else {
                             echo "<button class='card_message_receive' class=" . COMMON::$css_card_menu_btn . ">";
                             echo "<div class=" . COMMON::$css_card_menu_btn_name . "><i class='fas fa-quote-left'></i> Seller <i class='fas fa-quote-right'></i></div>";
-                            echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$send_id</div>";
+                            echo "<div class=" . COMMON::$css_card_menu_btn_name . ">$store_name</div>";
                         }
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">$content</div></br>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">2020년 2월 2일</div>";
@@ -112,7 +124,7 @@
                 } else {
                     echo "console.log('메세지 넘버 안들고오는데에~~~ 이상한데에~')";
                 }
-                $user_id = 'aaaaaa';
+                $user_id = $_SESSION['user_Email'];
                 $message_group_num = $_GET['message'];
                 createMessageTalk($con, $user_id, $dbname, $message_group_num);
 

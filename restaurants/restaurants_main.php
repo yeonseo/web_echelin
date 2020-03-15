@@ -160,9 +160,8 @@
                 <?php
 
                 $user_email = $_SESSION['user_Email'];
-                $rv_id = 's@naver.com';
                 //대화한 이력이 있는지 조회
-                $sql = "select * from message where `send_id`='" . $user_email . "' and `rv_id`='" . $rv_id . "'";
+                $sql = "select * from message where `send_id`='" . $user_email . "' and `seller_num`='" . $seller_num . "'";
 
                 $result = $con->query($sql);
                 if ($result === FALSE) {
@@ -181,10 +180,22 @@
                     if ($result === FALSE) {
                         die('DB message where ANY_VALUE(group_num) Connect Error: ' . mysqli_error($con));
                     }
-
                     //쪽지 리스트 갯수
-                    $total_rows_message_group = mysqli_num_rows($result);
-                    $message_group_num = $total_rows_message_group + 1;
+                    $total_rows_message_group = mysqli_fetch_array($result);
+                    $message_group_num = $total_rows_message_group['group_num'] + 1;
+
+
+                    //첫 메세지 입력
+                    $content = "셀러에게 문의 메세지를 남겨보세요~";
+                    $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
+
+                    $sql = "INSERT INTO `message` (`send_id`, `seller_num`, `group_num`, `group_order`, `subject`, `content`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+                        ('$user_email', '$seller_num' , '$message_group_num', 0, '', '$content', '$regist_day', '', '', '');
+                    ";
+                    $result = $con->query($sql);
+                    if ($result === FALSE) {
+                        die('DB ajax insertMessageTalk Connect Error: ' . mysqli_error($con));
+                    }
                 }
 
                 // echo "<a href='/echelin/user/user_mypage_message_talk.php?message=" . $message_group_num . "'\">식당에 문의하기</a>";

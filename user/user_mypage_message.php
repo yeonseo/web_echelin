@@ -33,14 +33,6 @@
             <div class="right_content">
 
                 <?php
-
-                if (isset($_SESSION['user_email'])) {
-                    $user_email = $_SESSION['user_email'];
-                } else {
-                    // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
-                }
-
-
                 function createMessageList($con, $dbname, $user_email)
                 {
                     //메세지 그룹 계산하기 위한 것
@@ -70,11 +62,20 @@
 
                         $message_num = $result_message_content["message_num"];
                         $send_id = $result_message_content["send_id"];
-                        $rv_id = $result_message_content["rv_id"];
+                        $seller_num = $result_message_content["seller_num"];
                         $subject    = $result_message_content["subject"];
                         $content    = $result_message_content["content"];
                         $regist_day  = $result_message_content["regist_day"];
                         $file_name  = $result_message_content["file_name"];
+
+
+                        //셀러 이름을를 가져오기 위한 sql
+                        $sql = "select * from seller where `seller_num`='" . $seller_num . "' ;";
+                        $result_seller = $con->query($sql);
+                        if ($result_seller === FALSE) {
+                            die('DB message where group_num Connect Error: ' . mysqli_error($con));
+                        }
+                        $result_seller_array = mysqli_fetch_array($result_seller);
 
 
                         //메세지 그룹넘버를 겟방식으로 넘김
@@ -82,7 +83,7 @@
                         echo "<button class='card_menu_btn_wider' class=" . COMMON::$css_card_menu_btn . "type='button' onclick=\"location.href='http\://" . $_SERVER['HTTP_HOST'] . "/echelin/user/user_mypage_message_talk.php?message=" . $result_message['group_num'] . "'\">";
                         echo "<div class=" . COMMON::$css_card_menu_btn_icon . "><i class='fas fa-utensils'></i></div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_name . ">";
-                        echo "<div>" . "지수네" . "</div>";
+                        echo "<div>" . $result_seller_array['store_name'] . "</div>";
                         echo "<div>" . $send_id . " / " . $regist_day . "</div>";
                         echo "</div>";
                         echo "<div class=" . COMMON::$css_card_menu_btn_disc . ">" . $content . "</div>";
@@ -93,7 +94,12 @@
 
                 //나중에 유저 세션 들고와서 할 거임
                 //메세지 그룹 계산하기 위한 것
-                $user_email = $_SESSION['user_Email'];
+
+                if (isset($_SESSION['user_Email'])) {
+                    $user_email = $_SESSION['user_Email'];
+                } else {
+                    // echo "console.log('유저 세션이 없다는데~~~~ 이상한데에~')";
+                }
                 createMessageList($con, $dbname, $user_email);
 
                 ?>

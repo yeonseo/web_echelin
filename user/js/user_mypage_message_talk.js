@@ -8,9 +8,10 @@ $('#message_send_btn').click(function () {
         var clickBtnValue = $('#message_send_btn').val();
         var message_group_num = $('#message_group_num').val();
         var send_id = $('#send_id').val();
-        var rv_id = $('#rv_id').val();
+        var seller_num = $('#seller_num').val();
         var message_content = $('#message_content').val();
         // alert("값 가져옴!!!" + clickBtnValue + " " + message_group_num + " " + message_content + " ");
+
         $.ajax({
             type: "POST",
             url: './user_mypage_manage_db.php',
@@ -18,7 +19,7 @@ $('#message_send_btn').click(function () {
                 'action': clickBtnValue,
                 'message_group_num': message_group_num,
                 'send_id': send_id,
-                'rv_id': rv_id,
+                'seller_num': seller_num,
                 'message_content': message_content
             },
             success: function (data) {

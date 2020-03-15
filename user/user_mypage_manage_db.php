@@ -19,16 +19,16 @@ if (isset($_POST['action'])) {
             if ($send_id === $user_email) {
                 $message_group_num = $_POST['message_group_num'];
                 $send_id = $_POST['send_id'];
-                $rv_id = $_POST['rv_id'];
+                $seller_num = $_POST['seller_num'];
                 $content = $_POST['message_content'];
             } else {
                 $message_group_num = $_POST['message_group_num'];
-                $rv_id = $_POST['send_id'];
-                $send_id = $_POST['rv_id'];
+                $seller_num = $_POST['send_id'];
+                $send_id = $_POST['seller_num'];
                 $content = $_POST['message_content'];
             }
 
-            insert_message($con, $message_group_num, $send_id, $rv_id, $content);
+            insert_message($con, $message_group_num, $send_id, $seller_num, $content);
             break;
         case 'select':
             select();
@@ -51,15 +51,15 @@ if (isset($_POST['action'])) {
     echo "alert(action action wrong!);";
 }
 
-function insert_message($con, $message_group_num, $send_id, $rv_id, $content)
+function insert_message($con, $message_group_num, $send_id, $seller_num, $content)
 {
     //디비에 메세지 저장하기
     $message_group_num = $message_group_num;
     $content = htmlspecialchars($content, ENT_QUOTES);
     $regist_day = date("Y-m-d (H:i)"); // 현재의 '년-월-일-시-분'을 저장
 
-    $sql = "INSERT INTO `message` (`send_id`, `rv_id`, `group_num`, `group_order`, `subject`, `content`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
-            ('$send_id', '$rv_id' , '$message_group_num', 0, '', '$content', '$regist_day', '', '', '')
+    $sql = "INSERT INTO `message` (`send_id`, `seller_num`, `group_num`, `group_order`, `subject`, `content`, `regist_day`, `file_name`, `file_copied`, `file_type`) VALUES
+            ('$send_id', '$seller_num' , '$message_group_num', 0, '', '$content', '$regist_day', '', '', '')
         ";
     $result = $con->query($sql);
     if ($result === FALSE) {
@@ -77,7 +77,7 @@ function insert_message($con, $message_group_num, $send_id, $rv_id, $content)
     $result_message = mysqli_fetch_array($result);
 
     $send_id = $result_message["send_id"];
-    $rv_id = $result_message["rv_id"];
+    $seller_num = $result_message["seller_num"];
     $subject    = $result_message["subject"];
     $content    = $result_message["content"];
     $regist_day  = $result_message["regist_day"];
